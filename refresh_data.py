@@ -6,6 +6,8 @@ Corre sin intervención humana (GitHub Actions) o a mano (`python3 refresh_data.
 Fuentes:
   - Back Office (GLOBAL OCN + SEGUIMIENTO ENTREGAS + Log Inventario Diario)
   - Presales-Inventory (Waitlist + Tabla Waitlist como cruce de verificación)
+  - Fleet Backlog (RAW DATA, columnas LISTA_TRABAJO/UBICACION_ACTUAL/TALLER_ESTATUS/
+    GEST_FECHA_COMPROMISO_ENTREGA) -- SOLO LECTURA, nunca se escribe nada en ese Sheet.
 
 Credenciales via variables de entorno (GitHub Secrets en Actions, o exportadas a mano):
   GOOGLE_CLIENT_ID, GOOGLE_CLIENT_SECRET, GOOGLE_REFRESH_TOKEN
@@ -23,6 +25,7 @@ import statistics
 
 BO_ID = "1hMTlrcklmQQpDiNmrav4gZM_ZWmmCniGlJEUgLhIzCY"
 PI_ID = "1hmIkvqU342xgN3APYt5dKJbQfM4H1ZmFXWacMsAmiwQ"
+FLEET_ID = "1yrz2kBYLSfrpOqNL450Xxs6KavnQdb4RIPcjwaifhtw"
 
 CITY_ORDER = ["Tijuana", "CDMX / Edo Mex", "Monterrey", "Mexicali", "Guadalajara",
               "Queretaro", "Merida", "Puebla", "Saltillo"]
@@ -420,6 +423,88 @@ def main():
         for c in CITY_ORDER
     ], key=lambda d: -d["gap"])
 
+    # ---------- Fleet Backlog (RAW DATA) -- SOLO LECTURA ----------
+    # Universo = LISTA_TRABAJO == "Backlog Fleet" (lo que Fleet está trabajando y eventualmente
+    # se libera a Ventas como inventario), excluyendo TALLER_ESTATUS == "DESFLOTE" (esas nunca
+    # llegan a ser nuestro inventario, van a venta de desflote aparte).
+    fleet_block = sheets_get(token, FLEET_ID, "'RAW DATA'!AP1:BO8354")
+    f_header, f_rows = fleet_block[0], fleet_block[1:]
+    f_idx = {h: i for i, h in enumerate(f_header)}
+
+    def fget(r, col):
+        i = f_idx.get(col)
+        if i is None or len(r) <= i:
+            return ""
+        return r[i]
+
+    fleet_backlog_all = [r for r in f_rows if fget(r, "LISTA_TRABAJO").strip() == "Backlog Fleet"]
+    fleet_desflote_n = sum(1 for r in fleet_backlog_all if fget(r, "TALLER_ESTATUS").strip() == "DESFLOTE")
+    fleet_backlog = [r for r in fleet_backlog_all if fget(r, "TALLER_ESTATUS").strip() != "DESFLOTE"]
+
+    FLEET_STAGE_ORDER = ["POR INGRESAR", "EN DIAGNOSTICO", "EN REPARACION", "ENTREGADO"]
+    FLEET_STAGE_LABELS = {"POR INGRESAR": "Por ingresar", "EN DIAGNOSTICO": "En diagnóstico",
+                           "EN REPARACION": "En reparación", "ENTREGADO": "Entregado del taller",
+                           "SIN_ESTATUS": "Sin estatus capturado"}
+    stage_counts = collections.Counter((fget(r, "TALLER_ESTATUS").strip() or "SIN_ESTATUS") for r in fleet_backlog)
+    fleet_stage = [{"key": k, "label": FLEET_STAGE_LABELS[k], "value": stage_counts.get(k, 0)}
+                   for k in FLEET_STAGE_ORDER + ["SIN_ESTATUS"]]
+
+    def fleet_map_city(loc):
+        l = norm_ascii(loc).upper()
+        if "CDMX" in l or "REVOLUCI" in l:
+            return "CDMX / Edo Mex"
+        if "GDL" in l or "GUADALAJARA" in l:
+            return "Guadalajara"
+        if "TIJ" in l or "JOYITA" in l:
+            return "Tijuana"
+        if "MTY" in l or "MONTERREY" in l:
+            return "Monterrey"
+        if "QUER" in l or "QRO" in l:
+            return "Queretaro"
+        if "MEXICALI" in l:
+            return "Mexicali"
+        if "MERIDA" in l or "NEXA" in l:
+            return "Merida"
+        if "PUE" in l:
+            return "Puebla"
+        if "SALTILLO" in l:
+            return "Saltillo"
+        return "Sin identificar"
+
+    fleet_city_counts = collections.Counter(fleet_map_city(fget(r, "UBICACION_ACTUAL").strip()) for r in fleet_backlog)
+    fleet_city = sorted(
+        [{"ciudad": c, "value": fleet_city_counts.get(c, 0)} for c in CITY_ORDER if fleet_city_counts.get(c, 0) > 0]
+        + ([{"ciudad": "Sin identificar", "value": fleet_city_counts["Sin identificar"]}]
+           if fleet_city_counts.get("Sin identificar") else []),
+        key=lambda d: -d["value"])
+
+    def fleet_first_date(s):
+        s = s.strip()
+        if not s:
+            return None
+        part = s.split("|")[0].strip()
+        m = re.match(r"^(\d{4})-(\d{2})-(\d{2})$", part)
+        if m:
+            return datetime.date(int(m.group(1)), int(m.group(2)), int(m.group(3)))
+        return None
+
+    def fleet_aging_bucket(s):
+        fd = fleet_first_date(s)
+        if fd is None:
+            return "sin_fecha"
+        days = (today - fd).days
+        if days > 30:
+            return "vencido_30mas"
+        if days > 0:
+            return "vencido_1_30"
+        return "proximo"
+
+    FLEET_AGING_LABELS = {"vencido_30mas": "Vencido +30 días", "vencido_1_30": "Vencido 1-30 días",
+                           "proximo": "Fecha próxima (sin vencer)", "sin_fecha": "Sin fecha compromiso"}
+    aging_counts = collections.Counter(fleet_aging_bucket(fget(r, "GEST_FECHA_COMPROMISO_ENTREGA")) for r in fleet_backlog)
+    fleet_aging = [{"key": k, "label": FLEET_AGING_LABELS[k], "value": aging_counts.get(k, 0)}
+                   for k in ["vencido_30mas", "vencido_1_30", "proximo", "sin_fecha"]]
+
     data = {
         "generated_at": datetime.datetime.utcnow().isoformat() + "Z",
         "months": months,
@@ -454,6 +539,11 @@ def main():
             "total": forecast_total, "nuevo": forecast_nuevo, "seminuevo": forecast_semi,
         },
         "corte": {"fecha": today.isoformat(), "mes_label": month_label},
+        "fleet_total": len(fleet_backlog),
+        "fleet_desflote_n": fleet_desflote_n,
+        "fleet_stage": fleet_stage,
+        "fleet_city": fleet_city,
+        "fleet_aging": fleet_aging,
     }
 
     out_path = os.path.join(os.path.dirname(__file__), "data.js")

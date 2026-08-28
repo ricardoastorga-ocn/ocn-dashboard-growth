@@ -348,6 +348,36 @@ table.data-table tr.row-surplus td:first-child::before { content:""; position:ab
     <div class="legend" id="legend-inv" style="justify-content:center;"></div>
   </section>
 
+  <section class="card" id="card-fleet-backlog">
+    <div class="card-head">
+      <div>
+        <p class="card-title">Fleet Backlog — inventario en camino</p>
+        <p class="card-note" id="note-fleet-total"></p>
+      </div>
+    </div>
+
+    <p class="subsection-title">Por etapa de taller</p>
+    <div class="chart-wrap" id="fleet-stage-chart-wrap">
+      <div class="chart-scroll"><svg class="chart" id="chart-fleet-stage"></svg></div>
+      <div class="tooltip" id="tooltip-fleet-stage"></div>
+    </div>
+    <p class="callout" id="callout-fleet-stage"></p>
+
+    <p class="subsection-title">Por ciudad</p>
+    <div class="chart-wrap" id="fleet-city-chart-wrap">
+      <div class="chart-scroll"><svg class="chart" id="chart-fleet-city"></svg></div>
+      <div class="tooltip" id="tooltip-fleet-city"></div>
+    </div>
+
+    <p class="subsection-title">Antigüedad vs. fecha compromiso</p>
+    <div class="chart-wrap" id="fleet-aging-chart-wrap">
+      <div class="chart-scroll"><svg class="chart" id="chart-fleet-aging"></svg></div>
+      <div class="tooltip" id="tooltip-fleet-aging"></div>
+    </div>
+    <div class="legend" id="legend-fleet-aging"></div>
+    <p class="callout" id="callout-fleet-aging"></p>
+  </section>
+
   <section class="card" id="card-waitlist">
     <div class="card-head">
       <div>
@@ -499,6 +529,18 @@ table.data-table tr.row-surplus td:first-child::before { content:""; position:ab
 
   const TTD_ESTADO = DATA.ttd_estado;
   const TTD_MODELO = DATA.ttd_modelo;
+
+  // Fleet Backlog (RAW DATA, solo lectura) -- universo = LISTA_TRABAJO "Backlog Fleet" menos
+  // TALLER_ESTATUS "DESFLOTE" (esas no se convierten en inventario). Etapa en orden de proceso;
+  // "sin fecha" no es un punto en la escala de severidad, es dato faltante -- color aparte.
+  const FLEET_STAGE_COLORVAR = {"POR INGRESAR":"--tier-0","EN DIAGNOSTICO":"--tier-1","EN REPARACION":"--tier-2","ENTREGADO":"--s-entregado","SIN_ESTATUS":"--s-otros"};
+  const FLEET_STAGE = DATA.fleet_stage;
+  const FLEET_CITY = DATA.fleet_city;
+  const FLEET_AGING_KEYS = ["proximo","vencido_1_30","vencido_30mas","sin_fecha"];
+  const FLEET_AGING_COLORVAR = {proximo:"--tier-0", vencido_1_30:"--tier-1", vencido_30mas:"--tier-2", sin_fecha:"--s-otros"};
+  const FLEET_AGING_LABELCOLOR = {proximo:"dark", vencido_1_30:"dark", vencido_30mas:"light", sin_fecha:"dark"};
+  const FLEET_AGING = DATA.fleet_aging;
+  const FLEET_AGING_TOTAL = FLEET_AGING.reduce((a,d)=>a+d.value,0);
 
   const svgNS = "http://www.w3.org/2000/svg";
   function el(tag, attrs, parent){
@@ -1049,6 +1091,18 @@ table.data-table tr.row-surplus td:first-child::before { content:""; position:ab
     const driver1 = DECLINE.find(d=>d.key==='driver1');
     const driverPct = Math.round(driver1.value/DECLINE_TOTAL*100);
     el2('callout-decline', '<strong>'+driverPct+'% de las pérdidas son por decisión del propio driver</strong> (no de OCN) — vale la pena entender por qué antes de asumir que se recuperan solas.', true);
+
+    const fleetTotal = FLEET_STAGE.reduce((a,d)=>a+d.value,0);
+    el2('note-fleet-total', fmt(fleetTotal)+' unidades que Fleet está trabajando y eventualmente se liberan a Ventas como inventario · fuente: Fleet Backlog, columna LISTA_TRABAJO = "Backlog Fleet" · excluye '+fmt(DATA.fleet_desflote_n)+' en DESFLOTE (esas no se convierten en inventario)');
+    const fleetEntregado = FLEET_STAGE.find(d=>d.key==='ENTREGADO');
+    const fleetSinEstatus = FLEET_STAGE.find(d=>d.key==='SIN_ESTATUS');
+    el2('callout-fleet-stage', '<strong>'+fmt(fleetEntregado.value)+' unidades</strong> ya salieron del taller y están más cerca de convertirse en inventario. '+fmt(fleetSinEstatus.value)+' ('+Math.round(fleetSinEstatus.value/fleetTotal*100)+'%) no tienen estatus de taller capturado — hueco de captura, no de volumen real.', true);
+
+    const vencido30 = FLEET_AGING.find(d=>d.key==='vencido_30mas').value;
+    const vencido1_30 = FLEET_AGING.find(d=>d.key==='vencido_1_30').value;
+    const conFecha = FLEET_AGING_TOTAL - FLEET_AGING.find(d=>d.key==='sin_fecha').value;
+    const vencidoPct = conFecha ? Math.round((vencido30+vencido1_30)/conFecha*100) : 0;
+    el2('callout-fleet-aging', '<strong>'+vencidoPct+'% de las fechas compromiso que sí existen ya están vencidas</strong> — la mayoría de estas fechas hoy son poco confiables como calendario; trátalas como señal de qué tan atrasado está cada caso, no como una fecha de llegada real.', true);
   }
 
   function el2(id, text, isHTML){
@@ -1264,6 +1318,39 @@ table.data-table tr.row-surplus td:first-child::before { content:""; position:ab
       unit: "días",
       subLabelBelow: d => d.n + " casos en la muestra" + (d.n < 20 ? " · muestra muy chica" : "")
     });
+
+    drawEmphasisBarChart('chart-fleet-stage', 'tooltip-fleet-stage', FLEET_STAGE, {
+      ariaLabel: "Fleet Backlog por etapa de taller, en orden de proceso",
+      labelOf: d => d.label,
+      colorOf: d => FLEET_STAGE_COLORVAR[d.key],
+      labelWidth: 160
+    });
+
+    drawEmphasisBarChart('chart-fleet-city', 'tooltip-fleet-city', FLEET_CITY.map(d=>({key:d.ciudad, value:d.value})), {
+      ariaLabel: "Fleet Backlog por ciudad, ordenado por volumen",
+      labelOf: d => d.key,
+      allAccent: true,
+      labelWidth: 130
+    });
+
+    drawStackBar('chart-fleet-aging', 'tooltip-fleet-aging', [{label:"Fleet Backlog", vals: FLEET_AGING_KEYS.map(k => FLEET_AGING.find(d=>d.key===k).value), total: FLEET_AGING_TOTAL}], {
+      ariaLabel: "Fleet Backlog por antigüedad vs. fecha compromiso de entrega",
+      rowLabelOf: r => r.label,
+      rowTotalOf: r => r.total,
+      segValueOf: (r, i) => r.vals[i],
+      segKeys: FLEET_AGING_KEYS,
+      segLabelOf: k => FLEET_AGING.find(d=>d.key===k).label,
+      colorVarOf: k => FLEET_AGING_COLORVAR[k],
+      labelColorOf: k => FLEET_AGING_LABELCOLOR[k],
+      labelWidth: 130,
+      rowH: 44,
+      segLabelMode: "both",
+      minSegWidthForLabel: 58
+    });
+    const legendFleetAging = document.getElementById('legend-fleet-aging');
+    if (legendFleetAging) legendFleetAging.innerHTML = FLEET_AGING_KEYS.map(k =>
+      '<span class="legend-item"><span class="legend-swatch" style="background:var('+FLEET_AGING_COLORVAR[k]+')"></span>'+FLEET_AGING.find(d=>d.key===k).label+'</span>'
+    ).join('');
 
     initToggles();
   }
