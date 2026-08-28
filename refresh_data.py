@@ -441,13 +441,7 @@ def main():
     fleet_desflote_n = sum(1 for r in fleet_backlog_all if fget(r, "TALLER_ESTATUS").strip() == "DESFLOTE")
     fleet_backlog = [r for r in fleet_backlog_all if fget(r, "TALLER_ESTATUS").strip() != "DESFLOTE"]
 
-    FLEET_STAGE_ORDER = ["POR INGRESAR", "EN DIAGNOSTICO", "EN REPARACION", "ENTREGADO"]
-    FLEET_STAGE_LABELS = {"POR INGRESAR": "Por ingresar", "EN DIAGNOSTICO": "En diagnóstico",
-                           "EN REPARACION": "En reparación", "ENTREGADO": "Entregado del taller",
-                           "SIN_ESTATUS": "Sin estatus capturado"}
-    stage_counts = collections.Counter((fget(r, "TALLER_ESTATUS").strip() or "SIN_ESTATUS") for r in fleet_backlog)
-    fleet_stage = [{"key": k, "label": FLEET_STAGE_LABELS[k], "value": stage_counts.get(k, 0)}
-                   for k in FLEET_STAGE_ORDER + ["SIN_ESTATUS"]]
+    FLEET_STAGE_KEYS = ["POR INGRESAR", "EN DIAGNOSTICO", "EN REPARACION", "ENTREGADO", "SIN_ESTATUS", "DESFLOTE"]
 
     def fleet_map_city(loc):
         l = norm_ascii(loc).upper()
@@ -471,13 +465,20 @@ def main():
             return "Saltillo"
         return "Sin identificar"
 
-    fleet_city_counts = collections.Counter(fleet_map_city(fget(r, "UBICACION_ACTUAL").strip()) for r in fleet_backlog)
-    fleet_city = sorted(
-        [{"ciudad": c, "value": fleet_city_counts.get(c, 0)} for c in CITY_ORDER if fleet_city_counts.get(c, 0) > 0]
-        + ([{"ciudad": "Sin identificar", "value": fleet_city_counts["Sin identificar"]}]
-           if fleet_city_counts.get("Sin identificar") else []),
-        key=lambda d: -d["value"])
+    # ---- Chart 1: por etapa de taller, por ciudad (incluye DESFLOTE visible, universo = 144) ----
+    fleet_city_stage_counts = {c: collections.Counter() for c in CITY_ORDER + ["Sin identificar"]}
+    for r in fleet_backlog_all:
+        city = fleet_map_city(fget(r, "UBICACION_ACTUAL").strip())
+        stage = fget(r, "TALLER_ESTATUS").strip() or "SIN_ESTATUS"
+        fleet_city_stage_counts[city][stage] += 1
 
+    fleet_city_stage = sorted(
+        [{"ciudad": c, "vals": [fleet_city_stage_counts[c].get(k, 0) for k in FLEET_STAGE_KEYS],
+          "total": sum(fleet_city_stage_counts[c].values())} for c in CITY_ORDER + ["Sin identificar"]],
+        key=lambda d: -d["total"])
+    fleet_city_stage = [d for d in fleet_city_stage if d["total"] > 0]
+
+    # ---- Chart 2: volumen esperado por día, por ciudad (excluye DESFLOTE y "sin fecha") ----
     def fleet_first_date(s):
         s = s.strip()
         if not s:
@@ -488,22 +489,25 @@ def main():
             return datetime.date(int(m.group(1)), int(m.group(2)), int(m.group(3)))
         return None
 
-    def fleet_aging_bucket(s):
-        fd = fleet_first_date(s)
-        if fd is None:
-            return "sin_fecha"
-        days = (today - fd).days
-        if days > 30:
-            return "vencido_30mas"
-        if days > 0:
-            return "vencido_1_30"
-        return "proximo"
+    FLEET_DAY_KEYS = ["tij", "cdmx", "gdl", "qro", "mty", "otros"]
+    FLEET_DAY_CITY_MAP = {"Tijuana": "tij", "CDMX / Edo Mex": "cdmx", "Guadalajara": "gdl",
+                           "Queretaro": "qro", "Monterrey": "mty"}
 
-    FLEET_AGING_LABELS = {"vencido_30mas": "Vencido +30 días", "vencido_1_30": "Vencido 1-30 días",
-                           "proximo": "Fecha próxima (sin vencer)", "sin_fecha": "Sin fecha compromiso"}
-    aging_counts = collections.Counter(fleet_aging_bucket(fget(r, "GEST_FECHA_COMPROMISO_ENTREGA")) for r in fleet_backlog)
-    fleet_aging = [{"key": k, "label": FLEET_AGING_LABELS[k], "value": aging_counts.get(k, 0)}
-                   for k in ["vencido_30mas", "vencido_1_30", "proximo", "sin_fecha"]]
+    fleet_sin_fecha_n = 0
+    day_buckets = collections.defaultdict(lambda: collections.Counter())
+    for r in fleet_backlog:
+        fd = fleet_first_date(fget(r, "GEST_FECHA_COMPROMISO_ENTREGA"))
+        if fd is None:
+            fleet_sin_fecha_n += 1
+            continue
+        city = fleet_map_city(fget(r, "UBICACION_ACTUAL").strip())
+        key = FLEET_DAY_CITY_MAP.get(city, "otros")
+        day_buckets[fd][key] += 1
+
+    fleet_dias_labels = [f"{d.day}-{MONTH_LABELS_ES[d.month-1].lower()}" for d in sorted(day_buckets.keys())]
+    fleet_by_day = [{k: day_buckets[d].get(k, 0) for k in FLEET_DAY_KEYS} for d in sorted(day_buckets.keys())]
+    fleet_vencido_dias = sum(1 for d in day_buckets if d < today)
+    fleet_vencido_unidades = sum(sum(day_buckets[d].values()) for d in day_buckets if d < today)
 
     data = {
         "generated_at": datetime.datetime.utcnow().isoformat() + "Z",
@@ -541,9 +545,12 @@ def main():
         "corte": {"fecha": today.isoformat(), "mes_label": month_label},
         "fleet_total": len(fleet_backlog),
         "fleet_desflote_n": fleet_desflote_n,
-        "fleet_stage": fleet_stage,
-        "fleet_city": fleet_city,
-        "fleet_aging": fleet_aging,
+        "fleet_city_stage": fleet_city_stage,
+        "fleet_dias_labels": fleet_dias_labels,
+        "fleet_by_day": fleet_by_day,
+        "fleet_sin_fecha_n": fleet_sin_fecha_n,
+        "fleet_vencido_dias": fleet_vencido_dias,
+        "fleet_vencido_unidades": fleet_vencido_unidades,
     }
 
     out_path = os.path.join(os.path.dirname(__file__), "data.js")
