@@ -21,7 +21,6 @@ import unicodedata
 import urllib.request
 import urllib.parse
 import collections
-import statistics
 
 BO_ID = "1hMTlrcklmQQpDiNmrav4gZM_ZWmmCniGlJEUgLhIzCY"
 PI_ID = "1hmIkvqU342xgN3APYt5dKJbQfM4H1ZmFXWacMsAmiwQ"
@@ -176,7 +175,8 @@ def main():
                 "MEXICALI": "Mexicali", "GUADALAJARA": "Guadalajara", "QUERETARO": "Queretaro",
                 "MERIDA": "Merida", "PUEBLA": "Puebla", "SALTILLO": "Saltillo", "": ""}
     STAGE_MAP = {"ENTREGADO": "entregado", "LISTO / ENTREGA": "listo", "ENTREGA AGENDADA": "agendada",
-                 "CONTRATO GENERAD": "contrato", "C / ENVIADO": "cenv", "ISSUE": "issue", "": None}
+                 "CONTRATO GENERAD": "contrato", "C / ENVIADO": "cenv", "LIGA P / ENVIADA": "liga",
+                 "ISSUE": "issue", "": None}
     MODEL_MAP = {"BYD DOLPHIN EV": "byd", "MG 5 EXITE": "mg5", "MG 5": "mg5", "MG 5 STYLE": "mg5",
                  "MG 3": "mg3", "AION": "aion", "BYD KING": "king", "CHIREY TIGGO 2 PRO": "tiggo"}
 
@@ -343,62 +343,6 @@ def main():
     decline = [{"key": k, "label": label, "value": status_counts.get(raw, 0)}
                for k, label, raw in DECLINE_DEFS]
 
-    entregado_hist = [r for r in wrows if wget(r, "Estatus").strip() == "Entregado"]
-
-    def parse_entrega(s):
-        s = s.strip()
-        if not s:
-            return None
-        d = parse_date_multi(s, ["%d-%m-%Y", "%d/%m/%Y", "%Y-%m-%d", "%m/%d/%Y"])
-        if d:
-            return d
-        m = re.match(r"^(\d{1,2})[\/\-](\d{1,2})[\/\-](\d{2,4})", s)
-        if m:
-            dd, mo, y = int(m.group(1)), int(m.group(2)), int(m.group(3))
-            if y < 100:
-                y += 2000
-            try:
-                return datetime.date(y, mo, dd)
-            except ValueError:
-                return None
-        return None
-
-    VEH_MAP_TTD = {"MG5": "mg5", "BYD DOLPHIN MINI": "byd_mini", "MG3": "mg3"}
-    ttd_estado_days = collections.defaultdict(list)
-    ttd_modelo_days = collections.defaultdict(list)
-    ttd_usable = 0
-    for r in entregado_hist:
-        fs = parse_date_multi(wget(r, "Fecha de solicitud"), ["%m/%d/%Y", "%Y-%m-%d", "%d/%m/%Y"])
-        fe = parse_entrega(wget(r, "Fecha Entrega"))
-        if fs is None or fe is None:
-            continue
-        days = (fe - fs).days
-        if days < 0 or days > 400:
-            continue
-        ttd_usable += 1
-        estado = wget(r, "Estado de Auto").strip().upper()
-        if estado == "NUEVO":
-            ttd_estado_days["nuevo"].append(days)
-        elif estado == "SEMINUEVO":
-            ttd_estado_days["seminuevo"].append(days)
-        veh = wget(r, "Vehicle").strip().upper()
-        vkey = VEH_MAP_TTD.get(veh)
-        if vkey:
-            ttd_modelo_days[vkey].append(days)
-
-    def med(lst):
-        return round(statistics.median(lst)) if lst else 0
-
-    ttd_estado = [
-        {"key": "nuevo", "label": "Nuevo", "value": med(ttd_estado_days["nuevo"]), "n": len(ttd_estado_days["nuevo"])},
-        {"key": "seminuevo", "label": "Seminuevo", "value": med(ttd_estado_days["seminuevo"]), "n": len(ttd_estado_days["seminuevo"])},
-    ]
-    ttd_modelo = [
-        {"key": "mg5", "label": "MG5", "value": med(ttd_modelo_days["mg5"]), "n": len(ttd_modelo_days["mg5"])},
-        {"key": "byd_mini", "label": "BYD Dolphin Mini", "value": med(ttd_modelo_days["byd_mini"]), "n": len(ttd_modelo_days["byd_mini"])},
-        {"key": "mg3", "label": "MG3", "value": med(ttd_modelo_days["mg3"]), "n": len(ttd_modelo_days["mg3"])},
-    ]
-
     # ---------- Tabla Waitlist (pivot): cruce de verificación, no se usa para render ----------
     tabla = sheets_get(token, PI_ID, "'Tabla Waitlist'!A1:Z200")
     pivot_total = None
@@ -533,10 +477,6 @@ def main():
         "agent_tier": agent_tier_out,
         "decline": decline,
         "decline_total": sum(d["value"] for d in decline),
-        "ttd_estado": ttd_estado,
-        "ttd_modelo": ttd_modelo,
-        "ttd_usable": ttd_usable,
-        "ttd_total_entregado": len(entregado_hist),
         "forecast": {
             "workdays_elapsed": workdays_elapsed, "actual_elapsed": actual_elapsed,
             "workdays_total": workdays_total, "rate": round(rate, 2),

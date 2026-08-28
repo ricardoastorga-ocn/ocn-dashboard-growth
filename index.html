@@ -59,9 +59,9 @@
 
 .wrap { width: 100%; max-width: 1240px; display: flex; flex-direction: column; gap: 28px; }
 
-.grid-2 { display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); gap: 28px; align-items: start; }
+.grid-2 { display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); gap: 28px; align-items: stretch; }
 .grid-2 > * { min-width: 0; }
-.grid-2 > .card { margin: 0; }
+.grid-2 > .card { margin: 0; display: flex; flex-direction: column; }
 @media (max-width: 860px) { .grid-2 { grid-template-columns: minmax(0,1fr); } }
 
 /* ---- Header ---- */
@@ -296,7 +296,6 @@ table.data-table tr.row-surplus td:first-child::before { content:""; position:ab
     <p class="callout" id="callout-agendadas"></p>
   </section>
 
-  <div class="grid-2">
   <section class="card" id="card-etapas">
     <div class="card-head">
       <div>
@@ -332,7 +331,6 @@ table.data-table tr.row-surplus td:first-child::before { content:""; position:ab
       <div class="tooltip" id="tooltip-ciudad"></div>
     </div>
   </section>
-  </div>
 
   <section class="card" id="card-inv-log">
     <div class="card-head">
@@ -432,25 +430,6 @@ table.data-table tr.row-surplus td:first-child::before { content:""; position:ab
     </div>
     <p class="card-note" id="note-agent-roster" style="margin-top:8px;"></p>
 
-    <p class="subsection-title" id="title-ttd"></p>
-    <p class="card-note" style="margin-top:-6px;">La mayoría del histórico no tiene "Fecha Entrega" capturada en formato utilizable — dato parcial, no representativo todavía. Solo filas con ambas fechas parseables.</p>
-    <div class="grid-2" style="margin-top:12px;">
-      <div>
-        <p class="card-note"><strong>Nuevo vs. Seminuevo</strong></p>
-        <div class="chart-wrap" id="ttd-estado-chart-wrap">
-          <div class="chart-scroll"><svg class="chart" id="chart-ttd-estado"></svg></div>
-          <div class="tooltip" id="tooltip-ttd-estado"></div>
-        </div>
-      </div>
-      <div>
-        <p class="card-note"><strong>Por modelo</strong></p>
-        <div class="chart-wrap" id="ttd-modelo-chart-wrap">
-          <div class="chart-scroll"><svg class="chart" id="chart-ttd-modelo"></svg></div>
-          <div class="tooltip" id="tooltip-ttd-modelo"></div>
-        </div>
-      </div>
-    </div>
-
     <p class="subsection-title" id="title-decline"></p>
     <div class="chart-wrap" id="decline-chart-wrap">
       <div class="chart-scroll"><svg class="chart" id="chart-decline"></svg></div>
@@ -522,13 +501,10 @@ table.data-table tr.row-surplus td:first-child::before { content:""; position:ab
 
   const AGENT_TIER = DATA.agent_tier;
 
-  const TTD_ESTADO = DATA.ttd_estado;
-  const TTD_MODELO = DATA.ttd_modelo;
-
   // Fleet Backlog (RAW DATA, solo lectura) -- universo = LISTA_TRABAJO "Backlog Fleet" menos
   // TALLER_ESTATUS "DESFLOTE" (esas no se convierten en inventario). Etapa en orden de proceso;
   // "sin fecha" no es un punto en la escala de severidad, es dato faltante -- color aparte.
-  const FLEET_STAGE_KEYS = ["POR INGRESAR","EN DIAGNOSTICO","EN REPARACION","ENTREGADO","SIN_ESTATUS","DESFLOTE"];
+  const FLEET_STAGE_KEYS = ["POR INGRESAR","EN DIAGNOSTICO","EN REPARACION","ENTREGADO","SIN_ESTATUS"];
   const FLEET_STAGE_LABELS = {"POR INGRESAR":"Por ingresar","EN DIAGNOSTICO":"En diagnóstico","EN REPARACION":"En reparación","ENTREGADO":"Entregado del taller","SIN_ESTATUS":"Sin estatus","DESFLOTE":"Desflote (no es inventario)"};
   const FLEET_STAGE_COLORVAR = {"POR INGRESAR":"--tier-0","EN DIAGNOSTICO":"--tier-1","EN REPARACION":"--tier-2","ENTREGADO":"--s-entregado","SIN_ESTATUS":"--s-otros","DESFLOTE":"--flag-deficit"};
   const FLEET_STAGE_LABELCOLOR = {"POR INGRESAR":"dark","EN DIAGNOSTICO":"dark","EN REPARACION":"light","ENTREGADO":"dark","SIN_ESTATUS":"dark","DESFLOTE":"dark"};
@@ -1083,16 +1059,13 @@ table.data-table tr.row-surplus td:first-child::before { content:""; position:ab
     const cleanSum = cleanAgents.reduce((a,d)=>a+d.total,0), verbSum = verbAgents.reduce((a,d)=>a+d.total,0);
     el2('note-agent-roster', cleanAgents.length+' agentes cruzan con el roster de Avance de Marcación ('+fmt(cleanSum)+' casos); '+verbAgents.length+' nombres no cruzan ('+fmt(verbSum)+' casos, con "@" — probablemente variantes de captura o agentes fuera de ese roster, pendiente de validar).', true);
 
-    const ttdPct = Math.round(DATA.ttd_usable/DATA.ttd_total_entregado*100);
-    el2('title-ttd', 'Tiempo de solicitud a entrega — muestra parcial ('+fmt(DATA.ttd_usable)+' de '+fmt(DATA.ttd_total_entregado)+' entregados, '+ttdPct+'%)');
-    el2('title-decline', 'Motivos de pérdida (histórico completo, '+fmt(DECLINE_TOTAL)+' casos)');
+el2('title-decline', 'Motivos de pérdida (histórico completo, '+fmt(DECLINE_TOTAL)+' casos)');
     const driver1 = DECLINE.find(d=>d.key==='driver1');
     const driverPct = Math.round(driver1.value/DECLINE_TOTAL*100);
     el2('callout-decline', '<strong>'+driverPct+'% de las pérdidas son por decisión del propio driver</strong> (no de OCN) — vale la pena entender por qué antes de asumir que se recuperan solas.', true);
 
-    const fleetTotal = FLEET_CITY_STAGE.reduce((a,d)=>a+d.total,0);
-    const fleetInventario = fleetTotal - DATA.fleet_desflote_n;
-    el2('note-fleet-total', fmt(fleetTotal)+' unidades que Fleet está trabajando (columna LISTA_TRABAJO = "Backlog Fleet") · '+fmt(fleetInventario)+' se convertirán en inventario de Ventas, '+fmt(DATA.fleet_desflote_n)+' van a Desflote (no llegan a nosotros, se muestran aparte abajo)');
+    const fleetInventario = FLEET_CITY_STAGE.reduce((a,r)=>a+FLEET_STAGE_KEYS.reduce((b,k,i)=>b+r.vals[i],0),0);
+    el2('note-fleet-total', fmt(fleetInventario)+' unidades que se convertirán en inventario de Ventas (columna LISTA_TRABAJO = "Backlog Fleet") · excluye '+fmt(DATA.fleet_desflote_n)+' en Desflote, que nunca llegan a nosotros');
 
     const legendFleetStage = document.getElementById('legend-fleet-city-stage');
     if (legendFleetStage) legendFleetStage.innerHTML = FLEET_STAGE_KEYS.map(k =>
@@ -1115,7 +1088,11 @@ table.data-table tr.row-surplus td:first-child::before { content:""; position:ab
       el2('callout-fleet-city-stage', 'Ninguna de las ciudades con superávit hoy tiene volumen de Fleet a punto de llegar (en reparación o entregado del taller).', true);
     }
 
-    el2('callout-fleet-day', '<strong>'+fmt(DATA.fleet_vencido_unidades)+' unidades</strong> (en '+fmt(DATA.fleet_vencido_dias)+' de '+fmt(FLEET_DIAS_LABELS.length)+' fechas) ya pasaron su fecha compromiso y siguen sin liberarse — trátalas como alerta de atraso, no asumas que van a llegar justo ese día. '+fmt(DATA.fleet_sin_fecha_n)+' unidades no tienen ninguna fecha capturada y no aparecen en esta gráfica.', true);
+    if (FLEET_DIAS_LABELS.length) {
+      el2('callout-fleet-day', '<strong>'+fmt(DATA.fleet_vencido_unidades)+' unidades</strong> (en '+fmt(DATA.fleet_vencido_dias)+' de '+fmt(FLEET_DIAS_LABELS.length)+' fechas) ya pasaron su fecha compromiso y siguen sin liberarse — trátalas como alerta de atraso, no asumas que van a llegar justo ese día. '+fmt(DATA.fleet_sin_fecha_n)+' unidades no tienen ninguna fecha capturada y no aparecen en esta gráfica.', true);
+    } else {
+      el2('callout-fleet-day', 'Ninguna de las '+fmt(DATA.fleet_sin_fecha_n)+' unidades del backlog tiene fecha compromiso capturada hoy en Fleet — no se puede armar la línea de tiempo por ahora. Se muestra en cuanto el equipo de Fleet vuelva a capturar fechas.', true);
+    }
   }
 
   function el2(id, text, isHTML){
@@ -1167,14 +1144,15 @@ table.data-table tr.row-surplus td:first-child::before { content:""; position:ab
     buildTable('dias-table-wrap', 'Unidades entregadas por día de agosto, por ciudad (agendada/pendiente aparte, no suma al total)', DIAS_KEYS.map(k=>DIAS_LABELS_CIUDAD[k]),
       DIAS_LABELS.map((d,i)=>({label:d+'-ago', values: DIAS_KEYS.map(k=>ENTREGADOS_DIA[i][k])})), 'Día');
 
-    drawEmphasisBarChart('chart-etapas', 'tooltip-etapas', ETAPAS, {
+    drawEmphasisBarChart('chart-etapas', 'tooltip-etapas', ETAPAS.filter(d=>d.value>0), {
       ariaLabel: "Unidades por etapa del embudo BO, agosto 2026, en orden de proceso",
       labelOf: d => ETAPAS_LABELS[d.key],
       highlightKey: "entregado",
       emphasisColorVar: "--s-entregado",
       labelWidth: 168,
       padRight: 108,
-      pctTotal: ETAPAS_TOTAL
+      pctTotal: ETAPAS_TOTAL,
+      rowH: 30
     });
     {
       const wrap = document.getElementById('etapas-table-wrap');
@@ -1310,32 +1288,10 @@ table.data-table tr.row-surplus td:first-child::before { content:""; position:ab
       minSegWidthForLabel: 58
     });
 
-    const TTD_ESTADO_COLORVAR = {nuevo:'--s-nuevo', seminuevo:'--s-seminuevo'};
-    drawEmphasisBarChart('chart-ttd-estado', 'tooltip-ttd-estado', TTD_ESTADO, {
-      ariaLabel: "Días entre solicitud y entrega, Nuevo vs. Seminuevo (muestra parcial)",
-      labelOf: d => d.label,
-      colorOf: d => TTD_ESTADO_COLORVAR[d.key],
-      labelWidth: 110,
-      rowH: 44,
-      unit: "días",
-      subLabelBelow: d => d.n + " casos en la muestra" + (d.n < 20 ? " · muestra muy chica" : "")
-    });
-
-    const TTD_MODELO_COLORVAR = {mg5:'--s-mg5', byd_mini:'--s-byd', mg3:'--s-mg3'};
-    drawEmphasisBarChart('chart-ttd-modelo', 'tooltip-ttd-modelo', TTD_MODELO, {
-      ariaLabel: "Días entre solicitud y entrega, por modelo (muestra parcial)",
-      labelOf: d => d.label,
-      colorOf: d => TTD_MODELO_COLORVAR[d.key],
-      labelWidth: 140,
-      rowH: 44,
-      unit: "días",
-      subLabelBelow: d => d.n + " casos en la muestra" + (d.n < 20 ? " · muestra muy chica" : "")
-    });
-
     drawStackBar('chart-fleet-city-stage', 'tooltip-fleet-city-stage', FLEET_CITY_STAGE.map(r=>({label:r.ciudad, vals:r.vals, total:r.total})), {
-      ariaLabel: "Fleet Backlog por etapa de taller, desglosado por ciudad",
+      ariaLabel: "Fleet Backlog por etapa de taller, desglosado por ciudad (sin Desflote)",
       rowLabelOf: r => r.label,
-      rowTotalOf: r => r.total,
+      rowTotalOf: r => FLEET_STAGE_KEYS.reduce((a,k,i)=>a+r.vals[i],0),
       segValueOf: (r, i) => r.vals[i],
       segKeys: FLEET_STAGE_KEYS,
       segLabelOf: k => FLEET_STAGE_LABELS[k],
@@ -1352,12 +1308,18 @@ table.data-table tr.row-surplus td:first-child::before { content:""; position:ab
       '<span class="legend-item"><span class="legend-swatch" style="background:var('+FLEET_DAY_COLOR[k]+')"></span>'+FLEET_DAY_LABELS[k]+'</span>'
     ).join('');
 
-    drawStackedChart('chart-fleet-day', 'tooltip-fleet-day', FLEET_BY_DAY, FLEET_DAY_KEYS, k => FLEET_DAY_COLOR[k], {
-      ariaLabel: "Volumen de Fleet Backlog esperado por día, por ciudad",
-      labelOf: k => FLEET_DAY_LABELS[k],
-      months: FLEET_DIAS_LABELS,
-      hideZero: true
-    });
+    const fleetDayWrap = document.getElementById('fleet-day-chart-wrap');
+    if (FLEET_BY_DAY.length) {
+      if (fleetDayWrap) fleetDayWrap.style.display = '';
+      drawStackedChart('chart-fleet-day', 'tooltip-fleet-day', FLEET_BY_DAY, FLEET_DAY_KEYS, k => FLEET_DAY_COLOR[k], {
+        ariaLabel: "Volumen de Fleet Backlog esperado por día, por ciudad",
+        labelOf: k => FLEET_DAY_LABELS[k],
+        months: FLEET_DIAS_LABELS,
+        hideZero: true
+      });
+    } else if (fleetDayWrap) {
+      fleetDayWrap.style.display = 'none';
+    }
 
     initToggles();
   }
