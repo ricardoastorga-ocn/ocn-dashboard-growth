@@ -5,10 +5,10 @@ permissions:
 
 on:
   schedule:
-    # 8am, 11am, 2pm, 5pm hora CDMX (UTC-6), lunes a viernes
-    - cron: "0 14,17,20,23 * * 1-5"
-    # 7pm hora CDMX = 1am UTC del día siguiente -> martes a sábado en UTC cubre lunes-viernes CDMX
-    - cron: "0 1 * * 2-6"
+    # cada 2 horas: 8am, 10am, 12pm, 2pm, 4pm hora CDMX (UTC-6), lunes a viernes
+    - cron: "0 14,16,18,20,22 * * 1-5"
+    # 6pm hora CDMX = medianoche UTC del día siguiente -> martes a sábado en UTC cubre lunes-viernes CDMX
+    - cron: "0 0 * * 2-6"
   workflow_dispatch: {}
 
 concurrency:

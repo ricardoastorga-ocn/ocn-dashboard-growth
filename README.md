@@ -1,7 +1,7 @@
 # Dashboard - Growth (OCN)
 
 Dashboard operativo de flota y waitlist de OCN. Se refresca solo, varias veces al día en horario
-de oficina (8am/11am/2pm/5pm/7pm, hora CDMX, lunes a viernes) via GitHub Actions — sin costo,
+de oficina, cada 2 horas (8am/10am/12pm/2pm/4pm/6pm, hora CDMX, lunes a viernes) via GitHub Actions — sin costo,
 sin un Claude corriendo cada vez.
 
 ## Cómo funciona
