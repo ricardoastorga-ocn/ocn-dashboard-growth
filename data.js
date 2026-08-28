@@ -1,5 +1,5 @@
 window.__DASHBOARD_DATA__ = {
-  "generated_at": "2026-08-28T00:04:21.662009Z",
+  "generated_at": "2026-08-28T01:10:58.428902Z",
   "months": [
     "Ago 25",
     "Sep 25",
@@ -1152,5 +1152,94 @@ window.__DASHBOARD_DATA__ = {
   "corte": {
     "fecha": "2026-08-28",
     "mes_label": "Ago 26"
-  }
+  },
+  "fleet_total": 135,
+  "fleet_desflote_n": 9,
+  "fleet_stage": [
+    {
+      "key": "POR INGRESAR",
+      "label": "Por ingresar",
+      "value": 18
+    },
+    {
+      "key": "EN DIAGNOSTICO",
+      "label": "En diagnóstico",
+      "value": 23
+    },
+    {
+      "key": "EN REPARACION",
+      "label": "En reparación",
+      "value": 37
+    },
+    {
+      "key": "ENTREGADO",
+      "label": "Entregado del taller",
+      "value": 16
+    },
+    {
+      "key": "SIN_ESTATUS",
+      "label": "Sin estatus capturado",
+      "value": 41
+    }
+  ],
+  "fleet_city": [
+    {
+      "ciudad": "CDMX / Edo Mex",
+      "value": 39
+    },
+    {
+      "ciudad": "Sin identificar",
+      "value": 27
+    },
+    {
+      "ciudad": "Tijuana",
+      "value": 26
+    },
+    {
+      "ciudad": "Guadalajara",
+      "value": 25
+    },
+    {
+      "ciudad": "Queretaro",
+      "value": 7
+    },
+    {
+      "ciudad": "Monterrey",
+      "value": 5
+    },
+    {
+      "ciudad": "Puebla",
+      "value": 3
+    },
+    {
+      "ciudad": "Merida",
+      "value": 2
+    },
+    {
+      "ciudad": "Mexicali",
+      "value": 1
+    }
+  ],
+  "fleet_aging": [
+    {
+      "key": "vencido_30mas",
+      "label": "Vencido +30 días",
+      "value": 15
+    },
+    {
+      "key": "vencido_1_30",
+      "label": "Vencido 1-30 días",
+      "value": 56
+    },
+    {
+      "key": "proximo",
+      "label": "Fecha próxima (sin vencer)",
+      "value": 20
+    },
+    {
+      "key": "sin_fecha",
+      "label": "Sin fecha compromiso",
+      "value": 44
+    }
+  ]
 };
