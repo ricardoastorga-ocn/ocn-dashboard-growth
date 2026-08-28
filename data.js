@@ -1,5 +1,5 @@
 window.__DASHBOARD_DATA__ = {
-  "generated_at": "2026-08-28T01:10:58.428902Z",
+  "generated_at": "2026-08-28T01:33:44.858127Z",
   "months": [
     "Ago 25",
     "Sep 25",
@@ -1153,93 +1153,231 @@ window.__DASHBOARD_DATA__ = {
     "fecha": "2026-08-28",
     "mes_label": "Ago 26"
   },
-  "fleet_total": 135,
+  "fleet_total": 134,
   "fleet_desflote_n": 9,
-  "fleet_stage": [
-    {
-      "key": "POR INGRESAR",
-      "label": "Por ingresar",
-      "value": 18
-    },
-    {
-      "key": "EN DIAGNOSTICO",
-      "label": "En diagnóstico",
-      "value": 23
-    },
-    {
-      "key": "EN REPARACION",
-      "label": "En reparación",
-      "value": 37
-    },
-    {
-      "key": "ENTREGADO",
-      "label": "Entregado del taller",
-      "value": 16
-    },
-    {
-      "key": "SIN_ESTATUS",
-      "label": "Sin estatus capturado",
-      "value": 41
-    }
-  ],
-  "fleet_city": [
+  "fleet_city_stage": [
     {
       "ciudad": "CDMX / Edo Mex",
-      "value": 39
+      "vals": [
+        5,
+        3,
+        9,
+        5,
+        16,
+        2
+      ],
+      "total": 40
     },
     {
       "ciudad": "Sin identificar",
-      "value": 27
+      "vals": [
+        0,
+        4,
+        9,
+        1,
+        13,
+        3
+      ],
+      "total": 30
     },
     {
       "ciudad": "Tijuana",
-      "value": 26
+      "vals": [
+        1,
+        1,
+        11,
+        9,
+        4,
+        3
+      ],
+      "total": 29
     },
     {
       "ciudad": "Guadalajara",
-      "value": 25
+      "vals": [
+        7,
+        13,
+        5,
+        0,
+        0,
+        0
+      ],
+      "total": 25
     },
     {
       "ciudad": "Queretaro",
-      "value": 7
+      "vals": [
+        5,
+        1,
+        0,
+        0,
+        1,
+        0
+      ],
+      "total": 7
     },
     {
       "ciudad": "Monterrey",
-      "value": 5
+      "vals": [
+        1,
+        1,
+        1,
+        0,
+        2,
+        1
+      ],
+      "total": 6
     },
     {
       "ciudad": "Puebla",
-      "value": 3
+      "vals": [
+        0,
+        0,
+        2,
+        0,
+        1,
+        0
+      ],
+      "total": 3
     },
     {
       "ciudad": "Merida",
-      "value": 2
+      "vals": [
+        0,
+        0,
+        0,
+        0,
+        2,
+        0
+      ],
+      "total": 2
     },
     {
       "ciudad": "Mexicali",
-      "value": 1
+      "vals": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        0
+      ],
+      "total": 1
     }
   ],
-  "fleet_aging": [
+  "fleet_dias_labels": [
+    "17-jul",
+    "24-jul",
+    "31-jul",
+    "1-ago",
+    "12-ago",
+    "13-ago",
+    "19-ago",
+    "21-ago",
+    "24-ago",
+    "28-ago",
+    "1-sep",
+    "4-sep"
+  ],
+  "fleet_by_day": [
     {
-      "key": "vencido_30mas",
-      "label": "Vencido +30 días",
-      "value": 15
+      "tij": 0,
+      "cdmx": 1,
+      "gdl": 0,
+      "qro": 0,
+      "mty": 2,
+      "otros": 0
     },
     {
-      "key": "vencido_1_30",
-      "label": "Vencido 1-30 días",
-      "value": 56
+      "tij": 4,
+      "cdmx": 2,
+      "gdl": 5,
+      "qro": 0,
+      "mty": 0,
+      "otros": 1
     },
     {
-      "key": "proximo",
-      "label": "Fecha próxima (sin vencer)",
-      "value": 20
+      "tij": 14,
+      "cdmx": 3,
+      "gdl": 7,
+      "qro": 4,
+      "mty": 1,
+      "otros": 6
     },
     {
-      "key": "sin_fecha",
-      "label": "Sin fecha compromiso",
-      "value": 44
+      "tij": 0,
+      "cdmx": 1,
+      "gdl": 0,
+      "qro": 1,
+      "mty": 0,
+      "otros": 0
+    },
+    {
+      "tij": 0,
+      "cdmx": 0,
+      "gdl": 0,
+      "qro": 0,
+      "mty": 0,
+      "otros": 1
+    },
+    {
+      "tij": 1,
+      "cdmx": 0,
+      "gdl": 1,
+      "qro": 0,
+      "mty": 0,
+      "otros": 0
+    },
+    {
+      "tij": 0,
+      "cdmx": 0,
+      "gdl": 0,
+      "qro": 1,
+      "mty": 0,
+      "otros": 1
+    },
+    {
+      "tij": 0,
+      "cdmx": 0,
+      "gdl": 0,
+      "qro": 0,
+      "mty": 0,
+      "otros": 1
+    },
+    {
+      "tij": 0,
+      "cdmx": 6,
+      "gdl": 5,
+      "qro": 0,
+      "mty": 0,
+      "otros": 2
+    },
+    {
+      "tij": 5,
+      "cdmx": 1,
+      "gdl": 2,
+      "qro": 1,
+      "mty": 0,
+      "otros": 1
+    },
+    {
+      "tij": 1,
+      "cdmx": 5,
+      "gdl": 0,
+      "qro": 0,
+      "mty": 0,
+      "otros": 0
+    },
+    {
+      "tij": 0,
+      "cdmx": 1,
+      "gdl": 0,
+      "qro": 0,
+      "mty": 0,
+      "otros": 3
     }
-  ]
+  ],
+  "fleet_sin_fecha_n": 43,
+  "fleet_vencido_dias": 9,
+  "fleet_vencido_unidades": 71
 };
