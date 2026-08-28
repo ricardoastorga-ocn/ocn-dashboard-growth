@@ -1,5 +1,5 @@
 window.__DASHBOARD_DATA__ = {
-  "generated_at": "2026-08-28T01:33:44.858127Z",
+  "generated_at": "2026-08-28T18:42:14.296886Z",
   "months": [
     "Ago 25",
     "Sep 25",
@@ -66,7 +66,7 @@ window.__DASHBOARD_DATA__ = {
     },
     {
       "nuevo": 17,
-      "seminuevo": 201
+      "seminuevo": 205
     }
   ],
   "modelo": [
@@ -179,8 +179,8 @@ window.__DASHBOARD_DATA__ = {
       "otros": 4
     },
     {
-      "byd": 102,
-      "mg5": 78,
+      "byd": 105,
+      "mg5": 79,
       "mg3": 20,
       "aion": 4,
       "king": 5,
@@ -209,11 +209,11 @@ window.__DASHBOARD_DATA__ = {
     },
     {
       "key": "agendada",
-      "value": 13
+      "value": 2
     },
     {
       "key": "contrato",
-      "value": 0
+      "value": 6
     },
     {
       "key": "cenv",
@@ -221,11 +221,11 @@ window.__DASHBOARD_DATA__ = {
     },
     {
       "key": "liga",
-      "value": 0
+      "value": 1
     },
     {
       "key": "entregado",
-      "value": 218
+      "value": 222
     },
     {
       "key": "issue",
@@ -235,61 +235,69 @@ window.__DASHBOARD_DATA__ = {
   "etapas_ciudades": {
     "entregado": {
       "Tijuana": 42,
-      "CDMX / Edo Mex": 65,
-      "Monterrey": 56,
+      "CDMX / Edo Mex": 67,
+      "Monterrey": 57,
       "Queretaro": 15,
       "Guadalajara": 13,
       "Merida": 6,
-      "Saltillo": 4,
+      "Saltillo": 5,
       "Puebla": 6,
       "Mexicali": 11
     },
     "listo": {
       "Mexicali": 4,
-      "Tijuana": 16
+      "Monterrey": 1,
+      "Tijuana": 15
     },
     "agendada": {
-      "Monterrey": 2,
-      "Tijuana": 3,
-      "Saltillo": 1,
+      "Tijuana": 2
+    },
+    "contrato": {
+      "Tijuana": 2,
       "Mexicali": 1,
-      "CDMX / Edo Mex": 5,
-      "Merida": 1
+      "CDMX / Edo Mex": 3
     },
     "issue": {
       "Queretaro": 1,
       "Tijuana": 1
+    },
+    "liga": {
+      "Merida": 1
     }
   },
   "entregado_target_pct": 95,
   "ciudad_listo": [
     {
       "ciudad": "Tijuana",
-      "value": 16
+      "value": 15
     },
     {
       "ciudad": "Mexicali",
       "value": 4
+    },
+    {
+      "ciudad": "Monterrey",
+      "value": 1
     }
   ],
   "waitlist_gap": [
     {
       "ciudad": "CDMX / Edo Mex",
-      "espera": 281,
+      "espera": 283,
       "listo": 0,
-      "gap": 281
+      "gap": 283
     },
     {
       "ciudad": "Monterrey",
       "espera": 95,
-      "listo": 0,
-      "gap": 95
+      "listo": 1,
+      "gap": 94
     },
     {
       "ciudad": "Merida",
-      "espera": 78,
+      "espera": 77,
       "listo": 0,
-      "gap": 78
+      "gap": 77
     },
     {
       "ciudad": "Puebla",
@@ -299,9 +307,9 @@ window.__DASHBOARD_DATA__ = {
     },
     {
       "ciudad": "Guadalajara",
-      "espera": 64,
+      "espera": 65,
       "listo": 0,
-      "gap": 64
+      "gap": 65
     },
     {
       "ciudad": "Queretaro",
@@ -324,8 +332,8 @@ window.__DASHBOARD_DATA__ = {
     {
       "ciudad": "Tijuana",
       "espera": 7,
-      "listo": 16,
-      "gap": -9
+      "listo": 15,
+      "gap": -8
     }
   ],
   "dias_labels": [
@@ -525,13 +533,13 @@ window.__DASHBOARD_DATA__ = {
       "otros": 1
     },
     {
-      "cdmx": 0,
-      "mty": 0,
+      "cdmx": 2,
+      "mty": 1,
       "tij": 0,
       "qro": 0,
       "gdl": 0,
       "mxl": 0,
-      "otros": 0
+      "otros": 1
     },
     {
       "cdmx": 0,
@@ -572,9 +580,9 @@ window.__DASHBOARD_DATA__ = {
     0,
     0,
     0,
-    10,
+    7,
     1,
-    2
+    1
   ],
   "inv_log": [
     {
@@ -652,7 +660,7 @@ window.__DASHBOARD_DATA__ = {
     {
       "key": "0-30",
       "label": "0-30 días",
-      "value": 306
+      "value": 308
     },
     {
       "key": "31-60",
@@ -670,18 +678,18 @@ window.__DASHBOARD_DATA__ = {
       "value": 44
     }
   ],
-  "tiers_total": 679,
+  "tiers_total": 681,
   "max_wait_days": 249,
   "city_tier": [
     {
       "ciudad": "CDMX / Edo Mex",
       "vals": [
-        155,
+        157,
         65,
         48,
         13
       ],
-      "total": 281
+      "total": 283
     },
     {
       "ciudad": "Monterrey",
@@ -696,12 +704,12 @@ window.__DASHBOARD_DATA__ = {
     {
       "ciudad": "Merida",
       "vals": [
-        19,
+        18,
         21,
         30,
         8
       ],
-      "total": 78
+      "total": 77
     },
     {
       "ciudad": "Puebla",
@@ -716,12 +724,12 @@ window.__DASHBOARD_DATA__ = {
     {
       "ciudad": "Guadalajara",
       "vals": [
-        24,
+        25,
         15,
         22,
         3
       ],
-      "total": 64
+      "total": 65
     },
     {
       "ciudad": "Queretaro",
@@ -778,12 +786,12 @@ window.__DASHBOARD_DATA__ = {
     {
       "key": "Mayte Urrutia",
       "vals": [
-        27,
+        28,
         9,
         8,
         2
       ],
-      "total": 46
+      "total": 47
     },
     {
       "key": "@Daniela Fav",
@@ -808,12 +816,12 @@ window.__DASHBOARD_DATA__ = {
     {
       "key": "Jrego Nolasco",
       "vals": [
-        25,
+        24,
         4,
         9,
         0
       ],
-      "total": 38
+      "total": 37
     },
     {
       "key": "Oscar Alvarez",
@@ -848,12 +856,12 @@ window.__DASHBOARD_DATA__ = {
     {
       "key": "Ishell Miranda",
       "vals": [
-        10,
+        11,
         7,
         10,
         1
       ],
-      "total": 28
+      "total": 29
     },
     {
       "key": "@Joel Flores Lopez",
@@ -868,42 +876,42 @@ window.__DASHBOARD_DATA__ = {
     {
       "key": "@Michelle Ruiz",
       "vals": [
-        12,
+        13,
         4,
         7,
         2
       ],
-      "total": 25
-    },
-    {
-      "key": "Aaron Sanchez",
-      "vals": [
-        13,
-        7,
-        4,
-        1
-      ],
-      "total": 25
+      "total": 26
     },
     {
       "key": "Angelica Torres",
       "vals": [
-        15,
+        16,
         5,
         1,
         2
       ],
-      "total": 23
+      "total": 24
+    },
+    {
+      "key": "Aaron Sanchez",
+      "vals": [
+        12,
+        7,
+        4,
+        1
+      ],
+      "total": 24
     },
     {
       "key": "@Jeremy Habner",
       "vals": [
-        10,
+        11,
         2,
         10,
         1
       ],
-      "total": 23
+      "total": 24
     },
     {
       "key": "Diana Moreno",
@@ -928,12 +936,12 @@ window.__DASHBOARD_DATA__ = {
     {
       "key": "Monserrat Rivera",
       "vals": [
-        12,
+        11,
         4,
         4,
         1
       ],
-      "total": 21
+      "total": 20
     },
     {
       "key": "Imanol Cortez",
@@ -946,6 +954,16 @@ window.__DASHBOARD_DATA__ = {
       "total": 20
     },
     {
+      "key": "Edwin Hernandez",
+      "vals": [
+        8,
+        7,
+        3,
+        1
+      ],
+      "total": 19
+    },
+    {
       "key": "@Ivette",
       "vals": [
         9,
@@ -954,16 +972,6 @@ window.__DASHBOARD_DATA__ = {
         0
       ],
       "total": 19
-    },
-    {
-      "key": "Edwin Hernandez",
-      "vals": [
-        7,
-        7,
-        3,
-        1
-      ],
-      "total": 18
     },
     {
       "key": "Antonio Cruz",
@@ -1026,16 +1034,6 @@ window.__DASHBOARD_DATA__ = {
       "total": 8
     },
     {
-      "key": "Enrique Jimenez",
-      "vals": [
-        5,
-        0,
-        1,
-        1
-      ],
-      "total": 7
-    },
-    {
       "key": "@hector vera",
       "vals": [
         0,
@@ -1044,6 +1042,16 @@ window.__DASHBOARD_DATA__ = {
         1
       ],
       "total": 7
+    },
+    {
+      "key": "Enrique Jimenez",
+      "vals": [
+        4,
+        0,
+        1,
+        1
+      ],
+      "total": 6
     },
     {
       "key": "@Carlos Mejía",
@@ -1104,57 +1112,21 @@ window.__DASHBOARD_DATA__ = {
     }
   ],
   "decline_total": 819,
-  "ttd_estado": [
-    {
-      "key": "nuevo",
-      "label": "Nuevo",
-      "value": 8,
-      "n": 180
-    },
-    {
-      "key": "seminuevo",
-      "label": "Seminuevo",
-      "value": 8,
-      "n": 7
-    }
-  ],
-  "ttd_modelo": [
-    {
-      "key": "mg5",
-      "label": "MG5",
-      "value": 8,
-      "n": 119
-    },
-    {
-      "key": "byd_mini",
-      "label": "BYD Dolphin Mini",
-      "value": 7,
-      "n": 54
-    },
-    {
-      "key": "mg3",
-      "label": "MG3",
-      "value": 14,
-      "n": 13
-    }
-  ],
-  "ttd_usable": 187,
-  "ttd_total_entregado": 2319,
   "forecast": {
     "workdays_elapsed": 19,
     "actual_elapsed": 218,
     "workdays_total": 21,
     "rate": 11.47,
     "total": 241,
-    "nuevo": 19,
-    "seminuevo": 222
+    "nuevo": 18,
+    "seminuevo": 223
   },
   "corte": {
     "fecha": "2026-08-28",
     "mes_label": "Ago 26"
   },
-  "fleet_total": 134,
-  "fleet_desflote_n": 9,
+  "fleet_total": 129,
+  "fleet_desflote_n": 11,
   "fleet_city_stage": [
     {
       "ciudad": "CDMX / Edo Mex",
@@ -1172,49 +1144,37 @@ window.__DASHBOARD_DATA__ = {
       "ciudad": "Sin identificar",
       "vals": [
         0,
-        4,
-        9,
+        2,
+        10,
         1,
-        13,
-        3
+        12,
+        4
       ],
-      "total": 30
+      "total": 29
     },
     {
       "ciudad": "Tijuana",
       "vals": [
         1,
         1,
-        11,
         9,
-        4,
-        3
+        10,
+        2,
+        2
       ],
-      "total": 29
+      "total": 25
     },
     {
       "ciudad": "Guadalajara",
       "vals": [
         7,
-        13,
-        5,
+        12,
+        6,
         0,
         0,
         0
       ],
       "total": 25
-    },
-    {
-      "ciudad": "Queretaro",
-      "vals": [
-        5,
-        1,
-        0,
-        0,
-        1,
-        0
-      ],
-      "total": 7
     },
     {
       "ciudad": "Monterrey",
@@ -1223,8 +1183,20 @@ window.__DASHBOARD_DATA__ = {
         1,
         1,
         0,
-        2,
-        1
+        3,
+        3
+      ],
+      "total": 9
+    },
+    {
+      "ciudad": "Queretaro",
+      "vals": [
+        5,
+        0,
+        0,
+        0,
+        1,
+        0
       ],
       "total": 6
     },
@@ -1233,12 +1205,12 @@ window.__DASHBOARD_DATA__ = {
       "vals": [
         0,
         0,
-        2,
-        0,
+        3,
         1,
+        0,
         0
       ],
-      "total": 3
+      "total": 4
     },
     {
       "ciudad": "Merida",
@@ -1251,133 +1223,11 @@ window.__DASHBOARD_DATA__ = {
         0
       ],
       "total": 2
-    },
-    {
-      "ciudad": "Mexicali",
-      "vals": [
-        0,
-        0,
-        0,
-        0,
-        1,
-        0
-      ],
-      "total": 1
     }
   ],
-  "fleet_dias_labels": [
-    "17-jul",
-    "24-jul",
-    "31-jul",
-    "1-ago",
-    "12-ago",
-    "13-ago",
-    "19-ago",
-    "21-ago",
-    "24-ago",
-    "28-ago",
-    "1-sep",
-    "4-sep"
-  ],
-  "fleet_by_day": [
-    {
-      "tij": 0,
-      "cdmx": 1,
-      "gdl": 0,
-      "qro": 0,
-      "mty": 2,
-      "otros": 0
-    },
-    {
-      "tij": 4,
-      "cdmx": 2,
-      "gdl": 5,
-      "qro": 0,
-      "mty": 0,
-      "otros": 1
-    },
-    {
-      "tij": 14,
-      "cdmx": 3,
-      "gdl": 7,
-      "qro": 4,
-      "mty": 1,
-      "otros": 6
-    },
-    {
-      "tij": 0,
-      "cdmx": 1,
-      "gdl": 0,
-      "qro": 1,
-      "mty": 0,
-      "otros": 0
-    },
-    {
-      "tij": 0,
-      "cdmx": 0,
-      "gdl": 0,
-      "qro": 0,
-      "mty": 0,
-      "otros": 1
-    },
-    {
-      "tij": 1,
-      "cdmx": 0,
-      "gdl": 1,
-      "qro": 0,
-      "mty": 0,
-      "otros": 0
-    },
-    {
-      "tij": 0,
-      "cdmx": 0,
-      "gdl": 0,
-      "qro": 1,
-      "mty": 0,
-      "otros": 1
-    },
-    {
-      "tij": 0,
-      "cdmx": 0,
-      "gdl": 0,
-      "qro": 0,
-      "mty": 0,
-      "otros": 1
-    },
-    {
-      "tij": 0,
-      "cdmx": 6,
-      "gdl": 5,
-      "qro": 0,
-      "mty": 0,
-      "otros": 2
-    },
-    {
-      "tij": 5,
-      "cdmx": 1,
-      "gdl": 2,
-      "qro": 1,
-      "mty": 0,
-      "otros": 1
-    },
-    {
-      "tij": 1,
-      "cdmx": 5,
-      "gdl": 0,
-      "qro": 0,
-      "mty": 0,
-      "otros": 0
-    },
-    {
-      "tij": 0,
-      "cdmx": 1,
-      "gdl": 0,
-      "qro": 0,
-      "mty": 0,
-      "otros": 3
-    }
-  ],
-  "fleet_sin_fecha_n": 43,
-  "fleet_vencido_dias": 9,
-  "fleet_vencido_unidades": 71
+  "fleet_dias_labels": [],
+  "fleet_by_day": [],
+  "fleet_sin_fecha_n": 129,
+  "fleet_vencido_dias": 0,
+  "fleet_vencido_unidades": 0
 };
