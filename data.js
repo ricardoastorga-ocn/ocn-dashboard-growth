@@ -1,5 +1,5 @@
 window.__DASHBOARD_DATA__ = {
-  "generated_at": "2026-08-27T23:23:25.047575Z",
+  "generated_at": "2026-08-28T00:04:21.662009Z",
   "months": [
     "Ago 25",
     "Sep 25",
@@ -66,7 +66,7 @@ window.__DASHBOARD_DATA__ = {
     },
     {
       "nuevo": 17,
-      "seminuevo": 200
+      "seminuevo": 201
     }
   ],
   "modelo": [
@@ -180,7 +180,7 @@ window.__DASHBOARD_DATA__ = {
     },
     {
       "byd": 102,
-      "mg5": 77,
+      "mg5": 78,
       "mg3": 20,
       "aion": 4,
       "king": 5,
@@ -205,11 +205,11 @@ window.__DASHBOARD_DATA__ = {
     },
     {
       "key": "listo",
-      "value": 21
+      "value": 20
     },
     {
       "key": "agendada",
-      "value": 12
+      "value": 13
     },
     {
       "key": "contrato",
@@ -217,7 +217,7 @@ window.__DASHBOARD_DATA__ = {
     },
     {
       "key": "cenv",
-      "value": 1
+      "value": 0
     },
     {
       "key": "liga",
@@ -225,7 +225,7 @@ window.__DASHBOARD_DATA__ = {
     },
     {
       "key": "entregado",
-      "value": 217
+      "value": 218
     },
     {
       "key": "issue",
@@ -236,7 +236,7 @@ window.__DASHBOARD_DATA__ = {
     "entregado": {
       "Tijuana": 42,
       "CDMX / Edo Mex": 65,
-      "Monterrey": 55,
+      "Monterrey": 56,
       "Queretaro": 15,
       "Guadalajara": 13,
       "Merida": 6,
@@ -246,23 +246,19 @@ window.__DASHBOARD_DATA__ = {
     },
     "listo": {
       "Mexicali": 4,
-      "Tijuana": 16,
-      "CDMX / Edo Mex": 1
+      "Tijuana": 16
     },
     "agendada": {
       "Monterrey": 2,
       "Tijuana": 3,
       "Saltillo": 1,
       "Mexicali": 1,
-      "CDMX / Edo Mex": 4,
+      "CDMX / Edo Mex": 5,
       "Merida": 1
     },
     "issue": {
       "Queretaro": 1,
       "Tijuana": 1
-    },
-    "cenv": {
-      "Monterrey": 1
     }
   },
   "entregado_target_pct": 95,
@@ -274,18 +270,14 @@ window.__DASHBOARD_DATA__ = {
     {
       "ciudad": "Mexicali",
       "value": 4
-    },
-    {
-      "ciudad": "CDMX / Edo Mex",
-      "value": 1
     }
   ],
   "waitlist_gap": [
     {
       "ciudad": "CDMX / Edo Mex",
       "espera": 281,
-      "listo": 1,
-      "gap": 280
+      "listo": 0,
+      "gap": 281
     },
     {
       "ciudad": "Monterrey",
@@ -525,7 +517,7 @@ window.__DASHBOARD_DATA__ = {
     },
     {
       "cdmx": 4,
-      "mty": 1,
+      "mty": 2,
       "tij": 3,
       "qro": 0,
       "gdl": 0,
@@ -579,8 +571,8 @@ window.__DASHBOARD_DATA__ = {
     0,
     0,
     0,
-    1,
-    9,
+    0,
+    10,
     1,
     2
   ],
@@ -647,40 +639,47 @@ window.__DASHBOARD_DATA__ = {
       "tij": 13,
       "mxl": 4,
       "mty": 0
+    },
+    {
+      "fecha": "28-ago",
+      "total": 20,
+      "tij": 16,
+      "mxl": 4,
+      "mty": 0
     }
   ],
   "tiers": [
     {
       "key": "0-30",
       "label": "0-30 días",
-      "value": 307
+      "value": 306
     },
     {
       "key": "31-60",
       "label": "31-60 días",
-      "value": 173
+      "value": 174
     },
     {
       "key": "61-90",
       "label": "61-90 días",
-      "value": 157
+      "value": 155
     },
     {
       "key": "90+",
       "label": "90+ días",
-      "value": 42
+      "value": 44
     }
   ],
   "tiers_total": 679,
-  "max_wait_days": 248,
+  "max_wait_days": 249,
   "city_tier": [
     {
       "ciudad": "CDMX / Edo Mex",
       "vals": [
-        156,
-        64,
-        49,
-        12
+        155,
+        65,
+        48,
+        13
       ],
       "total": 281
     },
@@ -749,8 +748,8 @@ window.__DASHBOARD_DATA__ = {
       "vals": [
         3,
         1,
-        2,
-        1
+        1,
+        2
       ],
       "total": 7
     },
@@ -789,8 +788,8 @@ window.__DASHBOARD_DATA__ = {
     {
       "key": "@Daniela Fav",
       "vals": [
-        17,
-        8,
+        16,
+        9,
         14,
         5
       ],
@@ -861,8 +860,8 @@ window.__DASHBOARD_DATA__ = {
       "vals": [
         8,
         9,
-        7,
-        2
+        6,
+        3
       ],
       "total": 26
     },
@@ -901,8 +900,8 @@ window.__DASHBOARD_DATA__ = {
       "vals": [
         10,
         2,
-        11,
-        0
+        10,
+        1
       ],
       "total": 23
     },
@@ -1142,16 +1141,16 @@ window.__DASHBOARD_DATA__ = {
   "ttd_usable": 187,
   "ttd_total_entregado": 2319,
   "forecast": {
-    "workdays_elapsed": 18,
-    "actual_elapsed": 206,
+    "workdays_elapsed": 19,
+    "actual_elapsed": 218,
     "workdays_total": 21,
-    "rate": 11.44,
-    "total": 240,
+    "rate": 11.47,
+    "total": 241,
     "nuevo": 19,
-    "seminuevo": 221
+    "seminuevo": 222
   },
   "corte": {
-    "fecha": "2026-08-27",
+    "fecha": "2026-08-28",
     "mes_label": "Ago 26"
   }
 };
