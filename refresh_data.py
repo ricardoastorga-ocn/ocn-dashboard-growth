@@ -94,6 +94,28 @@ def sheets_get(token, sheet_id, rng):
         return json.loads(resp.read()).get("values", [])
 
 
+class ColumnasFaltantesError(Exception):
+    """Se lanza cuando una pestaña ya no trae una columna que el script necesita por nombre.
+
+    Este reporte mide el pulso operativo del día -- NUNCA debe publicar en silencio con datos
+    incompletos porque una columna se movió o se renombró en la fuente (ya pasó una vez el
+    28-ago-2026 con GEST_FECHA_COMPROMISO_ENTREGA en el Sheet de Fleet: se corrió el rango de
+    30 columnas y esa columna cayó justo fuera, y el script no avisó, solo publicó ceros).
+    Mejor que el workflow de GitHub Actions truene visiblemente (run en rojo) a que el
+    dashboard se vea sano con un dato roto adentro.
+    """
+
+
+def validar_columnas(nombre_fuente, header_row, columnas_requeridas):
+    faltantes = [c for c in columnas_requeridas if c not in header_row]
+    if faltantes:
+        raise ColumnasFaltantesError(
+            f"'{nombre_fuente}' ya no trae la(s) columna(s) {faltantes} -- probablemente se "
+            f"reordenaron/renombraron en el Sheet. Revisar el encabezado real de esa pestaña "
+            f"antes de confiar en el resto de este refresh."
+        )
+
+
 def sheets_append(token, sheet_id, rng, row):
     url = (f"https://sheets.googleapis.com/v4/spreadsheets/{sheet_id}/values/"
            f"{urllib.parse.quote(rng)}:append?valueInputOption=USER_ENTERED")
@@ -161,8 +183,12 @@ def main():
     today = datetime.date.today()
 
     # ---------- Back Office: SEGUIMIENTO ENTREGAS (mes en curso) ----------
-    seg = sheets_get(token, BO_ID, "'SEGUIMIENTO ENTREGAS'!A1:AZ1000")
+    # Rango con margen generoso (43 columnas reales al momento de escribir esto, BZ=78) -- ver
+    # ColumnasFaltantesError para por qué el margen y la validación importan aquí.
+    seg = sheets_get(token, BO_ID, "'SEGUIMIENTO ENTREGAS'!A1:BZ1000")
     header, rows = seg[0], seg[1:]
+    validar_columnas("SEGUIMIENTO ENTREGAS", header,
+                      ["Estatus BO", "Ciudad Base", "Modelo", "Nuevo / Semi", "F / Entrega"])
     idx = {h: i for i, h in enumerate(header)}
 
     def get(r, col):
@@ -286,8 +312,14 @@ def main():
         })
 
     # ---------- Presales-Inventory: Waitlist (raw) ----------
-    wl = sheets_get(token, PI_ID, "'Waitlist'!A1:T5000")
+    # Rango con margen generoso (20 columnas reales al momento de escribir esto, AZ=52) -- mismo
+    # motivo que SEGUIMIENTO ENTREGAS arriba: antes este rango terminaba justo en la última
+    # columna real (T), sin margen para que la pestaña crezca sin romper el pull.
+    wl = sheets_get(token, PI_ID, "'Waitlist'!A1:AZ5000")
     wheader, wrows = wl[0], wl[1:]
+    validar_columnas("Waitlist", wheader,
+                      ["Fecha de solicitud", "agente_sales", "City", "Vehicle",
+                       "Estado de Auto", "Estatus", "Fecha Entrega"])
     widx = {h: i for i, h in enumerate(wheader)}
 
     def wget(r, col):
@@ -371,8 +403,14 @@ def main():
     # Universo = LISTA_TRABAJO == "Backlog Fleet" (lo que Fleet está trabajando y eventualmente
     # se libera a Ventas como inventario), excluyendo TALLER_ESTATUS == "DESFLOTE" (esas nunca
     # llegan a ser nuestro inventario, van a venta de desflote aparte).
-    fleet_block = sheets_get(token, FLEET_ID, "'RAW DATA'!AP1:BO8354")
+    # Rango ancho a propósito (no solo AP:BO) -- el Sheet de Fleet ha reordenado columnas antes
+    # (GEST_FECHA_COMPROMISO_ENTREGA se movió de BO a BQ el 28-ago-2026 sin avisar) y como el
+    # cruce de columnas de aquí en adelante es siempre por NOMBRE de encabezado (no por índice
+    # fijo), un rango de sobra evita que una columna nueva quede fuera del pull sin que se note.
+    fleet_block = sheets_get(token, FLEET_ID, "'RAW DATA'!A1:EN8354")
     f_header, f_rows = fleet_block[0], fleet_block[1:]
+    validar_columnas("Fleet Backlog / RAW DATA", f_header,
+                      ["LISTA_TRABAJO", "UBICACION_ACTUAL", "TALLER_ESTATUS", "GEST_FECHA_COMPROMISO_ENTREGA"])
     f_idx = {h: i for i, h in enumerate(f_header)}
 
     def fget(r, col):
