@@ -1,5 +1,8 @@
 name: Refresh dashboard data
 
+permissions:
+  contents: write
+
 on:
   schedule:
     # 8am, 11am, 2pm, 5pm hora CDMX (UTC-6), lunes a viernes
