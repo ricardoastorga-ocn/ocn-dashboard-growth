@@ -1,5 +1,5 @@
 window.__DASHBOARD_DATA__ = {
-  "generated_at": "2026-08-29T18:36:24.755661Z",
+  "generated_at": "2026-08-29T18:58:34.115342Z",
   "months": [
     "Ago 25",
     "Sep 25",
@@ -66,7 +66,7 @@ window.__DASHBOARD_DATA__ = {
     },
     {
       "nuevo": 18,
-      "seminuevo": 214
+      "seminuevo": 216
     }
   ],
   "modelo": [
@@ -179,8 +179,8 @@ window.__DASHBOARD_DATA__ = {
       "otros": 4
     },
     {
-      "byd": 108,
-      "mg5": 82,
+      "byd": 109,
+      "mg5": 83,
       "mg3": 22,
       "aion": 4,
       "king": 5,
@@ -197,7 +197,7 @@ window.__DASHBOARD_DATA__ = {
     "tiggo",
     "otros"
   ],
-  "etapas_total": 265,
+  "etapas_total": 266,
   "etapas": [
     {
       "key": "prep",
@@ -209,7 +209,7 @@ window.__DASHBOARD_DATA__ = {
     },
     {
       "key": "agendada",
-      "value": 5
+      "value": 6
     },
     {
       "key": "contrato",
@@ -221,11 +221,11 @@ window.__DASHBOARD_DATA__ = {
     },
     {
       "key": "liga",
-      "value": 2
+      "value": 0
     },
     {
       "key": "entregado",
-      "value": 232
+      "value": 234
     },
     {
       "key": "issue",
@@ -235,10 +235,10 @@ window.__DASHBOARD_DATA__ = {
   "etapas_ciudades": {
     "entregado": {
       "Tijuana": 44,
-      "CDMX / Edo Mex": 72,
+      "CDMX / Edo Mex": 73,
       "Monterrey": 58,
       "Queretaro": 15,
-      "Guadalajara": 13,
+      "Guadalajara": 14,
       "Merida": 7,
       "Saltillo": 5,
       "Puebla": 6,
@@ -250,7 +250,7 @@ window.__DASHBOARD_DATA__ = {
     },
     "agendada": {
       "Tijuana": 3,
-      "CDMX / Edo Mex": 1,
+      "CDMX / Edo Mex": 2,
       "Guadalajara": 1
     },
     "issue": {
@@ -264,10 +264,6 @@ window.__DASHBOARD_DATA__ = {
     },
     "contrato": {
       "Tijuana": 2
-    },
-    "liga": {
-      "CDMX / Edo Mex": 1,
-      "Guadalajara": 1
     }
   },
   "entregado_target_pct": 95,
@@ -284,9 +280,9 @@ window.__DASHBOARD_DATA__ = {
   "waitlist_gap": [
     {
       "ciudad": "CDMX / Edo Mex",
-      "espera": 279,
+      "espera": 278,
       "listo": 0,
-      "gap": 279
+      "gap": 278
     },
     {
       "ciudad": "Monterrey",
@@ -543,11 +539,11 @@ window.__DASHBOARD_DATA__ = {
       "otros": 2
     },
     {
-      "cdmx": 2,
+      "cdmx": 3,
       "mty": 1,
       "tij": 0,
       "qro": 0,
-      "gdl": 0,
+      "gdl": 1,
       "mxl": 0,
       "otros": 0
     },
@@ -582,8 +578,8 @@ window.__DASHBOARD_DATA__ = {
     0,
     0,
     0,
-    8,
-    4
+    6,
+    5
   ],
   "inv_log": [
     {
@@ -668,7 +664,7 @@ window.__DASHBOARD_DATA__ = {
     {
       "key": "0-30",
       "label": "0-30 días",
-      "value": 305
+      "value": 304
     },
     {
       "key": "31-60",
@@ -686,18 +682,18 @@ window.__DASHBOARD_DATA__ = {
       "value": 45
     }
   ],
-  "tiers_total": 677,
+  "tiers_total": 676,
   "max_wait_days": 250,
   "city_tier": [
     {
       "ciudad": "CDMX / Edo Mex",
       "vals": [
-        155,
+        154,
         57,
         55,
         12
       ],
-      "total": 279
+      "total": 278
     },
     {
       "ciudad": "Monterrey",
@@ -804,12 +800,12 @@ window.__DASHBOARD_DATA__ = {
     {
       "key": "@Daniela Fav",
       "vals": [
-        16,
+        15,
         7,
         14,
         6
       ],
-      "total": 43
+      "total": 42
     },
     {
       "key": "Ana Rodriguez",
@@ -834,12 +830,22 @@ window.__DASHBOARD_DATA__ = {
     {
       "key": "Oscar Alvarez",
       "vals": [
-        18,
+        17,
         9,
         4,
         1
       ],
-      "total": 32
+      "total": 31
+    },
+    {
+      "key": "Karen Garcia",
+      "vals": [
+        8,
+        14,
+        7,
+        1
+      ],
+      "total": 30
     },
     {
       "key": "Angelica Torres",
@@ -856,16 +862,6 @@ window.__DASHBOARD_DATA__ = {
       "vals": [
         14,
         7,
-        7,
-        1
-      ],
-      "total": 29
-    },
-    {
-      "key": "Karen Garcia",
-      "vals": [
-        7,
-        14,
         7,
         1
       ],
@@ -1066,8 +1062,8 @@ window.__DASHBOARD_DATA__ = {
     "workdays_total": 21,
     "rate": 11.45,
     "total": 240,
-    "nuevo": 19,
-    "seminuevo": 221
+    "nuevo": 18,
+    "seminuevo": 222
   },
   "corte": {
     "fecha": "2026-08-29",
