@@ -821,7 +821,8 @@ table.data-table tr.row-surplus td:first-child::before { content:""; position:ab
     const containerW = (svg.closest('.chart-scroll')||svg).clientWidth || 640;
     const colW = Math.max(opts.minColWidth || 42, Math.floor((containerW - padL - padR - labelW - totalColW - cellGap*cols.length) / cols.length));
     const width = padL + labelW + cols.length * (colW + cellGap) + totalColW + padR;
-    const height = padT + rows.length * (rowH + rowGap) - rowGap + padB;
+    const rowCountForHeight = opts.rowCountForHeight || rows.length;
+    const height = padT + rowCountForHeight * (rowH + rowGap) - rowGap + padB;
 
     svg.setAttribute("viewBox", "0 0 " + width + " " + height);
     svg.setAttribute("width", width);
@@ -1258,13 +1259,14 @@ el2('title-decline', 'Motivos de pérdida (histórico completo, '+fmt(DECLINE_TO
 
     const TIER_COLS = TIER_KEYS.map(k => ({key:k, label: TIER_LABELS[k].replace(' días','d')}));
     const agentHalf = Math.ceil(AGENT_TIER.length / 2);
+    const agentBlockRows = Math.max(agentHalf, AGENT_TIER.length - agentHalf);
     drawHeatmap('chart-agent-heatmap-a', 'tooltip-agent-heatmap-a', AGENT_TIER.slice(0, agentHalf), TIER_COLS, {
       ariaLabel: "Volumen de waitlist activo por agente, mayor volumen, desglosado por tier de antigüedad",
-      labelWidth: 150
+      labelWidth: 150, rowCountForHeight: agentBlockRows
     });
     drawHeatmap('chart-agent-heatmap-b', 'tooltip-agent-heatmap-b', AGENT_TIER.slice(agentHalf), TIER_COLS, {
       ariaLabel: "Volumen de waitlist activo por agente, resto, desglosado por tier de antigüedad",
-      labelWidth: 150
+      labelWidth: 150, rowCountForHeight: agentBlockRows
     });
 
     const legendDecline = document.getElementById('legend-decline');
