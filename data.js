@@ -1,5 +1,5 @@
 window.__DASHBOARD_DATA__ = {
-  "generated_at": "2026-08-31T16:05:28.137809Z",
+  "generated_at": "2026-08-31T18:05:35.111939Z",
   "months": [
     "Ago 25",
     "Sep 25",
@@ -65,8 +65,8 @@ window.__DASHBOARD_DATA__ = {
       "seminuevo": 298
     },
     {
-      "nuevo": 18,
-      "seminuevo": 220
+      "nuevo": 19,
+      "seminuevo": 224
     }
   ],
   "modelo": [
@@ -179,11 +179,11 @@ window.__DASHBOARD_DATA__ = {
       "otros": 4
     },
     {
-      "byd": 112,
-      "mg5": 83,
-      "mg3": 22,
+      "byd": 113,
+      "mg5": 85,
+      "mg3": 23,
       "aion": 5,
-      "king": 5,
+      "king": 6,
       "tiggo": 9,
       "otros": 2
     }
@@ -205,19 +205,19 @@ window.__DASHBOARD_DATA__ = {
     },
     {
       "key": "listo",
-      "value": 20
+      "value": 18
     },
     {
       "key": "agendada",
-      "value": 6
+      "value": 0
     },
     {
       "key": "contrato",
-      "value": 13
+      "value": 14
     },
     {
       "key": "cenv",
-      "value": 0
+      "value": 2
     },
     {
       "key": "liga",
@@ -225,7 +225,7 @@ window.__DASHBOARD_DATA__ = {
     },
     {
       "key": "entregado",
-      "value": 238
+      "value": 243
     },
     {
       "key": "issue",
@@ -235,32 +235,29 @@ window.__DASHBOARD_DATA__ = {
   "etapas_ciudades": {
     "entregado": {
       "Tijuana": 46,
-      "CDMX / Edo Mex": 74,
-      "Monterrey": 59,
+      "CDMX / Edo Mex": 75,
+      "Monterrey": 62,
       "Queretaro": 15,
       "Guadalajara": 14,
       "Merida": 7,
       "Saltillo": 5,
-      "Puebla": 6,
+      "Puebla": 7,
       "Mexicali": 12
     },
     "listo": {
       "Mexicali": 3,
-      "Tijuana": 16,
-      "Monterrey": 1
+      "Tijuana": 15
     },
     "contrato": {
-      "CDMX / Edo Mex": 2,
+      "CDMX / Edo Mex": 1,
+      "Tijuana": 6,
       "Guadalajara": 1,
       "Merida": 1,
       "Mexicali": 1,
-      "Monterrey": 3,
-      "Tijuana": 5
+      "Monterrey": 4
     },
-    "agendada": {
-      "CDMX / Edo Mex": 2,
-      "Monterrey": 3,
-      "Puebla": 1
+    "cenv": {
+      "CDMX / Edo Mex": 2
     },
     "issue": {
       "Queretaro": 1,
@@ -271,29 +268,25 @@ window.__DASHBOARD_DATA__ = {
   "ciudad_listo": [
     {
       "ciudad": "Tijuana",
-      "value": 16
+      "value": 15
     },
     {
       "ciudad": "Mexicali",
       "value": 3
-    },
-    {
-      "ciudad": "Monterrey",
-      "value": 1
     }
   ],
   "waitlist_gap": [
     {
       "ciudad": "CDMX / Edo Mex",
-      "espera": 275,
+      "espera": 278,
       "listo": 0,
-      "gap": 275
+      "gap": 278
     },
     {
       "ciudad": "Monterrey",
-      "espera": 90,
-      "listo": 1,
-      "gap": 89
+      "espera": 95,
+      "listo": 0,
+      "gap": 95
     },
     {
       "ciudad": "Merida",
@@ -333,9 +326,9 @@ window.__DASHBOARD_DATA__ = {
     },
     {
       "ciudad": "Tijuana",
-      "espera": 7,
-      "listo": 16,
-      "gap": -9
+      "espera": 8,
+      "listo": 15,
+      "gap": -7
     }
   ],
   "dias_labels": [
@@ -553,13 +546,13 @@ window.__DASHBOARD_DATA__ = {
       "otros": 0
     },
     {
-      "cdmx": 0,
-      "mty": 0,
+      "cdmx": 1,
+      "mty": 3,
       "tij": 0,
       "qro": 0,
       "gdl": 0,
       "mxl": 0,
-      "otros": 0
+      "otros": 1
     }
   ],
   "agendadas_dia": [
@@ -584,7 +577,7 @@ window.__DASHBOARD_DATA__ = {
     0,
     0,
     0,
-    19
+    16
   ],
   "inv_log": [
     {
@@ -683,7 +676,7 @@ window.__DASHBOARD_DATA__ = {
     {
       "key": "0-30",
       "label": "0-30 días",
-      "value": 278
+      "value": 287
     },
     {
       "key": "31-60",
@@ -701,28 +694,28 @@ window.__DASHBOARD_DATA__ = {
       "value": 50
     }
   ],
-  "tiers_total": 664,
+  "tiers_total": 673,
   "max_wait_days": 252,
   "city_tier": [
     {
       "ciudad": "CDMX / Edo Mex",
       "vals": [
-        148,
+        151,
         53,
         61,
         13
       ],
-      "total": 275
+      "total": 278
     },
     {
       "ciudad": "Monterrey",
       "vals": [
-        38,
+        43,
         19,
         28,
         5
       ],
-      "total": 90
+      "total": 95
     },
     {
       "ciudad": "Merida",
@@ -777,12 +770,12 @@ window.__DASHBOARD_DATA__ = {
     {
       "ciudad": "Tijuana",
       "vals": [
-        2,
+        3,
         2,
         1,
         2
       ],
-      "total": 7
+      "total": 8
     },
     {
       "ciudad": "Mexicali",
@@ -839,22 +832,22 @@ window.__DASHBOARD_DATA__ = {
     {
       "key": "Jrego Nolasco",
       "vals": [
-        23,
+        24,
         3,
         9,
         0
       ],
-      "total": 35
+      "total": 36
     },
     {
       "key": "Oscar Alvarez",
       "vals": [
-        17,
+        18,
         8,
         5,
         1
       ],
-      "total": 31
+      "total": 32
     },
     {
       "key": "Karen Garcia",
@@ -887,6 +880,36 @@ window.__DASHBOARD_DATA__ = {
       "total": 29
     },
     {
+      "key": "@Jess Martínez",
+      "vals": [
+        11,
+        8,
+        8,
+        1
+      ],
+      "total": 28
+    },
+    {
+      "key": "Aaron Sanchez",
+      "vals": [
+        14,
+        6,
+        7,
+        1
+      ],
+      "total": 28
+    },
+    {
+      "key": "@Jeremy Habner",
+      "vals": [
+        11,
+        2,
+        11,
+        3
+      ],
+      "total": 27
+    },
+    {
       "key": "@Joel Flores Lopez",
       "vals": [
         8,
@@ -897,41 +920,21 @@ window.__DASHBOARD_DATA__ = {
       "total": 27
     },
     {
-      "key": "@Jess Martínez",
-      "vals": [
-        10,
-        8,
-        8,
-        1
-      ],
-      "total": 27
-    },
-    {
-      "key": "@Jeremy Habner",
-      "vals": [
-        10,
-        2,
-        11,
-        3
-      ],
-      "total": 26
-    },
-    {
-      "key": "Aaron Sanchez",
-      "vals": [
-        12,
-        6,
-        7,
-        1
-      ],
-      "total": 26
-    },
-    {
       "key": "Fernando Medina",
       "vals": [
         10,
         6,
         7,
+        2
+      ],
+      "total": 25
+    },
+    {
+      "key": "Monserrat Rivera",
+      "vals": [
+        13,
+        4,
+        6,
         2
       ],
       "total": 25
@@ -965,16 +968,6 @@ window.__DASHBOARD_DATA__ = {
         3
       ],
       "total": 23
-    },
-    {
-      "key": "Monserrat Rivera",
-      "vals": [
-        10,
-        4,
-        6,
-        2
-      ],
-      "total": 22
     },
     {
       "key": "@Ivette",
@@ -1051,7 +1044,7 @@ window.__DASHBOARD_DATA__ = {
     {
       "key": "driver1",
       "label": "Agenda declinada por driver",
-      "value": 602
+      "value": 603
     },
     {
       "key": "tl",
@@ -1074,15 +1067,15 @@ window.__DASHBOARD_DATA__ = {
       "value": 12
     }
   ],
-  "decline_total": 819,
+  "decline_total": 820,
   "forecast": {
     "workdays_elapsed": 20,
     "actual_elapsed": 238,
     "workdays_total": 21,
     "rate": 11.9,
     "total": 250,
-    "nuevo": 19,
-    "seminuevo": 231
+    "nuevo": 20,
+    "seminuevo": 230
   },
   "corte": {
     "fecha": "2026-08-31",
@@ -1097,11 +1090,11 @@ window.__DASHBOARD_DATA__ = {
         5,
         3,
         9,
-        5,
+        6,
         15,
         2
       ],
-      "total": 39
+      "total": 40
     },
     {
       "ciudad": "Sin identificar",
@@ -1122,10 +1115,10 @@ window.__DASHBOARD_DATA__ = {
         3,
         8,
         9,
-        3,
+        2,
         2
       ],
-      "total": 25
+      "total": 24
     },
     {
       "ciudad": "Guadalajara",
