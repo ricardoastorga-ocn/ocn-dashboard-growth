@@ -1,5 +1,5 @@
 window.__DASHBOARD_DATA__ = {
-  "generated_at": "2026-08-31T19:19:23.798090Z",
+  "generated_at": "2026-08-31T19:29:09.357980Z",
   "months": [
     "Ago 25",
     "Sep 25",
@@ -217,11 +217,11 @@ window.__DASHBOARD_DATA__ = {
     },
     {
       "key": "cenv",
-      "value": 2
+      "value": 1
     },
     {
       "key": "liga",
-      "value": 0
+      "value": 1
     },
     {
       "key": "entregado",
@@ -249,7 +249,10 @@ window.__DASHBOARD_DATA__ = {
       "Tijuana": 14
     },
     "cenv": {
-      "CDMX / Edo Mex": 2
+      "CDMX / Edo Mex": 1
+    },
+    "liga": {
+      "CDMX / Edo Mex": 1
     },
     "agendada": {
       "Tijuana": 1
