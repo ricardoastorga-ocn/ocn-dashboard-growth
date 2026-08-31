@@ -517,11 +517,24 @@ def main():
                  "julio": 7, "agosto": 8, "septiembre": 9, "octubre": 10, "noviembre": 11,
                  "diciembre": 12}
 
+    # Clasificacion trabajable/no-trabajable por motivo (juicio de negocio, no un dato --
+    # confirmar/ajustar con Ricardo si algun motivo deberia cambiar de lado). "Trabajable" =
+    # se puede reactivar con la accion correcta (seguimiento, otro modelo, inventario nuevo).
+    # "No trabajable" = el cliente ya resolvio su necesidad por otro lado o ya no califica.
+    MOTIVO_TRABAJABLE = {
+        "DEJA DE CONTESTAR": True, "TUVO UN IMPREVISTO": True, "QUIERE OTRO MODELO": True,
+        "NO QUIERE SEMINUEVO": True, "NO CONSIGUIÓ AVAL": True, "NO LE CONVENCE EL CONTRATO": True,
+        "LE FATA UN DOCUMENTO": True, "ISSUE MECANICO/ESTETICO": True, "NO CONSIGUE DINERO": True,
+        "YA ADQUIRIÓ AUTO": False, "EXPRESA NO SEGUIR": False, "YA NO TRABAJA EN PLATAFORMAS": False,
+    }
+
     agenda_total = agenda_recuperado = agenda_perdido = agenda_pendiente = agenda_vencido = 0
     agenda_by_month = collections.OrderedDict()
     agenda_motivos = collections.Counter()
+    agenda_motivo_trabajable = {}
     agenda_by_agent = collections.defaultdict(collections.Counter)
     agenda_orphan = collections.defaultdict(list)
+    agenda_semaforo = collections.Counter()  # pendientes por bracket de dias hacia el limite de 30
 
     for r in drows:
         ciudad_d = (r[0].strip() if len(r) > 0 else "")
@@ -546,6 +559,14 @@ def main():
             agenda_pendiente += 1
             if is_vencido:
                 agenda_vencido += 1
+            if age_days is None:
+                agenda_semaforo["sin_fecha"] += 1
+            elif age_days <= 15:
+                agenda_semaforo["verde"] += 1
+            elif age_days <= 30:
+                agenda_semaforo["amarillo"] += 1
+            else:
+                agenda_semaforo["rojo"] += 1
 
         if mes_d:
             mc = agenda_by_month.setdefault(mes_d, collections.Counter())
@@ -559,6 +580,8 @@ def main():
 
         if motivo_d:
             agenda_motivos[motivo_d] += 1
+            if motivo_d not in agenda_motivo_trabajable:
+                agenda_motivo_trabajable[motivo_d] = MOTIVO_TRABAJABLE.get(motivo_d, True)
 
         if agente_d:
             ac = agenda_by_agent[agente_d]
@@ -587,7 +610,10 @@ def main():
         for m, c in sorted(agenda_by_month.items(), key=lambda kv: mes_sort_key(kv[0]))
     ]
 
-    agenda_decline_motivos = [{"motivo": k, "count": v} for k, v in agenda_motivos.most_common()]
+    agenda_decline_motivos = [
+        {"motivo": k, "count": v, "trabajable": agenda_motivo_trabajable.get(k, True)}
+        for k, v in agenda_motivos.most_common()
+    ]
 
     agenda_decline_by_agent = []
     for agente_d, c in agenda_by_agent.items():
@@ -653,6 +679,10 @@ def main():
             "perdido": agenda_perdido,
         },
         "agenda_decline_by_month": agenda_decline_by_month,
+        "agenda_decline_semaforo": {
+            "verde": agenda_semaforo.get("verde", 0), "amarillo": agenda_semaforo.get("amarillo", 0),
+            "rojo": agenda_semaforo.get("rojo", 0),
+        },
         "agenda_decline_motivos": agenda_decline_motivos,
         "agenda_decline_by_agent": agenda_decline_by_agent,
         "agenda_decline_orphaned": agenda_decline_orphaned,
