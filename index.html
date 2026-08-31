@@ -158,7 +158,19 @@ table.data-table tbody tr:last-child td { font-weight: 700; border-top: 1px soli
 .callout { font-size: 12.5px; color: var(--sub); background: var(--ocn-dim); border-radius: 10px; padding: 10px 13px; margin-top: 14px; line-height: 1.5; }
 .callout strong { color: var(--text); }
 
-.subsection-title { font-size: 14.5px; font-weight: 700; margin: 22px 0 10px; }
+.subsection-title {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+  color: var(--ocn);
+  background: var(--ocn-dim);
+  border: 1px solid var(--ocn-ring);
+  border-radius: 999px;
+  padding: 5px 14px;
+  margin: 24px 0 12px;
+}
 .subsection-title:first-of-type { margin-top: 4px; }
 .hm-cell-label { font-size: 10.5px; font-weight: 700; font-variant-numeric: tabular-nums; pointer-events: none; }
 .hm-row-total { font-size: 11px; font-weight: 700; fill: var(--text); font-variant-numeric: tabular-nums; }
@@ -472,9 +484,6 @@ table.data-table td.pct-bad  { color: var(--s-critical); font-weight: 700; }
       <div class="tooltip" id="tooltip-agenda-motivos"></div>
     </div>
     <div class="legend" id="legend-agenda-motivos"></div>
-
-    <p class="subsection-title">Por asesor</p>
-    <div class="table-wrap" id="agenda-agent-table-wrap" style="margin-top:10px;"></div>
   </section>
 
 
@@ -538,7 +547,6 @@ table.data-table td.pct-bad  { color: var(--s-critical); font-weight: 700; }
   const AGENDA_KPIS = DATA.agenda_decline_kpis;
   const AGENDA_MONTH = DATA.agenda_decline_by_month;
   const AGENDA_MOTIVOS = DATA.agenda_decline_motivos;
-  const AGENDA_AGENT = DATA.agenda_decline_by_agent;
 
   // Fleet Backlog (RAW DATA, solo lectura) -- universo = LISTA_TRABAJO "Backlog Fleet" menos
   // TALLER_ESTATUS "DESFLOTE" (esas no se convierten en inventario). Etapa en orden de proceso;
@@ -711,7 +719,7 @@ table.data-table td.pct-bad  { color: var(--s-critical); font-weight: 700; }
     const mutedColor = root.getPropertyValue('--s-otros').trim();
     const trackColor = root.getPropertyValue('--grid').trim();
 
-    const rowH = opts.rowH || 36, gap = 12;
+    const rowH = opts.rowH || 36, gap = opts.gap != null ? opts.gap : 12;
     const padL = 4, padR = opts.padRight || 56, padT = 4, padB = 4;
     const labelW = opts.labelWidth || 150;
     const width = Math.max(520, (svg.closest('.chart-scroll')||svg).clientWidth || 640);
@@ -1311,8 +1319,7 @@ table.data-table td.pct-bad  { color: var(--s-critical); font-weight: 700; }
       wrap.innerHTML =
         '<div class="finding-stat"><span class="v" style="color:var(--text)">'+fmt(k.total)+'</span><span class="k">declinados históricos</span></div>' +
         '<div class="finding-stat"><span class="v" style="color:var(--s-entregado)">'+k.pct_recuperado+'<small style="font-size:.5em;">%</small></span><span class="k">recuperados</span></div>' +
-        '<div class="finding-stat"><span class="v" style="color:var(--s-pendiente)">'+fmt(k.pendiente)+'</span><span class="k">pendientes hoy</span></div>' +
-        '<div class="finding-stat"><span class="v" style="color:var(--s-critical)">'+fmt(k.vencido)+'</span><span class="k">a Contact Center</span></div>';
+        '<div class="finding-stat"><span class="v" style="color:var(--s-pendiente)">'+fmt(k.pendiente)+'</span><span class="k">pendientes hoy</span></div>';
       el2('note-agenda-decline', 'Fuente: Back Office, "GLOBAL DECLINADOS".');
     }
 
@@ -1369,29 +1376,11 @@ table.data-table td.pct-bad  { color: var(--s-critical); font-weight: 700; }
         ariaLabel: "Motivo de declinación, separado en trabajable vs no trabajable",
         labelOf: d => d.key.charAt(0) + d.key.slice(1).toLowerCase(),
         colorOf: d => d.trabajable ? '--ocn' : '--s-otros',
-        labelWidth: 190,
-        padRight: 60,
-        rowH: 26
+        labelWidth: 180,
+        padRight: 50,
+        rowH: 18,
+        gap: 6
       });
-    }
-
-    {
-      const wrap = document.getElementById('agenda-agent-table-wrap');
-      let html = '<table class="data-table"><caption>Por asesor, ordenado de mayor a menor volumen declinado</caption>' +
-        '<thead><tr><th>Asesor</th><th>Total</th><th>Recuperado</th><th>% Recuperado</th><th>Pendiente</th><th>Vencido (&gt;30d)</th><th>Perdido</th></tr></thead><tbody>';
-      AGENDA_AGENT.forEach(a => {
-        const pctCls = a.pct_recuperado >= 50 ? 'pct-good' : (a.pct_recuperado >= 25 ? 'pct-warn' : 'pct-bad');
-        html += '<tr><td>'+a.agente+'</td><td>'+fmt(a.total)+'</td><td>'+fmt(a.recuperado)+'</td>' +
-          '<td class="'+pctCls+'">'+a.pct_recuperado.toFixed(0)+'%</td>' +
-          '<td>'+fmt(a.pendiente)+'</td><td>'+(a.vencido>0?fmt(a.vencido):'—')+'</td><td>'+(a.perdido>0?fmt(a.perdido):'—')+'</td></tr>';
-      });
-      const sumTotal = AGENDA_AGENT.reduce((s,a)=>s+a.total,0), sumRec = AGENDA_AGENT.reduce((s,a)=>s+a.recuperado,0),
-        sumPend = AGENDA_AGENT.reduce((s,a)=>s+a.pendiente,0), sumVenc = AGENDA_AGENT.reduce((s,a)=>s+a.vencido,0),
-        sumPerd = AGENDA_AGENT.reduce((s,a)=>s+a.perdido,0);
-      html += '<tr><td>Total</td><td>'+fmt(sumTotal)+'</td><td>'+fmt(sumRec)+'</td><td>'+(sumRec/sumTotal*100).toFixed(0)+'%</td>' +
-        '<td>'+fmt(sumPend)+'</td><td>'+fmt(sumVenc)+'</td><td>'+fmt(sumPerd)+'</td></tr>';
-      html += '</tbody></table>';
-      wrap.innerHTML = html;
     }
 
     drawStackBar('chart-fleet-city-stage', 'tooltip-fleet-city-stage', FLEET_CITY_STAGE.map(r=>({label:r.ciudad, vals:r.vals, total:r.total})), {
