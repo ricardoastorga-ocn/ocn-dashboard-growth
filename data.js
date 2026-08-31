@@ -1,5 +1,5 @@
 window.__DASHBOARD_DATA__ = {
-  "generated_at": "2026-08-30T17:34:27.140728Z",
+  "generated_at": "2026-08-31T02:40:24.945706Z",
   "months": [
     "Ago 25",
     "Sep 25",
@@ -66,7 +66,7 @@ window.__DASHBOARD_DATA__ = {
     },
     {
       "nuevo": 18,
-      "seminuevo": 219
+      "seminuevo": 220
     }
   ],
   "modelo": [
@@ -179,7 +179,7 @@ window.__DASHBOARD_DATA__ = {
       "otros": 4
     },
     {
-      "byd": 111,
+      "byd": 112,
       "mg5": 83,
       "mg3": 22,
       "aion": 5,
@@ -221,11 +221,11 @@ window.__DASHBOARD_DATA__ = {
     },
     {
       "key": "liga",
-      "value": 1
+      "value": 0
     },
     {
       "key": "entregado",
-      "value": 237
+      "value": 238
     },
     {
       "key": "issue",
@@ -235,7 +235,7 @@ window.__DASHBOARD_DATA__ = {
   "etapas_ciudades": {
     "entregado": {
       "Tijuana": 46,
-      "CDMX / Edo Mex": 73,
+      "CDMX / Edo Mex": 74,
       "Monterrey": 59,
       "Queretaro": 15,
       "Guadalajara": 14,
@@ -260,9 +260,6 @@ window.__DASHBOARD_DATA__ = {
     "issue": {
       "Queretaro": 1,
       "Tijuana": 1
-    },
-    "liga": {
-      "CDMX / Edo Mex": 1
     }
   },
   "entregado_target_pct": 95,
@@ -285,9 +282,9 @@ window.__DASHBOARD_DATA__ = {
     },
     {
       "ciudad": "Monterrey",
-      "espera": 93,
+      "espera": 90,
       "listo": 0,
-      "gap": 93
+      "gap": 90
     },
     {
       "ciudad": "Merida",
@@ -538,7 +535,7 @@ window.__DASHBOARD_DATA__ = {
       "otros": 2
     },
     {
-      "cdmx": 3,
+      "cdmx": 4,
       "mty": 2,
       "tij": 2,
       "qro": 0,
@@ -577,7 +574,7 @@ window.__DASHBOARD_DATA__ = {
     0,
     0,
     0,
-    1,
+    0,
     21
   ],
   "inv_log": [
@@ -664,70 +661,77 @@ window.__DASHBOARD_DATA__ = {
       "tij": 15,
       "mxl": 3,
       "mty": 0
+    },
+    {
+      "fecha": "31-ago",
+      "total": 18,
+      "tij": 15,
+      "mxl": 3,
+      "mty": 0
     }
   ],
   "tiers": [
     {
       "key": "0-30",
       "label": "0-30 días",
-      "value": 289
+      "value": 278
     },
     {
       "key": "31-60",
       "label": "31-60 días",
-      "value": 156
+      "value": 149
     },
     {
       "key": "61-90",
       "label": "61-90 días",
-      "value": 178
+      "value": 187
     },
     {
       "key": "90+",
       "label": "90+ días",
-      "value": 44
+      "value": 50
     }
   ],
-  "tiers_total": 667,
-  "max_wait_days": 251,
+  "tiers_total": 664,
+  "max_wait_days": 252,
   "city_tier": [
     {
       "ciudad": "CDMX / Edo Mex",
       "vals": [
-        150,
-        57,
-        57,
-        11
+        148,
+        53,
+        61,
+        13
       ],
       "total": 275
     },
     {
       "ciudad": "Monterrey",
       "vals": [
-        42,
-        21,
-        26,
-        4
+        38,
+        19,
+        28,
+        5
       ],
-      "total": 93
+      "total": 90
     },
     {
       "ciudad": "Merida",
       "vals": [
         17,
-        14,
-        36,
-        9
+        12,
+        37,
+        10
       ],
       "total": 76
     },
     {
       "ciudad": "Puebla",
       "vals": [
-        24,
+        21,
         29,
-        15,
-        6
+        17,
+        7
       ],
       "total": 74
     },
@@ -744,18 +748,18 @@ window.__DASHBOARD_DATA__ = {
     {
       "ciudad": "Queretaro",
       "vals": [
-        15,
+        14,
         7,
         16,
-        8
+        9
       ],
       "total": 46
     },
     {
       "ciudad": "Saltillo",
       "vals": [
-        17,
-        10,
+        16,
+        11,
         3,
         1
       ],
@@ -786,18 +790,18 @@ window.__DASHBOARD_DATA__ = {
     {
       "key": "Adolfo Jaimes",
       "vals": [
-        22,
         18,
-        13,
+        19,
+        14,
         4
       ],
-      "total": 57
+      "total": 55
     },
     {
       "key": "Mayte Urrutia",
       "vals": [
-        27,
-        7,
+        26,
+        8,
         11,
         2
       ],
@@ -806,20 +810,20 @@ window.__DASHBOARD_DATA__ = {
     {
       "key": "@Daniela Fav",
       "vals": [
-        15,
-        7,
+        13,
+        8,
         14,
-        6
+        7
       ],
       "total": 42
     },
     {
       "key": "Ana Rodriguez",
       "vals": [
-        17,
+        16,
         8,
         10,
-        2
+        3
       ],
       "total": 37
     },
@@ -837,8 +841,8 @@ window.__DASHBOARD_DATA__ = {
       "key": "Oscar Alvarez",
       "vals": [
         17,
-        9,
-        4,
+        8,
+        5,
         1
       ],
       "total": 31
@@ -846,9 +850,9 @@ window.__DASHBOARD_DATA__ = {
     {
       "key": "Karen Garcia",
       "vals": [
-        8,
-        13,
-        8,
+        7,
+        12,
+        10,
         1
       ],
       "total": 30
@@ -867,8 +871,8 @@ window.__DASHBOARD_DATA__ = {
       "key": "Ishell Miranda",
       "vals": [
         11,
-        7,
-        9,
+        2,
+        14,
         2
       ],
       "total": 29
@@ -877,18 +881,18 @@ window.__DASHBOARD_DATA__ = {
       "key": "@Joel Flores Lopez",
       "vals": [
         8,
-        9,
-        7,
-        3
+        8,
+        6,
+        5
       ],
       "total": 27
     },
     {
       "key": "@Jess Martínez",
       "vals": [
-        11,
+        10,
         8,
-        7,
+        8,
         1
       ],
       "total": 27
@@ -917,8 +921,8 @@ window.__DASHBOARD_DATA__ = {
       "key": "Fernando Medina",
       "vals": [
         10,
-        7,
         6,
+        7,
         2
       ],
       "total": 25
@@ -928,8 +932,8 @@ window.__DASHBOARD_DATA__ = {
       "vals": [
         15,
         7,
-        3,
-        0
+        2,
+        1
       ],
       "total": 25
     },
@@ -964,24 +968,24 @@ window.__DASHBOARD_DATA__ = {
       "total": 22
     },
     {
-      "key": "Edwin Hernandez",
+      "key": "@Ivette",
       "vals": [
-        7,
-        8,
+        9,
+        6,
         4,
         1
       ],
       "total": 20
     },
     {
-      "key": "@Ivette",
+      "key": "Edwin Hernandez",
       "vals": [
-        9,
         6,
+        7,
         5,
-        0
+        1
       ],
-      "total": 20
+      "total": 19
     },
     {
       "key": "Antonio Cruz",
@@ -1064,18 +1068,18 @@ window.__DASHBOARD_DATA__ = {
   "decline_total": 819,
   "forecast": {
     "workdays_elapsed": 20,
-    "actual_elapsed": 237,
+    "actual_elapsed": 238,
     "workdays_total": 21,
-    "rate": 11.85,
-    "total": 249,
+    "rate": 11.9,
+    "total": 250,
     "nuevo": 19,
-    "seminuevo": 230
+    "seminuevo": 231
   },
   "corte": {
-    "fecha": "2026-08-30",
+    "fecha": "2026-08-31",
     "mes_label": "Ago 26"
   },
-  "fleet_total": 124,
+  "fleet_total": 125,
   "fleet_desflote_n": 12,
   "fleet_city_stage": [
     {
@@ -1085,10 +1089,10 @@ window.__DASHBOARD_DATA__ = {
         3,
         9,
         5,
-        14,
+        15,
         2
       ],
-      "total": 38
+      "total": 39
     },
     {
       "ciudad": "Tijuana",
@@ -1256,7 +1260,7 @@ window.__DASHBOARD_DATA__ = {
     },
     {
       "tij": 0,
-      "cdmx": 4,
+      "cdmx": 5,
       "gdl": 5,
       "qro": 0,
       "mty": 0,
@@ -1289,5 +1293,354 @@ window.__DASHBOARD_DATA__ = {
   ],
   "fleet_sin_fecha_n": 42,
   "fleet_vencido_dias": 10,
-  "fleet_vencido_unidades": 73
+  "fleet_vencido_unidades": 74,
+  "agenda_decline_kpis": {
+    "total": 460,
+    "recuperado": 198,
+    "pct_recuperado": 43.0,
+    "pendiente": 237,
+    "vencido": 236,
+    "pct_vencido_of_pendiente": 99.6,
+    "perdido": 25
+  },
+  "agenda_decline_by_month": [
+    {
+      "mes": "abril 2026",
+      "total": 9,
+      "recuperado": 5,
+      "pendiente": 4,
+      "perdido": 0,
+      "pct_recuperado": 55.6
+    },
+    {
+      "mes": "mayo 2026",
+      "total": 192,
+      "recuperado": 89,
+      "pendiente": 94,
+      "perdido": 9,
+      "pct_recuperado": 46.4
+    },
+    {
+      "mes": "junio 2026",
+      "total": 156,
+      "recuperado": 67,
+      "pendiente": 79,
+      "perdido": 10,
+      "pct_recuperado": 42.9
+    },
+    {
+      "mes": "julio 2026",
+      "total": 103,
+      "recuperado": 37,
+      "pendiente": 60,
+      "perdido": 6,
+      "pct_recuperado": 35.9
+    }
+  ],
+  "agenda_decline_motivos": [
+    {
+      "motivo": "DEJA DE CONTESTAR",
+      "count": 102
+    },
+    {
+      "motivo": "TUVO UN IMPREVISTO",
+      "count": 44
+    },
+    {
+      "motivo": "QUIERE OTRO MODELO",
+      "count": 35
+    },
+    {
+      "motivo": "NO CONSIGUE DINERO",
+      "count": 20
+    },
+    {
+      "motivo": "NO QUIERE SEMINUEVO",
+      "count": 17
+    },
+    {
+      "motivo": "YA ADQUIRIÓ AUTO",
+      "count": 15
+    },
+    {
+      "motivo": "NO CONSIGUIÓ AVAL",
+      "count": 10
+    },
+    {
+      "motivo": "NO LE CONVENCE EL CONTRATO",
+      "count": 9
+    },
+    {
+      "motivo": "EXPRESA NO SEGUIR",
+      "count": 5
+    },
+    {
+      "motivo": "YA NO TRABAJA EN PLATAFORMAS",
+      "count": 3
+    },
+    {
+      "motivo": "LE FATA UN DOCUMENTO",
+      "count": 1
+    },
+    {
+      "motivo": "ISSUE MECANICO/ESTETICO",
+      "count": 1
+    }
+  ],
+  "agenda_decline_by_agent": [
+    {
+      "agente": "Edwin Hernandez",
+      "total": 41,
+      "recuperado": 15,
+      "pendiente": 24,
+      "vencido": 24,
+      "perdido": 2,
+      "pct_recuperado": 36.6
+    },
+    {
+      "agente": "Jrego Nolasco",
+      "total": 31,
+      "recuperado": 11,
+      "pendiente": 17,
+      "vencido": 16,
+      "perdido": 3,
+      "pct_recuperado": 35.5
+    },
+    {
+      "agente": "Ishell Miranda",
+      "total": 31,
+      "recuperado": 12,
+      "pendiente": 16,
+      "vencido": 16,
+      "perdido": 3,
+      "pct_recuperado": 38.7
+    },
+    {
+      "agente": "Angelica Torres",
+      "total": 24,
+      "recuperado": 14,
+      "pendiente": 10,
+      "vencido": 10,
+      "perdido": 0,
+      "pct_recuperado": 58.3
+    },
+    {
+      "agente": "Fernando Medina",
+      "total": 22,
+      "recuperado": 13,
+      "pendiente": 8,
+      "vencido": 8,
+      "perdido": 1,
+      "pct_recuperado": 59.1
+    },
+    {
+      "agente": "Karen Garcia",
+      "total": 20,
+      "recuperado": 7,
+      "pendiente": 13,
+      "vencido": 13,
+      "perdido": 0,
+      "pct_recuperado": 35.0
+    },
+    {
+      "agente": "Rafael Leon",
+      "total": 20,
+      "recuperado": 4,
+      "pendiente": 16,
+      "vencido": 16,
+      "perdido": 0,
+      "pct_recuperado": 20.0
+    },
+    {
+      "agente": "Aaron Sanchez",
+      "total": 19,
+      "recuperado": 6,
+      "pendiente": 11,
+      "vencido": 11,
+      "perdido": 2,
+      "pct_recuperado": 31.6
+    },
+    {
+      "agente": "ADOLFO JAIMES",
+      "total": 18,
+      "recuperado": 6,
+      "pendiente": 11,
+      "vencido": 11,
+      "perdido": 1,
+      "pct_recuperado": 33.3
+    },
+    {
+      "agente": "MICHELLE R",
+      "total": 18,
+      "recuperado": 6,
+      "pendiente": 10,
+      "vencido": 10,
+      "perdido": 2,
+      "pct_recuperado": 33.3
+    },
+    {
+      "agente": "Joel Flores",
+      "total": 18,
+      "recuperado": 7,
+      "pendiente": 9,
+      "vencido": 9,
+      "perdido": 2,
+      "pct_recuperado": 38.9
+    },
+    {
+      "agente": "Imanol Cortez",
+      "total": 17,
+      "recuperado": 3,
+      "pendiente": 13,
+      "vencido": 13,
+      "perdido": 1,
+      "pct_recuperado": 17.6
+    },
+    {
+      "agente": "Daniela Favela",
+      "total": 16,
+      "recuperado": 8,
+      "pendiente": 8,
+      "vencido": 8,
+      "perdido": 0,
+      "pct_recuperado": 50.0
+    },
+    {
+      "agente": "IVETTE IXEL",
+      "total": 15,
+      "recuperado": 6,
+      "pendiente": 9,
+      "vencido": 9,
+      "perdido": 0,
+      "pct_recuperado": 40.0
+    },
+    {
+      "agente": "Monserrat Rivera",
+      "total": 14,
+      "recuperado": 8,
+      "pendiente": 6,
+      "vencido": 6,
+      "perdido": 0,
+      "pct_recuperado": 57.1
+    },
+    {
+      "agente": "Mayte Urrutia",
+      "total": 12,
+      "recuperado": 2,
+      "pendiente": 8,
+      "vencido": 8,
+      "perdido": 2,
+      "pct_recuperado": 16.7
+    },
+    {
+      "agente": "Enrique Jimenez",
+      "total": 11,
+      "recuperado": 11,
+      "pendiente": 0,
+      "vencido": 0,
+      "perdido": 0,
+      "pct_recuperado": 100.0
+    },
+    {
+      "agente": "Ana Rodriguez",
+      "total": 11,
+      "recuperado": 7,
+      "pendiente": 4,
+      "vencido": 4,
+      "perdido": 0,
+      "pct_recuperado": 63.6
+    },
+    {
+      "agente": "Jeremy Tamayo",
+      "total": 10,
+      "recuperado": 6,
+      "pendiente": 4,
+      "vencido": 4,
+      "perdido": 0,
+      "pct_recuperado": 60.0
+    },
+    {
+      "agente": "Oscar Alvarez",
+      "total": 8,
+      "recuperado": 3,
+      "pendiente": 5,
+      "vencido": 5,
+      "perdido": 0,
+      "pct_recuperado": 37.5
+    },
+    {
+      "agente": "Jessica Martinez",
+      "total": 8,
+      "recuperado": 7,
+      "pendiente": 1,
+      "vencido": 1,
+      "perdido": 0,
+      "pct_recuperado": 87.5
+    },
+    {
+      "agente": "Diana Moreno",
+      "total": 5,
+      "recuperado": 1,
+      "pendiente": 4,
+      "vencido": 4,
+      "perdido": 0,
+      "pct_recuperado": 20.0
+    },
+    {
+      "agente": "Mirna Cruz",
+      "total": 3,
+      "recuperado": 3,
+      "pendiente": 0,
+      "vencido": 0,
+      "perdido": 0,
+      "pct_recuperado": 100.0
+    },
+    {
+      "agente": "Antonio Cruz",
+      "total": 3,
+      "recuperado": 3,
+      "pendiente": 0,
+      "vencido": 0,
+      "perdido": 0,
+      "pct_recuperado": 100.0
+    }
+  ],
+  "agenda_decline_orphaned": [
+    {
+      "agente": "Yael Munoz",
+      "count": 8,
+      "min_age": 49,
+      "max_age": 96
+    },
+    {
+      "agente": "Hector Vera",
+      "count": 6,
+      "min_age": 49,
+      "max_age": 117
+    },
+    {
+      "agente": "Araceli Olvera",
+      "count": 6,
+      "min_age": 62,
+      "max_age": 110
+    },
+    {
+      "agente": "Mariam Bangoura",
+      "count": 4,
+      "min_age": 79,
+      "max_age": 101
+    },
+    {
+      "agente": "Fernando Velazquez",
+      "count": 4,
+      "min_age": 60,
+      "max_age": 98
+    },
+    {
+      "agente": "Carlos Mejia",
+      "count": 1,
+      "min_age": 95,
+      "max_age": 95
+    }
+  ]
 };
