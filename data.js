@@ -1,5 +1,5 @@
 window.__DASHBOARD_DATA__ = {
-  "generated_at": "2026-08-31T02:48:09.091780Z",
+  "generated_at": "2026-08-31T03:11:07.544217Z",
   "months": [
     "Ago 25",
     "Sep 25",
@@ -1337,54 +1337,71 @@ window.__DASHBOARD_DATA__ = {
       "pct_recuperado": 35.9
     }
   ],
+  "agenda_decline_semaforo": {
+    "verde": 0,
+    "amarillo": 0,
+    "rojo": 236
+  },
   "agenda_decline_motivos": [
     {
       "motivo": "DEJA DE CONTESTAR",
-      "count": 102
+      "count": 102,
+      "trabajable": true
     },
     {
       "motivo": "TUVO UN IMPREVISTO",
-      "count": 44
+      "count": 44,
+      "trabajable": true
     },
     {
       "motivo": "QUIERE OTRO MODELO",
-      "count": 35
+      "count": 35,
+      "trabajable": true
     },
     {
       "motivo": "NO CONSIGUE DINERO",
-      "count": 20
+      "count": 20,
+      "trabajable": true
     },
     {
       "motivo": "NO QUIERE SEMINUEVO",
-      "count": 17
+      "count": 17,
+      "trabajable": true
     },
     {
       "motivo": "YA ADQUIRIÓ AUTO",
-      "count": 15
+      "count": 15,
+      "trabajable": false
     },
     {
       "motivo": "NO CONSIGUIÓ AVAL",
-      "count": 10
+      "count": 10,
+      "trabajable": true
     },
     {
       "motivo": "NO LE CONVENCE EL CONTRATO",
-      "count": 9
+      "count": 9,
+      "trabajable": true
     },
     {
       "motivo": "EXPRESA NO SEGUIR",
-      "count": 5
+      "count": 5,
+      "trabajable": false
     },
     {
       "motivo": "YA NO TRABAJA EN PLATAFORMAS",
-      "count": 3
+      "count": 3,
+      "trabajable": false
     },
     {
       "motivo": "LE FATA UN DOCUMENTO",
-      "count": 1
+      "count": 1,
+      "trabajable": true
     },
     {
       "motivo": "ISSUE MECANICO/ESTETICO",
-      "count": 1
+      "count": 1,
+      "trabajable": true
     }
   ],
   "agenda_decline_by_agent": [
