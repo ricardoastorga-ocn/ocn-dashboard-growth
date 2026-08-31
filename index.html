@@ -36,6 +36,9 @@
   --s-otros:      hsl(258 10% 62%);
   --s-entregado:  #0ea45c;
   --flag-deficit: #ea580c;
+  --s-critical:   #dc2626;
+  --s-pendiente:  #eda100;
+  --s-perdido:    #dc2626;
 
   /* Ordinal ramp — antigüedad en espera (0-30 -> 90+), un solo hue (morado de marca), luminosidad monótona */
   --tier-0: hsl(266 55% 90%);
@@ -184,6 +187,9 @@ table.data-table tr.row-surplus { background: color-mix(in srgb, var(--flag-defi
 table.data-table tr.row-deficit td:first-child, table.data-table tr.row-surplus td:first-child { position: relative; }
 table.data-table tr.row-deficit td:first-child::before { content:""; position:absolute; left:0; top:0; bottom:0; width:3px; background:var(--ocn); }
 table.data-table tr.row-surplus td:first-child::before { content:""; position:absolute; left:0; top:0; bottom:0; width:3px; background:var(--flag-deficit); }
+table.data-table td.pct-good { color: var(--s-entregado); font-weight: 700; }
+table.data-table td.pct-warn { color: var(--s-pendiente); font-weight: 700; }
+table.data-table td.pct-bad  { color: var(--s-critical); font-weight: 700; }
 
 .foot { font-size: 11.5px; color: var(--muted); line-height: 1.7; border-top: 1px solid var(--border); padding-top: 16px; }
 .foot ul { margin: 6px 0 0; padding-left: 18px; }
@@ -439,6 +445,39 @@ table.data-table tr.row-surplus td:first-child::before { content:""; position:ab
     <p class="callout" id="callout-decline"></p>
   </section>
 
+  <section class="card" id="card-agenda-decline">
+    <div class="card-head">
+      <div>
+        <p class="card-title">Agendas declinadas — recuperación de ventas</p>
+        <p class="card-note" id="note-agenda-decline"></p>
+      </div>
+    </div>
+
+    <div class="finding-row" id="agenda-decline-kpis" style="margin:6px 0 20px;flex-wrap:wrap;gap:24px 32px;"></div>
+
+    <p class="subsection-title">Declinados por mes — recuperado / pendiente / perdido</p>
+    <p class="card-note" style="margin-top:-6px;" id="note-agenda-month"></p>
+    <div class="chart-wrap" id="agenda-month-chart-wrap">
+      <div class="chart-scroll"><svg class="chart" id="chart-agenda-month"></svg></div>
+      <div class="tooltip" id="tooltip-agenda-month"></div>
+    </div>
+    <div class="legend" id="legend-agenda-month"></div>
+
+    <p class="subsection-title">Motivo de declinación</p>
+    <div class="chart-wrap" id="agenda-motivos-chart-wrap">
+      <div class="chart-scroll"><svg class="chart" id="chart-agenda-motivos"></svg></div>
+      <div class="tooltip" id="tooltip-agenda-motivos"></div>
+    </div>
+
+    <p class="subsection-title">Por asesor — volumen, recuperación y vencidos</p>
+    <p class="card-note" style="margin-top:-6px;">Ordenado por volumen total declinado. "Vencido" = pendiente con más de 30 días desde la agenda declinada — bajo la regla vigente, pasa a Contact Center y deja de contar en comisiones del asesor.</p>
+    <div class="table-wrap" id="agenda-agent-table-wrap" style="margin-top:10px;"></div>
+
+    <p class="subsection-title">Reasignación propuesta — asesores que ya no están en OCN</p>
+    <p class="card-note" style="margin-top:-6px;" id="note-agenda-orphaned"></p>
+    <div class="table-wrap" id="agenda-orphaned-table-wrap" style="margin-top:10px;"></div>
+  </section>
+
 
 </div>
 </div>
@@ -500,6 +539,12 @@ table.data-table tr.row-surplus td:first-child::before { content:""; position:ab
   const DECLINE_LABELCOLOR = {driver1:'light', tl:'light', driver2:'dark', perdido:'dark', rechazado:'dark'};
 
   const AGENT_TIER = DATA.agent_tier;
+
+  const AGENDA_KPIS = DATA.agenda_decline_kpis;
+  const AGENDA_MONTH = DATA.agenda_decline_by_month;
+  const AGENDA_MOTIVOS = DATA.agenda_decline_motivos;
+  const AGENDA_AGENT = DATA.agenda_decline_by_agent;
+  const AGENDA_ORPHANED = DATA.agenda_decline_orphaned;
 
   // Fleet Backlog (RAW DATA, solo lectura) -- universo = LISTA_TRABAJO "Backlog Fleet" menos
   // TALLER_ESTATUS "DESFLOTE" (esas no se convierten en inventario). Etapa en orden de proceso;
@@ -1268,6 +1313,83 @@ el2('title-decline', 'Motivos de pérdida (histórico completo, '+fmt(DECLINE_TO
       ariaLabel: "Volumen de waitlist activo por agente, resto, desglosado por tier de antigüedad",
       labelWidth: 150, rowCountForHeight: agentBlockRows
     });
+
+    // ---- Agendas declinadas — recuperación de ventas ----
+    {
+      const k = AGENDA_KPIS;
+      const wrap = document.getElementById('agenda-decline-kpis');
+      wrap.innerHTML =
+        '<div class="finding-stat"><span class="v" style="color:var(--text)">'+fmt(k.total)+'</span><span class="k">declinados históricos</span></div>' +
+        '<div class="finding-stat"><span class="v" style="color:var(--s-entregado)">'+k.pct_recuperado+'<small style="font-size:.5em;">%</small></span><span class="k">recuperados · '+fmt(k.recuperado)+' de '+fmt(k.total)+'</span></div>' +
+        '<div class="finding-stat"><span class="v" style="color:var(--s-pendiente)">'+fmt(k.pendiente)+'</span><span class="k">pendientes abiertos hoy</span></div>' +
+        '<div class="finding-stat"><span class="v" style="color:var(--s-critical)">'+fmt(k.vencido)+'</span><span class="k">ya vencidos (&gt;30 días) — a Contact Center bajo la regla nueva</span></div>';
+      el2('note-agenda-decline', fmt(k.total)+' agendas de entrega declinadas registradas (fuente: Back Office, pestaña "GLOBAL DECLINADOS") · '+k.pct_vencido_of_pendiente+'% del pendiente actual ya superó los 30 días de plazo.', true);
+    }
+
+    el2('note-agenda-month', 'Los meses más recientes muestran menor % recuperado simplemente porque han tenido menos tiempo para resolverse desde que se declinaron — no es una caída real de desempeño, es un efecto natural del corte. El mes más reciente aún está "en curso".');
+
+    const AGENDA_MONTH_KEYS = ['recuperado', 'pendiente', 'perdido'];
+    const AGENDA_MONTH_COLORVAR = {recuperado: '--s-entregado', pendiente: '--s-pendiente', perdido: '--s-perdido'};
+    const AGENDA_MONTH_LABEL = {recuperado: 'Recuperado', pendiente: 'Pendiente', perdido: 'Perdido'};
+    const legendAgendaMonth = document.getElementById('legend-agenda-month');
+    if (legendAgendaMonth) legendAgendaMonth.innerHTML = AGENDA_MONTH_KEYS.map(kk =>
+      '<span class="legend-item"><span class="legend-swatch" style="background:var('+AGENDA_MONTH_COLORVAR[kk]+')"></span>'+AGENDA_MONTH_LABEL[kk]+'</span>'
+    ).join('');
+    drawStackedChart('chart-agenda-month', 'tooltip-agenda-month', AGENDA_MONTH, AGENDA_MONTH_KEYS, k => AGENDA_MONTH_COLORVAR[k], {
+      ariaLabel: "Agendas declinadas por mes, desglosadas en recuperado, pendiente y perdido",
+      labelOf: k => AGENDA_MONTH_LABEL[k],
+      months: AGENDA_MONTH.map(m => m.mes.replace(' 2026', '')),
+      showSegmentPct: true
+    });
+
+    {
+      const totalMotivos = AGENDA_MOTIVOS.reduce((a, d) => a + d.count, 0);
+      const topMotivo = AGENDA_MOTIVOS[0] ? AGENDA_MOTIVOS[0].motivo : null;
+      drawEmphasisBarChart('chart-agenda-motivos', 'tooltip-agenda-motivos',
+        AGENDA_MOTIVOS.map(d => ({key: d.motivo, value: d.count})), {
+        ariaLabel: "Motivo de declinación de la agenda, ranking por frecuencia",
+        labelOf: d => d.key.charAt(0) + d.key.slice(1).toLowerCase(),
+        highlightKey: topMotivo,
+        emphasisColorVar: '--ocn',
+        labelWidth: 190,
+        padRight: 80,
+        pctTotal: totalMotivos,
+        rowH: 28
+      });
+    }
+
+    {
+      const wrap = document.getElementById('agenda-agent-table-wrap');
+      let html = '<table class="data-table"><caption>Por asesor, ordenado de mayor a menor volumen declinado</caption>' +
+        '<thead><tr><th>Asesor</th><th>Total</th><th>Recuperado</th><th>% Recuperado</th><th>Pendiente</th><th>Vencido (&gt;30d)</th><th>Perdido</th></tr></thead><tbody>';
+      AGENDA_AGENT.forEach(a => {
+        const pctCls = a.pct_recuperado >= 50 ? 'pct-good' : (a.pct_recuperado >= 25 ? 'pct-warn' : 'pct-bad');
+        html += '<tr><td>'+a.agente+'</td><td>'+fmt(a.total)+'</td><td>'+fmt(a.recuperado)+'</td>' +
+          '<td class="'+pctCls+'">'+a.pct_recuperado.toFixed(0)+'%</td>' +
+          '<td>'+fmt(a.pendiente)+'</td><td>'+(a.vencido>0?fmt(a.vencido):'—')+'</td><td>'+(a.perdido>0?fmt(a.perdido):'—')+'</td></tr>';
+      });
+      const sumTotal = AGENDA_AGENT.reduce((s,a)=>s+a.total,0), sumRec = AGENDA_AGENT.reduce((s,a)=>s+a.recuperado,0),
+        sumPend = AGENDA_AGENT.reduce((s,a)=>s+a.pendiente,0), sumVenc = AGENDA_AGENT.reduce((s,a)=>s+a.vencido,0),
+        sumPerd = AGENDA_AGENT.reduce((s,a)=>s+a.perdido,0);
+      html += '<tr><td>Total</td><td>'+fmt(sumTotal)+'</td><td>'+fmt(sumRec)+'</td><td>'+(sumRec/sumTotal*100).toFixed(0)+'%</td>' +
+        '<td>'+fmt(sumPend)+'</td><td>'+fmt(sumVenc)+'</td><td>'+fmt(sumPerd)+'</td></tr>';
+      html += '</tbody></table>';
+      wrap.innerHTML = html;
+    }
+
+    {
+      const totalOrph = AGENDA_ORPHANED.reduce((s,a)=>s+a.count,0);
+      el2('note-agenda-orphaned', totalOrph+' casos pendientes quedaron sin dueño activo cuando estos asesores dejaron OCN. Los '+totalOrph+' ya superan los 30 días de plazo (mínimo '+Math.min.apply(null,AGENDA_ORPHANED.map(a=>a.min_age))+', máximo '+Math.max.apply(null,AGENDA_ORPHANED.map(a=>a.max_age))+' días) — bajo la regla vigente van completos a Contact Center, no hace falta redistribuirlos entre asesores activos.', true);
+      const wrap = document.getElementById('agenda-orphaned-table-wrap');
+      let html = '<table class="data-table"><caption>Casos pendientes de asesores que ya no están en OCN — propuesta de reasignación</caption>' +
+        '<thead><tr><th>Asesor saliente</th><th>Casos pendientes</th><th>Antigüedad (días)</th><th>Destino recomendado</th></tr></thead><tbody>';
+      AGENDA_ORPHANED.forEach(a => {
+        html += '<tr class="row-deficit"><td>'+a.agente+'</td><td>'+fmt(a.count)+'</td><td>'+a.min_age+'–'+a.max_age+'</td><td class="def">Contact Center (100% vencido)</td></tr>';
+      });
+      html += '<tr><td>Total</td><td>'+fmt(totalOrph)+'</td><td></td><td></td></tr>';
+      html += '</tbody></table>';
+      wrap.innerHTML = html;
+    }
 
     const legendDecline = document.getElementById('legend-decline');
     if (legendDecline) legendDecline.innerHTML = DECLINE.map(d =>

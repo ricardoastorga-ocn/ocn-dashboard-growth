@@ -491,6 +491,122 @@ def main():
     fleet_vencido_dias = sum(1 for d in day_buckets if d < today)
     fleet_vencido_unidades = sum(sum(day_buckets[d].values()) for d in day_buckets if d < today)
 
+    # ---------- Back Office: GLOBAL DECLINADOS (agendas de entrega declinadas + recuperación) ----------
+    # Regla de negocio (confirmada por Ricardo 30-ago-2026): un asesor tiene 30 dias desde la
+    # fecha de agenda declinada para recuperar al cliente -- despues de eso pasa a Contact
+    # Center y ya no cuenta en sus comisiones. "vencido" abajo = pendiente con mas de 30 dias.
+    DEPARTED_AGENTS = {"araceli olvera", "mariam bangoura", "fernando velazquez",
+                        "hector vera", "carlos mejia", "yael munoz"}
+
+    def norm_simple(s):
+        return re.sub(r"\s+", " ", norm_ascii(s)).strip().lower()
+
+    decl_raw = sheets_get(token, BO_ID, "'GLOBAL DECLINADOS'!A1:P1001")
+    dheader, drows = decl_raw[0], decl_raw[1:]
+    validar_columnas("GLOBAL DECLINADOS", dheader,
+                      ["Agente", "STATUS DECLINADO", "MOTIVO", "MES DECLINACIÓN", "FECHA AGENDA "])
+    didx = {h: i for i, h in enumerate(dheader)}
+
+    def dget(r, col):
+        i = didx.get(col)
+        if i is None or len(r) <= i:
+            return ""
+        return r[i]
+
+    MES_ORDER = {"enero": 1, "febrero": 2, "marzo": 3, "abril": 4, "mayo": 5, "junio": 6,
+                 "julio": 7, "agosto": 8, "septiembre": 9, "octubre": 10, "noviembre": 11,
+                 "diciembre": 12}
+
+    agenda_total = agenda_recuperado = agenda_perdido = agenda_pendiente = agenda_vencido = 0
+    agenda_by_month = collections.OrderedDict()
+    agenda_motivos = collections.Counter()
+    agenda_by_agent = collections.defaultdict(collections.Counter)
+    agenda_orphan = collections.defaultdict(list)
+
+    for r in drows:
+        ciudad_d = (r[0].strip() if len(r) > 0 else "")
+        agente_d = dget(r, "Agente").strip()
+        status_d = dget(r, "STATUS DECLINADO").strip()
+        motivo_d = dget(r, "MOTIVO").strip()
+        mes_d = dget(r, "MES DECLINACIÓN").strip()
+        fecha_d = dget(r, "FECHA AGENDA ").strip()
+        if not agente_d and not ciudad_d:
+            continue
+        agenda_total += 1
+        fecha_parsed = parse_date_multi(fecha_d, ["%d/%m/%Y"])
+        age_days = (today - fecha_parsed).days if fecha_parsed else None
+        is_pending = status_d == "DECLINADO/SIGUE EN ESPERA"
+        is_vencido = is_pending and age_days is not None and age_days > 30
+
+        if status_d == "ENTREGADO":
+            agenda_recuperado += 1
+        elif status_d == "NO VUELVE A RETOMAR":
+            agenda_perdido += 1
+        elif is_pending:
+            agenda_pendiente += 1
+            if is_vencido:
+                agenda_vencido += 1
+
+        if mes_d:
+            mc = agenda_by_month.setdefault(mes_d, collections.Counter())
+            mc["total"] += 1
+            if status_d == "ENTREGADO":
+                mc["recuperado"] += 1
+            elif status_d == "NO VUELVE A RETOMAR":
+                mc["perdido"] += 1
+            elif is_pending:
+                mc["pendiente"] += 1
+
+        if motivo_d:
+            agenda_motivos[motivo_d] += 1
+
+        if agente_d:
+            ac = agenda_by_agent[agente_d]
+            ac["total"] += 1
+            if status_d == "ENTREGADO":
+                ac["recuperado"] += 1
+            elif status_d == "NO VUELVE A RETOMAR":
+                ac["perdido"] += 1
+            elif is_pending:
+                ac["pendiente"] += 1
+                if is_vencido:
+                    ac["vencido"] += 1
+            if norm_simple(agente_d) in DEPARTED_AGENTS and is_pending:
+                agenda_orphan[agente_d].append(age_days if age_days is not None else 0)
+
+    def mes_sort_key(mes_label):
+        parts = mes_label.split()
+        if len(parts) == 2 and parts[0].lower() in MES_ORDER:
+            return (parts[1], MES_ORDER[parts[0].lower()])
+        return ("9999", 99)
+
+    agenda_decline_by_month = [
+        {"mes": m, "total": c["total"], "recuperado": c.get("recuperado", 0),
+         "pendiente": c.get("pendiente", 0), "perdido": c.get("perdido", 0),
+         "pct_recuperado": round(c.get("recuperado", 0) / c["total"] * 100, 1) if c["total"] else 0}
+        for m, c in sorted(agenda_by_month.items(), key=lambda kv: mes_sort_key(kv[0]))
+    ]
+
+    agenda_decline_motivos = [{"motivo": k, "count": v} for k, v in agenda_motivos.most_common()]
+
+    agenda_decline_by_agent = []
+    for agente_d, c in agenda_by_agent.items():
+        if norm_simple(agente_d) in DEPARTED_AGENTS:
+            continue
+        total_a = c["total"]
+        agenda_decline_by_agent.append({
+            "agente": agente_d, "total": total_a,
+            "recuperado": c.get("recuperado", 0), "pendiente": c.get("pendiente", 0),
+            "vencido": c.get("vencido", 0), "perdido": c.get("perdido", 0),
+            "pct_recuperado": round(c.get("recuperado", 0) / total_a * 100, 1) if total_a else 0,
+        })
+    agenda_decline_by_agent.sort(key=lambda d: -d["total"])
+
+    agenda_decline_orphaned = [
+        {"agente": a, "count": len(ages), "min_age": min(ages), "max_age": max(ages)}
+        for a, ages in sorted(agenda_orphan.items(), key=lambda kv: -len(kv[1]))
+    ]
+
     data = {
         "generated_at": datetime.datetime.utcnow().isoformat() + "Z",
         "months": months,
@@ -529,6 +645,17 @@ def main():
         "fleet_sin_fecha_n": fleet_sin_fecha_n,
         "fleet_vencido_dias": fleet_vencido_dias,
         "fleet_vencido_unidades": fleet_vencido_unidades,
+        "agenda_decline_kpis": {
+            "total": agenda_total, "recuperado": agenda_recuperado,
+            "pct_recuperado": round(agenda_recuperado / agenda_total * 100, 1) if agenda_total else 0,
+            "pendiente": agenda_pendiente, "vencido": agenda_vencido,
+            "pct_vencido_of_pendiente": round(agenda_vencido / agenda_pendiente * 100, 1) if agenda_pendiente else 0,
+            "perdido": agenda_perdido,
+        },
+        "agenda_decline_by_month": agenda_decline_by_month,
+        "agenda_decline_motivos": agenda_decline_motivos,
+        "agenda_decline_by_agent": agenda_decline_by_agent,
+        "agenda_decline_orphaned": agenda_decline_orphaned,
     }
 
     out_path = os.path.join(os.path.dirname(__file__), "data.js")
