@@ -1,5 +1,5 @@
 window.__DASHBOARD_DATA__ = {
-  "generated_at": "2026-08-31T22:05:35.619711Z",
+  "generated_at": "2026-08-31T22:16:05.941780Z",
   "months": [
     "Ago 25",
     "Sep 25",
@@ -197,7 +197,7 @@ window.__DASHBOARD_DATA__ = {
     "tiggo",
     "otros"
   ],
-  "etapas_total": 290,
+  "etapas_total": 289,
   "etapas": [
     {
       "key": "prep",
@@ -209,11 +209,11 @@ window.__DASHBOARD_DATA__ = {
     },
     {
       "key": "agendada",
-      "value": 6
+      "value": 5
     },
     {
       "key": "contrato",
-      "value": 7
+      "value": 8
     },
     {
       "key": "cenv",
@@ -229,7 +229,7 @@ window.__DASHBOARD_DATA__ = {
     },
     {
       "key": "issue",
-      "value": 2
+      "value": 1
     }
   ],
   "etapas_ciudades": {
@@ -252,17 +252,16 @@ window.__DASHBOARD_DATA__ = {
     },
     "agendada": {
       "Tijuana": 3,
-      "Monterrey": 2,
+      "Monterrey": 1,
       "CDMX / Edo Mex": 1
     },
     "issue": {
-      "Queretaro": 1,
-      "Tijuana": 1
+      "Queretaro": 1
     },
     "contrato": {
       "Tijuana": 2,
       "Mexicali": 1,
-      "Monterrey": 3,
+      "Monterrey": 4,
       "Guadalajara": 1
     }
   },
