@@ -1,5 +1,5 @@
 window.__DASHBOARD_DATA__ = {
-  "generated_at": "2026-08-31T14:05:59.063271Z",
+  "generated_at": "2026-08-31T16:05:28.137809Z",
   "months": [
     "Ago 25",
     "Sep 25",
@@ -205,15 +205,15 @@ window.__DASHBOARD_DATA__ = {
     },
     {
       "key": "listo",
-      "value": 18
+      "value": 20
     },
     {
       "key": "agendada",
-      "value": 21
+      "value": 6
     },
     {
       "key": "contrato",
-      "value": 0
+      "value": 13
     },
     {
       "key": "cenv",
@@ -246,16 +246,21 @@ window.__DASHBOARD_DATA__ = {
     },
     "listo": {
       "Mexicali": 3,
-      "Tijuana": 15
+      "Tijuana": 16,
+      "Monterrey": 1
     },
-    "agendada": {
-      "Mexicali": 1,
-      "Tijuana": 6,
-      "CDMX / Edo Mex": 4,
+    "contrato": {
+      "CDMX / Edo Mex": 2,
       "Guadalajara": 1,
       "Merida": 1,
-      "Puebla": 1,
-      "Monterrey": 7
+      "Mexicali": 1,
+      "Monterrey": 3,
+      "Tijuana": 5
+    },
+    "agendada": {
+      "CDMX / Edo Mex": 2,
+      "Monterrey": 3,
+      "Puebla": 1
     },
     "issue": {
       "Queretaro": 1,
@@ -266,11 +271,15 @@ window.__DASHBOARD_DATA__ = {
   "ciudad_listo": [
     {
       "ciudad": "Tijuana",
-      "value": 15
+      "value": 16
     },
     {
       "ciudad": "Mexicali",
       "value": 3
+    },
+    {
+      "ciudad": "Monterrey",
+      "value": 1
     }
   ],
   "waitlist_gap": [
@@ -283,8 +292,8 @@ window.__DASHBOARD_DATA__ = {
     {
       "ciudad": "Monterrey",
       "espera": 90,
-      "listo": 0,
-      "gap": 90
+      "listo": 1,
+      "gap": 89
     },
     {
       "ciudad": "Merida",
@@ -325,8 +334,8 @@ window.__DASHBOARD_DATA__ = {
     {
       "ciudad": "Tijuana",
       "espera": 7,
-      "listo": 15,
-      "gap": -8
+      "listo": 16,
+      "gap": -9
     }
   ],
   "dias_labels": [
@@ -575,7 +584,7 @@ window.__DASHBOARD_DATA__ = {
     0,
     0,
     0,
-    21
+    19
   ],
   "inv_log": [
     {
@@ -1079,7 +1088,7 @@ window.__DASHBOARD_DATA__ = {
     "fecha": "2026-08-31",
     "mes_label": "Ago 26"
   },
-  "fleet_total": 126,
+  "fleet_total": 127,
   "fleet_desflote_n": 12,
   "fleet_city_stage": [
     {
@@ -1137,10 +1146,10 @@ window.__DASHBOARD_DATA__ = {
         2,
         2,
         0,
-        2,
+        3,
         3
       ],
-      "total": 13
+      "total": 14
     },
     {
       "ciudad": "Queretaro",
@@ -1291,7 +1300,7 @@ window.__DASHBOARD_DATA__ = {
       "otros": 3
     }
   ],
-  "fleet_sin_fecha_n": 42,
+  "fleet_sin_fecha_n": 43,
   "fleet_vencido_dias": 10,
   "fleet_vencido_unidades": 75,
   "agenda_decline_kpis": {
