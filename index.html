@@ -1381,12 +1381,12 @@ el2('title-decline', 'Motivos de pérdida (histórico completo, '+fmt(DECLINE_TO
       const totalOrph = AGENDA_ORPHANED.reduce((s,a)=>s+a.count,0);
       el2('note-agenda-orphaned', totalOrph+' casos pendientes quedaron sin dueño activo cuando estos asesores dejaron OCN. Los '+totalOrph+' ya superan los 30 días de plazo (mínimo '+Math.min.apply(null,AGENDA_ORPHANED.map(a=>a.min_age))+', máximo '+Math.max.apply(null,AGENDA_ORPHANED.map(a=>a.max_age))+' días) — bajo la regla vigente van completos a Contact Center, no hace falta redistribuirlos entre asesores activos.', true);
       const wrap = document.getElementById('agenda-orphaned-table-wrap');
-      let html = '<table class="data-table"><caption>Casos pendientes de asesores que ya no están en OCN — propuesta de reasignación</caption>' +
-        '<thead><tr><th>Asesor saliente</th><th>Casos pendientes</th><th>Antigüedad (días)</th><th>Destino recomendado</th></tr></thead><tbody>';
+      let html = '<table class="data-table"><caption>Casos pendientes de asesores que ya no están en OCN</caption>' +
+        '<thead><tr><th>Asesor saliente</th><th>Casos pendientes</th><th>Antigüedad (días)</th></tr></thead><tbody>';
       AGENDA_ORPHANED.forEach(a => {
-        html += '<tr class="row-deficit"><td>'+a.agente+'</td><td>'+fmt(a.count)+'</td><td>'+a.min_age+'–'+a.max_age+'</td><td class="def">Contact Center (100% vencido)</td></tr>';
+        html += '<tr class="row-deficit"><td>'+a.agente+'</td><td>'+fmt(a.count)+'</td><td>'+a.min_age+'–'+a.max_age+'</td></tr>';
       });
-      html += '<tr><td>Total</td><td>'+fmt(totalOrph)+'</td><td></td><td></td></tr>';
+      html += '<tr><td>Total</td><td>'+fmt(totalOrph)+'</td><td></td></tr>';
       html += '</tbody></table>';
       wrap.innerHTML = html;
     }
