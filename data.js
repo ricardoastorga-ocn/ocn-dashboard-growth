@@ -1,5 +1,5 @@
 window.__DASHBOARD_DATA__ = {
-  "generated_at": "2026-08-31T19:50:56.550640Z",
+  "generated_at": "2026-08-31T20:05:43.939706Z",
   "months": [
     "Ago 25",
     "Sep 25",
@@ -65,7 +65,7 @@ window.__DASHBOARD_DATA__ = {
       "seminuevo": 298
     },
     {
-      "nuevo": 19,
+      "nuevo": 20,
       "seminuevo": 227
     }
   ],
@@ -179,7 +179,7 @@ window.__DASHBOARD_DATA__ = {
       "otros": 4
     },
     {
-      "byd": 114,
+      "byd": 115,
       "mg5": 86,
       "mg3": 23,
       "aion": 5,
@@ -205,27 +205,27 @@ window.__DASHBOARD_DATA__ = {
     },
     {
       "key": "listo",
-      "value": 18
+      "value": 17
     },
     {
       "key": "agendada",
-      "value": 1
+      "value": 2
     },
     {
       "key": "contrato",
-      "value": 11
+      "value": 10
     },
     {
       "key": "cenv",
-      "value": 0
-    },
-    {
-      "key": "liga",
       "value": 1
     },
     {
+      "key": "liga",
+      "value": 0
+    },
+    {
       "key": "entregado",
-      "value": 246
+      "value": 247
     },
     {
       "key": "issue",
@@ -235,7 +235,7 @@ window.__DASHBOARD_DATA__ = {
   "etapas_ciudades": {
     "entregado": {
       "Tijuana": 46,
-      "CDMX / Edo Mex": 77,
+      "CDMX / Edo Mex": 78,
       "Monterrey": 62,
       "Queretaro": 15,
       "Guadalajara": 14,
@@ -246,14 +246,11 @@ window.__DASHBOARD_DATA__ = {
     },
     "listo": {
       "Mexicali": 3,
-      "Tijuana": 14,
+      "Tijuana": 13,
       "Guadalajara": 1
     },
-    "liga": {
-      "CDMX / Edo Mex": 1
-    },
     "agendada": {
-      "Tijuana": 1
+      "Tijuana": 2
     },
     "issue": {
       "Queretaro": 1,
@@ -262,14 +259,17 @@ window.__DASHBOARD_DATA__ = {
     "contrato": {
       "Tijuana": 6,
       "Mexicali": 1,
-      "Monterrey": 4
+      "Monterrey": 3
+    },
+    "cenv": {
+      "Monterrey": 1
     }
   },
   "entregado_target_pct": 95,
   "ciudad_listo": [
     {
       "ciudad": "Tijuana",
-      "value": 14
+      "value": 13
     },
     {
       "ciudad": "Mexicali",
@@ -283,9 +283,9 @@ window.__DASHBOARD_DATA__ = {
   "waitlist_gap": [
     {
       "ciudad": "CDMX / Edo Mex",
-      "espera": 279,
+      "espera": 278,
       "listo": 0,
-      "gap": 279
+      "gap": 278
     },
     {
       "ciudad": "Monterrey",
@@ -332,8 +332,8 @@ window.__DASHBOARD_DATA__ = {
     {
       "ciudad": "Tijuana",
       "espera": 8,
-      "listo": 14,
-      "gap": -6
+      "listo": 13,
+      "gap": -5
     }
   ],
   "dias_labels": [
@@ -551,7 +551,7 @@ window.__DASHBOARD_DATA__ = {
       "otros": 0
     },
     {
-      "cdmx": 3,
+      "cdmx": 4,
       "mty": 3,
       "tij": 0,
       "qro": 0,
@@ -681,7 +681,7 @@ window.__DASHBOARD_DATA__ = {
     {
       "key": "0-30",
       "label": "0-30 días",
-      "value": 288
+      "value": 287
     },
     {
       "key": "31-60",
@@ -699,18 +699,18 @@ window.__DASHBOARD_DATA__ = {
       "value": 50
     }
   ],
-  "tiers_total": 675,
+  "tiers_total": 674,
   "max_wait_days": 252,
   "city_tier": [
     {
       "ciudad": "CDMX / Edo Mex",
       "vals": [
-        151,
+        150,
         54,
         61,
         13
       ],
-      "total": 279
+      "total": 278
     },
     {
       "ciudad": "Monterrey",
@@ -905,16 +905,6 @@ window.__DASHBOARD_DATA__ = {
       "total": 28
     },
     {
-      "key": "@Jeremy Habner",
-      "vals": [
-        11,
-        2,
-        11,
-        3
-      ],
-      "total": 27
-    },
-    {
       "key": "@Joel Flores Lopez",
       "vals": [
         8,
@@ -923,6 +913,16 @@ window.__DASHBOARD_DATA__ = {
         5
       ],
       "total": 27
+    },
+    {
+      "key": "@Jeremy Habner",
+      "vals": [
+        10,
+        2,
+        11,
+        3
+      ],
+      "total": 26
     },
     {
       "key": "Fernando Medina",
@@ -1079,8 +1079,8 @@ window.__DASHBOARD_DATA__ = {
     "workdays_total": 21,
     "rate": 11.9,
     "total": 250,
-    "nuevo": 19,
-    "seminuevo": 231
+    "nuevo": 20,
+    "seminuevo": 230
   },
   "corte": {
     "fecha": "2026-08-31",
