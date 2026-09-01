@@ -1,5 +1,5 @@
 window.__DASHBOARD_DATA__ = {
-  "generated_at": "2026-09-01T00:16:08.962780Z",
+  "generated_at": "2026-09-01T00:22:40.272307Z",
   "months": [
     "Ago 25",
     "Sep 25",
@@ -217,11 +217,11 @@ window.__DASHBOARD_DATA__ = {
     },
     {
       "key": "cenv",
-      "value": 3
+      "value": 2
     },
     {
       "key": "liga",
-      "value": 1
+      "value": 2
     },
     {
       "key": "entregado",
@@ -259,7 +259,7 @@ window.__DASHBOARD_DATA__ = {
       "Queretaro": 1
     },
     "cenv": {
-      "Monterrey": 3
+      "Monterrey": 2
     },
     "contrato": {
       "Tijuana": 1,
@@ -268,6 +268,7 @@ window.__DASHBOARD_DATA__ = {
       "CDMX / Edo Mex": 1
     },
     "liga": {
+      "Monterrey": 1,
       "CDMX / Edo Mex": 1
     }
   },
@@ -297,15 +298,15 @@ window.__DASHBOARD_DATA__ = {
   "waitlist_gap": [
     {
       "ciudad": "CDMX / Edo Mex",
-      "espera": 279,
+      "espera": 280,
       "listo": 0,
-      "gap": 279
+      "gap": 280
     },
     {
       "ciudad": "Monterrey",
-      "espera": 90,
+      "espera": 91,
       "listo": 4,
-      "gap": 86
+      "gap": 87
     },
     {
       "ciudad": "Merida",
@@ -471,7 +472,7 @@ window.__DASHBOARD_DATA__ = {
     {
       "key": "0-30",
       "label": "0-30 días",
-      "value": 277
+      "value": 279
     },
     {
       "key": "31-60",
@@ -489,28 +490,28 @@ window.__DASHBOARD_DATA__ = {
       "value": 51
     }
   ],
-  "tiers_total": 669,
+  "tiers_total": 671,
   "max_wait_days": 253,
   "city_tier": [
     {
       "ciudad": "CDMX / Edo Mex",
       "vals": [
-        147,
+        148,
         53,
         65,
         14
       ],
-      "total": 279
+      "total": 280
     },
     {
       "ciudad": "Monterrey",
       "vals": [
-        38,
+        39,
         16,
         32,
         4
       ],
-      "total": 90
+      "total": 91
     },
     {
       "ciudad": "Merida",
@@ -607,12 +608,12 @@ window.__DASHBOARD_DATA__ = {
     {
       "key": "@Daniela Fav",
       "vals": [
-        14,
+        15,
         8,
         13,
         8
       ],
-      "total": 43
+      "total": 44
     },
     {
       "key": "Ana Rodriguez",
@@ -715,6 +716,16 @@ window.__DASHBOARD_DATA__ = {
       "total": 26
     },
     {
+      "key": "Diana Moreno",
+      "vals": [
+        16,
+        6,
+        3,
+        1
+      ],
+      "total": 26
+    },
+    {
       "key": "Fernando Medina",
       "vals": [
         10,
@@ -731,16 +742,6 @@ window.__DASHBOARD_DATA__ = {
         3,
         7,
         2
-      ],
-      "total": 25
-    },
-    {
-      "key": "Diana Moreno",
-      "vals": [
-        15,
-        6,
-        3,
-        1
       ],
       "total": 25
     },
