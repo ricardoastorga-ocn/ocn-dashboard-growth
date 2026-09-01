@@ -1,5 +1,5 @@
 window.__DASHBOARD_DATA__ = {
-  "generated_at": "2026-09-01T16:05:33.514295Z",
+  "generated_at": "2026-09-01T16:37:04.002559Z",
   "months": [
     "Ago 25",
     "Sep 25",
@@ -219,11 +219,11 @@ window.__DASHBOARD_DATA__ = {
     },
     {
       "key": "listo",
-      "value": 33
+      "value": 32
     },
     {
       "key": "agendada",
-      "value": 0
+      "value": 1
     },
     {
       "key": "contrato",
@@ -231,11 +231,11 @@ window.__DASHBOARD_DATA__ = {
     },
     {
       "key": "cenv",
-      "value": 1
+      "value": 0
     },
     {
       "key": "liga",
-      "value": 0
+      "value": 1
     },
     {
       "key": "entregado",
@@ -261,8 +261,7 @@ window.__DASHBOARD_DATA__ = {
     "listo": {
       "Mexicali": 4,
       "Tijuana": 24,
-      "Monterrey": 4,
-      "Puebla": 1
+      "Monterrey": 4
     },
     "contrato": {
       "Tijuana": 3,
@@ -272,8 +271,11 @@ window.__DASHBOARD_DATA__ = {
     "issue": {
       "Queretaro": 1
     },
-    "cenv": {
+    "liga": {
       "Monterrey": 1
+    },
+    "agendada": {
+      "Puebla": 1
     }
   },
   "entregado_target_pct": 95,
@@ -289,10 +291,6 @@ window.__DASHBOARD_DATA__ = {
     {
       "ciudad": "Monterrey",
       "value": 4
-    },
-    {
-      "ciudad": "Puebla",
-      "value": 1
     }
   ],
   "waitlist_gap": [
@@ -304,9 +302,9 @@ window.__DASHBOARD_DATA__ = {
     },
     {
       "ciudad": "Monterrey",
-      "espera": 88,
+      "espera": 89,
       "listo": 4,
-      "gap": 84
+      "gap": 85
     },
     {
       "ciudad": "Merida",
@@ -316,8 +314,8 @@ window.__DASHBOARD_DATA__ = {
     },
     {
       "ciudad": "Puebla",
-      "espera": 74,
-      "listo": 1,
+      "espera": 73,
+      "listo": 0,
       "gap": 73
     },
     {
@@ -352,9 +350,19 @@ window.__DASHBOARD_DATA__ = {
     }
   ],
   "dias_labels": [
-    "1"
+    "1",
+    "2"
   ],
   "entregados_dia": [
+    {
+      "cdmx": 0,
+      "mty": 0,
+      "tij": 0,
+      "qro": 0,
+      "gdl": 0,
+      "mxl": 0,
+      "otros": 0
+    },
     {
       "cdmx": 0,
       "mty": 0,
@@ -366,7 +374,8 @@ window.__DASHBOARD_DATA__ = {
     }
   ],
   "agendadas_dia": [
-    6
+    6,
+    1
   ],
   "inv_log": [
     {
@@ -462,7 +471,7 @@ window.__DASHBOARD_DATA__ = {
     },
     {
       "fecha": "1-sep",
-      "total": 33,
+      "total": 32,
       "tij": 24,
       "mxl": 4,
       "mty": 4
@@ -472,7 +481,7 @@ window.__DASHBOARD_DATA__ = {
     {
       "key": "0-30",
       "label": "0-30 días",
-      "value": 276
+      "value": 277
     },
     {
       "key": "31-60",
@@ -482,7 +491,7 @@ window.__DASHBOARD_DATA__ = {
     {
       "key": "61-90",
       "label": "61-90 días",
-      "value": 196
+      "value": 195
     },
     {
       "key": "90+",
@@ -506,12 +515,12 @@ window.__DASHBOARD_DATA__ = {
     {
       "ciudad": "Monterrey",
       "vals": [
-        36,
+        37,
         16,
         32,
         4
       ],
-      "total": 88
+      "total": 89
     },
     {
       "ciudad": "Merida",
@@ -528,10 +537,10 @@ window.__DASHBOARD_DATA__ = {
       "vals": [
         21,
         28,
-        18,
+        17,
         7
       ],
-      "total": 74
+      "total": 73
     },
     {
       "ciudad": "Guadalajara",
@@ -620,20 +629,20 @@ window.__DASHBOARD_DATA__ = {
       "vals": [
         16,
         8,
-        10,
+        9,
         3
       ],
-      "total": 37
+      "total": 36
     },
     {
       "key": "Jrego Nolasco",
       "vals": [
-        23,
+        24,
         3,
         9,
         0
       ],
-      "total": 35
+      "total": 36
     },
     {
       "key": "Oscar Alvarez",
@@ -850,7 +859,7 @@ window.__DASHBOARD_DATA__ = {
     {
       "key": "driver2",
       "label": "Declinado por driver",
-      "value": 94
+      "value": 95
     },
     {
       "key": "perdido",
@@ -863,7 +872,7 @@ window.__DASHBOARD_DATA__ = {
       "value": 12
     }
   ],
-  "decline_total": 826,
+  "decline_total": 827,
   "forecast": {
     "workdays_elapsed": 0,
     "actual_elapsed": 260,
@@ -877,7 +886,7 @@ window.__DASHBOARD_DATA__ = {
     "fecha": "2026-09-01",
     "mes_label": "Sep 26"
   },
-  "fleet_total": 121,
+  "fleet_total": 120,
   "fleet_desflote_n": 12,
   "fleet_city_stage": [
     {
@@ -886,11 +895,11 @@ window.__DASHBOARD_DATA__ = {
         5,
         3,
         9,
-        8,
+        7,
         15,
         2
       ],
-      "total": 42
+      "total": 41
     },
     {
       "ciudad": "Sin identificar",
@@ -1110,7 +1119,7 @@ window.__DASHBOARD_DATA__ = {
       "otros": 4
     }
   ],
-  "fleet_sin_fecha_n": 44,
+  "fleet_sin_fecha_n": 43,
   "fleet_vencido_dias": 10,
   "fleet_vencido_unidades": 60,
   "agenda_decline_kpis": {
