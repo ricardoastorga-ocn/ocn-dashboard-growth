@@ -21,6 +21,9 @@ import unicodedata
 import urllib.request
 import urllib.parse
 import collections
+from zoneinfo import ZoneInfo
+
+MX_TZ = ZoneInfo("America/Mexico_City")
 
 BO_ID = "1hMTlrcklmQQpDiNmrav4gZM_ZWmmCniGlJEUgLhIzCY"
 PI_ID = "1hmIkvqU342xgN3APYt5dKJbQfM4H1ZmFXWacMsAmiwQ"
@@ -190,7 +193,11 @@ def month_workdays(year, month):
 
 def main():
     token = get_access_token()
-    today = datetime.date.today()
+    # GitHub Actions corre en UTC -- "hoy" tiene que calcularse en hora de CDMX (America/Mexico_City,
+    # UTC-6/-5) o el dia calendario salta ~6 horas antes de tiempo (ej. 6:51pm CDMX del 31-ago ya
+    # cuenta como 1-sep en UTC), rompiendo cualquier corte de "mes en curso", dias vencidos, etc.
+    # Bug real detectado por Ricardo 31-ago-2026 -- ver project_dashboard_growth_automation.md.
+    today = datetime.datetime.now(MX_TZ).date()
 
     # ---------- Back Office: SEGUIMIENTO ENTREGAS (mes en curso) ----------
     # Rango con margen generoso (43 columnas reales al momento de escribir esto, BZ=78) -- ver
