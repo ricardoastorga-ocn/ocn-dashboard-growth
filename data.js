@@ -1,5 +1,5 @@
 window.__DASHBOARD_DATA__ = {
-  "generated_at": "2026-09-01T01:08:11.687126Z",
+  "generated_at": "2026-09-01T02:13:08.933715Z",
   "months": [
     "Ago 25",
     "Sep 25",
@@ -66,7 +66,7 @@ window.__DASHBOARD_DATA__ = {
     },
     {
       "nuevo": 21,
-      "seminuevo": 235
+      "seminuevo": 236
     }
   ],
   "modelo": [
@@ -179,7 +179,7 @@ window.__DASHBOARD_DATA__ = {
       "otros": 4
     },
     {
-      "byd": 119,
+      "byd": 120,
       "mg5": 88,
       "mg3": 25,
       "aion": 5,
@@ -213,11 +213,11 @@ window.__DASHBOARD_DATA__ = {
     },
     {
       "key": "contrato",
-      "value": 3
+      "value": 0
     },
     {
       "key": "cenv",
-      "value": 1
+      "value": 3
     },
     {
       "key": "liga",
@@ -225,7 +225,7 @@ window.__DASHBOARD_DATA__ = {
     },
     {
       "key": "entregado",
-      "value": 256
+      "value": 257
     },
     {
       "key": "issue",
@@ -234,7 +234,7 @@ window.__DASHBOARD_DATA__ = {
   ],
   "etapas_ciudades": {
     "entregado": {
-      "Tijuana": 48,
+      "Tijuana": 49,
       "CDMX / Edo Mex": 79,
       "Monterrey": 68,
       "Queretaro": 15,
@@ -258,16 +258,12 @@ window.__DASHBOARD_DATA__ = {
       "Queretaro": 1
     },
     "liga": {
-      "Tijuana": 1,
-      "Monterrey": 1
+      "Monterrey": 2
     },
-    "contrato": {
+    "cenv": {
       "Guadalajara": 1,
       "Monterrey": 1,
       "CDMX / Edo Mex": 1
-    },
-    "cenv": {
-      "Monterrey": 1
     }
   },
   "entregado_target_pct": 95,
@@ -566,7 +562,7 @@ window.__DASHBOARD_DATA__ = {
     {
       "cdmx": 5,
       "mty": 9,
-      "tij": 2,
+      "tij": 3,
       "qro": 0,
       "gdl": 0,
       "mxl": 0,
@@ -595,7 +591,7 @@ window.__DASHBOARD_DATA__ = {
     0,
     0,
     0,
-    6
+    5
   ],
   "inv_log": [
     {
@@ -1092,8 +1088,8 @@ window.__DASHBOARD_DATA__ = {
     "workdays_total": 21,
     "rate": 11.9,
     "total": 250,
-    "nuevo": 21,
-    "seminuevo": 229
+    "nuevo": 20,
+    "seminuevo": 230
   },
   "corte": {
     "fecha": "2026-08-31",
