@@ -1,5 +1,5 @@
 window.__DASHBOARD_DATA__ = {
-  "generated_at": "2026-09-01T00:22:40.272307Z",
+  "generated_at": "2026-09-01T00:49:45.953843Z",
   "months": [
     "Ago 25",
     "Sep 25",
@@ -66,7 +66,7 @@ window.__DASHBOARD_DATA__ = {
     },
     {
       "nuevo": 21,
-      "seminuevo": 231
+      "seminuevo": 234
     }
   ],
   "modelo": [
@@ -179,8 +179,8 @@ window.__DASHBOARD_DATA__ = {
       "otros": 4
     },
     {
-      "byd": 116,
-      "mg5": 87,
+      "byd": 118,
+      "mg5": 88,
       "mg3": 25,
       "aion": 5,
       "king": 6,
@@ -197,7 +197,7 @@ window.__DASHBOARD_DATA__ = {
     "tiggo",
     "otros"
   ],
-  "etapas_total": 299,
+  "etapas_total": 300,
   "etapas": [
     {
       "key": "prep",
@@ -205,27 +205,27 @@ window.__DASHBOARD_DATA__ = {
     },
     {
       "key": "listo",
-      "value": 34
+      "value": 35
     },
     {
       "key": "agendada",
-      "value": 4
+      "value": 2
     },
     {
       "key": "contrato",
-      "value": 4
+      "value": 3
     },
     {
       "key": "cenv",
-      "value": 2
+      "value": 3
     },
     {
       "key": "liga",
-      "value": 2
+      "value": 1
     },
     {
       "key": "entregado",
-      "value": 252
+      "value": 255
     },
     {
       "key": "issue",
@@ -235,8 +235,8 @@ window.__DASHBOARD_DATA__ = {
   "etapas_ciudades": {
     "entregado": {
       "Tijuana": 48,
-      "CDMX / Edo Mex": 78,
-      "Monterrey": 65,
+      "CDMX / Edo Mex": 79,
+      "Monterrey": 67,
       "Queretaro": 15,
       "Guadalajara": 14,
       "Merida": 8,
@@ -245,29 +245,27 @@ window.__DASHBOARD_DATA__ = {
       "Mexicali": 12
     },
     "listo": {
-      "Mexicali": 3,
+      "Mexicali": 4,
       "Tijuana": 25,
       "Guadalajara": 1,
       "Monterrey": 4,
       "Puebla": 1
     },
     "agendada": {
-      "Tijuana": 2,
-      "Monterrey": 2
+      "Tijuana": 2
     },
     "issue": {
       "Queretaro": 1
     },
+    "liga": {
+      "Monterrey": 1
+    },
     "cenv": {
+      "Tijuana": 1,
       "Monterrey": 2
     },
     "contrato": {
-      "Tijuana": 1,
       "Guadalajara": 1,
-      "Monterrey": 1,
-      "CDMX / Edo Mex": 1
-    },
-    "liga": {
       "Monterrey": 1,
       "CDMX / Edo Mex": 1
     }
@@ -279,12 +277,12 @@ window.__DASHBOARD_DATA__ = {
       "value": 25
     },
     {
-      "ciudad": "Monterrey",
+      "ciudad": "Mexicali",
       "value": 4
     },
     {
-      "ciudad": "Mexicali",
-      "value": 3
+      "ciudad": "Monterrey",
+      "value": 4
     },
     {
       "ciudad": "Guadalajara",
@@ -341,8 +339,8 @@ window.__DASHBOARD_DATA__ = {
     {
       "ciudad": "Mexicali",
       "espera": 2,
-      "listo": 3,
-      "gap": -1
+      "listo": 4,
+      "gap": -2
     },
     {
       "ciudad": "Tijuana",
@@ -462,9 +460,9 @@ window.__DASHBOARD_DATA__ = {
     },
     {
       "fecha": "1-sep",
-      "total": 34,
+      "total": 35,
       "tij": 25,
-      "mxl": 3,
+      "mxl": 4,
       "mty": 4
     }
   ],
@@ -866,7 +864,7 @@ window.__DASHBOARD_DATA__ = {
   "decline_total": 820,
   "forecast": {
     "workdays_elapsed": 0,
-    "actual_elapsed": 252,
+    "actual_elapsed": 255,
     "workdays_total": 22,
     "rate": 0,
     "total": 0,
@@ -877,7 +875,7 @@ window.__DASHBOARD_DATA__ = {
     "fecha": "2026-09-01",
     "mes_label": "Sep 26"
   },
-  "fleet_total": 123,
+  "fleet_total": 125,
   "fleet_desflote_n": 12,
   "fleet_city_stage": [
     {
@@ -886,11 +884,11 @@ window.__DASHBOARD_DATA__ = {
         5,
         3,
         9,
-        6,
+        7,
         15,
         2
       ],
-      "total": 40
+      "total": 41
     },
     {
       "ciudad": "Sin identificar",
@@ -922,11 +920,11 @@ window.__DASHBOARD_DATA__ = {
         0,
         4,
         5,
-        7,
+        8,
         3,
         2
       ],
-      "total": 21
+      "total": 22
     },
     {
       "ciudad": "Monterrey",
@@ -1083,14 +1081,14 @@ window.__DASHBOARD_DATA__ = {
     },
     {
       "tij": 0,
-      "cdmx": 0,
+      "cdmx": 1,
       "gdl": 0,
       "qro": 1,
       "mty": 0,
       "otros": 0
     },
     {
-      "tij": 0,
+      "tij": 1,
       "cdmx": 6,
       "gdl": 2,
       "qro": 0,
