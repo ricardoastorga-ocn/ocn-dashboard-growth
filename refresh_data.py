@@ -51,12 +51,13 @@ KNOWN_AGENT_KEYS = [
 # Histórico cerrado (ago-2025 a jul-2026), pestaña GLOBAL OCN -- no cambia dia a dia.
 # Si un mes se cierra y se consolida a GLOBAL OCN, agregar su fila aqui a mano una vez.
 MONTHS_CLOSED = ["Ago 25", "Sep 25", "Oct 25", "Nov 25", "Dic 25", "Ene 26", "Feb 26",
-                  "Mar 26", "Abr 26", "May 26", "Jun 26", "Jul 26"]
+                  "Mar 26", "Abr 26", "May 26", "Jun 26", "Jul 26", "Ago 26"]
 MIX_CLOSED = [
     {"nuevo": 272, "seminuevo": 37}, {"nuevo": 318, "seminuevo": 22}, {"nuevo": 348, "seminuevo": 42},
     {"nuevo": 420, "seminuevo": 21}, {"nuevo": 374, "seminuevo": 72}, {"nuevo": 421, "seminuevo": 121},
     {"nuevo": 371, "seminuevo": 129}, {"nuevo": 453, "seminuevo": 110}, {"nuevo": 431, "seminuevo": 116},
     {"nuevo": 125, "seminuevo": 237}, {"nuevo": 250, "seminuevo": 327}, {"nuevo": 14, "seminuevo": 298},
+    {"nuevo": 21, "seminuevo": 239},
 ]
 MODELO_CLOSED = [
     {"byd": 132, "mg5": 116, "mg3": 56, "aion": 0, "king": 0, "tiggo": 4, "otros": 1},
@@ -71,6 +72,7 @@ MODELO_CLOSED = [
     {"byd": 181, "mg5": 101, "mg3": 22, "aion": 37, "king": 8, "tiggo": 7, "otros": 6},
     {"byd": 193, "mg5": 122, "mg3": 44, "aion": 6, "king": 197, "tiggo": 9, "otros": 6},
     {"byd": 131, "mg5": 120, "mg3": 34, "aion": 8, "king": 9, "tiggo": 6, "otros": 4},
+    {"byd": 123, "mg5": 88, "mg3": 25, "aion": 5, "king": 6, "tiggo": 11, "otros": 2},
 ]
 
 MODELO_KEYS = ["byd", "mg5", "mg3", "aion", "king", "tiggo", "otros"]
@@ -251,17 +253,24 @@ def main():
             etapas_count[stage] += 1
             if city:
                 etapas_ciudades[stage][city] += 1
-            if stage == "entregado":
-                nuevo_semi_mtd[get(r, "Nuevo / Semi").strip()] += 1
-                modelo_raw = get(r, "Modelo").strip()
-                mkey = MODEL_MAP.get(modelo_raw, "otros")
-                modelo_mtd[mkey] += 1
 
+        # nuevo_semi_mtd/modelo_mtd son "por mes" (se apilan a MIX_CLOSED/MODELO_CLOSED como el
+        # mes en curso) -- deben filtrarse por F/Entrega del mes actual, a diferencia de
+        # etapas_count (foto del embudo completo tal cual esta HOY en la fuente, sin filtrar por
+        # fecha -- asi se comporto siempre porque Back Office solo tenia un mes a la vez en esta
+        # hoja). Bug real detectado 1-sep-2026: al inicio de mes, SEGUIMIENTO ENTREGAS trae tanto
+        # colas de agosto sin archivar como los primeros registros de septiembre juntos, y sin
+        # este filtro nuevo_semi_mtd/modelo_mtd mezclaban ambos meses bajo la etiqueta del mes
+        # nuevo. Ver project_dashboard_growth_automation.md para el detalle completo.
         fe = parse_fe(get(r, "F / Entrega"))
         if fe and fe.month == today.month and fe.year == today.year:
             diaskey = CITY_TO_DIASKEY.get(city, "otros")
             if raw_status == "ENTREGADO":
                 entregado_by_day[fe.day][diaskey] += 1
+                nuevo_semi_mtd[get(r, "Nuevo / Semi").strip()] += 1
+                modelo_raw = get(r, "Modelo").strip()
+                mkey = MODEL_MAP.get(modelo_raw, "otros")
+                modelo_mtd[mkey] += 1
             elif stage is not None:
                 agendada_by_day[fe.day] += 1
 

@@ -1,5 +1,5 @@
 window.__DASHBOARD_DATA__ = {
-  "generated_at": "2026-09-01T16:00:35.672607Z",
+  "generated_at": "2026-09-01T16:04:56.659170Z",
   "months": [
     "Ago 25",
     "Sep 25",
@@ -13,6 +13,7 @@ window.__DASHBOARD_DATA__ = {
     "May 26",
     "Jun 26",
     "Jul 26",
+    "Ago 26",
     "Sep 26"
   ],
   "mix": [
@@ -67,6 +68,10 @@ window.__DASHBOARD_DATA__ = {
     {
       "nuevo": 21,
       "seminuevo": 239
+    },
+    {
+      "nuevo": 0,
+      "seminuevo": 0
     }
   ],
   "modelo": [
@@ -186,6 +191,15 @@ window.__DASHBOARD_DATA__ = {
       "king": 6,
       "tiggo": 11,
       "otros": 2
+    },
+    {
+      "byd": 0,
+      "mg5": 0,
+      "mg3": 0,
+      "aion": 0,
+      "king": 0,
+      "tiggo": 0,
+      "otros": 0
     }
   ],
   "modelo_keys": [
@@ -205,7 +219,7 @@ window.__DASHBOARD_DATA__ = {
     },
     {
       "key": "listo",
-      "value": 34
+      "value": 33
     },
     {
       "key": "agendada",
@@ -213,7 +227,7 @@ window.__DASHBOARD_DATA__ = {
     },
     {
       "key": "contrato",
-      "value": 4
+      "value": 5
     },
     {
       "key": "cenv",
@@ -247,12 +261,13 @@ window.__DASHBOARD_DATA__ = {
     "listo": {
       "Mexicali": 4,
       "Tijuana": 24,
-      "Monterrey": 5,
+      "Monterrey": 4,
       "Puebla": 1
     },
     "contrato": {
       "Tijuana": 3,
-      "Guadalajara": 1
+      "Guadalajara": 1,
+      "Monterrey": 1
     },
     "issue": {
       "Queretaro": 1
@@ -268,11 +283,11 @@ window.__DASHBOARD_DATA__ = {
       "value": 24
     },
     {
-      "ciudad": "Monterrey",
-      "value": 5
+      "ciudad": "Mexicali",
+      "value": 4
     },
     {
-      "ciudad": "Mexicali",
+      "ciudad": "Monterrey",
       "value": 4
     },
     {
@@ -290,8 +305,8 @@ window.__DASHBOARD_DATA__ = {
     {
       "ciudad": "Monterrey",
       "espera": 88,
-      "listo": 5,
-      "gap": 83
+      "listo": 4,
+      "gap": 84
     },
     {
       "ciudad": "Merida",
@@ -351,7 +366,7 @@ window.__DASHBOARD_DATA__ = {
     }
   ],
   "agendadas_dia": [
-    5
+    6
   ],
   "inv_log": [
     {
@@ -447,10 +462,10 @@ window.__DASHBOARD_DATA__ = {
     },
     {
       "fecha": "1-sep",
-      "total": 34,
+      "total": 33,
       "tij": 24,
       "mxl": 4,
-      "mty": 5
+      "mty": 4
     }
   ],
   "tiers": [
