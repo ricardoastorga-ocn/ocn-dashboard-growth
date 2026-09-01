@@ -1,5 +1,5 @@
 window.__DASHBOARD_DATA__ = {
-  "generated_at": "2026-09-01T00:54:05.710550Z",
+  "generated_at": "2026-09-01T01:03:52.688628Z",
   "months": [
     "Ago 25",
     "Sep 25",
@@ -217,11 +217,11 @@ window.__DASHBOARD_DATA__ = {
     },
     {
       "key": "cenv",
-      "value": 3
+      "value": 2
     },
     {
       "key": "liga",
-      "value": 1
+      "value": 2
     },
     {
       "key": "entregado",
@@ -258,10 +258,10 @@ window.__DASHBOARD_DATA__ = {
       "Queretaro": 1
     },
     "liga": {
-      "Monterrey": 1
+      "Monterrey": 1,
+      "Tijuana": 1
     },
     "cenv": {
-      "Tijuana": 1,
       "Monterrey": 2
     },
     "contrato": {
@@ -684,13 +684,6 @@ window.__DASHBOARD_DATA__ = {
     },
     {
       "fecha": "31-ago",
-      "total": 35,
-      "tij": 25,
-      "mxl": 4,
-      "mty": 4
-    },
-    {
-      "fecha": "1-sep",
       "total": 35,
       "tij": 25,
       "mxl": 4,
