@@ -126,6 +126,16 @@ def sheets_append(token, sheet_id, rng, row):
         return json.loads(resp.read())
 
 
+def sheets_update(token, sheet_id, rng, row):
+    url = (f"https://sheets.googleapis.com/v4/spreadsheets/{sheet_id}/values/"
+           f"{urllib.parse.quote(rng)}?valueInputOption=USER_ENTERED")
+    body = json.dumps({"values": [row]}).encode()
+    req = urllib.request.Request(url, data=body, headers={
+        "Authorization": f"Bearer {token}", "Content-Type": "application/json"}, method="PUT")
+    with urllib.request.urlopen(req) as resp:
+        return json.loads(resp.read())
+
+
 def norm_ascii(s):
     return unicodedata.normalize("NFKD", s).encode("ascii", "ignore").decode()
 
@@ -282,23 +292,35 @@ def main():
         [{"ciudad": c, "value": v} for c, v in etapas_ciudades.get("listo", {}).items()],
         key=lambda d: -d["value"])
 
-    # ---------- Log Inventario Diario: leer, agregar hoy si falta, releer ----------
+    # ---------- Log Inventario Diario: leer, escribir/actualizar hoy, releer ----------
+    # La fila de HOY se sobreescribe en cada refresh (no solo se escribe una vez) -- este log
+    # es una foto de "Listo/Entrega ahora mismo", no un acumulado del dia, asi que debe reflejar
+    # el estado mas reciente cada vez que el pipeline corre, igual que el proceso manual que
+    # reemplazo (ver project_mix_flota_report.md, actualizaba in-place varias veces por dia).
+    # Bug real encontrado 31-ago-2026: esta version solo escribia una vez (si faltaba la fila del
+    # dia) y nunca la volvia a tocar -- Ricardo veia 22-33 unidades Listo/Entrega en vivo mientras
+    # el log del dia se quedo congelado en 18, capturado en el primer refresh de la mañana.
     log_rng = "'Log Inventario Diario'!A1:J1000"
     log_rows = sheets_get(token, BO_ID, log_rng)
     log_header, log_data = log_rows[0], log_rows[1:]
     today_iso = today.isoformat()
-    already_logged = any(row and row[0] == today_iso for row in log_data)
-    if not already_logged:
-        listo_by_city = etapas_ciudades.get("listo", {})
-        new_row = [
-            today_iso, str(sum(listo_by_city.values())),
-            str(listo_by_city.get("Tijuana", 0)), str(listo_by_city.get("Mexicali", 0)),
-            str(listo_by_city.get("Monterrey", 0)), str(listo_by_city.get("Guadalajara", 0)),
-            str(listo_by_city.get("Queretaro", 0)), str(listo_by_city.get("CDMX / Edo Mex", 0)),
-            str(listo_by_city.get("Merida", 0)), str(listo_by_city.get("Saltillo", 0)),
-        ]
+    today_row_idx = next((i for i, row in enumerate(log_data) if row and row[0] == today_iso), None)
+
+    listo_by_city = etapas_ciudades.get("listo", {})
+    new_row = [
+        today_iso, str(sum(listo_by_city.values())),
+        str(listo_by_city.get("Tijuana", 0)), str(listo_by_city.get("Mexicali", 0)),
+        str(listo_by_city.get("Monterrey", 0)), str(listo_by_city.get("Guadalajara", 0)),
+        str(listo_by_city.get("Queretaro", 0)), str(listo_by_city.get("CDMX / Edo Mex", 0)),
+        str(listo_by_city.get("Merida", 0)), str(listo_by_city.get("Saltillo", 0)),
+    ]
+    if today_row_idx is None:
         sheets_append(token, BO_ID, "'Log Inventario Diario'!A1:J1", new_row)
         log_data.append(new_row)
+    else:
+        sheet_row_num = today_row_idx + 2  # +1 por header, +1 por indexado en 1
+        sheets_update(token, BO_ID, f"'Log Inventario Diario'!A{sheet_row_num}:J{sheet_row_num}", new_row)
+        log_data[today_row_idx] = new_row
 
     inv_log = []
     for row in log_data[-14:]:  # ultimas 2 semanas
