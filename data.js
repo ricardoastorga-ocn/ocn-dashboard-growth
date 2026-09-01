@@ -1,5 +1,5 @@
 window.__DASHBOARD_DATA__ = {
-  "generated_at": "2026-09-01T01:03:52.688628Z",
+  "generated_at": "2026-09-01T01:08:11.687126Z",
   "months": [
     "Ago 25",
     "Sep 25",
@@ -66,7 +66,7 @@ window.__DASHBOARD_DATA__ = {
     },
     {
       "nuevo": 21,
-      "seminuevo": 234
+      "seminuevo": 235
     }
   ],
   "modelo": [
@@ -179,7 +179,7 @@ window.__DASHBOARD_DATA__ = {
       "otros": 4
     },
     {
-      "byd": 118,
+      "byd": 119,
       "mg5": 88,
       "mg3": 25,
       "aion": 5,
@@ -205,11 +205,11 @@ window.__DASHBOARD_DATA__ = {
     },
     {
       "key": "listo",
-      "value": 35
+      "value": 34
     },
     {
       "key": "agendada",
-      "value": 2
+      "value": 3
     },
     {
       "key": "contrato",
@@ -217,7 +217,7 @@ window.__DASHBOARD_DATA__ = {
     },
     {
       "key": "cenv",
-      "value": 2
+      "value": 1
     },
     {
       "key": "liga",
@@ -225,7 +225,7 @@ window.__DASHBOARD_DATA__ = {
     },
     {
       "key": "entregado",
-      "value": 255
+      "value": 256
     },
     {
       "key": "issue",
@@ -236,7 +236,7 @@ window.__DASHBOARD_DATA__ = {
     "entregado": {
       "Tijuana": 48,
       "CDMX / Edo Mex": 79,
-      "Monterrey": 67,
+      "Monterrey": 68,
       "Queretaro": 15,
       "Guadalajara": 14,
       "Merida": 8,
@@ -246,35 +246,35 @@ window.__DASHBOARD_DATA__ = {
     },
     "listo": {
       "Mexicali": 4,
-      "Tijuana": 25,
+      "Tijuana": 24,
       "Guadalajara": 1,
       "Monterrey": 4,
       "Puebla": 1
     },
     "agendada": {
-      "Tijuana": 2
+      "Tijuana": 3
     },
     "issue": {
       "Queretaro": 1
     },
     "liga": {
-      "Monterrey": 1,
-      "Tijuana": 1
-    },
-    "cenv": {
-      "Monterrey": 2
+      "Tijuana": 1,
+      "Monterrey": 1
     },
     "contrato": {
       "Guadalajara": 1,
       "Monterrey": 1,
       "CDMX / Edo Mex": 1
+    },
+    "cenv": {
+      "Monterrey": 1
     }
   },
   "entregado_target_pct": 95,
   "ciudad_listo": [
     {
       "ciudad": "Tijuana",
-      "value": 25
+      "value": 24
     },
     {
       "ciudad": "Mexicali",
@@ -345,8 +345,8 @@ window.__DASHBOARD_DATA__ = {
     {
       "ciudad": "Tijuana",
       "espera": 8,
-      "listo": 25,
-      "gap": -17
+      "listo": 24,
+      "gap": -16
     }
   ],
   "dias_labels": [
@@ -565,7 +565,7 @@ window.__DASHBOARD_DATA__ = {
     },
     {
       "cdmx": 5,
-      "mty": 8,
+      "mty": 9,
       "tij": 2,
       "qro": 0,
       "gdl": 0,
@@ -595,7 +595,7 @@ window.__DASHBOARD_DATA__ = {
     0,
     0,
     0,
-    7
+    6
   ],
   "inv_log": [
     {
@@ -684,8 +684,8 @@ window.__DASHBOARD_DATA__ = {
     },
     {
       "fecha": "31-ago",
-      "total": 35,
-      "tij": 25,
+      "total": 34,
+      "tij": 24,
       "mxl": 4,
       "mty": 4
     }
