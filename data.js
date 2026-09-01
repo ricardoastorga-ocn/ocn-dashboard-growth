@@ -1,5 +1,5 @@
 window.__DASHBOARD_DATA__ = {
-  "generated_at": "2026-09-01T16:37:04.002559Z",
+  "generated_at": "2026-09-01T18:12:03.150592Z",
   "months": [
     "Ago 25",
     "Sep 25",
@@ -219,23 +219,23 @@ window.__DASHBOARD_DATA__ = {
     },
     {
       "key": "listo",
-      "value": 32
+      "value": 31
     },
     {
       "key": "agendada",
-      "value": 1
+      "value": 3
     },
     {
       "key": "contrato",
-      "value": 5
+      "value": 4
     },
     {
       "key": "cenv",
-      "value": 0
+      "value": 1
     },
     {
       "key": "liga",
-      "value": 1
+      "value": 0
     },
     {
       "key": "entregado",
@@ -261,20 +261,21 @@ window.__DASHBOARD_DATA__ = {
     "listo": {
       "Mexicali": 4,
       "Tijuana": 24,
-      "Monterrey": 4
+      "Monterrey": 3
     },
     "contrato": {
-      "Tijuana": 3,
+      "Tijuana": 2,
       "Guadalajara": 1,
       "Monterrey": 1
     },
     "issue": {
       "Queretaro": 1
     },
-    "liga": {
-      "Monterrey": 1
+    "cenv": {
+      "Tijuana": 1
     },
     "agendada": {
+      "Monterrey": 2,
       "Puebla": 1
     }
   },
@@ -290,21 +291,21 @@ window.__DASHBOARD_DATA__ = {
     },
     {
       "ciudad": "Monterrey",
-      "value": 4
+      "value": 3
     }
   ],
   "waitlist_gap": [
     {
       "ciudad": "CDMX / Edo Mex",
-      "espera": 280,
+      "espera": 282,
       "listo": 0,
-      "gap": 280
+      "gap": 282
     },
     {
       "ciudad": "Monterrey",
-      "espera": 89,
-      "listo": 4,
-      "gap": 85
+      "espera": 87,
+      "listo": 3,
+      "gap": 84
     },
     {
       "ciudad": "Merida",
@@ -351,9 +352,19 @@ window.__DASHBOARD_DATA__ = {
   ],
   "dias_labels": [
     "1",
-    "2"
+    "2",
+    "3"
   ],
   "entregados_dia": [
+    {
+      "cdmx": 0,
+      "mty": 0,
+      "tij": 0,
+      "qro": 0,
+      "gdl": 0,
+      "mxl": 0,
+      "otros": 0
+    },
     {
       "cdmx": 0,
       "mty": 0,
@@ -374,7 +385,8 @@ window.__DASHBOARD_DATA__ = {
     }
   ],
   "agendadas_dia": [
-    6,
+    5,
+    2,
     1
   ],
   "inv_log": [
@@ -471,10 +483,10 @@ window.__DASHBOARD_DATA__ = {
     },
     {
       "fecha": "1-sep",
-      "total": 32,
+      "total": 31,
       "tij": 24,
       "mxl": 4,
-      "mty": 4
+      "mty": 3
     }
   ],
   "tiers": [
@@ -505,22 +517,22 @@ window.__DASHBOARD_DATA__ = {
     {
       "ciudad": "CDMX / Edo Mex",
       "vals": [
-        148,
+        150,
         53,
         65,
         14
       ],
-      "total": 280
+      "total": 282
     },
     {
       "ciudad": "Monterrey",
       "vals": [
-        37,
+        35,
         16,
         32,
         4
       ],
-      "total": 89
+      "total": 87
     },
     {
       "ciudad": "Merida",
@@ -597,12 +609,12 @@ window.__DASHBOARD_DATA__ = {
     {
       "key": "Adolfo Jaimes",
       "vals": [
-        17,
+        18,
         17,
         16,
         4
       ],
-      "total": 54
+      "total": 55
     },
     {
       "key": "Mayte Urrutia",
@@ -637,12 +649,12 @@ window.__DASHBOARD_DATA__ = {
     {
       "key": "Jrego Nolasco",
       "vals": [
-        24,
+        23,
         3,
         9,
         0
       ],
-      "total": 36
+      "total": 35
     },
     {
       "key": "Oscar Alvarez",
@@ -685,6 +697,16 @@ window.__DASHBOARD_DATA__ = {
       "total": 29
     },
     {
+      "key": "@Joel Flores Lopez",
+      "vals": [
+        9,
+        7,
+        7,
+        4
+      ],
+      "total": 27
+    },
+    {
       "key": "@Jess Martínez",
       "vals": [
         10,
@@ -701,16 +723,6 @@ window.__DASHBOARD_DATA__ = {
         2,
         11,
         3
-      ],
-      "total": 26
-    },
-    {
-      "key": "@Joel Flores Lopez",
-      "vals": [
-        8,
-        7,
-        7,
-        4
       ],
       "total": 26
     },
@@ -777,12 +789,12 @@ window.__DASHBOARD_DATA__ = {
     {
       "key": "@Ivette",
       "vals": [
-        9,
+        8,
         6,
         3,
         2
       ],
-      "total": 20
+      "total": 19
     },
     {
       "key": "Edwin Hernandez",
@@ -886,8 +898,8 @@ window.__DASHBOARD_DATA__ = {
     "fecha": "2026-09-01",
     "mes_label": "Sep 26"
   },
-  "fleet_total": 120,
-  "fleet_desflote_n": 12,
+  "fleet_total": 119,
+  "fleet_desflote_n": 13,
   "fleet_city_stage": [
     {
       "ciudad": "CDMX / Edo Mex",
@@ -916,8 +928,8 @@ window.__DASHBOARD_DATA__ = {
     {
       "ciudad": "Guadalajara",
       "vals": [
-        5,
-        8,
+        3,
+        10,
         9,
         0,
         0,
@@ -941,11 +953,11 @@ window.__DASHBOARD_DATA__ = {
       "ciudad": "Monterrey",
       "vals": [
         4,
-        1,
+        0,
         1,
         0,
         3,
-        3
+        4
       ],
       "total": 12
     },
@@ -1035,7 +1047,7 @@ window.__DASHBOARD_DATA__ = {
       "cdmx": 2,
       "gdl": 6,
       "qro": 3,
-      "mty": 1,
+      "mty": 0,
       "otros": 6
     },
     {
@@ -1121,13 +1133,13 @@ window.__DASHBOARD_DATA__ = {
   ],
   "fleet_sin_fecha_n": 43,
   "fleet_vencido_dias": 10,
-  "fleet_vencido_unidades": 60,
+  "fleet_vencido_unidades": 59,
   "agenda_decline_kpis": {
     "total": 460,
-    "recuperado": 198,
-    "pct_recuperado": 43.0,
-    "pendiente": 237,
-    "vencido": 236,
+    "recuperado": 200,
+    "pct_recuperado": 43.5,
+    "pendiente": 235,
+    "vencido": 234,
     "pct_vencido_of_pendiente": 99.6,
     "perdido": 25
   },
@@ -1159,21 +1171,21 @@ window.__DASHBOARD_DATA__ = {
     {
       "mes": "julio 2026",
       "total": 103,
-      "recuperado": 37,
-      "pendiente": 60,
+      "recuperado": 39,
+      "pendiente": 58,
       "perdido": 6,
-      "pct_recuperado": 35.9
+      "pct_recuperado": 37.9
     }
   ],
   "agenda_decline_semaforo": {
     "verde": 0,
     "amarillo": 0,
-    "rojo": 236
+    "rojo": 234
   },
   "agenda_decline_motivos": [
     {
       "motivo": "DEJA DE CONTESTAR",
-      "count": 102,
+      "count": 101,
       "trabajable": true
     },
     {
@@ -1208,7 +1220,7 @@ window.__DASHBOARD_DATA__ = {
     },
     {
       "motivo": "NO LE CONVENCE EL CONTRATO",
-      "count": 9,
+      "count": 8,
       "trabajable": true
     },
     {
@@ -1236,11 +1248,11 @@ window.__DASHBOARD_DATA__ = {
     {
       "agente": "Edwin Hernandez",
       "total": 41,
-      "recuperado": 15,
-      "pendiente": 24,
-      "vencido": 24,
+      "recuperado": 16,
+      "pendiente": 23,
+      "vencido": 23,
       "perdido": 2,
-      "pct_recuperado": 36.6
+      "pct_recuperado": 39.0
     },
     {
       "agente": "Jrego Nolasco",
@@ -1326,11 +1338,11 @@ window.__DASHBOARD_DATA__ = {
     {
       "agente": "Joel Flores",
       "total": 18,
-      "recuperado": 7,
-      "pendiente": 9,
-      "vencido": 9,
+      "recuperado": 8,
+      "pendiente": 8,
+      "vencido": 8,
       "perdido": 2,
-      "pct_recuperado": 38.9
+      "pct_recuperado": 44.4
     },
     {
       "agente": "Imanol Cortez",
