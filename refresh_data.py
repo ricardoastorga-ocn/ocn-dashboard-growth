@@ -732,6 +732,37 @@ def main():
         json.dump(data, f, ensure_ascii=False, indent=2)
         f.write(";\n")
 
+    # ---------- Snapshot de cierre de mes ----------
+    # Bug real detectado 1-sep-2026 (ver project_weekly_business_review_ceo.md /
+    # project_dashboard_growth_automation.md): el pipeline nunca archivaba el detalle fino del
+    # cierre (inventario Listo/Entrega por ciudad, mix nuevo/semi de lo que quedó sin salir) --
+    # esa info solo sobrevivió porque Ricardo tomó captura de pantalla justo al cierre de agosto.
+    # Para que no vuelva a depender de una captura manual: si HOY es el último día calendario del
+    # mes (en hora CDMX), se archiva un snapshot con el detalle de cierre en snapshots/. Corre en
+    # cada refresh de ese día (varias veces, 8am-7pm) y se sobreescribe cada vez -- así el snapshot
+    # que queda al final del día es el más completo. Solo funciona hacia adelante: no puede
+    # reconstruir el detalle de meses ya cerrados sin captura.
+    tomorrow = today + datetime.timedelta(days=1)
+    if tomorrow.month != today.month:
+        snap_dir = os.path.join(os.path.dirname(__file__), "snapshots")
+        os.makedirs(snap_dir, exist_ok=True)
+        snapshot = {
+            "mes_label": month_label,
+            "fecha_cierre": today.isoformat(),
+            "generado_en": datetime.datetime.now(MX_TZ).isoformat(),
+            "entregas_totales_mes": entregado_mtd,
+            "mix_nuevo_semi": {"nuevo": mtd_nuevo, "seminuevo": mtd_semi},
+            "modelo_mtd": {k: modelo_mtd.get(k, 0) for k in MODELO_KEYS},
+            "listo_entrega_por_ciudad": ciudad_listo,
+            "listo_entrega_total": sum(d["value"] for d in ciudad_listo),
+            "forecast_vs_cierre": {"forecast_total": forecast_total, "entregas_reales": entregado_mtd},
+        }
+        snap_path = os.path.join(snap_dir, f"cierre_{today.strftime('%Y-%m')}.json")
+        with open(snap_path, "w", encoding="utf-8") as f:
+            json.dump(snapshot, f, ensure_ascii=False, indent=2)
+        print(f"OK -- snapshot de cierre escrito en snapshots/cierre_{today.strftime('%Y-%m')}.json "
+              f"(listo/entrega total={snapshot['listo_entrega_total']})")
+
     print(f"OK -- data.js escrito. Entregado MTD={entregado_mtd}, waitlist activo={sum(tier_totals.values())}, "
           f"etapas_total={etapas_total}, forecast={forecast_total}")
 
