@@ -1,5 +1,5 @@
 window.__DASHBOARD_DATA__ = {
-  "generated_at": "2026-09-02T20:10:19.498826Z",
+  "generated_at": "2026-09-02T22:10:11.112346Z",
   "months": [
     "Ago 25",
     "Sep 25",
@@ -211,7 +211,7 @@ window.__DASHBOARD_DATA__ = {
     "tiggo",
     "otros"
   ],
-  "etapas_total": 39,
+  "etapas_total": 52,
   "etapas": [
     {
       "key": "prep",
@@ -219,11 +219,11 @@ window.__DASHBOARD_DATA__ = {
     },
     {
       "key": "listo",
-      "value": 26
+      "value": 35
     },
     {
       "key": "agendada",
-      "value": 4
+      "value": 8
     },
     {
       "key": "contrato",
@@ -248,9 +248,10 @@ window.__DASHBOARD_DATA__ = {
   ],
   "etapas_ciudades": {
     "listo": {
-      "Mexicali": 4,
+      "Mexicali": 5,
       "Tijuana": 21,
-      "Monterrey": 1
+      "CDMX / Edo Mex": 3,
+      "Monterrey": 6
     },
     "entregado": {
       "Tijuana": 5,
@@ -259,8 +260,10 @@ window.__DASHBOARD_DATA__ = {
       "Puebla": 1
     },
     "agendada": {
-      "Tijuana": 1,
-      "Monterrey": 3
+      "Tijuana": 2,
+      "Monterrey": 4,
+      "CDMX / Edo Mex": 1,
+      "Queretaro": 1
     }
   },
   "entregado_target_pct": 95,
@@ -270,26 +273,30 @@ window.__DASHBOARD_DATA__ = {
       "value": 21
     },
     {
-      "ciudad": "Mexicali",
-      "value": 4
+      "ciudad": "Monterrey",
+      "value": 6
     },
     {
-      "ciudad": "Monterrey",
-      "value": 1
+      "ciudad": "Mexicali",
+      "value": 5
+    },
+    {
+      "ciudad": "CDMX / Edo Mex",
+      "value": 3
     }
   ],
   "waitlist_gap": [
     {
       "ciudad": "CDMX / Edo Mex",
       "espera": 284,
-      "listo": 0,
-      "gap": 284
+      "listo": 3,
+      "gap": 281
     },
     {
       "ciudad": "Monterrey",
       "espera": 84,
-      "listo": 1,
-      "gap": 83
+      "listo": 6,
+      "gap": 78
     },
     {
       "ciudad": "Merida",
@@ -311,9 +318,9 @@ window.__DASHBOARD_DATA__ = {
     },
     {
       "ciudad": "Queretaro",
-      "espera": 47,
+      "espera": 46,
       "listo": 0,
-      "gap": 47
+      "gap": 46
     },
     {
       "ciudad": "Saltillo",
@@ -324,8 +331,8 @@ window.__DASHBOARD_DATA__ = {
     {
       "ciudad": "Mexicali",
       "espera": 2,
-      "listo": 4,
-      "gap": -2
+      "listo": 5,
+      "gap": -3
     },
     {
       "ciudad": "Tijuana",
@@ -337,7 +344,8 @@ window.__DASHBOARD_DATA__ = {
   "dias_labels": [
     "1",
     "2",
-    "3"
+    "3",
+    "4"
   ],
   "entregados_dia": [
     {
@@ -366,12 +374,22 @@ window.__DASHBOARD_DATA__ = {
       "gdl": 0,
       "mxl": 0,
       "otros": 0
+    },
+    {
+      "cdmx": 0,
+      "mty": 0,
+      "tij": 0,
+      "qro": 0,
+      "gdl": 0,
+      "mxl": 0,
+      "otros": 0
     }
   ],
   "agendadas_dia": [
     0,
     0,
-    4
+    7,
+    1
   ],
   "inv_log": [
     {
@@ -467,17 +485,17 @@ window.__DASHBOARD_DATA__ = {
     },
     {
       "fecha": "2-sep",
-      "total": 26,
+      "total": 35,
       "tij": 21,
-      "mxl": 4,
-      "mty": 1
+      "mxl": 5,
+      "mty": 6
     }
   ],
   "tiers": [
     {
       "key": "0-30",
       "label": "0-30 días",
-      "value": 291
+      "value": 290
     },
     {
       "key": "31-60",
@@ -495,7 +513,7 @@ window.__DASHBOARD_DATA__ = {
       "value": 58
     }
   ],
-  "tiers_total": 669,
+  "tiers_total": 668,
   "max_wait_days": 254,
   "city_tier": [
     {
@@ -551,12 +569,12 @@ window.__DASHBOARD_DATA__ = {
     {
       "ciudad": "Queretaro",
       "vals": [
-        17,
+        16,
         6,
         13,
         11
       ],
-      "total": 47
+      "total": 46
     },
     {
       "ciudad": "Saltillo",
@@ -613,12 +631,12 @@ window.__DASHBOARD_DATA__ = {
     {
       "key": "@Daniela Fav",
       "vals": [
-        15,
+        14,
         8,
         13,
         8
       ],
-      "total": 44
+      "total": 43
     },
     {
       "key": "Ana Rodriguez",
@@ -901,9 +919,9 @@ window.__DASHBOARD_DATA__ = {
       "ciudad": "Tijuana",
       "vals": [
         0,
-        4,
+        3,
         5,
-        10,
+        11,
         4,
         3
       ],
