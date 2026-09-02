@@ -1,5 +1,5 @@
 window.__DASHBOARD_DATA__ = {
-  "generated_at": "2026-09-02T02:22:34.308634Z",
+  "generated_at": "2026-09-02T14:10:53.364263Z",
   "months": [
     "Ago 25",
     "Sep 25",
@@ -375,13 +375,6 @@ window.__DASHBOARD_DATA__ = {
   ],
   "inv_log": [
     {
-      "fecha": "17-ago",
-      "total": 25,
-      "tij": 9,
-      "mxl": 4,
-      "mty": 10
-    },
-    {
       "fecha": "18-ago",
       "total": 34,
       "tij": 18,
@@ -471,6 +464,13 @@ window.__DASHBOARD_DATA__ = {
       "tij": 22,
       "mxl": 4,
       "mty": 2
+    },
+    {
+      "fecha": "2-sep",
+      "total": 28,
+      "tij": 22,
+      "mxl": 4,
+      "mty": 2
     }
   ],
   "tiers": [
@@ -482,29 +482,29 @@ window.__DASHBOARD_DATA__ = {
     {
       "key": "31-60",
       "label": "31-60 días",
-      "value": 141
+      "value": 137
     },
     {
       "key": "61-90",
       "label": "61-90 días",
-      "value": 189
+      "value": 185
     },
     {
       "key": "90+",
       "label": "90+ días",
-      "value": 50
+      "value": 58
     }
   ],
   "tiers_total": 666,
-  "max_wait_days": 253,
+  "max_wait_days": 254,
   "city_tier": [
     {
       "ciudad": "CDMX / Edo Mex",
       "vals": [
         155,
-        52,
+        50,
         62,
-        13
+        15
       ],
       "total": 282
     },
@@ -512,8 +512,8 @@ window.__DASHBOARD_DATA__ = {
       "ciudad": "Monterrey",
       "vals": [
         36,
-        14,
-        30,
+        12,
+        32,
         4
       ],
       "total": 84
@@ -533,8 +533,8 @@ window.__DASHBOARD_DATA__ = {
       "vals": [
         21,
         28,
-        17,
-        7
+        15,
+        9
       ],
       "total": 73
     },
@@ -543,8 +543,8 @@ window.__DASHBOARD_DATA__ = {
       "vals": [
         20,
         16,
-        23,
-        3
+        22,
+        4
       ],
       "total": 62
     },
@@ -553,8 +553,8 @@ window.__DASHBOARD_DATA__ = {
       "vals": [
         16,
         7,
-        15,
-        9
+        13,
+        11
       ],
       "total": 47
     },
@@ -573,8 +573,8 @@ window.__DASHBOARD_DATA__ = {
       "vals": [
         3,
         2,
-        1,
-        2
+        0,
+        3
       ],
       "total": 8
     },
@@ -594,8 +594,8 @@ window.__DASHBOARD_DATA__ = {
       "key": "Adolfo Jaimes",
       "vals": [
         19,
-        16,
-        16,
+        15,
+        17,
         4
       ],
       "total": 55
@@ -635,8 +635,8 @@ window.__DASHBOARD_DATA__ = {
       "vals": [
         23,
         3,
-        9,
-        0
+        6,
+        3
       ],
       "total": 35
     },
@@ -644,8 +644,8 @@ window.__DASHBOARD_DATA__ = {
       "key": "Oscar Alvarez",
       "vals": [
         19,
-        6,
-        7,
+        5,
+        8,
         1
       ],
       "total": 33
@@ -654,8 +654,8 @@ window.__DASHBOARD_DATA__ = {
       "key": "Karen Garcia",
       "vals": [
         7,
-        12,
-        10,
+        11,
+        11,
         1
       ],
       "total": 30
@@ -675,8 +675,8 @@ window.__DASHBOARD_DATA__ = {
       "vals": [
         5,
         8,
-        14,
-        2
+        12,
+        4
       ],
       "total": 29
     },
@@ -704,8 +704,8 @@ window.__DASHBOARD_DATA__ = {
       "key": "@Joel Flores Lopez",
       "vals": [
         9,
-        7,
         6,
+        7,
         4
       ],
       "total": 26
@@ -715,8 +715,8 @@ window.__DASHBOARD_DATA__ = {
       "vals": [
         13,
         3,
-        8,
-        2
+        7,
+        3
       ],
       "total": 26
     },
@@ -735,8 +735,8 @@ window.__DASHBOARD_DATA__ = {
       "vals": [
         16,
         6,
-        2,
-        1
+        1,
+        2
       ],
       "total": 25
     },
@@ -795,8 +795,8 @@ window.__DASHBOARD_DATA__ = {
       "vals": [
         5,
         4,
-        7,
-        1
+        6,
+        2
       ],
       "total": 17
     },
@@ -870,16 +870,16 @@ window.__DASHBOARD_DATA__ = {
   ],
   "decline_total": 837,
   "forecast": {
-    "workdays_elapsed": 0,
-    "actual_elapsed": 0,
+    "workdays_elapsed": 1,
+    "actual_elapsed": 5,
     "workdays_total": 22,
-    "rate": 0,
-    "total": 0,
-    "nuevo": 0,
-    "seminuevo": 0
+    "rate": 5.0,
+    "total": 110,
+    "nuevo": 22,
+    "seminuevo": 88
   },
   "corte": {
-    "fecha": "2026-09-01",
+    "fecha": "2026-09-02",
     "mes_label": "Sep 26"
   },
   "fleet_total": 125,
@@ -1459,38 +1459,38 @@ window.__DASHBOARD_DATA__ = {
     {
       "agente": "Yael Munoz",
       "count": 8,
-      "min_age": 50,
-      "max_age": 97
+      "min_age": 51,
+      "max_age": 98
     },
     {
       "agente": "Hector Vera",
       "count": 6,
-      "min_age": 50,
-      "max_age": 118
+      "min_age": 51,
+      "max_age": 119
     },
     {
       "agente": "Araceli Olvera",
       "count": 6,
-      "min_age": 63,
-      "max_age": 111
+      "min_age": 64,
+      "max_age": 112
     },
     {
       "agente": "Mariam Bangoura",
       "count": 4,
-      "min_age": 80,
-      "max_age": 102
+      "min_age": 81,
+      "max_age": 103
     },
     {
       "agente": "Fernando Velazquez",
       "count": 4,
-      "min_age": 61,
-      "max_age": 99
+      "min_age": 62,
+      "max_age": 100
     },
     {
       "agente": "Carlos Mejia",
       "count": 1,
-      "min_age": 96,
-      "max_age": 96
+      "min_age": 97,
+      "max_age": 97
     }
   ]
 };
