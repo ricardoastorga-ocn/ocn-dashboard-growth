@@ -1,5 +1,5 @@
 window.__DASHBOARD_DATA__ = {
-  "generated_at": "2026-09-02T14:10:53.364263Z",
+  "generated_at": "2026-09-02T16:10:49.654808Z",
   "months": [
     "Ago 25",
     "Sep 25",
@@ -223,11 +223,11 @@ window.__DASHBOARD_DATA__ = {
     },
     {
       "key": "agendada",
-      "value": 6
+      "value": 1
     },
     {
       "key": "contrato",
-      "value": 0
+      "value": 5
     },
     {
       "key": "cenv",
@@ -257,10 +257,13 @@ window.__DASHBOARD_DATA__ = {
       "Guadalajara": 1,
       "Monterrey": 1
     },
-    "agendada": {
+    "contrato": {
       "Tijuana": 2,
-      "Monterrey": 3,
+      "Monterrey": 2,
       "Puebla": 1
+    },
+    "agendada": {
+      "Monterrey": 1
     }
   },
   "entregado_target_pct": 95,
@@ -299,9 +302,9 @@ window.__DASHBOARD_DATA__ = {
     },
     {
       "ciudad": "Puebla",
-      "espera": 73,
+      "espera": 72,
       "listo": 0,
-      "gap": 73
+      "gap": 72
     },
     {
       "ciudad": "Guadalajara",
@@ -317,9 +320,9 @@ window.__DASHBOARD_DATA__ = {
     },
     {
       "ciudad": "Saltillo",
-      "espera": 31,
+      "espera": 32,
       "listo": 0,
-      "gap": 31
+      "gap": 32
     },
     {
       "ciudad": "Mexicali",
@@ -477,7 +480,7 @@ window.__DASHBOARD_DATA__ = {
     {
       "key": "0-30",
       "label": "0-30 días",
-      "value": 286
+      "value": 287
     },
     {
       "key": "31-60",
@@ -487,7 +490,7 @@ window.__DASHBOARD_DATA__ = {
     {
       "key": "61-90",
       "label": "61-90 días",
-      "value": 185
+      "value": 184
     },
     {
       "key": "90+",
@@ -533,10 +536,10 @@ window.__DASHBOARD_DATA__ = {
       "vals": [
         21,
         28,
-        15,
+        14,
         9
       ],
-      "total": 73
+      "total": 72
     },
     {
       "ciudad": "Guadalajara",
@@ -561,12 +564,12 @@ window.__DASHBOARD_DATA__ = {
     {
       "ciudad": "Saltillo",
       "vals": [
-        16,
+        17,
         11,
         3,
         1
       ],
-      "total": 31
+      "total": 32
     },
     {
       "ciudad": "Tijuana",
@@ -721,6 +724,16 @@ window.__DASHBOARD_DATA__ = {
       "total": 26
     },
     {
+      "key": "Monserrat Rivera",
+      "vals": [
+        13,
+        3,
+        7,
+        2
+      ],
+      "total": 25
+    },
+    {
       "key": "Aaron Sanchez",
       "vals": [
         11,
@@ -739,16 +752,6 @@ window.__DASHBOARD_DATA__ = {
         2
       ],
       "total": 25
-    },
-    {
-      "key": "Monserrat Rivera",
-      "vals": [
-        12,
-        3,
-        7,
-        2
-      ],
-      "total": 24
     },
     {
       "key": "Imanol Cortez",
@@ -771,16 +774,6 @@ window.__DASHBOARD_DATA__ = {
       "total": 21
     },
     {
-      "key": "Antonio Cruz",
-      "vals": [
-        11,
-        3,
-        4,
-        1
-      ],
-      "total": 19
-    },
-    {
       "key": "@Ivette",
       "vals": [
         9,
@@ -789,6 +782,16 @@ window.__DASHBOARD_DATA__ = {
         2
       ],
       "total": 19
+    },
+    {
+      "key": "Antonio Cruz",
+      "vals": [
+        11,
+        3,
+        3,
+        1
+      ],
+      "total": 18
     },
     {
       "key": "Edwin Hernandez",
@@ -845,7 +848,7 @@ window.__DASHBOARD_DATA__ = {
     {
       "key": "driver1",
       "label": "Agenda declinada por driver",
-      "value": 609
+      "value": 610
     },
     {
       "key": "tl",
@@ -868,7 +871,7 @@ window.__DASHBOARD_DATA__ = {
       "value": 12
     }
   ],
-  "decline_total": 837,
+  "decline_total": 838,
   "forecast": {
     "workdays_elapsed": 1,
     "actual_elapsed": 5,
@@ -882,7 +885,7 @@ window.__DASHBOARD_DATA__ = {
     "fecha": "2026-09-02",
     "mes_label": "Sep 26"
   },
-  "fleet_total": 125,
+  "fleet_total": 122,
   "fleet_desflote_n": 13,
   "fleet_city_stage": [
     {
@@ -898,16 +901,16 @@ window.__DASHBOARD_DATA__ = {
       "total": 43
     },
     {
-      "ciudad": "Sin identificar",
+      "ciudad": "Tijuana",
       "vals": [
         0,
+        4,
+        5,
+        9,
         3,
-        7,
-        2,
-        10,
-        4
+        3
       ],
-      "total": 26
+      "total": 24
     },
     {
       "ciudad": "Guadalajara",
@@ -915,47 +918,47 @@ window.__DASHBOARD_DATA__ = {
         3,
         10,
         9,
-        1,
+        0,
         0,
         1
       ],
-      "total": 24
+      "total": 23
     },
     {
-      "ciudad": "Tijuana",
+      "ciudad": "Sin identificar",
       "vals": [
         0,
-        4,
-        4,
-        9,
-        3,
-        2
+        2,
+        7,
+        1,
+        10,
+        3
       ],
-      "total": 22
+      "total": 23
     },
     {
       "ciudad": "Monterrey",
       "vals": [
         4,
         0,
-        1,
         0,
-        3,
+        0,
+        2,
         4
       ],
-      "total": 12
+      "total": 10
     },
     {
       "ciudad": "Queretaro",
       "vals": [
         4,
-        0,
+        1,
         0,
         0,
         1,
         0
       ],
-      "total": 5
+      "total": 6
     },
     {
       "ciudad": "Puebla",
@@ -1016,24 +1019,24 @@ window.__DASHBOARD_DATA__ = {
       "cdmx": 0,
       "gdl": 0,
       "qro": 0,
-      "mty": 5,
+      "mty": 4,
       "otros": 0
     },
     {
-      "tij": 2,
+      "tij": 3,
       "cdmx": 2,
-      "gdl": 5,
+      "gdl": 4,
       "qro": 0,
       "mty": 0,
       "otros": 2
     },
     {
-      "tij": 8,
+      "tij": 10,
       "cdmx": 2,
       "gdl": 6,
       "qro": 3,
       "mty": 0,
-      "otros": 6
+      "otros": 5
     },
     {
       "tij": 0,
@@ -1041,7 +1044,7 @@ window.__DASHBOARD_DATA__ = {
       "gdl": 0,
       "qro": 0,
       "mty": 0,
-      "otros": 1
+      "otros": 0
     },
     {
       "tij": 0,
@@ -1084,7 +1087,7 @@ window.__DASHBOARD_DATA__ = {
       "otros": 0
     },
     {
-      "tij": 5,
+      "tij": 3,
       "cdmx": 0,
       "gdl": 0,
       "qro": 0,
@@ -1103,12 +1106,12 @@ window.__DASHBOARD_DATA__ = {
       "tij": 0,
       "cdmx": 7,
       "gdl": 2,
-      "qro": 0,
+      "qro": 1,
       "mty": 0,
       "otros": 4
     },
     {
-      "tij": 1,
+      "tij": 2,
       "cdmx": 0,
       "gdl": 0,
       "qro": 0,
@@ -1124,9 +1127,9 @@ window.__DASHBOARD_DATA__ = {
       "otros": 1
     }
   ],
-  "fleet_sin_fecha_n": 44,
+  "fleet_sin_fecha_n": 42,
   "fleet_vencido_dias": 10,
-  "fleet_vencido_unidades": 60,
+  "fleet_vencido_unidades": 57,
   "agenda_decline_kpis": {
     "total": 460,
     "recuperado": 200,
