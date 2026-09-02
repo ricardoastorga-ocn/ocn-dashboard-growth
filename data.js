@@ -1,5 +1,5 @@
 window.__DASHBOARD_DATA__ = {
-  "generated_at": "2026-09-02T00:22:07.683173Z",
+  "generated_at": "2026-09-02T02:22:34.308634Z",
   "months": [
     "Ago 25",
     "Sep 25",
@@ -882,7 +882,7 @@ window.__DASHBOARD_DATA__ = {
     "fecha": "2026-09-01",
     "mes_label": "Sep 26"
   },
-  "fleet_total": 123,
+  "fleet_total": 125,
   "fleet_desflote_n": 13,
   "fleet_city_stage": [
     {
@@ -891,23 +891,23 @@ window.__DASHBOARD_DATA__ = {
         5,
         3,
         10,
-        7,
+        8,
         15,
         2
       ],
-      "total": 42
+      "total": 43
     },
     {
       "ciudad": "Sin identificar",
       "vals": [
         0,
-        2,
+        3,
         7,
         2,
         10,
         4
       ],
-      "total": 25
+      "total": 26
     },
     {
       "ciudad": "Guadalajara",
@@ -915,11 +915,11 @@ window.__DASHBOARD_DATA__ = {
         3,
         10,
         9,
-        0,
+        1,
         0,
         1
       ],
-      "total": 23
+      "total": 24
     },
     {
       "ciudad": "Tijuana",
@@ -948,14 +948,14 @@ window.__DASHBOARD_DATA__ = {
     {
       "ciudad": "Queretaro",
       "vals": [
-        5,
+        4,
         0,
         0,
         0,
         1,
         0
       ],
-      "total": 6
+      "total": 5
     },
     {
       "ciudad": "Puebla",
@@ -1022,7 +1022,7 @@ window.__DASHBOARD_DATA__ = {
     {
       "tij": 2,
       "cdmx": 2,
-      "gdl": 4,
+      "gdl": 5,
       "qro": 0,
       "mty": 0,
       "otros": 2
@@ -1039,9 +1039,9 @@ window.__DASHBOARD_DATA__ = {
       "tij": 0,
       "cdmx": 1,
       "gdl": 0,
-      "qro": 1,
+      "qro": 0,
       "mty": 0,
-      "otros": 0
+      "otros": 1
     },
     {
       "tij": 0,
@@ -1124,9 +1124,9 @@ window.__DASHBOARD_DATA__ = {
       "otros": 1
     }
   ],
-  "fleet_sin_fecha_n": 43,
+  "fleet_sin_fecha_n": 44,
   "fleet_vencido_dias": 10,
-  "fleet_vencido_unidades": 59,
+  "fleet_vencido_unidades": 60,
   "agenda_decline_kpis": {
     "total": 460,
     "recuperado": 200,
