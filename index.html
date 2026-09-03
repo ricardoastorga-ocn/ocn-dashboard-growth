@@ -390,12 +390,14 @@ table.data-table td.pct-bad  { color: var(--s-critical); font-weight: 700; }
         <div class="legend" id="legend-fleet-day"></div>
         <p class="callout" id="callout-fleet-day"></p>
       </div>
-      <div>
+      <div style="display:flex; flex-direction:column;">
         <p class="subsection-title">En preparación — listos para agendar</p>
         <p class="card-note" style="margin-top:-6px;">Back Office, Estatus BO = "En preparación": ya salieron de Fleet, van hacia el equipo comercial. Trabajar de inmediato para confirmar cita y entregar ASAP.</p>
-        <div class="chart-wrap" id="enprep-chart-wrap">
-          <div class="chart-scroll"><svg class="chart" id="chart-enprep"></svg></div>
-          <div class="tooltip" id="tooltip-enprep"></div>
+        <div style="flex:1; display:flex; flex-direction:column; justify-content:center;">
+          <div class="chart-wrap" id="enprep-chart-wrap">
+            <div class="chart-scroll chart-center"><svg class="chart" id="chart-enprep"></svg></div>
+            <div class="tooltip" id="tooltip-enprep"></div>
+          </div>
         </div>
         <p class="callout" id="callout-enprep"></p>
       </div>
@@ -738,7 +740,7 @@ table.data-table td.pct-bad  { color: var(--s-critical); font-weight: 700; }
     const rowH = opts.rowH || 36, gap = opts.gap != null ? opts.gap : 12;
     const padL = 4, padR = opts.padRight || 56, padT = 4, padB = 4;
     const labelW = opts.labelWidth || 150;
-    const width = Math.max(520, (svg.closest('.chart-scroll')||svg).clientWidth || 640);
+    const width = Math.max(opts.minWidth || 520, (svg.closest('.chart-scroll')||svg).clientWidth || 640);
     const height = items.length * (rowH + gap) - gap + padT + padB;
     const plotW = width - padL - padR - labelW;
     const maxV = Math.max.apply(null, items.map(d => d.value)) * 1.12;
@@ -1440,6 +1442,8 @@ table.data-table td.pct-bad  { color: var(--s-critical); font-weight: 700; }
         labelOf: d => d.key,
         allAccent: true,
         labelWidth: 110,
+        padRight: 40,
+        minWidth: 320,
         rowH: 34,
         gap: 10,
         subLabelBelow: d => d.modelos.join(', '),
