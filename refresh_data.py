@@ -243,7 +243,7 @@ def main():
     seg = sheets_get(token, BO_ID, "'SEGUIMIENTO ENTREGAS'!A1:BZ1000")
     header, rows = seg[0], seg[1:]
     validar_columnas("SEGUIMIENTO ENTREGAS", header,
-                      ["Estatus BO", "Ciudad Base", "Modelo", "Nuevo / Semi", "F / Entrega"])
+                      ["Estatus BO", "Ciudad Base", "Modelo", "Nuevo / Semi", "F / Entrega", "VIN"])
     idx = {h: i for i, h in enumerate(header)}
 
     def get(r, col):
@@ -266,6 +266,7 @@ def main():
     modelo_mtd = collections.Counter()
     nuevo_semi_mtd = collections.Counter()
     unmapped_status = collections.Counter()
+    en_prep_por_ciudad = collections.defaultdict(list)
 
     def parse_fe(s):
         return parse_date_multi(s, ["%d/%m/%Y", "%m/%d/%Y", "%Y-%m-%d"])
@@ -282,6 +283,10 @@ def main():
         stage = STAGE_MAP.get(raw_status, "__UNMAPPED__")
         city_raw = get(r, "Ciudad Base").strip()
         city = CITY_MAP.get(city_raw, city_raw)
+        if raw_status == "EN PREPARACION":
+            modelo_raw = get(r, "Modelo").strip()
+            vin = get(r, "VIN").strip()
+            en_prep_por_ciudad[city or "Sin ciudad"].append({"vin": vin, "modelo": modelo_raw})
         if stage == "__UNMAPPED__":
             unmapped_status[raw_status] += 1
             continue
@@ -312,6 +317,18 @@ def main():
 
     if unmapped_status:
         print("WARNING: Estatus BO sin mapear:", dict(unmapped_status), file=sys.stderr)
+
+    # "En preparación" = ya salió de Fleet, va hacia Sales/Growth -- el equipo debe trabajarlo de
+    # inmediato para agendar cita y entregar ASAP. Pedido explícito de Ricardo 3-sep-2026 (ver
+    # project_dashboard_growth_automation.md). VIN/Modelo sí están poblados en la fuente; Driver/
+    # Numero/Agente/F-Tentativa-Liberacion casi siempre vienen vacíos todavía -- no se muestran.
+    en_prep_by_ciudad = sorted(
+        [{"ciudad": c, "count": len(items),
+          "modelos": [i["modelo"] for i in items],
+          "vins": [i["vin"] for i in items if i["vin"]]}
+         for c, items in en_prep_por_ciudad.items()],
+        key=lambda d: -d["count"])
+    en_prep_total = sum(d["count"] for d in en_prep_by_ciudad)
 
     etapas_total = sum(etapas_count.values())
     entregado_mtd = etapas_count.get("entregado", 0)
@@ -745,6 +762,8 @@ def main():
         "fleet_sin_fecha_n": fleet_sin_fecha_n,
         "fleet_vencido_dias": fleet_vencido_dias,
         "fleet_vencido_unidades": fleet_vencido_unidades,
+        "en_prep_by_ciudad": en_prep_by_ciudad,
+        "en_prep_total": en_prep_total,
         "agenda_decline_kpis": {
             "total": agenda_total, "recuperado": agenda_recuperado,
             "pct_recuperado": round(agenda_recuperado / agenda_total * 100, 1) if agenda_total else 0,

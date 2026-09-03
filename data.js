@@ -1,5 +1,5 @@
 window.__DASHBOARD_DATA__ = {
-  "generated_at": "2026-09-03T15:44:24.525630Z",
+  "generated_at": "2026-09-03T16:33:00.583299Z",
   "months": [
     "Ago 25",
     "Sep 25",
@@ -219,11 +219,11 @@ window.__DASHBOARD_DATA__ = {
     },
     {
       "key": "listo",
-      "value": 27
+      "value": 26
     },
     {
       "key": "agendada",
-      "value": 3
+      "value": 4
     },
     {
       "key": "contrato",
@@ -250,7 +250,7 @@ window.__DASHBOARD_DATA__ = {
     "listo": {
       "Mexicali": 5,
       "Tijuana": 19,
-      "Monterrey": 3
+      "Monterrey": 2
     },
     "entregado": {
       "Tijuana": 5,
@@ -266,7 +266,7 @@ window.__DASHBOARD_DATA__ = {
     },
     "agendada": {
       "CDMX / Edo Mex": 1,
-      "Monterrey": 1,
+      "Monterrey": 2,
       "Tijuana": 1
     }
   },
@@ -282,7 +282,7 @@ window.__DASHBOARD_DATA__ = {
     },
     {
       "ciudad": "Monterrey",
-      "value": 3
+      "value": 2
     }
   ],
   "waitlist_gap": [
@@ -295,8 +295,8 @@ window.__DASHBOARD_DATA__ = {
     {
       "ciudad": "Monterrey",
       "espera": 82,
-      "listo": 3,
-      "gap": 79
+      "listo": 2,
+      "gap": 80
     },
     {
       "ciudad": "Merida",
@@ -389,7 +389,7 @@ window.__DASHBOARD_DATA__ = {
     0,
     0,
     14,
-    2
+    3
   ],
   "inv_log": [
     {
@@ -485,10 +485,10 @@ window.__DASHBOARD_DATA__ = {
     },
     {
       "fecha": "3-sep",
-      "total": 27,
+      "total": 26,
       "tij": 19,
       "mxl": 5,
-      "mty": 3
+      "mty": 2
     }
   ],
   "tiers": [
@@ -1133,6 +1133,31 @@ window.__DASHBOARD_DATA__ = {
   "fleet_sin_fecha_n": 37,
   "fleet_vencido_dias": 10,
   "fleet_vencido_unidades": 58,
+  "en_prep_by_ciudad": [
+    {
+      "ciudad": "Tijuana",
+      "count": 2,
+      "modelos": [
+        "MG 5 EXITE",
+        "MG 5 EXITE"
+      ],
+      "vins": [
+        "LSJA36E99PZ111611",
+        "LSJA36E97RZ016242"
+      ]
+    },
+    {
+      "ciudad": "Queretaro",
+      "count": 1,
+      "modelos": [
+        "MG 3"
+      ],
+      "vins": [
+        "LSJWP4U61TZ015231"
+      ]
+    }
+  ],
+  "en_prep_total": 3,
   "agenda_decline_kpis": {
     "total": 460,
     "recuperado": 200,

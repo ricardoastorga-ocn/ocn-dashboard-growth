@@ -380,13 +380,26 @@ table.data-table td.pct-bad  { color: var(--s-critical); font-weight: 700; }
     <div class="legend" id="legend-fleet-city-stage"></div>
     <p class="callout" id="callout-fleet-city-stage"></p>
 
-    <p class="subsection-title">Volumen esperado por día, por ciudad</p>
-    <div class="chart-wrap" id="fleet-day-chart-wrap">
-      <div class="chart-scroll"><svg class="chart" id="chart-fleet-day"></svg></div>
-      <div class="tooltip" id="tooltip-fleet-day"></div>
+    <div class="grid-2">
+      <div>
+        <p class="subsection-title">Volumen esperado por día, por ciudad</p>
+        <div class="chart-wrap" id="fleet-day-chart-wrap">
+          <div class="chart-scroll"><svg class="chart" id="chart-fleet-day"></svg></div>
+          <div class="tooltip" id="tooltip-fleet-day"></div>
+        </div>
+        <div class="legend" id="legend-fleet-day"></div>
+        <p class="callout" id="callout-fleet-day"></p>
+      </div>
+      <div>
+        <p class="subsection-title">En preparación — listos para agendar</p>
+        <p class="card-note" style="margin-top:-6px;">Back Office, Estatus BO = "En preparación": ya salieron de Fleet, van hacia el equipo comercial. Trabajar de inmediato para confirmar cita y entregar ASAP.</p>
+        <div class="chart-wrap" id="enprep-chart-wrap">
+          <div class="chart-scroll"><svg class="chart" id="chart-enprep"></svg></div>
+          <div class="tooltip" id="tooltip-enprep"></div>
+        </div>
+        <p class="callout" id="callout-enprep"></p>
+      </div>
     </div>
-    <div class="legend" id="legend-fleet-day"></div>
-    <p class="callout" id="callout-fleet-day"></p>
   </section>
 
   <section class="card" id="card-waitlist">
@@ -562,6 +575,9 @@ table.data-table td.pct-bad  { color: var(--s-critical); font-weight: 700; }
   const FLEET_DAY_COLOR = {tij:"--s-mg3", cdmx:"--s-byd", gdl:"--s-king", qro:"--s-aion", mty:"--s-mg5", otros:"--s-otros"};
   const FLEET_DIAS_LABELS = DATA.fleet_dias_labels;
   const FLEET_BY_DAY = DATA.fleet_by_day;
+
+  const EN_PREP_BY_CIUDAD = DATA.en_prep_by_ciudad;
+  const EN_PREP_TOTAL = DATA.en_prep_total;
 
   const svgNS = "http://www.w3.org/2000/svg";
   function el(tag, attrs, parent){
@@ -768,7 +784,7 @@ table.data-table td.pct-bad  { color: var(--s-critical); font-weight: 700; }
         hit.addEventListener("pointermove", (ev) => {
           const wrapRect = svg.closest('.chart-wrap').getBoundingClientRect();
           const evX = ev.clientX - wrapRect.left, evY = ev.clientY - wrapRect.top;
-          tooltip.innerHTML = '<div class="tt-title">'+opts.labelOf(d)+'</div><div class="tt-row"><span class="tt-val">'+fmt(d.value)+' '+(opts.unit||'unidades')+'</span></div>';
+          tooltip.innerHTML = '<div class="tt-title">'+opts.labelOf(d)+'</div><div class="tt-row"><span class="tt-val">'+fmt(d.value)+' '+(opts.unit||'unidades')+'</span></div>' + (opts.tooltipExtra ? opts.tooltipExtra(d) : '');
           tooltip.style.left = evX + "px";
           tooltip.style.top = Math.max(evY - 10, 10) + "px";
           tooltip.classList.add("show");
@@ -1414,6 +1430,25 @@ table.data-table td.pct-bad  { color: var(--s-critical); font-weight: 700; }
       });
     } else if (fleetDayWrap) {
       fleetDayWrap.style.display = 'none';
+    }
+
+    const calloutEnprep = document.getElementById('callout-enprep');
+    if (EN_PREP_BY_CIUDAD.length) {
+      drawEmphasisBarChart('chart-enprep', 'tooltip-enprep',
+        EN_PREP_BY_CIUDAD.map(d => ({key: d.ciudad, value: d.count, modelos: d.modelos, vins: d.vins})), {
+        ariaLabel: "Autos en preparación por ciudad, saliendo de Fleet hacia Sales",
+        labelOf: d => d.key,
+        allAccent: true,
+        labelWidth: 110,
+        rowH: 34,
+        gap: 10,
+        subLabelBelow: d => d.modelos.join(', '),
+        tooltipExtra: d => '<div class="tt-row">' + d.vins.join('<br>') + '</div>'
+      });
+      if (calloutEnprep) calloutEnprep.textContent =
+        EN_PREP_TOTAL + ' auto' + (EN_PREP_TOTAL === 1 ? '' : 's') + ' en preparación ahora mismo.';
+    } else if (calloutEnprep) {
+      calloutEnprep.textContent = 'Ninguno en preparación ahora mismo.';
     }
 
     initToggles();
