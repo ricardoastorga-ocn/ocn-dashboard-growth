@@ -1446,7 +1446,12 @@ table.data-table td.pct-bad  { color: var(--s-critical); font-weight: 700; }
         minWidth: 320,
         rowH: 34,
         gap: 10,
-        subLabelBelow: d => d.modelos.join(', '),
+        subLabelBelow: d => {
+          const counts = {};
+          d.modelos.forEach(m => { counts[m] = (counts[m]||0) + 1; });
+          const txt = Object.keys(counts).map(m => counts[m] > 1 ? m + ' ×' + counts[m] : m).join(', ');
+          return txt.length > 26 ? txt.slice(0, 24) + '…' : txt;
+        },
         tooltipExtra: d => '<div class="tt-row">' + d.vins.join('<br>') + '</div>'
       });
       if (calloutEnprep) calloutEnprep.textContent =
