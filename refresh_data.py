@@ -16,10 +16,12 @@ import os
 import sys
 import json
 import re
+import time
 import datetime
 import unicodedata
 import urllib.request
 import urllib.parse
+import urllib.error
 import collections
 from zoneinfo import ZoneInfo
 
@@ -79,6 +81,28 @@ MODELO_KEYS = ["byd", "mg5", "mg3", "aion", "king", "tiggo", "otros"]
 MONTH_LABELS_ES = ["Ene", "Feb", "Mar", "Abr", "May", "Jun", "Jul", "Ago", "Sep", "Oct", "Nov", "Dic"]
 
 
+# Google (OAuth token endpoint y Sheets API) a veces regresa errores transitorios (503
+# Service Unavailable, 429 rate limit, timeouts de red) que no tienen nada que ver con el
+# código -- se resuelven solos en segundos. Sin retry, uno de estos tumbaba la corrida COMPLETA
+# del día (ej. 3-sep-2026 8am: un solo 503 en la primera llamada mató todo el refresh, incluido
+# el Log Inventario Diario, y el dashboard se quedó sin actualizar hasta la siguiente corrida
+# programada 3 horas después). Reintenta con backoff SOLO errores transitorios (5xx/429/red);
+# un error real (401, 403, 404, ColumnasFaltantesError, etc.) sigue tronando de inmediato --
+# nunca hay que esconder un error de verdad detrás de un retry.
+def _retry_transient(fn, intentos=4, espera_base=2):
+    for intento in range(1, intentos + 1):
+        try:
+            return fn()
+        except urllib.error.HTTPError as e:
+            transitorio = e.code >= 500 or e.code == 429
+            if not transitorio or intento == intentos:
+                raise
+        except (urllib.error.URLError, TimeoutError, ConnectionError):
+            if intento == intentos:
+                raise
+        time.sleep(espera_base * (2 ** (intento - 1)))
+
+
 def get_access_token():
     client_id = os.environ["GOOGLE_CLIENT_ID"]
     client_secret = os.environ["GOOGLE_CLIENT_SECRET"]
@@ -87,16 +111,22 @@ def get_access_token():
         "client_id": client_id, "client_secret": client_secret,
         "refresh_token": refresh_token, "grant_type": "refresh_token",
     }).encode()
-    req = urllib.request.Request("https://oauth2.googleapis.com/token", data=data, method="POST")
-    with urllib.request.urlopen(req) as resp:
-        return json.loads(resp.read())["access_token"]
+
+    def _do():
+        req = urllib.request.Request("https://oauth2.googleapis.com/token", data=data, method="POST")
+        with urllib.request.urlopen(req) as resp:
+            return json.loads(resp.read())["access_token"]
+    return _retry_transient(_do)
 
 
 def sheets_get(token, sheet_id, rng):
     url = f"https://sheets.googleapis.com/v4/spreadsheets/{sheet_id}/values/{urllib.parse.quote(rng)}"
-    req = urllib.request.Request(url, headers={"Authorization": f"Bearer {token}"})
-    with urllib.request.urlopen(req) as resp:
-        return json.loads(resp.read()).get("values", [])
+
+    def _do():
+        req = urllib.request.Request(url, headers={"Authorization": f"Bearer {token}"})
+        with urllib.request.urlopen(req) as resp:
+            return json.loads(resp.read()).get("values", [])
+    return _retry_transient(_do)
 
 
 class ColumnasFaltantesError(Exception):
@@ -125,20 +155,26 @@ def sheets_append(token, sheet_id, rng, row):
     url = (f"https://sheets.googleapis.com/v4/spreadsheets/{sheet_id}/values/"
            f"{urllib.parse.quote(rng)}:append?valueInputOption=USER_ENTERED")
     body = json.dumps({"values": [row]}).encode()
-    req = urllib.request.Request(url, data=body, headers={
-        "Authorization": f"Bearer {token}", "Content-Type": "application/json"}, method="POST")
-    with urllib.request.urlopen(req) as resp:
-        return json.loads(resp.read())
+
+    def _do():
+        req = urllib.request.Request(url, data=body, headers={
+            "Authorization": f"Bearer {token}", "Content-Type": "application/json"}, method="POST")
+        with urllib.request.urlopen(req) as resp:
+            return json.loads(resp.read())
+    return _retry_transient(_do)
 
 
 def sheets_update(token, sheet_id, rng, row):
     url = (f"https://sheets.googleapis.com/v4/spreadsheets/{sheet_id}/values/"
            f"{urllib.parse.quote(rng)}?valueInputOption=USER_ENTERED")
     body = json.dumps({"values": [row]}).encode()
-    req = urllib.request.Request(url, data=body, headers={
-        "Authorization": f"Bearer {token}", "Content-Type": "application/json"}, method="PUT")
-    with urllib.request.urlopen(req) as resp:
-        return json.loads(resp.read())
+
+    def _do():
+        req = urllib.request.Request(url, data=body, headers={
+            "Authorization": f"Bearer {token}", "Content-Type": "application/json"}, method="PUT")
+        with urllib.request.urlopen(req) as resp:
+            return json.loads(resp.read())
+    return _retry_transient(_do)
 
 
 def norm_ascii(s):
