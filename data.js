@@ -1,5 +1,5 @@
 window.__DASHBOARD_DATA__ = {
-  "generated_at": "2026-09-04T02:14:05.007846Z",
+  "generated_at": "2026-09-04T14:09:21.018397Z",
   "months": [
     "Ago 25",
     "Sep 25",
@@ -394,13 +394,6 @@ window.__DASHBOARD_DATA__ = {
   ],
   "inv_log": [
     {
-      "fecha": "19-ago",
-      "total": 39,
-      "tij": 19,
-      "mxl": 8,
-      "mty": 11
-    },
-    {
       "fecha": "20-ago",
       "total": 30,
       "tij": 18,
@@ -490,40 +483,47 @@ window.__DASHBOARD_DATA__ = {
       "tij": 20,
       "mxl": 5,
       "mty": 6
+    },
+    {
+      "fecha": "4-sep",
+      "total": 32,
+      "tij": 20,
+      "mxl": 5,
+      "mty": 6
     }
   ],
   "tiers": [
     {
       "key": "0-30",
       "label": "0-30 días",
-      "value": 283
+      "value": 270
     },
     {
       "key": "31-60",
       "label": "31-60 días",
-      "value": 148
+      "value": 161
     },
     {
       "key": "61-90",
       "label": "61-90 días",
-      "value": 171
+      "value": 166
     },
     {
       "key": "90+",
       "label": "90+ días",
-      "value": 60
+      "value": 65
     }
   ],
   "tiers_total": 662,
-  "max_wait_days": 255,
+  "max_wait_days": 256,
   "city_tier": [
     {
       "ciudad": "CDMX / Edo Mex",
       "vals": [
-        150,
+        142,
+        61,
         53,
-        55,
-        17
+        19
       ],
       "total": 275
     },
@@ -542,8 +542,8 @@ window.__DASHBOARD_DATA__ = {
       "vals": [
         17,
         12,
-        37,
-        12
+        35,
+        14
       ],
       "total": 78
     },
@@ -560,8 +560,8 @@ window.__DASHBOARD_DATA__ = {
     {
       "ciudad": "Guadalajara",
       "vals": [
-        19,
         18,
+        19,
         22,
         3
       ],
@@ -570,18 +570,18 @@ window.__DASHBOARD_DATA__ = {
     {
       "ciudad": "Queretaro",
       "vals": [
-        18,
-        6,
-        11,
-        11
+        17,
+        7,
+        10,
+        12
       ],
       "total": 46
     },
     {
       "ciudad": "Saltillo",
       "vals": [
-        15,
-        13,
+        12,
+        16,
         3,
         1
       ],
@@ -612,18 +612,18 @@ window.__DASHBOARD_DATA__ = {
     {
       "key": "Adolfo Jaimes",
       "vals": [
-        21,
-        17,
-        17,
-        3
+        19,
+        19,
+        16,
+        4
       ],
       "total": 58
     },
     {
       "key": "Mayte Urrutia",
       "vals": [
-        26,
-        9,
+        24,
+        11,
         12,
         2
       ],
@@ -632,8 +632,8 @@ window.__DASHBOARD_DATA__ = {
     {
       "key": "@Daniela Fav",
       "vals": [
-        14,
-        8,
+        13,
+        9,
         11,
         7
       ],
@@ -682,18 +682,18 @@ window.__DASHBOARD_DATA__ = {
     {
       "key": "Karen Garcia",
       "vals": [
-        6,
-        12,
-        10,
-        2
+        5,
+        13,
+        9,
+        3
       ],
       "total": 30
     },
     {
       "key": "Ishell Miranda",
       "vals": [
-        6,
-        8,
+        5,
+        9,
         12,
         4
       ],
@@ -704,16 +704,16 @@ window.__DASHBOARD_DATA__ = {
       "vals": [
         12,
         2,
-        10,
-        4
+        8,
+        6
       ],
       "total": 28
     },
     {
       "key": "Aaron Sanchez",
       "vals": [
-        11,
-        7,
+        10,
+        8,
         8,
         1
       ],
@@ -722,8 +722,8 @@ window.__DASHBOARD_DATA__ = {
     {
       "key": "@Michelle Ruiz",
       "vals": [
-        13,
-        3,
+        12,
+        4,
         7,
         3
       ],
@@ -732,18 +732,18 @@ window.__DASHBOARD_DATA__ = {
     {
       "key": "Monserrat Rivera",
       "vals": [
-        14,
-        3,
-        7,
-        2
+        12,
+        5,
+        6,
+        3
       ],
       "total": 26
     },
     {
       "key": "@Joel Flores Lopez",
       "vals": [
-        9,
-        6,
+        8,
+        7,
         7,
         3
       ],
@@ -752,8 +752,8 @@ window.__DASHBOARD_DATA__ = {
     {
       "key": "Diana Moreno",
       "vals": [
-        16,
-        6,
+        15,
+        7,
         1,
         2
       ],
@@ -889,19 +889,19 @@ window.__DASHBOARD_DATA__ = {
   ],
   "decline_total": 853,
   "forecast": {
-    "workdays_elapsed": 2,
-    "actual_elapsed": 9,
+    "workdays_elapsed": 3,
+    "actual_elapsed": 20,
     "workdays_total": 22,
-    "rate": 4.5,
-    "total": 99,
-    "nuevo": 15,
-    "seminuevo": 84
+    "rate": 6.67,
+    "total": 147,
+    "nuevo": 22,
+    "seminuevo": 125
   },
   "corte": {
-    "fecha": "2026-09-03",
+    "fecha": "2026-09-04",
     "mes_label": "Sep 26"
   },
-  "fleet_total": 118,
+  "fleet_total": 119,
   "fleet_desflote_n": 12,
   "fleet_city_stage": [
     {
@@ -929,26 +929,26 @@ window.__DASHBOARD_DATA__ = {
       "total": 28
     },
     {
-      "ciudad": "Guadalajara",
-      "vals": [
-        3,
-        10,
-        9,
-        0,
-        0,
-        1
-      ],
-      "total": 23
-    },
-    {
       "ciudad": "Sin identificar",
       "vals": [
         0,
         2,
         7,
-        1,
+        2,
         10,
         2
+      ],
+      "total": 23
+    },
+    {
+      "ciudad": "Guadalajara",
+      "vals": [
+        3,
+        10,
+        7,
+        1,
+        0,
+        1
       ],
       "total": 22
     },
@@ -958,11 +958,11 @@ window.__DASHBOARD_DATA__ = {
         3,
         0,
         0,
-        0,
+        1,
         2,
         4
       ],
-      "total": 9
+      "total": 10
     },
     {
       "ciudad": "Queretaro",
@@ -1023,16 +1023,16 @@ window.__DASHBOARD_DATA__ = {
       "cdmx": 0,
       "gdl": 0,
       "qro": 0,
-      "mty": 3,
+      "mty": 4,
       "otros": 0
     },
     {
       "tij": 3,
       "cdmx": 2,
-      "gdl": 4,
+      "gdl": 3,
       "qro": 0,
       "mty": 0,
-      "otros": 1
+      "otros": 2
     },
     {
       "tij": 11,
@@ -1132,8 +1132,8 @@ window.__DASHBOARD_DATA__ = {
     }
   ],
   "fleet_sin_fecha_n": 38,
-  "fleet_vencido_dias": 10,
-  "fleet_vencido_unidades": 59,
+  "fleet_vencido_dias": 11,
+  "fleet_vencido_unidades": 61,
   "en_prep_by_ciudad": [
     {
       "ciudad": "Tijuana",
@@ -1164,8 +1164,8 @@ window.__DASHBOARD_DATA__ = {
     "recuperado": 208,
     "pct_recuperado": 38.6,
     "pendiente": 304,
-    "vencido": 240,
-    "pct_vencido_of_pendiente": 78.9,
+    "vencido": 244,
+    "pct_vencido_of_pendiente": 80.3,
     "perdido": 27
   },
   "agenda_decline_by_month": [
@@ -1211,9 +1211,9 @@ window.__DASHBOARD_DATA__ = {
     }
   ],
   "agenda_decline_semaforo": {
-    "verde": 30,
-    "amarillo": 33,
-    "rojo": 240
+    "verde": 27,
+    "amarillo": 32,
+    "rojo": 244
   },
   "agenda_decline_motivos": [
     {
@@ -1283,7 +1283,7 @@ window.__DASHBOARD_DATA__ = {
       "total": 45,
       "recuperado": 16,
       "pendiente": 27,
-      "vencido": 23,
+      "vencido": 24,
       "perdido": 2,
       "pct_recuperado": 35.6
     },
@@ -1319,7 +1319,7 @@ window.__DASHBOARD_DATA__ = {
       "total": 28,
       "recuperado": 7,
       "pendiente": 19,
-      "vencido": 11,
+      "vencido": 12,
       "perdido": 2,
       "pct_recuperado": 25.0
     },
@@ -1355,7 +1355,7 @@ window.__DASHBOARD_DATA__ = {
       "total": 21,
       "recuperado": 7,
       "pendiente": 14,
-      "vencido": 13,
+      "vencido": 14,
       "perdido": 0,
       "pct_recuperado": 33.3
     },
@@ -1409,7 +1409,7 @@ window.__DASHBOARD_DATA__ = {
       "total": 18,
       "recuperado": 8,
       "pendiente": 10,
-      "vencido": 8,
+      "vencido": 9,
       "perdido": 0,
       "pct_recuperado": 44.4
     },
@@ -1508,38 +1508,38 @@ window.__DASHBOARD_DATA__ = {
     {
       "agente": "Yael Munoz",
       "count": 8,
-      "min_age": 52,
-      "max_age": 99
+      "min_age": 53,
+      "max_age": 100
     },
     {
       "agente": "Hector Vera",
       "count": 6,
-      "min_age": 52,
-      "max_age": 120
+      "min_age": 53,
+      "max_age": 121
     },
     {
       "agente": "Araceli Olvera",
       "count": 6,
-      "min_age": 65,
-      "max_age": 113
+      "min_age": 66,
+      "max_age": 114
     },
     {
       "agente": "Mariam Bangoura",
       "count": 4,
-      "min_age": 82,
-      "max_age": 104
+      "min_age": 83,
+      "max_age": 105
     },
     {
       "agente": "Fernando Velazquez",
       "count": 4,
-      "min_age": 63,
-      "max_age": 101
+      "min_age": 64,
+      "max_age": 102
     },
     {
       "agente": "Carlos Mejia",
       "count": 1,
-      "min_age": 98,
-      "max_age": 98
+      "min_age": 99,
+      "max_age": 99
     }
   ]
 };
