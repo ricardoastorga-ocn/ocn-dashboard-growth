@@ -1,5 +1,5 @@
 window.__DASHBOARD_DATA__ = {
-  "generated_at": "2026-09-04T00:21:06.471062Z",
+  "generated_at": "2026-09-04T02:14:05.007846Z",
   "months": [
     "Ago 25",
     "Sep 25",
@@ -219,11 +219,11 @@ window.__DASHBOARD_DATA__ = {
     },
     {
       "key": "listo",
-      "value": 33
+      "value": 32
     },
     {
       "key": "agendada",
-      "value": 10
+      "value": 11
     },
     {
       "key": "contrato",
@@ -250,7 +250,7 @@ window.__DASHBOARD_DATA__ = {
     "listo": {
       "Mexicali": 5,
       "Tijuana": 20,
-      "Monterrey": 7,
+      "Monterrey": 6,
       "Saltillo": 1
     },
     "entregado": {
@@ -264,7 +264,7 @@ window.__DASHBOARD_DATA__ = {
     "agendada": {
       "Tijuana": 2,
       "CDMX / Edo Mex": 4,
-      "Monterrey": 4
+      "Monterrey": 5
     }
   },
   "entregado_target_pct": 95,
@@ -275,7 +275,7 @@ window.__DASHBOARD_DATA__ = {
     },
     {
       "ciudad": "Monterrey",
-      "value": 7
+      "value": 6
     },
     {
       "ciudad": "Mexicali",
@@ -296,8 +296,8 @@ window.__DASHBOARD_DATA__ = {
     {
       "ciudad": "Monterrey",
       "espera": 85,
-      "listo": 7,
-      "gap": 78
+      "listo": 6,
+      "gap": 79
     },
     {
       "ciudad": "Merida",
@@ -390,7 +390,7 @@ window.__DASHBOARD_DATA__ = {
     0,
     0,
     0,
-    10
+    11
   ],
   "inv_log": [
     {
@@ -486,10 +486,10 @@ window.__DASHBOARD_DATA__ = {
     },
     {
       "fecha": "3-sep",
-      "total": 33,
+      "total": 32,
       "tij": 20,
       "mxl": 5,
-      "mty": 7
+      "mty": 6
     }
   ],
   "tiers": [
@@ -901,28 +901,28 @@ window.__DASHBOARD_DATA__ = {
     "fecha": "2026-09-03",
     "mes_label": "Sep 26"
   },
-  "fleet_total": 117,
+  "fleet_total": 118,
   "fleet_desflote_n": 12,
   "fleet_city_stage": [
     {
       "ciudad": "CDMX / Edo Mex",
       "vals": [
-        3,
-        4,
+        2,
+        5,
         9,
-        7,
+        8,
         10,
         2
       ],
-      "total": 35
+      "total": 36
     },
     {
       "ciudad": "Tijuana",
       "vals": [
         0,
         1,
-        8,
-        11,
+        7,
+        12,
         5,
         3
       ],
@@ -1131,7 +1131,7 @@ window.__DASHBOARD_DATA__ = {
       "otros": 1
     }
   ],
-  "fleet_sin_fecha_n": 37,
+  "fleet_sin_fecha_n": 38,
   "fleet_vencido_dias": 10,
   "fleet_vencido_unidades": 59,
   "en_prep_by_ciudad": [
