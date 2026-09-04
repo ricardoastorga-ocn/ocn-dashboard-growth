@@ -1,5 +1,5 @@
 window.__DASHBOARD_DATA__ = {
-  "generated_at": "2026-09-04T18:11:31.433022Z",
+  "generated_at": "2026-09-04T20:10:02.967194Z",
   "months": [
     "Ago 25",
     "Sep 25",
@@ -71,7 +71,7 @@ window.__DASHBOARD_DATA__ = {
     },
     {
       "nuevo": 3,
-      "seminuevo": 18
+      "seminuevo": 21
     }
   ],
   "modelo": [
@@ -194,11 +194,11 @@ window.__DASHBOARD_DATA__ = {
     },
     {
       "byd": 7,
-      "mg5": 8,
-      "mg3": 3,
+      "mg5": 9,
+      "mg3": 4,
       "aion": 0,
       "king": 1,
-      "tiggo": 0,
+      "tiggo": 1,
       "otros": 2
     }
   ],
@@ -227,19 +227,19 @@ window.__DASHBOARD_DATA__ = {
     },
     {
       "key": "contrato",
-      "value": 7
+      "value": 4
     },
     {
       "key": "cenv",
-      "value": 2
-    },
-    {
-      "key": "liga",
       "value": 1
     },
     {
+      "key": "liga",
+      "value": 2
+    },
+    {
       "key": "entregado",
-      "value": 21
+      "value": 24
     },
     {
       "key": "issue",
@@ -256,25 +256,25 @@ window.__DASHBOARD_DATA__ = {
     "entregado": {
       "Tijuana": 8,
       "Guadalajara": 1,
-      "Monterrey": 7,
+      "Monterrey": 8,
       "Puebla": 1,
-      "CDMX / Edo Mex": 3,
+      "CDMX / Edo Mex": 5,
       "Queretaro": 1
     },
-    "contrato": {
-      "Tijuana": 2,
-      "CDMX / Edo Mex": 2,
-      "Monterrey": 3
-    },
-    "agendada": {
-      "Tijuana": 1,
-      "Monterrey": 1
-    },
     "liga": {
+      "Tijuana": 1,
       "CDMX / Edo Mex": 1
     },
     "cenv": {
-      "CDMX / Edo Mex": 1,
+      "Monterrey": 1
+    },
+    "contrato": {
+      "Monterrey": 2,
+      "Tijuana": 1,
+      "CDMX / Edo Mex": 1
+    },
+    "agendada": {
+      "Tijuana": 1,
       "Monterrey": 1
     }
   },
@@ -300,15 +300,15 @@ window.__DASHBOARD_DATA__ = {
   "waitlist_gap": [
     {
       "ciudad": "CDMX / Edo Mex",
-      "espera": 275,
+      "espera": 276,
       "listo": 0,
-      "gap": 275
+      "gap": 276
     },
     {
       "ciudad": "Monterrey",
-      "espera": 85,
+      "espera": 87,
       "listo": 6,
-      "gap": 79
+      "gap": 81
     },
     {
       "ciudad": "Merida",
@@ -389,8 +389,8 @@ window.__DASHBOARD_DATA__ = {
       "otros": 0
     },
     {
-      "cdmx": 0,
-      "mty": 1,
+      "cdmx": 2,
+      "mty": 2,
       "tij": 0,
       "qro": 0,
       "gdl": 0,
@@ -411,7 +411,7 @@ window.__DASHBOARD_DATA__ = {
     0,
     0,
     0,
-    11,
+    8,
     1
   ],
   "inv_log": [
@@ -518,7 +518,7 @@ window.__DASHBOARD_DATA__ = {
     {
       "key": "0-30",
       "label": "0-30 días",
-      "value": 270
+      "value": 273
     },
     {
       "key": "31-60",
@@ -536,28 +536,28 @@ window.__DASHBOARD_DATA__ = {
       "value": 65
     }
   ],
-  "tiers_total": 662,
+  "tiers_total": 665,
   "max_wait_days": 256,
   "city_tier": [
     {
       "ciudad": "CDMX / Edo Mex",
       "vals": [
-        142,
+        143,
         61,
         53,
         19
       ],
-      "total": 275
+      "total": 276
     },
     {
       "ciudad": "Monterrey",
       "vals": [
-        37,
+        39,
         14,
         30,
         4
       ],
-      "total": 85
+      "total": 87
     },
     {
       "ciudad": "Merida",
@@ -772,6 +772,16 @@ window.__DASHBOARD_DATA__ = {
       "total": 25
     },
     {
+      "key": "@Jess Martínez",
+      "vals": [
+        9,
+        7,
+        8,
+        1
+      ],
+      "total": 25
+    },
+    {
       "key": "Diana Moreno",
       "vals": [
         15,
@@ -780,16 +790,6 @@ window.__DASHBOARD_DATA__ = {
         2
       ],
       "total": 25
-    },
-    {
-      "key": "@Jess Martínez",
-      "vals": [
-        8,
-        7,
-        8,
-        1
-      ],
-      "total": 24
     },
     {
       "key": "Imanol Cortez",
@@ -854,22 +854,22 @@ window.__DASHBOARD_DATA__ = {
     {
       "key": "@Rafa León",
       "vals": [
-        4,
+        5,
         5,
         4,
         0
       ],
-      "total": 13
+      "total": 14
     },
     {
       "key": "Ricardo Salinas",
       "vals": [
-        3,
+        4,
         2,
         3,
         2
       ],
-      "total": 10
+      "total": 11
     },
     {
       "key": "Enrique Jimenez",
@@ -916,14 +916,14 @@ window.__DASHBOARD_DATA__ = {
     "workdays_total": 22,
     "rate": 6.67,
     "total": 147,
-    "nuevo": 21,
-    "seminuevo": 126
+    "nuevo": 18,
+    "seminuevo": 129
   },
   "corte": {
     "fecha": "2026-09-04",
     "mes_label": "Sep 26"
   },
-  "fleet_total": 119,
+  "fleet_total": 121,
   "fleet_desflote_n": 12,
   "fleet_city_stage": [
     {
@@ -932,11 +932,11 @@ window.__DASHBOARD_DATA__ = {
         2,
         5,
         10,
-        8,
+        10,
         9,
         2
       ],
-      "total": 36
+      "total": 38
     },
     {
       "ciudad": "Tijuana",
@@ -1003,8 +1003,8 @@ window.__DASHBOARD_DATA__ = {
       "vals": [
         0,
         0,
-        2,
         1,
+        2,
         0,
         0
       ],
@@ -1162,7 +1162,7 @@ window.__DASHBOARD_DATA__ = {
       "otros": 4
     }
   ],
-  "fleet_sin_fecha_n": 38,
+  "fleet_sin_fecha_n": 40,
   "fleet_vencido_dias": 11,
   "fleet_vencido_unidades": 59,
   "en_prep_by_ciudad": [
