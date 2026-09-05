@@ -1,5 +1,5 @@
 window.__DASHBOARD_DATA__ = {
-  "generated_at": "2026-09-05T00:22:33.711259Z",
+  "generated_at": "2026-09-05T02:13:58.006376Z",
   "months": [
     "Ago 25",
     "Sep 25",
@@ -922,32 +922,32 @@ window.__DASHBOARD_DATA__ = {
     "fecha": "2026-09-04",
     "mes_label": "Sep 26"
   },
-  "fleet_total": 124,
+  "fleet_total": 130,
   "fleet_desflote_n": 12,
   "fleet_city_stage": [
     {
       "ciudad": "CDMX / Edo Mex",
       "vals": [
-        2,
-        5,
+        1,
+        7,
         10,
-        11,
+        14,
         9,
         2
       ],
-      "total": 39
+      "total": 43
     },
     {
       "ciudad": "Tijuana",
       "vals": [
         0,
         0,
-        8,
-        12,
+        7,
+        14,
         3,
         3
       ],
-      "total": 26
+      "total": 27
     },
     {
       "ciudad": "Guadalajara",
@@ -1003,11 +1003,11 @@ window.__DASHBOARD_DATA__ = {
         0,
         0,
         1,
-        2,
+        3,
         0,
         0
       ],
-      "total": 3
+      "total": 4
     },
     {
       "ciudad": "Merida",
@@ -1058,7 +1058,7 @@ window.__DASHBOARD_DATA__ = {
       "otros": 1
     },
     {
-      "tij": 10,
+      "tij": 11,
       "cdmx": 3,
       "gdl": 6,
       "qro": 3,
@@ -1170,9 +1170,9 @@ window.__DASHBOARD_DATA__ = {
       "otros": 4
     }
   ],
-  "fleet_sin_fecha_n": 41,
+  "fleet_sin_fecha_n": 46,
   "fleet_vencido_dias": 12,
-  "fleet_vencido_unidades": 61,
+  "fleet_vencido_unidades": 62,
   "en_prep_by_ciudad": [
     {
       "ciudad": "Tijuana",
