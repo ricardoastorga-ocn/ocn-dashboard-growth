@@ -1510,25 +1510,25 @@ table.data-table td.pct-bad  { color: var(--s-critical); font-weight: 700; }
         centerSubLabel: 'aprobación'
       });
 
-      // Mismos 7 buckets/colores/labels ya usados en el resto del dashboard (DIAS_KEYS)
-      // para "por dia, por ciudad" -- Tijuana y Mexicali resaltadas (bold), el resto
-      // tenues como referencia de comparacion. fitContainer evita scroll horizontal.
+      // Solo 3 lineas: Tijuana, Mexicali (foco) + "Resto de la red" agregado. Se probo
+      // primero con 7 lineas (una por ciudad) y Ricardo la rechazo por ilegible -- con 35
+      // dias en el eje, 5 lineas delgadas de referencia encima de las 2 que importan era
+      // puro ruido. El agregado da la misma comparacion en una sola linea de referencia limpia.
       const legendAprobFocus = document.getElementById('legend-aprob-focus');
-      if (legendAprobFocus) legendAprobFocus.innerHTML = DIAS_KEYS.map(dk =>
-        '<span class="legend-item"><span class="legend-swatch" style="background:var('+DIAS_COLOR[dk]+')"></span>'+DIAS_LABELS_CIUDAD[dk].split(' (')[0]+(dk==='tij'||dk==='mxl' ? ' ★' : '')+'</span>'
-      ).join('');
-      const focusSeries = DIAS_KEYS.map(dk => ({
-        key: dk+'_pct', label: DIAS_LABELS_CIUDAD[dk].split(' (')[0],
-        colorVar: DIAS_COLOR[dk], bold: (dk === 'tij' || dk === 'mxl')
-      }));
-      drawLineChart('chart-aprob-focus', 'tooltip-aprob-focus', APROB_DAILY_FOCUS.map(d=>d.fecha), focusSeries, {
-        ariaLabel: "Porcentaje de aprobación diario por ciudad, promedio móvil de 7 días, Tijuana y Mexicali resaltadas",
+      if (legendAprobFocus) legendAprobFocus.innerHTML =
+        '<span class="legend-item"><span class="legend-swatch" style="background:var(--s-mg3)"></span>Tijuana</span>' +
+        '<span class="legend-item"><span class="legend-swatch" style="background:var(--s-tiggo)"></span>Mexicali</span>' +
+        '<span class="legend-item"><span class="legend-swatch" style="background:var(--s-otros)"></span>Resto de la red (promedio)</span>';
+      drawLineChart('chart-aprob-focus', 'tooltip-aprob-focus', APROB_DAILY_FOCUS.map(d=>d.fecha),
+        [{key:'tij_pct', label:'Tijuana', colorVar:'--s-mg3', bold:true},
+         {key:'mxl_pct', label:'Mexicali', colorVar:'--s-tiggo', bold:true},
+         {key:'resto_pct', label:'Resto de la red', colorVar:'--s-otros', bold:false}], {
+        ariaLabel: "Porcentaje de aprobación diario, Tijuana y Mexicali vs. el resto de la red, promedio móvil de 7 días",
         dataOf: (key,i) => APROB_DAILY_FOCUS[i][key],
         fmtFn: v => v.toFixed(1) + '%',
         fitContainer: true,
         hidePointLabels: true,
-        xLabelEvery: Math.max(1, Math.ceil(APROB_DAILY_FOCUS.length / 9)),
-        mutedKeys: DIAS_KEYS.filter(dk => dk !== 'tij' && dk !== 'mxl').map(dk => dk+'_pct')
+        xLabelEvery: Math.max(1, Math.ceil(APROB_DAILY_FOCUS.length / 9))
       });
 
       const tijPoints = APROB_DAILY_FOCUS.filter(d => d.tij_n > 0);
@@ -1540,8 +1540,9 @@ table.data-table td.pct-bad  { color: var(--s-critical); font-weight: 700; }
         const mxlFirst = mxlPoints[0], mxlLast = mxlPoints[mxlPoints.length-1];
         const tijDelta = (tijLast.tij_pct - tijFirst.tij_pct);
         const mxlDelta = (mxlLast.mxl_pct - mxlFirst.mxl_pct);
+        const restoLast = APROB_DAILY_FOCUS[APROB_DAILY_FOCUS.length-1].resto_pct;
         el2('callout-aprob-focus',
-          '<strong>Tijuana:</strong> '+tijFirst.tij_pct+'% → '+tijLast.tij_pct+'% ('+(tijDelta>=0?'+':'')+tijDelta.toFixed(1)+' pp desde el inicio del periodo). ' +
+          '<strong>Tijuana:</strong> '+tijFirst.tij_pct+'% → '+tijLast.tij_pct+'% ('+(tijDelta>=0?'+':'')+tijDelta.toFixed(1)+' pp), '+(tijLast.tij_pct >= restoLast ? 'por encima' : 'por debajo')+' del resto de la red ('+restoLast+'%). ' +
           '<strong>Mexicali:</strong> '+mxlFirst.mxl_pct+'% → '+mxlLast.mxl_pct+'% ('+(mxlDelta>=0?'+':'')+mxlDelta.toFixed(1)+' pp) — volumen bajo ('+fmt(mxlCity?mxlCity.total:0)+' solicitudes en todo el periodo vs. '+fmt(tijCity?tijCity.total:0)+' de Tijuana), leer con cautela.'
         , true);
       }

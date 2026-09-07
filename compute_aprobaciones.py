@@ -144,17 +144,21 @@ def main():
     date_min, date_max = dates_sorted[0], dates_sorted[-1]
     all_days = [date_min + datetime.timedelta(days=i) for i in range((date_max - date_min).days + 1)]
 
-    daily_by_city = {"tij": {}, "cdmx": {}, "mty": {}, "qro": {}, "gdl": {}, "mxl": {}, "otros": {}}
-    # Mismos 7 buckets ya establecidos en el resto del dashboard (DIAS_KEYS/FLEET_DAY_KEYS
-    # en index.html) -- Tijuana y Mexicali van solas (foco explicito de Ricardo), el resto
-    # de ciudades chicas (Merida/Puebla/Saltillo/Otro) se agrupan en "otros" para que la
-    # comparacion siga siendo legible con 35+ dias en el eje.
+    # Solo 3 series -- Tijuana y Mexicali (foco explicito de Ricardo) + un "resto de la
+    # red" agregado (CDMX/Edo Mex, Monterrey, Queretaro, Guadalajara, Merida, Puebla,
+    # Saltillo, Otro combinados en un solo pool). Se probo primero con 7 lineas
+    # individuales (una por ciudad) y Ricardo la rechazo por ilegible ("es muy mala la
+    # grafica") -- con 35 dias en el eje, 5 lineas de referencia delgadas encima de las 2
+    # que importan es puro ruido visual. El agregado da la misma comparacion ("como le va
+    # a Tijuana/Mexicali vs. el resto") en una sola linea de referencia limpia.
+    daily_by_city = {"tij": {}, "mxl": {}, "resto": {}}
     DAILY_BUCKETS = {
-        "Tijuana": "tij", "CDMX / Edo Mex": "cdmx", "Monterrey": "mty",
-        "Queretaro": "qro", "Guadalajara": "gdl", "Mexicali": "mxl",
-        "Merida": "otros", "Puebla": "otros", "Saltillo": "otros", "Otro": "otros",
+        "Tijuana": "tij", "Mexicali": "mxl",
+        "CDMX / Edo Mex": "resto", "Monterrey": "resto", "Queretaro": "resto",
+        "Guadalajara": "resto", "Merida": "resto", "Puebla": "resto",
+        "Saltillo": "resto", "Otro": "resto",
     }
-    DAILY_KEYS = ["tij", "cdmx", "mty", "qro", "gdl", "mxl", "otros"]
+    DAILY_KEYS = ["tij", "mxl", "resto"]
     for r in rows:
         bucket = DAILY_BUCKETS.get(r["_city"])
         if bucket is None or r["resultado"] not in ("APROBADO", "RECHAZADO"):
