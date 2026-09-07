@@ -464,6 +464,45 @@ table.data-table td.pct-bad  { color: var(--s-critical); font-weight: 700; }
     <p class="card-note" id="note-agent-roster" style="margin-top:8px;"></p>
   </section>
 
+  <section class="card" id="card-aprobaciones">
+    <div class="card-head">
+      <div>
+        <p class="card-title">Aprobaciones — desempeño de solicitudes</p>
+        <p class="card-note" id="note-aprobaciones"></p>
+      </div>
+    </div>
+
+    <div class="finding-row" id="aprob-kpis" style="margin:6px 0 20px;flex-wrap:wrap;gap:24px 32px;"></div>
+
+    <p class="subsection-title">Solicitudes por semana</p>
+    <div class="chart-wrap" id="aprob-weekly-chart-wrap">
+      <div class="chart-scroll"><svg class="chart" id="chart-aprob-weekly"></svg></div>
+      <div class="tooltip" id="tooltip-aprob-weekly"></div>
+    </div>
+    <div class="legend" id="legend-aprob-weekly"></div>
+
+    <p class="subsection-title">% de aprobación por semana</p>
+    <div class="chart-wrap" id="aprob-weekly-pct-chart-wrap">
+      <div class="chart-scroll"><svg class="chart" id="chart-aprob-weekly-pct"></svg></div>
+      <div class="tooltip" id="tooltip-aprob-weekly-pct"></div>
+    </div>
+
+    <p class="subsection-title">Aprobación por ciudad</p>
+    <div class="chart-wrap" id="aprob-city-chart-wrap">
+      <div class="chart-scroll"><svg class="chart" id="chart-aprob-city"></svg></div>
+      <div class="tooltip" id="tooltip-aprob-city"></div>
+    </div>
+
+    <p class="subsection-title">Tijuana y Mexicali — % de aprobación, tendencia diaria</p>
+    <p class="card-note" style="margin-top:-6px;">Promedio móvil de 7 días (para no leer ruido de días con pocos casos) sobre solicitudes ya resueltas (Aprobado + Rechazado).</p>
+    <div class="legend" id="legend-aprob-focus"></div>
+    <div class="chart-wrap" id="aprob-focus-chart-wrap">
+      <div class="chart-scroll"><svg class="chart" id="chart-aprob-focus"></svg></div>
+      <div class="tooltip" id="tooltip-aprob-focus"></div>
+    </div>
+    <p class="callout" id="callout-aprob-focus"></p>
+  </section>
+
   <section class="card" id="card-agenda-decline">
     <div class="card-head">
       <div>
@@ -558,6 +597,12 @@ table.data-table td.pct-bad  { color: var(--s-critical); font-weight: 700; }
 
 
   const AGENT_TIER = DATA.agent_tier;
+
+  const APROB_KPIS = DATA.aprob_kpis || {};
+  const APROB_WEEKLY = DATA.aprob_weekly || [];
+  const APROB_BY_CITY = DATA.aprob_by_city || [];
+  const APROB_DAILY_FOCUS = DATA.aprob_daily_focus || [];
+  const APROB_META = DATA.aprob_meta || {};
 
   const AGENDA_KPIS = DATA.agenda_decline_kpis;
   const AGENDA_MONTH = DATA.agenda_decline_by_month;
@@ -943,8 +988,10 @@ table.data-table td.pct-bad  { color: var(--s-critical); font-weight: 700; }
 
   function drawLineChart(svgId, tooltipId, xLabels, series, opts){
     // series: [{key, label, colorVar, bold}], values read from opts.dataOf(key, i)
+    // opts.fmtFn: formateador opcional de valores (default: fmt) -- p.ej. para % en vez de conteos
     const svg = document.getElementById(svgId);
     const tooltip = document.getElementById(tooltipId);
+    const fmtV = opts.fmtFn || fmt;
     svg.innerHTML = "";
     const root = getComputedStyle(document.querySelector('.viz-root'));
     const colorOf = v => v.startsWith('--') ? root.getPropertyValue(v).trim() : v;
@@ -974,7 +1021,7 @@ table.data-table td.pct-bad  { color: var(--s-critical); font-weight: 700; }
       const y = padT + yScale(v);
       el("line", {class:"tick", x1:padL, x2:width-padR, y1:y, y2:y}, axisG);
       const t = el("text", {x: padL-8, y: y+3, "text-anchor":"end"}, axisG);
-      t.textContent = fmt(v);
+      t.textContent = fmtV(v);
     }
     el("line", {class:"domain", x1:padL, x2:width-padR, y1:padT+plotH, y2:padT+plotH}, axisG);
 
@@ -994,7 +1041,7 @@ table.data-table td.pct-bad  { color: var(--s-critical); font-weight: 700; }
         el("circle", {cx:cx, cy:cy, r: s.bold ? 4.5 : 3.5, fill:color}, svg);
         if (s.bold) {
           const lbl = el("text", {x:cx, y:cy-10, "text-anchor":"middle", "font-size":"11", "font-weight":"700", fill:color}, svg);
-          lbl.textContent = fmt(v);
+          lbl.textContent = fmtV(v);
         }
       });
     });
@@ -1008,7 +1055,7 @@ table.data-table td.pct-bad  { color: var(--s-critical); font-weight: 700; }
         let rows = "";
         series.forEach(s => {
           rows += '<div class="tt-row"><span class="tt-key" style="background:'+colorOf(s.colorVar)+'"></span>' +
-            '<span>'+s.label+'</span><span class="tt-val">'+fmt(opts.dataOf(s.key,i))+'</span></div>';
+            '<span>'+s.label+'</span><span class="tt-val">'+fmtV(opts.dataOf(s.key,i))+'</span></div>';
         });
         tooltip.innerHTML = '<div class="tt-title">'+x+'</div>' + rows;
         tooltip.style.left = evX + "px";
@@ -1329,6 +1376,78 @@ table.data-table td.pct-bad  { color: var(--s-critical); font-weight: 700; }
       ariaLabel: "Volumen de waitlist activo por agente, resto, desglosado por tier de antigüedad",
       labelWidth: 150, rowCountForHeight: agentBlockRows
     });
+
+    // ---- Aprobaciones — desempeño de solicitudes ----
+    if (APROB_WEEKLY.length) {
+      const k = APROB_KPIS;
+      const wrap = document.getElementById('aprob-kpis');
+      if (wrap) wrap.innerHTML =
+        '<div class="finding-stat"><span class="v" style="color:var(--text)">'+fmt(k.total)+'</span><span class="k">solicitudes</span></div>' +
+        '<div class="finding-stat"><span class="v" style="color:var(--s-entregado)">'+k.pct_aprobacion+'<small style="font-size:.5em;">%</small></span><span class="k">% aprobación</span></div>' +
+        '<div class="finding-stat"><span class="v" style="color:var(--text)">'+fmt(k.aprobado)+'</span><span class="k">aprobadas</span></div>' +
+        '<div class="finding-stat"><span class="v" style="color:var(--s-critical)">'+fmt(k.rechazado)+'</span><span class="k">rechazadas</span></div>' +
+        '<div class="finding-stat"><span class="v" style="color:var(--s-pendiente)">'+fmt(k.pendiente)+'</span><span class="k">pendientes</span></div>';
+      el2('note-aprobaciones', 'Fuente: exportes manuales del admin (no autorefresca con el resto del dashboard) · '+(APROB_META.fecha_min||'')+' – '+(APROB_META.fecha_max||''));
+
+      const APROB_WEEK_KEYS = ['aprobado','rechazado','pendiente'];
+      const APROB_WEEK_COLORVAR = {aprobado:'--s-entregado', rechazado:'--s-critical', pendiente:'--s-pendiente'};
+      const APROB_WEEK_LABEL = {aprobado:'Aprobado', rechazado:'Rechazado', pendiente:'Pendiente'};
+      const legendAprobWeekly = document.getElementById('legend-aprob-weekly');
+      if (legendAprobWeekly) legendAprobWeekly.innerHTML = APROB_WEEK_KEYS.map(kk =>
+        '<span class="legend-item"><span class="legend-swatch" style="background:var('+APROB_WEEK_COLORVAR[kk]+')"></span>'+APROB_WEEK_LABEL[kk]+'</span>'
+      ).join('');
+      drawStackedChart('chart-aprob-weekly', 'tooltip-aprob-weekly', APROB_WEEKLY, APROB_WEEK_KEYS, kk => APROB_WEEK_COLORVAR[kk], {
+        ariaLabel: "Solicitudes por semana, desglosadas en aprobado, rechazado y pendiente",
+        labelOf: kk => APROB_WEEK_LABEL[kk],
+        months: APROB_WEEKLY.map(w => w.label),
+        showSegmentPct: true
+      });
+
+      drawLineChart('chart-aprob-weekly-pct', 'tooltip-aprob-weekly-pct', APROB_WEEKLY.map(w=>w.label),
+        [{key:'pct_aprobacion', label:'% Aprobación', colorVar:'--ocn', bold:true}], {
+        ariaLabel: "Porcentaje de aprobación por semana",
+        dataOf: (key,i) => APROB_WEEKLY[i][key],
+        fmtFn: v => v.toFixed(1) + '%'
+      });
+
+      const aprobCitySorted = APROB_BY_CITY.slice().sort((a,b) => b.pct_aprobacion - a.pct_aprobacion);
+      drawEmphasisBarChart('chart-aprob-city', 'tooltip-aprob-city',
+        aprobCitySorted.map(d => ({key: d.ciudad, value: d.pct_aprobacion, n: d.total, colorVar: d.colorVar})), {
+        ariaLabel: "Porcentaje de aprobación por ciudad",
+        labelOf: d => d.key,
+        colorOf: d => (d.key === 'Tijuana' || d.key === 'Mexicali') ? d.colorVar : '--s-otros',
+        unit: '%',
+        labelWidth: 130,
+        tooltipExtra: d => '<div class="tt-row"><span>'+fmt(d.n)+' solicitudes totales</span></div>'
+      });
+
+      const legendAprobFocus = document.getElementById('legend-aprob-focus');
+      if (legendAprobFocus) legendAprobFocus.innerHTML =
+        '<span class="legend-item"><span class="legend-swatch" style="background:var(--s-mg3)"></span>Tijuana</span>' +
+        '<span class="legend-item"><span class="legend-swatch" style="background:var(--s-tiggo)"></span>Mexicali</span>';
+      drawLineChart('chart-aprob-focus', 'tooltip-aprob-focus', APROB_DAILY_FOCUS.map(d=>d.fecha),
+        [{key:'tijuana_pct', label:'Tijuana', colorVar:'--s-mg3', bold:true},
+         {key:'mexicali_pct', label:'Mexicali', colorVar:'--s-tiggo', bold:true}], {
+        ariaLabel: "Porcentaje de aprobación diario en Tijuana y Mexicali, promedio móvil de 7 días",
+        dataOf: (key,i) => APROB_DAILY_FOCUS[i][key],
+        fmtFn: v => v.toFixed(1) + '%'
+      });
+
+      const tijPoints = APROB_DAILY_FOCUS.filter(d => d.tijuana_n > 0);
+      const mxlPoints = APROB_DAILY_FOCUS.filter(d => d.mexicali_n > 0);
+      const tijCity = APROB_BY_CITY.find(c => c.ciudad === 'Tijuana');
+      const mxlCity = APROB_BY_CITY.find(c => c.ciudad === 'Mexicali');
+      if (tijPoints.length && mxlPoints.length) {
+        const tijFirst = tijPoints[0], tijLast = tijPoints[tijPoints.length-1];
+        const mxlFirst = mxlPoints[0], mxlLast = mxlPoints[mxlPoints.length-1];
+        const tijDelta = (tijLast.tijuana_pct - tijFirst.tijuana_pct);
+        const mxlDelta = (mxlLast.mexicali_pct - mxlFirst.mexicali_pct);
+        el2('callout-aprob-focus',
+          '<strong>Tijuana:</strong> '+tijFirst.tijuana_pct+'% → '+tijLast.tijuana_pct+'% ('+(tijDelta>=0?'+':'')+tijDelta.toFixed(1)+' pp desde el inicio del periodo). ' +
+          '<strong>Mexicali:</strong> '+mxlFirst.mexicali_pct+'% → '+mxlLast.mexicali_pct+'% ('+(mxlDelta>=0?'+':'')+mxlDelta.toFixed(1)+' pp) — volumen bajo ('+fmt(mxlCity?mxlCity.total:0)+' solicitudes en todo el periodo vs. '+fmt(tijCity?tijCity.total:0)+' de Tijuana), leer con cautela.'
+        , true);
+      }
+    }
 
     // ---- Agendas declinadas — recuperación de ventas ----
     {

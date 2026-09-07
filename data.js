@@ -1,5 +1,5 @@
 window.__DASHBOARD_DATA__ = {
-  "generated_at": "2026-09-07T14:10:50.463538Z",
+  "generated_at": "2026-09-07T15:53:18.112398Z",
   "months": [
     "Ago 25",
     "Sep 25",
@@ -223,11 +223,11 @@ window.__DASHBOARD_DATA__ = {
     },
     {
       "key": "agendada",
-      "value": 5
+      "value": 2
     },
     {
       "key": "contrato",
-      "value": 0
+      "value": 3
     },
     {
       "key": "cenv",
@@ -262,7 +262,10 @@ window.__DASHBOARD_DATA__ = {
       "Queretaro": 1
     },
     "agendada": {
-      "Tijuana": 4,
+      "Tijuana": 2
+    },
+    "contrato": {
+      "Tijuana": 2,
       "Monterrey": 1
     }
   },
@@ -294,9 +297,9 @@ window.__DASHBOARD_DATA__ = {
     },
     {
       "ciudad": "Monterrey",
-      "espera": 89,
+      "espera": 88,
       "listo": 6,
-      "gap": 83
+      "gap": 82
     },
     {
       "ciudad": "Merida",
@@ -312,9 +315,9 @@ window.__DASHBOARD_DATA__ = {
     },
     {
       "ciudad": "Guadalajara",
-      "espera": 63,
+      "espera": 64,
       "listo": 0,
-      "gap": 63
+      "gap": 64
     },
     {
       "ciudad": "Queretaro",
@@ -551,12 +554,12 @@ window.__DASHBOARD_DATA__ = {
     {
       "ciudad": "Monterrey",
       "vals": [
-        38,
+        37,
         16,
         30,
         5
       ],
-      "total": 89
+      "total": 88
     },
     {
       "ciudad": "Merida",
@@ -581,12 +584,12 @@ window.__DASHBOARD_DATA__ = {
     {
       "ciudad": "Guadalajara",
       "vals": [
-        16,
+        17,
         16,
         26,
         5
       ],
-      "total": 63
+      "total": 64
     },
     {
       "ciudad": "Queretaro",
@@ -701,16 +704,6 @@ window.__DASHBOARD_DATA__ = {
       "total": 31
     },
     {
-      "key": "Karen Garcia",
-      "vals": [
-        5,
-        10,
-        12,
-        3
-      ],
-      "total": 30
-    },
-    {
       "key": "Ishell Miranda",
       "vals": [
         4,
@@ -721,6 +714,16 @@ window.__DASHBOARD_DATA__ = {
       "total": 30
     },
     {
+      "key": "Karen Garcia",
+      "vals": [
+        4,
+        10,
+        12,
+        3
+      ],
+      "total": 29
+    },
+    {
       "key": "@Jeremy Habner",
       "vals": [
         11,
@@ -729,6 +732,16 @@ window.__DASHBOARD_DATA__ = {
         7
       ],
       "total": 28
+    },
+    {
+      "key": "Aaron Sanchez",
+      "vals": [
+        10,
+        8,
+        8,
+        1
+      ],
+      "total": 27
     },
     {
       "key": "@Jess Martínez",
@@ -757,16 +770,6 @@ window.__DASHBOARD_DATA__ = {
         8,
         7,
         3
-      ],
-      "total": 26
-    },
-    {
-      "key": "Aaron Sanchez",
-      "vals": [
-        9,
-        8,
-        8,
-        1
       ],
       "total": 26
     },
@@ -942,12 +945,12 @@ window.__DASHBOARD_DATA__ = {
       "vals": [
         0,
         0,
-        7,
+        6,
         13,
         4,
         2
       ],
-      "total": 26
+      "total": 25
     },
     {
       "ciudad": "Guadalajara",
@@ -1020,6 +1023,18 @@ window.__DASHBOARD_DATA__ = {
         0
       ],
       "total": 2
+    },
+    {
+      "ciudad": "Mexicali",
+      "vals": [
+        0,
+        0,
+        1,
+        0,
+        0,
+        0
+      ],
+      "total": 1
     }
   ],
   "fleet_dias_labels": [
@@ -1153,12 +1168,12 @@ window.__DASHBOARD_DATA__ = {
       "otros": 0
     },
     {
-      "tij": 2,
+      "tij": 1,
       "cdmx": 7,
       "gdl": 1,
       "qro": 1,
       "mty": 0,
-      "otros": 4
+      "otros": 5
     }
   ],
   "fleet_sin_fecha_n": 44,
@@ -1581,5 +1596,416 @@ window.__DASHBOARD_DATA__ = {
       "min_age": 102,
       "max_age": 102
     }
-  ]
+  ],
+  "aprob_kpis": {
+    "total": 1268,
+    "aprobado": 997,
+    "rechazado": 162,
+    "pendiente": 109,
+    "pct_aprobacion": 86.0
+  },
+  "aprob_weekly": [
+    {
+      "label": "27 jul–2 ago",
+      "aprobado": 1,
+      "rechazado": 0,
+      "pendiente": 0,
+      "total": 1,
+      "pct_aprobacion": 100.0
+    },
+    {
+      "label": "3 ago–9 ago",
+      "aprobado": 231,
+      "rechazado": 32,
+      "pendiente": 18,
+      "total": 281,
+      "pct_aprobacion": 87.8
+    },
+    {
+      "label": "10 ago–16 ago",
+      "aprobado": 205,
+      "rechazado": 17,
+      "pendiente": 12,
+      "total": 234,
+      "pct_aprobacion": 92.3
+    },
+    {
+      "label": "17 ago–23 ago",
+      "aprobado": 219,
+      "rechazado": 35,
+      "pendiente": 26,
+      "total": 280,
+      "pct_aprobacion": 86.2
+    },
+    {
+      "label": "24 ago–30 ago",
+      "aprobado": 192,
+      "rechazado": 34,
+      "pendiente": 25,
+      "total": 251,
+      "pct_aprobacion": 85.0
+    },
+    {
+      "label": "31 ago–6 sep",
+      "aprobado": 149,
+      "rechazado": 44,
+      "pendiente": 28,
+      "total": 221,
+      "pct_aprobacion": 77.2
+    }
+  ],
+  "aprob_by_city": [
+    {
+      "ciudad": "Tijuana",
+      "colorVar": "--s-mg3",
+      "total": 166,
+      "aprobado": 127,
+      "rechazado": 22,
+      "pendiente": 17,
+      "resueltas": 149,
+      "pct_aprobacion": 85.2
+    },
+    {
+      "ciudad": "CDMX / Edo Mex",
+      "colorVar": "--s-byd",
+      "total": 494,
+      "aprobado": 380,
+      "rechazado": 77,
+      "pendiente": 37,
+      "resueltas": 457,
+      "pct_aprobacion": 83.2
+    },
+    {
+      "ciudad": "Monterrey",
+      "colorVar": "--s-mg5",
+      "total": 262,
+      "aprobado": 212,
+      "rechazado": 26,
+      "pendiente": 24,
+      "resueltas": 238,
+      "pct_aprobacion": 89.1
+    },
+    {
+      "ciudad": "Mexicali",
+      "colorVar": "--s-tiggo",
+      "total": 47,
+      "aprobado": 39,
+      "rechazado": 2,
+      "pendiente": 6,
+      "resueltas": 41,
+      "pct_aprobacion": 95.1
+    },
+    {
+      "ciudad": "Guadalajara",
+      "colorVar": "--s-king",
+      "total": 92,
+      "aprobado": 73,
+      "rechazado": 12,
+      "pendiente": 7,
+      "resueltas": 85,
+      "pct_aprobacion": 85.9
+    },
+    {
+      "ciudad": "Queretaro",
+      "colorVar": "--s-aion",
+      "total": 56,
+      "aprobado": 46,
+      "rechazado": 5,
+      "pendiente": 5,
+      "resueltas": 51,
+      "pct_aprobacion": 90.2
+    },
+    {
+      "ciudad": "Merida",
+      "colorVar": "--s-otros",
+      "total": 50,
+      "aprobado": 40,
+      "rechazado": 3,
+      "pendiente": 7,
+      "resueltas": 43,
+      "pct_aprobacion": 93.0
+    },
+    {
+      "ciudad": "Puebla",
+      "colorVar": "--s-otros",
+      "total": 61,
+      "aprobado": 43,
+      "rechazado": 13,
+      "pendiente": 5,
+      "resueltas": 56,
+      "pct_aprobacion": 76.8
+    },
+    {
+      "ciudad": "Saltillo",
+      "colorVar": "--s-otros",
+      "total": 30,
+      "aprobado": 27,
+      "rechazado": 2,
+      "pendiente": 1,
+      "resueltas": 29,
+      "pct_aprobacion": 93.1
+    },
+    {
+      "ciudad": "Otro",
+      "colorVar": "--s-otros",
+      "total": 10,
+      "aprobado": 10,
+      "rechazado": 0,
+      "pendiente": 0,
+      "resueltas": 10,
+      "pct_aprobacion": 100.0
+    }
+  ],
+  "aprob_daily_focus": [
+    {
+      "fecha": "1 ago",
+      "tijuana_pct": 0.0,
+      "tijuana_n": 0,
+      "mexicali_pct": 0.0,
+      "mexicali_n": 0
+    },
+    {
+      "fecha": "2 ago",
+      "tijuana_pct": 0.0,
+      "tijuana_n": 0,
+      "mexicali_pct": 0.0,
+      "mexicali_n": 0
+    },
+    {
+      "fecha": "3 ago",
+      "tijuana_pct": 82.4,
+      "tijuana_n": 17,
+      "mexicali_pct": 100.0,
+      "mexicali_n": 2
+    },
+    {
+      "fecha": "4 ago",
+      "tijuana_pct": 85.7,
+      "tijuana_n": 21,
+      "mexicali_pct": 100.0,
+      "mexicali_n": 3
+    },
+    {
+      "fecha": "5 ago",
+      "tijuana_pct": 83.3,
+      "tijuana_n": 24,
+      "mexicali_pct": 100.0,
+      "mexicali_n": 4
+    },
+    {
+      "fecha": "6 ago",
+      "tijuana_pct": 80.0,
+      "tijuana_n": 25,
+      "mexicali_pct": 100.0,
+      "mexicali_n": 5
+    },
+    {
+      "fecha": "7 ago",
+      "tijuana_pct": 76.7,
+      "tijuana_n": 30,
+      "mexicali_pct": 100.0,
+      "mexicali_n": 6
+    },
+    {
+      "fecha": "8 ago",
+      "tijuana_pct": 76.7,
+      "tijuana_n": 30,
+      "mexicali_pct": 100.0,
+      "mexicali_n": 6
+    },
+    {
+      "fecha": "9 ago",
+      "tijuana_pct": 76.7,
+      "tijuana_n": 30,
+      "mexicali_pct": 100.0,
+      "mexicali_n": 6
+    },
+    {
+      "fecha": "10 ago",
+      "tijuana_pct": 81.0,
+      "tijuana_n": 21,
+      "mexicali_pct": 100.0,
+      "mexicali_n": 4
+    },
+    {
+      "fecha": "11 ago",
+      "tijuana_pct": 76.5,
+      "tijuana_n": 17,
+      "mexicali_pct": 100.0,
+      "mexicali_n": 3
+    },
+    {
+      "fecha": "12 ago",
+      "tijuana_pct": 75.0,
+      "tijuana_n": 16,
+      "mexicali_pct": 100.0,
+      "mexicali_n": 3
+    },
+    {
+      "fecha": "13 ago",
+      "tijuana_pct": 84.2,
+      "tijuana_n": 19,
+      "mexicali_pct": 100.0,
+      "mexicali_n": 4
+    },
+    {
+      "fecha": "14 ago",
+      "tijuana_pct": 93.3,
+      "tijuana_n": 15,
+      "mexicali_pct": 100.0,
+      "mexicali_n": 4
+    },
+    {
+      "fecha": "15 ago",
+      "tijuana_pct": 93.3,
+      "tijuana_n": 15,
+      "mexicali_pct": 100.0,
+      "mexicali_n": 4
+    },
+    {
+      "fecha": "16 ago",
+      "tijuana_pct": 93.3,
+      "tijuana_n": 15,
+      "mexicali_pct": 100.0,
+      "mexicali_n": 4
+    },
+    {
+      "fecha": "17 ago",
+      "tijuana_pct": 91.7,
+      "tijuana_n": 12,
+      "mexicali_pct": 100.0,
+      "mexicali_n": 5
+    },
+    {
+      "fecha": "18 ago",
+      "tijuana_pct": 92.0,
+      "tijuana_n": 25,
+      "mexicali_pct": 100.0,
+      "mexicali_n": 7
+    },
+    {
+      "fecha": "19 ago",
+      "tijuana_pct": 96.6,
+      "tijuana_n": 29,
+      "mexicali_pct": 100.0,
+      "mexicali_n": 8
+    },
+    {
+      "fecha": "20 ago",
+      "tijuana_pct": 96.3,
+      "tijuana_n": 27,
+      "mexicali_pct": 100.0,
+      "mexicali_n": 8
+    },
+    {
+      "fecha": "21 ago",
+      "tijuana_pct": 88.2,
+      "tijuana_n": 34,
+      "mexicali_pct": 88.9,
+      "mexicali_n": 9
+    },
+    {
+      "fecha": "22 ago",
+      "tijuana_pct": 88.2,
+      "tijuana_n": 34,
+      "mexicali_pct": 88.9,
+      "mexicali_n": 9
+    },
+    {
+      "fecha": "23 ago",
+      "tijuana_pct": 85.7,
+      "tijuana_n": 35,
+      "mexicali_pct": 88.9,
+      "mexicali_n": 9
+    },
+    {
+      "fecha": "24 ago",
+      "tijuana_pct": 88.4,
+      "tijuana_n": 43,
+      "mexicali_pct": 93.3,
+      "mexicali_n": 15
+    },
+    {
+      "fecha": "25 ago",
+      "tijuana_pct": 88.6,
+      "tijuana_n": 35,
+      "mexicali_pct": 92.9,
+      "mexicali_n": 14
+    },
+    {
+      "fecha": "26 ago",
+      "tijuana_pct": 89.5,
+      "tijuana_n": 38,
+      "mexicali_pct": 91.7,
+      "mexicali_n": 12
+    },
+    {
+      "fecha": "27 ago",
+      "tijuana_pct": 88.1,
+      "tijuana_n": 42,
+      "mexicali_pct": 92.3,
+      "mexicali_n": 13
+    },
+    {
+      "fecha": "28 ago",
+      "tijuana_pct": 87.8,
+      "tijuana_n": 41,
+      "mexicali_pct": 100.0,
+      "mexicali_n": 14
+    },
+    {
+      "fecha": "29 ago",
+      "tijuana_pct": 88.4,
+      "tijuana_n": 43,
+      "mexicali_pct": 100.0,
+      "mexicali_n": 15
+    },
+    {
+      "fecha": "30 ago",
+      "tijuana_pct": 90.5,
+      "tijuana_n": 42,
+      "mexicali_pct": 100.0,
+      "mexicali_n": 15
+    },
+    {
+      "fecha": "31 ago",
+      "tijuana_pct": 82.4,
+      "tijuana_n": 34,
+      "mexicali_pct": 100.0,
+      "mexicali_n": 11
+    },
+    {
+      "fecha": "1 sep",
+      "tijuana_pct": 81.1,
+      "tijuana_n": 37,
+      "mexicali_pct": 100.0,
+      "mexicali_n": 11
+    },
+    {
+      "fecha": "2 sep",
+      "tijuana_pct": 75.0,
+      "tijuana_n": 36,
+      "mexicali_pct": 100.0,
+      "mexicali_n": 11
+    },
+    {
+      "fecha": "3 sep",
+      "tijuana_pct": 75.8,
+      "tijuana_n": 33,
+      "mexicali_pct": 100.0,
+      "mexicali_n": 10
+    },
+    {
+      "fecha": "4 sep",
+      "tijuana_pct": 82.8,
+      "tijuana_n": 29,
+      "mexicali_pct": 87.5,
+      "mexicali_n": 8
+    }
+  ],
+  "aprob_meta": {
+    "fecha_min": "1 ago",
+    "fecha_max": "4 sep",
+    "generado_en": "2026-09-07T09:53:13.590831"
+  }
 };

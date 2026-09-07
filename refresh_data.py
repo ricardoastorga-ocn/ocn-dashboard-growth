@@ -781,6 +781,18 @@ def main():
         "agenda_decline_orphaned": agenda_decline_orphaned,
     }
 
+    # ---------- Aprobaciones (fuente: CSVs manuales, ver compute_aprobaciones.py) ----------
+    # Este pipeline corre en GitHub Actions (nube, sin acceso a los CSVs locales de Ricardo),
+    # asi que esta seccion NO se recalcula aqui -- se recalcula a mano corriendo
+    # compute_aprobaciones.py cada vez que Ricardo trae CSVs nuevos, lo que escribe
+    # aprobaciones_snapshot.json (committed al repo). Aqui solo se relee ese snapshot ya
+    # calculado y se reincrusta en data.js en cada corrida automatica, para que el resto del
+    # dashboard se siga refrescando solo sin que esta seccion desaparezca ni truene.
+    aprob_snapshot_path = os.path.join(os.path.dirname(__file__), "aprobaciones_snapshot.json")
+    if os.path.exists(aprob_snapshot_path):
+        with open(aprob_snapshot_path, encoding="utf-8") as f:
+            data.update(json.load(f))
+
     out_path = os.path.join(os.path.dirname(__file__), "data.js")
     with open(out_path, "w", encoding="utf-8") as f:
         f.write("window.__DASHBOARD_DATA__ = ")
