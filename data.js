@@ -1,5 +1,5 @@
 window.__DASHBOARD_DATA__ = {
-  "generated_at": "2026-09-07T17:26:15.421104Z",
+  "generated_at": "2026-09-07T18:12:17.050092Z",
   "months": [
     "Ago 25",
     "Sep 25",
@@ -71,7 +71,7 @@ window.__DASHBOARD_DATA__ = {
     },
     {
       "nuevo": 3,
-      "seminuevo": 26
+      "seminuevo": 27
     }
   ],
   "modelo": [
@@ -194,7 +194,7 @@ window.__DASHBOARD_DATA__ = {
     },
     {
       "byd": 11,
-      "mg5": 10,
+      "mg5": 11,
       "mg3": 4,
       "aion": 0,
       "king": 1,
@@ -219,15 +219,15 @@ window.__DASHBOARD_DATA__ = {
     },
     {
       "key": "listo",
-      "value": 28
+      "value": 27
     },
     {
       "key": "agendada",
-      "value": 2
+      "value": 3
     },
     {
       "key": "contrato",
-      "value": 3
+      "value": 2
     },
     {
       "key": "cenv",
@@ -239,7 +239,7 @@ window.__DASHBOARD_DATA__ = {
     },
     {
       "key": "entregado",
-      "value": 29
+      "value": 30
     },
     {
       "key": "issue",
@@ -250,11 +250,11 @@ window.__DASHBOARD_DATA__ = {
     "listo": {
       "Mexicali": 5,
       "Tijuana": 16,
-      "Monterrey": 6,
+      "Monterrey": 5,
       "Saltillo": 1
     },
     "entregado": {
-      "Tijuana": 10,
+      "Tijuana": 11,
       "Guadalajara": 1,
       "Monterrey": 9,
       "Puebla": 1,
@@ -262,10 +262,11 @@ window.__DASHBOARD_DATA__ = {
       "Queretaro": 1
     },
     "agendada": {
-      "Tijuana": 2
+      "Tijuana": 2,
+      "Monterrey": 1
     },
     "contrato": {
-      "Tijuana": 2,
+      "Tijuana": 1,
       "Monterrey": 1
     }
   },
@@ -276,11 +277,11 @@ window.__DASHBOARD_DATA__ = {
       "value": 16
     },
     {
-      "ciudad": "Monterrey",
-      "value": 6
+      "ciudad": "Mexicali",
+      "value": 5
     },
     {
-      "ciudad": "Mexicali",
+      "ciudad": "Monterrey",
       "value": 5
     },
     {
@@ -297,9 +298,9 @@ window.__DASHBOARD_DATA__ = {
     },
     {
       "ciudad": "Monterrey",
-      "espera": 88,
-      "listo": 6,
-      "gap": 82
+      "espera": 90,
+      "listo": 5,
+      "gap": 85
     },
     {
       "ciudad": "Merida",
@@ -392,7 +393,7 @@ window.__DASHBOARD_DATA__ = {
     {
       "cdmx": 0,
       "mty": 0,
-      "tij": 0,
+      "tij": 1,
       "qro": 0,
       "gdl": 0,
       "mxl": 0,
@@ -413,8 +414,8 @@ window.__DASHBOARD_DATA__ = {
     0,
     0,
     0,
-    3,
-    2
+    2,
+    3
   ],
   "inv_log": [
     {
@@ -510,17 +511,17 @@ window.__DASHBOARD_DATA__ = {
     },
     {
       "fecha": "7-sep",
-      "total": 28,
+      "total": 27,
       "tij": 16,
       "mxl": 5,
-      "mty": 6
+      "mty": 5
     }
   ],
   "tiers": [
     {
       "key": "0-30",
       "label": "0-30 días",
-      "value": 228
+      "value": 230
     },
     {
       "key": "31-60",
@@ -538,7 +539,7 @@ window.__DASHBOARD_DATA__ = {
       "value": 70
     }
   ],
-  "tiers_total": 672,
+  "tiers_total": 674,
   "max_wait_days": 259,
   "city_tier": [
     {
@@ -554,12 +555,12 @@ window.__DASHBOARD_DATA__ = {
     {
       "ciudad": "Monterrey",
       "vals": [
-        37,
+        39,
         16,
         30,
         5
       ],
-      "total": 88
+      "total": 90
     },
     {
       "ciudad": "Merida",
@@ -656,12 +657,12 @@ window.__DASHBOARD_DATA__ = {
     {
       "key": "@Daniela Fav",
       "vals": [
-        13,
+        14,
         9,
         12,
         7
       ],
-      "total": 41
+      "total": 42
     },
     {
       "key": "Ana Rodriguez",
@@ -814,22 +815,22 @@ window.__DASHBOARD_DATA__ = {
       "total": 20
     },
     {
+      "key": "@Ivette",
+      "vals": [
+        8,
+        7,
+        2,
+        3
+      ],
+      "total": 20
+    },
+    {
       "key": "Fernando Medina",
       "vals": [
         6,
         8,
         4,
         1
-      ],
-      "total": 19
-    },
-    {
-      "key": "@Ivette",
-      "vals": [
-        7,
-        7,
-        2,
-        3
       ],
       "total": 19
     },
@@ -918,8 +919,8 @@ window.__DASHBOARD_DATA__ = {
     "workdays_total": 22,
     "rate": 7.25,
     "total": 160,
-    "nuevo": 17,
-    "seminuevo": 143
+    "nuevo": 16,
+    "seminuevo": 144
   },
   "corte": {
     "fecha": "2026-09-07",
