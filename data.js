@@ -1,5 +1,5 @@
 window.__DASHBOARD_DATA__ = {
-  "generated_at": "2026-09-07T18:12:17.050092Z",
+  "generated_at": "2026-09-07T20:10:17.372375Z",
   "months": [
     "Ago 25",
     "Sep 25",
@@ -227,11 +227,11 @@ window.__DASHBOARD_DATA__ = {
     },
     {
       "key": "contrato",
-      "value": 2
+      "value": 1
     },
     {
       "key": "cenv",
-      "value": 0
+      "value": 1
     },
     {
       "key": "liga",
@@ -266,7 +266,9 @@ window.__DASHBOARD_DATA__ = {
       "Monterrey": 1
     },
     "contrato": {
-      "Tijuana": 1,
+      "Tijuana": 1
+    },
+    "cenv": {
       "Monterrey": 1
     }
   },
@@ -292,9 +294,9 @@ window.__DASHBOARD_DATA__ = {
   "waitlist_gap": [
     {
       "ciudad": "CDMX / Edo Mex",
-      "espera": 279,
+      "espera": 276,
       "listo": 0,
-      "gap": 279
+      "gap": 276
     },
     {
       "ciudad": "Monterrey",
@@ -310,9 +312,9 @@ window.__DASHBOARD_DATA__ = {
     },
     {
       "ciudad": "Puebla",
-      "espera": 73,
+      "espera": 72,
       "listo": 0,
-      "gap": 73
+      "gap": 72
     },
     {
       "ciudad": "Guadalajara",
@@ -322,9 +324,9 @@ window.__DASHBOARD_DATA__ = {
     },
     {
       "ciudad": "Queretaro",
-      "espera": 47,
+      "espera": 46,
       "listo": 0,
-      "gap": 47
+      "gap": 46
     },
     {
       "ciudad": "Saltillo",
@@ -521,17 +523,17 @@ window.__DASHBOARD_DATA__ = {
     {
       "key": "0-30",
       "label": "0-30 días",
-      "value": 230
+      "value": 231
     },
     {
       "key": "31-60",
       "label": "31-60 días",
-      "value": 184
+      "value": 181
     },
     {
       "key": "61-90",
       "label": "61-90 días",
-      "value": 190
+      "value": 187
     },
     {
       "key": "90+",
@@ -539,25 +541,25 @@ window.__DASHBOARD_DATA__ = {
       "value": 70
     }
   ],
-  "tiers_total": 674,
+  "tiers_total": 669,
   "max_wait_days": 259,
   "city_tier": [
     {
       "ciudad": "CDMX / Edo Mex",
       "vals": [
-        119,
-        77,
-        63,
+        120,
+        75,
+        61,
         20
       ],
-      "total": 279
+      "total": 276
     },
     {
       "ciudad": "Monterrey",
       "vals": [
-        39,
+        40,
         16,
-        30,
+        29,
         5
       ],
       "total": 90
@@ -576,11 +578,11 @@ window.__DASHBOARD_DATA__ = {
       "ciudad": "Puebla",
       "vals": [
         17,
-        30,
+        29,
         17,
         9
       ],
-      "total": 73
+      "total": 72
     },
     {
       "ciudad": "Guadalajara",
@@ -595,12 +597,12 @@ window.__DASHBOARD_DATA__ = {
     {
       "ciudad": "Queretaro",
       "vals": [
-        17,
+        16,
         6,
         12,
         12
       ],
-      "total": 47
+      "total": 46
     },
     {
       "ciudad": "Saltillo",
@@ -707,22 +709,12 @@ window.__DASHBOARD_DATA__ = {
     {
       "key": "Ishell Miranda",
       "vals": [
-        4,
+        5,
         10,
         11,
         5
       ],
-      "total": 30
-    },
-    {
-      "key": "Karen Garcia",
-      "vals": [
-        4,
-        10,
-        12,
-        3
-      ],
-      "total": 29
+      "total": 31
     },
     {
       "key": "@Jeremy Habner",
@@ -735,6 +727,16 @@ window.__DASHBOARD_DATA__ = {
       "total": 28
     },
     {
+      "key": "@Jess Martínez",
+      "vals": [
+        10,
+        5,
+        11,
+        1
+      ],
+      "total": 27
+    },
+    {
       "key": "Aaron Sanchez",
       "vals": [
         10,
@@ -743,16 +745,6 @@ window.__DASHBOARD_DATA__ = {
         1
       ],
       "total": 27
-    },
-    {
-      "key": "@Jess Martínez",
-      "vals": [
-        9,
-        5,
-        11,
-        1
-      ],
-      "total": 26
     },
     {
       "key": "@Michelle Ruiz",
@@ -793,6 +785,16 @@ window.__DASHBOARD_DATA__ = {
         2
       ],
       "total": 25
+    },
+    {
+      "key": "Karen Garcia",
+      "vals": [
+        3,
+        7,
+        9,
+        3
+      ],
+      "total": 22
     },
     {
       "key": "Imanol Cortez",
@@ -899,7 +901,7 @@ window.__DASHBOARD_DATA__ = {
     {
       "key": "driver2",
       "label": "Declinado por driver",
-      "value": 115
+      "value": 123
     },
     {
       "key": "perdido",
@@ -912,7 +914,7 @@ window.__DASHBOARD_DATA__ = {
       "value": 12
     }
   ],
-  "decline_total": 856,
+  "decline_total": 864,
   "forecast": {
     "workdays_elapsed": 4,
     "actual_elapsed": 29,
@@ -926,20 +928,20 @@ window.__DASHBOARD_DATA__ = {
     "fecha": "2026-09-07",
     "mes_label": "Sep 26"
   },
-  "fleet_total": 129,
-  "fleet_desflote_n": 11,
+  "fleet_total": 130,
+  "fleet_desflote_n": 8,
   "fleet_city_stage": [
     {
       "ciudad": "CDMX / Edo Mex",
       "vals": [
         2,
-        7,
-        10,
+        6,
         11,
+        10,
         9,
         2
       ],
-      "total": 41
+      "total": 40
     },
     {
       "ciudad": "Tijuana",
@@ -960,10 +962,10 @@ window.__DASHBOARD_DATA__ = {
         9,
         7,
         3,
-        1,
-        1
+        0,
+        0
       ],
-      "total": 25
+      "total": 24
     },
     {
       "ciudad": "Sin identificar",
@@ -973,7 +975,7 @@ window.__DASHBOARD_DATA__ = {
         8,
         1,
         10,
-        2
+        0
       ],
       "total": 23
     },
@@ -1030,8 +1032,8 @@ window.__DASHBOARD_DATA__ = {
       "vals": [
         0,
         0,
-        1,
         0,
+        1,
         0,
         0
       ],
@@ -1074,8 +1076,8 @@ window.__DASHBOARD_DATA__ = {
     },
     {
       "tij": 11,
-      "cdmx": 3,
-      "gdl": 6,
+      "cdmx": 2,
+      "gdl": 7,
       "qro": 3,
       "mty": 0,
       "otros": 5
@@ -1142,7 +1144,7 @@ window.__DASHBOARD_DATA__ = {
       "gdl": 0,
       "qro": 0,
       "mty": 0,
-      "otros": 0
+      "otros": 1
     },
     {
       "tij": 0,
@@ -1179,42 +1181,9 @@ window.__DASHBOARD_DATA__ = {
   ],
   "fleet_sin_fecha_n": 45,
   "fleet_vencido_dias": 12,
-  "fleet_vencido_unidades": 66,
-  "en_prep_by_ciudad": [
-    {
-      "ciudad": "Tijuana",
-      "count": 2,
-      "modelos": [
-        "MG 5 EXITE",
-        "MG 5 EXITE"
-      ],
-      "vins": [
-        "LSJA36E99PZ111611",
-        "LSJA36E97RZ016242"
-      ]
-    },
-    {
-      "ciudad": "Queretaro",
-      "count": 1,
-      "modelos": [
-        "MG 3"
-      ],
-      "vins": [
-        "LSJWP4U61TZ015231"
-      ]
-    },
-    {
-      "ciudad": "Monterrey",
-      "count": 1,
-      "modelos": [
-        "BYD DOLPHIN EV"
-      ],
-      "vins": [
-        "LGXCE4CC8T2015725"
-      ]
-    }
-  ],
-  "en_prep_total": 4,
+  "fleet_vencido_unidades": 67,
+  "en_prep_by_ciudad": [],
+  "en_prep_total": 0,
   "agenda_decline_kpis": {
     "total": 539,
     "recuperado": 208,
