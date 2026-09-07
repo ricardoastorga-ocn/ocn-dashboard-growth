@@ -139,17 +139,27 @@ def main():
             "pct_aprobacion": round(d["aprobado"] / res * 100, 1) if res else 0.0,
         })
 
-    # ---------- tendencia diaria Tijuana / Mexicali, promedio movil 7 dias ----------
+    # ---------- tendencia diaria por ciudad, promedio movil 7 dias ----------
     dates_sorted = sorted(set(r["_date"] for r in rows))
     date_min, date_max = dates_sorted[0], dates_sorted[-1]
     all_days = [date_min + datetime.timedelta(days=i) for i in range((date_max - date_min).days + 1)]
 
-    daily_by_city = {"Tijuana": {}, "Mexicali": {}}
+    daily_by_city = {"tij": {}, "cdmx": {}, "mty": {}, "qro": {}, "gdl": {}, "mxl": {}, "otros": {}}
+    # Mismos 7 buckets ya establecidos en el resto del dashboard (DIAS_KEYS/FLEET_DAY_KEYS
+    # en index.html) -- Tijuana y Mexicali van solas (foco explicito de Ricardo), el resto
+    # de ciudades chicas (Merida/Puebla/Saltillo/Otro) se agrupan en "otros" para que la
+    # comparacion siga siendo legible con 35+ dias en el eje.
+    DAILY_BUCKETS = {
+        "Tijuana": "tij", "CDMX / Edo Mex": "cdmx", "Monterrey": "mty",
+        "Queretaro": "qro", "Guadalajara": "gdl", "Mexicali": "mxl",
+        "Merida": "otros", "Puebla": "otros", "Saltillo": "otros", "Otro": "otros",
+    }
+    DAILY_KEYS = ["tij", "cdmx", "mty", "qro", "gdl", "mxl", "otros"]
     for r in rows:
-        city = r["_city"]
-        if city not in daily_by_city or r["resultado"] not in ("APROBADO", "RECHAZADO"):
+        bucket = DAILY_BUCKETS.get(r["_city"])
+        if bucket is None or r["resultado"] not in ("APROBADO", "RECHAZADO"):
             continue
-        d = daily_by_city[city].setdefault(r["_date"], {"aprobado": 0, "rechazado": 0})
+        d = daily_by_city[bucket].setdefault(r["_date"], {"aprobado": 0, "rechazado": 0})
         d[RESULT_KEY[r["resultado"]]] += 1
 
     focus_daily = []
@@ -158,15 +168,15 @@ def main():
         # ventana expansiva los primeros dias (no hay 7 dias de historia real antes del
         # inicio de los datos) para no mostrar un 0% falso al arrancar la serie
         win_size = min(7, (d - date_min).days + 1)
-        for city, key in [("Tijuana", "tijuana"), ("Mexicali", "mexicali")]:
+        for key in DAILY_KEYS:
             window = [d - datetime.timedelta(days=k) for k in range(win_size)]
-            apr = sum(daily_by_city[city].get(w, {}).get("aprobado", 0) for w in window)
-            rec = sum(daily_by_city[city].get(w, {}).get("rechazado", 0) for w in window)
+            apr = sum(daily_by_city[key].get(w, {}).get("aprobado", 0) for w in window)
+            rec = sum(daily_by_city[key].get(w, {}).get("rechazado", 0) for w in window)
             res = apr + rec
             row[f"{key}_pct"] = round(apr / res * 100, 1) if res else 0.0
             row[f"{key}_n"] = res
         focus_daily.append(row)
-    n_gap_days = sum(1 for row in focus_daily if row["tijuana_n"] == 0 or row["mexicali_n"] == 0)
+    n_gap_days = sum(1 for row in focus_daily if row["tij_n"] == 0 or row["mxl_n"] == 0)
 
     out = {
         "aprob_kpis": {
