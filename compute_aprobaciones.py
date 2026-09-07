@@ -102,7 +102,19 @@ def main():
     resueltas = aprobado + rechazado
     pct_aprobacion = round(aprobado / resueltas * 100, 1) if resueltas else 0.0
 
+    dates_sorted = sorted(set(r["_date"] for r in rows))
+    date_min, date_max = dates_sorted[0], dates_sorted[-1]
+    all_days = [date_min + datetime.timedelta(days=i) for i in range((date_max - date_min).days + 1)]
+    midpoint = date_min + datetime.timedelta(days=(date_max - date_min).days // 2)
+
     # ---------- semanal (lunes-domingo) ----------
+    # Verificado 7-sep-2026 a peticion de Ricardo ("revisa que este actualizada semanal de
+    # lunes a domingo"): monday_of() SI corta lunes-domingo correcto (confirmado contra
+    # calendario real: 3-ago-2026 es lunes, 31-ago-2026 es lunes, etc.). El hallazgo real
+    # no era la logica de corte sino que la PRIMERA semana (27-jul-2 ago, solo 1 dia real,
+    # 1-ago) y la ULTIMA (31 ago-6 sep, solo 5 de 7 dias reales, datos hasta el 4-sep) son
+    # semanas PARCIALES -- se marcan explicitamente (`es_parcial`) para no leerlas como una
+    # caida real de volumen cuando en realidad la semana todavia no termina de capturarse.
     weekly = {}
     for r in rows:
         wk_start = monday_of(r["_date"])
@@ -113,74 +125,86 @@ def main():
         wk_end = wk_start + datetime.timedelta(days=6)
         c = weekly[wk_start]
         res = c["aprobado"] + c["rechazado"]
+        es_parcial = wk_start < date_min or wk_end > date_max
         weekly_list.append({
-            "label": f"{fmt_short(wk_start)}–{fmt_short(wk_end)}",
+            "label": f"{fmt_short(wk_start)}–{fmt_short(wk_end)}" + (" (parcial)" if es_parcial else ""),
             "aprobado": c["aprobado"], "rechazado": c["rechazado"], "pendiente": c["pendiente"],
             "total": c["aprobado"] + c["rechazado"] + c["pendiente"],
             "pct_aprobacion": round(c["aprobado"] / res * 100, 1) if res else 0.0,
+            "es_parcial": es_parcial,
         })
 
-    # ---------- por ciudad (todo el periodo) ----------
+    # ---------- por ciudad (todo el periodo) + tendencia (1a mitad vs 2a mitad) ----------
+    # El donut es una foto de todo el periodo -- no muestra si una ciudad va mejorando o
+    # no. Se agrega delta_pp comparando el % de aprobacion de la 1a mitad del periodo vs.
+    # la 2a mitad, para que "sigue sin moverse" (Ricardo) se pueda leer directo en la
+    # leyenda sin necesitar una gráfica de tendencia aparte.
     by_city = {}
+    by_city_half = {}
     for r in rows:
         c = by_city.setdefault(r["_city"], {"aprobado": 0, "rechazado": 0, "pendiente": 0})
         c[RESULT_KEY[r["resultado"]]] += 1
+        if r["resultado"] in ("APROBADO", "RECHAZADO"):
+            half = "h1" if r["_date"] <= midpoint else "h2"
+            hc = by_city_half.setdefault(r["_city"], {"h1": {"aprobado": 0, "rechazado": 0}, "h2": {"aprobado": 0, "rechazado": 0}})
+            hc[half][RESULT_KEY[r["resultado"]]] += 1
     city_list = []
     for c in CITY_ORDER + ["Otro"]:
         if c not in by_city:
             continue
         d = by_city[c]
         res = d["aprobado"] + d["rechazado"]
+        h = by_city_half.get(c, {"h1": {"aprobado": 0, "rechazado": 0}, "h2": {"aprobado": 0, "rechazado": 0}})
+        h1_res = h["h1"]["aprobado"] + h["h1"]["rechazado"]
+        h2_res = h["h2"]["aprobado"] + h["h2"]["rechazado"]
+        pct_h1 = round(h["h1"]["aprobado"] / h1_res * 100, 1) if h1_res else None
+        pct_h2 = round(h["h2"]["aprobado"] / h2_res * 100, 1) if h2_res else None
+        delta_pp = round(pct_h2 - pct_h1, 1) if (pct_h1 is not None and pct_h2 is not None) else None
         city_list.append({
             "ciudad": c, "colorVar": CITY_COLOR.get(c, "--s-otros"),
             "total": d["aprobado"] + d["rechazado"] + d["pendiente"],
             "aprobado": d["aprobado"], "rechazado": d["rechazado"], "pendiente": d["pendiente"],
             "resueltas": res,
             "pct_aprobacion": round(d["aprobado"] / res * 100, 1) if res else 0.0,
+            "pct_h1": pct_h1, "pct_h2": pct_h2, "delta_pp": delta_pp,
         })
-
-    # ---------- tendencia diaria por ciudad, promedio movil 7 dias ----------
-    dates_sorted = sorted(set(r["_date"] for r in rows))
-    date_min, date_max = dates_sorted[0], dates_sorted[-1]
-    all_days = [date_min + datetime.timedelta(days=i) for i in range((date_max - date_min).days + 1)]
 
     # Solo 3 series -- Tijuana y Mexicali (foco explicito de Ricardo) + un "resto de la
     # red" agregado (CDMX/Edo Mex, Monterrey, Queretaro, Guadalajara, Merida, Puebla,
     # Saltillo, Otro combinados en un solo pool). Se probo primero con 7 lineas
     # individuales (una por ciudad) y Ricardo la rechazo por ilegible ("es muy mala la
-    # grafica") -- con 35 dias en el eje, 5 lineas de referencia delgadas encima de las 2
-    # que importan es puro ruido visual. El agregado da la misma comparacion ("como le va
-    # a Tijuana/Mexicali vs. el resto") en una sola linea de referencia limpia.
-    daily_by_city = {"tij": {}, "mxl": {}, "resto": {}}
-    DAILY_BUCKETS = {
+    # grafica") -- con muchos dias en el eje, 5 lineas de referencia delgadas encima de
+    # las 2 que importan es puro ruido visual. El agregado da la misma comparacion ("como
+    # le va a Tijuana/Mexicali vs. el resto") en una sola serie de referencia limpia.
+    # Ronda 4 de esta grafica (7-sep, tarde): Ricardo pidio verla como BARRAS semanales
+    # (lunes-domingo, mismo corte que "Solicitudes por semana") en vez de linea diaria,
+    # para que el comportamiento semana a semana sea claro -- ver Ronda correspondiente
+    # en project_dashboard_growth_automation.md.
+    FOCUS_BUCKETS = {
         "Tijuana": "tij", "Mexicali": "mxl",
         "CDMX / Edo Mex": "resto", "Monterrey": "resto", "Queretaro": "resto",
         "Guadalajara": "resto", "Merida": "resto", "Puebla": "resto",
         "Saltillo": "resto", "Otro": "resto",
     }
-    DAILY_KEYS = ["tij", "mxl", "resto"]
+    FOCUS_KEYS = ["tij", "mxl", "resto"]
+    weekly_focus_counts = {}
     for r in rows:
-        bucket = DAILY_BUCKETS.get(r["_city"])
-        if bucket is None or r["resultado"] not in ("APROBADO", "RECHAZADO"):
+        bucket = FOCUS_BUCKETS.get(r["_city"])
+        if bucket is None:
             continue
-        d = daily_by_city[bucket].setdefault(r["_date"], {"aprobado": 0, "rechazado": 0})
-        d[RESULT_KEY[r["resultado"]]] += 1
-
-    focus_daily = []
-    for d in all_days:
-        row = {"fecha": fmt_short(d)}
-        # ventana expansiva los primeros dias (no hay 7 dias de historia real antes del
-        # inicio de los datos) para no mostrar un 0% falso al arrancar la serie
-        win_size = min(7, (d - date_min).days + 1)
-        for key in DAILY_KEYS:
-            window = [d - datetime.timedelta(days=k) for k in range(win_size)]
-            apr = sum(daily_by_city[key].get(w, {}).get("aprobado", 0) for w in window)
-            rec = sum(daily_by_city[key].get(w, {}).get("rechazado", 0) for w in window)
-            res = apr + rec
-            row[f"{key}_pct"] = round(apr / res * 100, 1) if res else 0.0
-            row[f"{key}_n"] = res
-        focus_daily.append(row)
-    n_gap_days = sum(1 for row in focus_daily if row["tij_n"] == 0 or row["mxl_n"] == 0)
+        wk_start = monday_of(r["_date"])
+        c = weekly_focus_counts.setdefault(wk_start, {"tij": 0, "mxl": 0, "resto": 0})
+        c[bucket] += 1
+    weekly_focus = []
+    for wk_start in sorted(weekly_focus_counts):
+        wk_end = wk_start + datetime.timedelta(days=6)
+        es_parcial = wk_start < date_min or wk_end > date_max
+        c = weekly_focus_counts[wk_start]
+        weekly_focus.append({
+            "label": f"{fmt_short(wk_start)}–{fmt_short(wk_end)}" + (" (parcial)" if es_parcial else ""),
+            "tij": c["tij"], "mxl": c["mxl"], "resto": c["resto"],
+            "es_parcial": es_parcial,
+        })
 
     # ---------- volumen diario por ciudad (todas, sin agrupar) ----------
     # A diferencia del % de aprobacion (una tasa independiente por ciudad, ruidosa con
@@ -210,7 +234,7 @@ def main():
         },
         "aprob_weekly": weekly_list,
         "aprob_by_city": city_list,
-        "aprob_daily_focus": focus_daily,
+        "aprob_weekly_focus": weekly_focus,
         "aprob_daily_volume": daily_volume,
         "aprob_meta": {
             "fecha_min": fmt_short(date_min), "fecha_max": fmt_short(date_max),
@@ -224,8 +248,9 @@ def main():
     print(f"OK -- aprobaciones_snapshot.json escrito. total={total} aprobado={aprobado} "
           f"rechazado={rechazado} pendiente={pendiente} pct_aprobacion={pct_aprobacion}%")
     print(f"rango: {fmt_short(date_min)} - {fmt_short(date_max)}  dias={len(all_days)}  "
-          f"dias con ventana-7d vacia (Tij o Mxl)={n_gap_days}")
-    print("por ciudad:", [(c["ciudad"], c["pct_aprobacion"], c["total"]) for c in city_list])
+          f"semanas={len(weekly_list)} (primera y ultima parciales)")
+    print("por ciudad (pct_total, pct_h1->pct_h2, delta_pp):",
+          [(c["ciudad"], c["pct_aprobacion"], c["pct_h1"], c["pct_h2"], c["delta_pp"]) for c in city_list])
 
 
 if __name__ == "__main__":

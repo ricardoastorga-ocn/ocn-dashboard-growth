@@ -133,6 +133,7 @@ svg.chart { display: block; overflow: visible; }
 .donut-city { color: var(--sub); flex: 1; }
 .donut-n { color: var(--muted); font-variant-numeric: tabular-nums; }
 .donut-pct { font-weight: 700; font-variant-numeric: tabular-nums; min-width: 42px; text-align: right; }
+.donut-trend { font-size: 11px; font-weight: 600; font-variant-numeric: tabular-nums; min-width: 58px; text-align: right; }
 
 .tooltip {
   position: absolute; pointer-events: none; z-index: 5;
@@ -482,6 +483,7 @@ table.data-table td.pct-bad  { color: var(--s-critical); font-weight: 700; }
     <div class="finding-row" id="aprob-kpis" style="margin:6px 0 20px;flex-wrap:wrap;gap:24px 32px;"></div>
 
     <p class="subsection-title">Solicitudes por semana</p>
+    <p class="card-note" style="margin-top:-6px;">Semanas lunes a domingo. La primera y la última semana del periodo son parciales (aún no terminan de capturarse) — marcadas explícitamente, no leerlas como caída real de volumen.</p>
     <div class="chart-wrap" id="aprob-weekly-chart-wrap">
       <div class="chart-scroll"><svg class="chart" id="chart-aprob-weekly"></svg></div>
       <div class="tooltip" id="tooltip-aprob-weekly"></div>
@@ -500,13 +502,13 @@ table.data-table td.pct-bad  { color: var(--s-critical); font-weight: 700; }
       <div class="donut-legend" id="legend-aprob-city"></div>
       <div class="tooltip" id="tooltip-aprob-city"></div>
     </div>
-    <p class="card-note" style="margin-top:8px;">Tamaño del segmento = volumen de solicitudes; el % es la aprobación de esa ciudad.</p>
+    <p class="card-note" style="margin-top:8px;">Tamaño del segmento = volumen de solicitudes; % = aprobación del periodo completo; ▲/▼ = cuánto cambió esa ciudad de la primera a la segunda mitad del periodo (así se ve si de verdad va mejorando, no solo el nivel actual).</p>
 
-    <p class="subsection-title">Volumen de solicitudes, tendencia diaria — foco Tijuana y Mexicali</p>
-    <p class="card-note" style="margin-top:-6px;">Promedio móvil de 7 días (para no leer ruido de días sueltos) del volumen de solicitudes resueltas (Aprobado + Rechazado). Tijuana y Mexicali resaltadas contra el resto de la red.</p>
+    <p class="subsection-title">Volumen de solicitudes por semana — foco Tijuana y Mexicali</p>
+    <p class="card-note" style="margin-top:-6px;">Mismas semanas lunes a domingo que "Solicitudes por semana" (primera y última parciales). Tijuana y Mexicali en su color habitual, resto de la red agrupado como referencia.</p>
     <div class="legend" id="legend-aprob-focus"></div>
     <div class="chart-wrap" id="aprob-focus-chart-wrap">
-      <svg class="chart" id="chart-aprob-focus"></svg>
+      <div class="chart-scroll"><svg class="chart" id="chart-aprob-focus"></svg></div>
       <div class="tooltip" id="tooltip-aprob-focus"></div>
     </div>
     <p class="callout" id="callout-aprob-focus"></p>
@@ -619,7 +621,7 @@ table.data-table td.pct-bad  { color: var(--s-critical); font-weight: 700; }
   const APROB_KPIS = DATA.aprob_kpis || {};
   const APROB_WEEKLY = DATA.aprob_weekly || [];
   const APROB_BY_CITY = DATA.aprob_by_city || [];
-  const APROB_DAILY_FOCUS = DATA.aprob_daily_focus || [];
+  const APROB_WEEKLY_FOCUS = DATA.aprob_weekly_focus || [];
   const APROB_DAILY_VOLUME = DATA.aprob_daily_volume || [];
   const APROB_META = DATA.aprob_meta || {};
 
@@ -912,7 +914,8 @@ table.data-table td.pct-bad  { color: var(--s-critical); font-weight: 700; }
           const evX = ev.clientX - wrapRect.left, evY = ev.clientY - wrapRect.top;
           tooltip.innerHTML = '<div class="tt-title">'+d.label+'</div>' +
             '<div class="tt-row"><span>'+fmt(d.value)+' solicitudes</span></div>' +
-            '<div class="tt-row"><span>'+d.pct.toFixed(1)+'% aprobación</span></div>';
+            '<div class="tt-row"><span>'+d.pct.toFixed(1)+'% aprobación</span></div>' +
+            (d.deltaPp != null ? '<div class="tt-row"><span>'+(d.deltaPp>=0?'▲ +':'▼ ')+d.deltaPp.toFixed(1)+' pp (1a→2a mitad del periodo)</span></div>' : '');
           tooltip.style.left = evX + "px";
           tooltip.style.top = Math.max(evY - 10, 10) + "px";
           tooltip.classList.add("show");
@@ -932,14 +935,17 @@ table.data-table td.pct-bad  { color: var(--s-critical); font-weight: 700; }
 
     const legend = legendId ? document.getElementById(legendId) : null;
     if (legend) {
-      legend.innerHTML = items.slice().sort((a,b)=>b.value-a.value).map(d =>
-        '<div class="donut-row">' +
+      legend.innerHTML = items.slice().sort((a,b)=>b.value-a.value).map(d => {
+        const trendColor = d.deltaPp == null ? 'var(--muted)' : (d.deltaPp >= 0 ? 'var(--s-entregado)' : 'var(--s-critical)');
+        const trendTxt = d.deltaPp == null ? '—' : (d.deltaPp>=0?'▲ +':'▼ ')+Math.abs(d.deltaPp).toFixed(1)+'pp';
+        return '<div class="donut-row">' +
           '<span class="donut-sw" style="background:'+colorOf(d.colorVar)+'"></span>' +
           '<span class="donut-city">'+d.label+'</span>' +
           '<span class="donut-n">'+fmt(d.value)+'</span>' +
           '<span class="donut-pct" style="color:'+colorOf(d.colorVar)+'">'+d.pct.toFixed(1)+'%</span>' +
-        '</div>'
-      ).join('');
+          '<span class="donut-trend" style="color:'+trendColor+'" title="Cambio de la 1a a la 2a mitad del periodo">'+trendTxt+'</span>' +
+        '</div>';
+      }).join('');
     }
   }
 
@@ -1521,46 +1527,43 @@ table.data-table td.pct-bad  { color: var(--s-critical); font-weight: 700; }
       });
 
       drawDonutChart('chart-aprob-city', 'tooltip-aprob-city', 'legend-aprob-city',
-        APROB_BY_CITY.map(d => ({key: d.ciudad, label: d.ciudad, value: d.total, pct: d.pct_aprobacion, colorVar: d.colorVar})), {
-        ariaLabel: "Solicitudes por ciudad (tamaño) y % de aprobación de cada una (color/leyenda)",
+        APROB_BY_CITY.map(d => ({key: d.ciudad, label: d.ciudad, value: d.total, pct: d.pct_aprobacion, deltaPp: d.delta_pp, colorVar: d.colorVar})), {
+        ariaLabel: "Solicitudes por ciudad (tamaño), % de aprobación y tendencia 1a vs 2a mitad del periodo",
         size: 190,
         centerLabel: k.pct_aprobacion + '%',
         centerSubLabel: 'aprobación'
       });
 
-      // Solo 3 lineas: Tijuana, Mexicali (foco) + "Resto de la red" agregado -- VOLUMEN
-      // (conteo, ventana movil 7 dias para no leer ruido de dias sueltos), no %. Antes
-      // esta grafica media % de aprobacion; Ricardo pidio explicitamente volumen aqui.
-      // 7 lineas individuales por ciudad ya se probaron y se rechazaron por ilegibles con
-      // 35 dias en el eje -- el agregado da la misma comparacion en una linea limpia.
+      // Solo 3 series -- Tijuana, Mexicali (foco) + "Resto de la red" agregado -- VOLUMEN,
+      // ahora en BARRAS SEMANALES (lunes-domingo, mismo corte que "Solicitudes por
+      // semana") a pedido de Ricardo ("hazlo en gráfica de barras... que sea claro el
+      // comportamiento semanal") -- antes era una línea diaria. 7 series individuales por
+      // ciudad ya se probaron y se rechazaron por ilegibles; el agregado da la misma
+      // comparación en una sola serie de referencia limpia.
       const legendAprobFocus = document.getElementById('legend-aprob-focus');
       if (legendAprobFocus) legendAprobFocus.innerHTML =
         '<span class="legend-item"><span class="legend-swatch" style="background:var(--s-mg3)"></span>Tijuana</span>' +
         '<span class="legend-item"><span class="legend-swatch" style="background:var(--s-tiggo)"></span>Mexicali</span>' +
         '<span class="legend-item"><span class="legend-swatch" style="background:var(--s-otros)"></span>Resto de la red</span>';
-      drawLineChart('chart-aprob-focus', 'tooltip-aprob-focus', APROB_DAILY_FOCUS.map(d=>d.fecha),
-        [{key:'tij_n', label:'Tijuana', colorVar:'--s-mg3', bold:true},
-         {key:'mxl_n', label:'Mexicali', colorVar:'--s-tiggo', bold:true},
-         {key:'resto_n', label:'Resto de la red', colorVar:'--s-otros', bold:false}], {
-        ariaLabel: "Volumen de solicitudes diario, Tijuana y Mexicali vs. el resto de la red, promedio móvil de 7 días",
-        dataOf: (key,i) => APROB_DAILY_FOCUS[i][key],
-        fitContainer: true,
-        hidePointLabels: true,
-        xLabelEvery: Math.max(1, Math.ceil(APROB_DAILY_FOCUS.length / 9))
+      drawStackedChart('chart-aprob-focus', 'tooltip-aprob-focus', APROB_WEEKLY_FOCUS,
+        ['tij','mxl','resto'], k => ({tij:'--s-mg3', mxl:'--s-tiggo', resto:'--s-otros'})[k], {
+        ariaLabel: "Volumen de solicitudes por semana, Tijuana y Mexicali vs. el resto de la red",
+        labelOf: k => ({tij:'Tijuana', mxl:'Mexicali', resto:'Resto de la red'})[k],
+        months: APROB_WEEKLY_FOCUS.map(w => w.label),
+        minPerLabel: 90
       });
 
-      const tijPoints = APROB_DAILY_FOCUS.filter(d => d.tij_n > 0);
-      const mxlPoints = APROB_DAILY_FOCUS.filter(d => d.mxl_n > 0);
+      // Comparacion primera vs. ultima semana COMPLETA (se excluyen las parciales de los
+      // extremos para no leer una semana a medio capturar como una caida/subida real)
+      const completeFocusWeeks = APROB_WEEKLY_FOCUS.filter(w => !w.es_parcial);
       const tijCity = APROB_BY_CITY.find(c => c.ciudad === 'Tijuana');
       const mxlCity = APROB_BY_CITY.find(c => c.ciudad === 'Mexicali');
-      if (tijPoints.length && mxlPoints.length) {
-        const tijFirst = tijPoints[0], tijLast = tijPoints[tijPoints.length-1];
-        const mxlFirst = mxlPoints[0], mxlLast = mxlPoints[mxlPoints.length-1];
-        const tijDelta = tijLast.tij_n - tijFirst.tij_n;
-        const mxlDelta = mxlLast.mxl_n - mxlFirst.mxl_n;
+      if (completeFocusWeeks.length >= 2) {
+        const wFirst = completeFocusWeeks[0], wLast = completeFocusWeeks[completeFocusWeeks.length-1];
+        const tijDelta = wLast.tij - wFirst.tij, mxlDelta = wLast.mxl - wFirst.mxl;
         el2('callout-aprob-focus',
-          '<strong>Tijuana:</strong> '+fmt(tijFirst.tij_n)+' → '+fmt(tijLast.tij_n)+' solicitudes/semana ('+(tijDelta>=0?'+':'')+fmt(tijDelta)+'). ' +
-          '<strong>Mexicali:</strong> '+fmt(mxlFirst.mxl_n)+' → '+fmt(mxlLast.mxl_n)+' solicitudes/semana ('+(mxlDelta>=0?'+':'')+fmt(mxlDelta)+') — volumen bajo ('+fmt(mxlCity?mxlCity.total:0)+' solicitudes en todo el periodo vs. '+fmt(tijCity?tijCity.total:0)+' de Tijuana), leer con cautela.'
+          '<strong>Tijuana:</strong> '+fmt(wFirst.tij)+' → '+fmt(wLast.tij)+' solicitudes/semana ('+(tijDelta>=0?'+':'')+fmt(tijDelta)+'), semanas completas de '+wFirst.label+' a '+wLast.label+'. ' +
+          '<strong>Mexicali:</strong> '+fmt(wFirst.mxl)+' → '+fmt(wLast.mxl)+' ('+(mxlDelta>=0?'+':'')+fmt(mxlDelta)+') — volumen bajo ('+fmt(mxlCity?mxlCity.total:0)+' solicitudes en todo el periodo vs. '+fmt(tijCity?tijCity.total:0)+' de Tijuana), leer con cautela.'
         , true);
       }
 

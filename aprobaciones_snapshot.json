@@ -8,12 +8,13 @@
   },
   "aprob_weekly": [
     {
-      "label": "27 jul–2 ago",
+      "label": "27 jul–2 ago (parcial)",
       "aprobado": 1,
       "rechazado": 0,
       "pendiente": 0,
       "total": 1,
-      "pct_aprobacion": 100.0
+      "pct_aprobacion": 100.0,
+      "es_parcial": true
     },
     {
       "label": "3 ago–9 ago",
@@ -21,7 +22,8 @@
       "rechazado": 32,
       "pendiente": 18,
       "total": 281,
-      "pct_aprobacion": 87.8
+      "pct_aprobacion": 87.8,
+      "es_parcial": false
     },
     {
       "label": "10 ago–16 ago",
@@ -29,7 +31,8 @@
       "rechazado": 17,
       "pendiente": 12,
       "total": 234,
-      "pct_aprobacion": 92.3
+      "pct_aprobacion": 92.3,
+      "es_parcial": false
     },
     {
       "label": "17 ago–23 ago",
@@ -37,7 +40,8 @@
       "rechazado": 35,
       "pendiente": 26,
       "total": 280,
-      "pct_aprobacion": 86.2
+      "pct_aprobacion": 86.2,
+      "es_parcial": false
     },
     {
       "label": "24 ago–30 ago",
@@ -45,15 +49,17 @@
       "rechazado": 34,
       "pendiente": 25,
       "total": 251,
-      "pct_aprobacion": 85.0
+      "pct_aprobacion": 85.0,
+      "es_parcial": false
     },
     {
-      "label": "31 ago–6 sep",
+      "label": "31 ago–6 sep (parcial)",
       "aprobado": 149,
       "rechazado": 44,
       "pendiente": 28,
       "total": 221,
-      "pct_aprobacion": 77.2
+      "pct_aprobacion": 77.2,
+      "es_parcial": true
     }
   ],
   "aprob_by_city": [
@@ -65,7 +71,10 @@
       "rechazado": 22,
       "pendiente": 17,
       "resueltas": 149,
-      "pct_aprobacion": 85.2
+      "pct_aprobacion": 85.2,
+      "pct_h1": 85.7,
+      "pct_h2": 84.9,
+      "delta_pp": -0.8
     },
     {
       "ciudad": "CDMX / Edo Mex",
@@ -75,7 +84,10 @@
       "rechazado": 77,
       "pendiente": 37,
       "resueltas": 457,
-      "pct_aprobacion": 83.2
+      "pct_aprobacion": 83.2,
+      "pct_h1": 89.5,
+      "pct_h2": 75.0,
+      "delta_pp": -14.5
     },
     {
       "ciudad": "Monterrey",
@@ -85,7 +97,10 @@
       "rechazado": 26,
       "pendiente": 24,
       "resueltas": 238,
-      "pct_aprobacion": 89.1
+      "pct_aprobacion": 89.1,
+      "pct_h1": 90.8,
+      "pct_h2": 87.3,
+      "delta_pp": -3.5
     },
     {
       "ciudad": "Mexicali",
@@ -95,7 +110,10 @@
       "rechazado": 2,
       "pendiente": 6,
       "resueltas": 41,
-      "pct_aprobacion": 95.1
+      "pct_aprobacion": 95.1,
+      "pct_h1": 100.0,
+      "pct_h2": 92.9,
+      "delta_pp": -7.1
     },
     {
       "ciudad": "Guadalajara",
@@ -105,7 +123,10 @@
       "rechazado": 12,
       "pendiente": 7,
       "resueltas": 85,
-      "pct_aprobacion": 85.9
+      "pct_aprobacion": 85.9,
+      "pct_h1": 86.7,
+      "pct_h2": 85.0,
+      "delta_pp": -1.7
     },
     {
       "ciudad": "Queretaro",
@@ -115,7 +136,10 @@
       "rechazado": 5,
       "pendiente": 5,
       "resueltas": 51,
-      "pct_aprobacion": 90.2
+      "pct_aprobacion": 90.2,
+      "pct_h1": 90.0,
+      "pct_h2": 90.5,
+      "delta_pp": 0.5
     },
     {
       "ciudad": "Merida",
@@ -125,7 +149,10 @@
       "rechazado": 3,
       "pendiente": 7,
       "resueltas": 43,
-      "pct_aprobacion": 93.0
+      "pct_aprobacion": 93.0,
+      "pct_h1": 92.3,
+      "pct_h2": 94.1,
+      "delta_pp": 1.8
     },
     {
       "ciudad": "Puebla",
@@ -135,7 +162,10 @@
       "rechazado": 13,
       "pendiente": 5,
       "resueltas": 56,
-      "pct_aprobacion": 76.8
+      "pct_aprobacion": 76.8,
+      "pct_h1": 84.0,
+      "pct_h2": 71.0,
+      "delta_pp": -13.0
     },
     {
       "ciudad": "Saltillo",
@@ -145,7 +175,10 @@
       "rechazado": 2,
       "pendiente": 1,
       "resueltas": 29,
-      "pct_aprobacion": 93.1
+      "pct_aprobacion": 93.1,
+      "pct_h1": 100.0,
+      "pct_h2": 83.3,
+      "delta_pp": -16.7
     },
     {
       "ciudad": "Otro",
@@ -155,324 +188,54 @@
       "rechazado": 0,
       "pendiente": 0,
       "resueltas": 10,
-      "pct_aprobacion": 100.0
+      "pct_aprobacion": 100.0,
+      "pct_h1": 100.0,
+      "pct_h2": 100.0,
+      "delta_pp": 0.0
     }
   ],
-  "aprob_daily_focus": [
+  "aprob_weekly_focus": [
     {
-      "fecha": "1 ago",
-      "tij_pct": 0.0,
-      "tij_n": 0,
-      "mxl_pct": 0.0,
-      "mxl_n": 0,
-      "resto_pct": 100.0,
-      "resto_n": 1
+      "label": "27 jul–2 ago (parcial)",
+      "tij": 0,
+      "mxl": 0,
+      "resto": 1,
+      "es_parcial": true
     },
     {
-      "fecha": "2 ago",
-      "tij_pct": 0.0,
-      "tij_n": 0,
-      "mxl_pct": 0.0,
-      "mxl_n": 0,
-      "resto_pct": 100.0,
-      "resto_n": 1
+      "label": "3 ago–9 ago",
+      "tij": 32,
+      "mxl": 7,
+      "resto": 242,
+      "es_parcial": false
     },
     {
-      "fecha": "3 ago",
-      "tij_pct": 82.4,
-      "tij_n": 17,
-      "mxl_pct": 100.0,
-      "mxl_n": 2,
-      "resto_pct": 90.6,
-      "resto_n": 53
+      "label": "10 ago–16 ago",
+      "tij": 16,
+      "mxl": 4,
+      "resto": 214,
+      "es_parcial": false
     },
     {
-      "fecha": "4 ago",
-      "tij_pct": 85.7,
-      "tij_n": 21,
-      "mxl_pct": 100.0,
-      "mxl_n": 3,
-      "resto_pct": 88.7,
-      "resto_n": 124
+      "label": "17 ago–23 ago",
+      "tij": 39,
+      "mxl": 11,
+      "resto": 230,
+      "es_parcial": false
     },
     {
-      "fecha": "5 ago",
-      "tij_pct": 83.3,
-      "tij_n": 24,
-      "mxl_pct": 100.0,
-      "mxl_n": 4,
-      "resto_pct": 88.4,
-      "resto_n": 155
+      "label": "24 ago–30 ago",
+      "tij": 47,
+      "mxl": 15,
+      "resto": 189,
+      "es_parcial": false
     },
     {
-      "fecha": "6 ago",
-      "tij_pct": 80.0,
-      "tij_n": 25,
-      "mxl_pct": 100.0,
-      "mxl_n": 5,
-      "resto_pct": 89.6,
-      "resto_n": 201
-    },
-    {
-      "fecha": "7 ago",
-      "tij_pct": 76.7,
-      "tij_n": 30,
-      "mxl_pct": 100.0,
-      "mxl_n": 6,
-      "resto_pct": 89.0,
-      "resto_n": 228
-    },
-    {
-      "fecha": "8 ago",
-      "tij_pct": 76.7,
-      "tij_n": 30,
-      "mxl_pct": 100.0,
-      "mxl_n": 6,
-      "resto_pct": 89.0,
-      "resto_n": 227
-    },
-    {
-      "fecha": "9 ago",
-      "tij_pct": 76.7,
-      "tij_n": 30,
-      "mxl_pct": 100.0,
-      "mxl_n": 6,
-      "resto_pct": 89.0,
-      "resto_n": 227
-    },
-    {
-      "fecha": "10 ago",
-      "tij_pct": 81.0,
-      "tij_n": 21,
-      "mxl_pct": 100.0,
-      "mxl_n": 4,
-      "resto_pct": 90.2,
-      "resto_n": 225
-    },
-    {
-      "fecha": "11 ago",
-      "tij_pct": 76.5,
-      "tij_n": 17,
-      "mxl_pct": 100.0,
-      "mxl_n": 3,
-      "resto_pct": 90.4,
-      "resto_n": 188
-    },
-    {
-      "fecha": "12 ago",
-      "tij_pct": 75.0,
-      "tij_n": 16,
-      "mxl_pct": 100.0,
-      "mxl_n": 3,
-      "resto_pct": 92.9,
-      "resto_n": 224
-    },
-    {
-      "fecha": "13 ago",
-      "tij_pct": 84.2,
-      "tij_n": 19,
-      "mxl_pct": 100.0,
-      "mxl_n": 4,
-      "resto_pct": 91.6,
-      "resto_n": 215
-    },
-    {
-      "fecha": "14 ago",
-      "tij_pct": 93.3,
-      "tij_n": 15,
-      "mxl_pct": 100.0,
-      "mxl_n": 4,
-      "resto_pct": 92.1,
-      "resto_n": 203
-    },
-    {
-      "fecha": "15 ago",
-      "tij_pct": 93.3,
-      "tij_n": 15,
-      "mxl_pct": 100.0,
-      "mxl_n": 4,
-      "resto_pct": 92.1,
-      "resto_n": 203
-    },
-    {
-      "fecha": "16 ago",
-      "tij_pct": 93.3,
-      "tij_n": 15,
-      "mxl_pct": 100.0,
-      "mxl_n": 4,
-      "resto_pct": 92.1,
-      "resto_n": 203
-    },
-    {
-      "fecha": "17 ago",
-      "tij_pct": 91.7,
-      "tij_n": 12,
-      "mxl_pct": 100.0,
-      "mxl_n": 5,
-      "resto_pct": 91.1,
-      "resto_n": 179
-    },
-    {
-      "fecha": "18 ago",
-      "tij_pct": 92.0,
-      "tij_n": 25,
-      "mxl_pct": 100.0,
-      "mxl_n": 7,
-      "resto_pct": 90.1,
-      "resto_n": 212
-    },
-    {
-      "fecha": "19 ago",
-      "tij_pct": 96.6,
-      "tij_n": 29,
-      "mxl_pct": 100.0,
-      "mxl_n": 8,
-      "resto_pct": 89.0,
-      "resto_n": 191
-    },
-    {
-      "fecha": "20 ago",
-      "tij_pct": 96.3,
-      "tij_n": 27,
-      "mxl_pct": 100.0,
-      "mxl_n": 8,
-      "resto_pct": 87.4,
-      "resto_n": 190
-    },
-    {
-      "fecha": "21 ago",
-      "tij_pct": 88.2,
-      "tij_n": 34,
-      "mxl_pct": 88.9,
-      "mxl_n": 9,
-      "resto_pct": 86.1,
-      "resto_n": 208
-    },
-    {
-      "fecha": "22 ago",
-      "tij_pct": 88.2,
-      "tij_n": 34,
-      "mxl_pct": 88.9,
-      "mxl_n": 9,
-      "resto_pct": 86.1,
-      "resto_n": 209
-    },
-    {
-      "fecha": "23 ago",
-      "tij_pct": 85.7,
-      "tij_n": 35,
-      "mxl_pct": 88.9,
-      "mxl_n": 9,
-      "resto_pct": 86.2,
-      "resto_n": 210
-    },
-    {
-      "fecha": "24 ago",
-      "tij_pct": 88.4,
-      "tij_n": 43,
-      "mxl_pct": 93.3,
-      "mxl_n": 15,
-      "resto_pct": 85.6,
-      "resto_n": 222
-    },
-    {
-      "fecha": "25 ago",
-      "tij_pct": 88.6,
-      "tij_n": 35,
-      "mxl_pct": 92.9,
-      "mxl_n": 14,
-      "resto_pct": 85.2,
-      "resto_n": 196
-    },
-    {
-      "fecha": "26 ago",
-      "tij_pct": 89.5,
-      "tij_n": 38,
-      "mxl_pct": 91.7,
-      "mxl_n": 12,
-      "resto_pct": 83.2,
-      "resto_n": 173
-    },
-    {
-      "fecha": "27 ago",
-      "tij_pct": 88.1,
-      "tij_n": 42,
-      "mxl_pct": 92.3,
-      "mxl_n": 13,
-      "resto_pct": 83.3,
-      "resto_n": 174
-    },
-    {
-      "fecha": "28 ago",
-      "tij_pct": 87.8,
-      "tij_n": 41,
-      "mxl_pct": 100.0,
-      "mxl_n": 14,
-      "resto_pct": 82.6,
-      "resto_n": 167
-    },
-    {
-      "fecha": "29 ago",
-      "tij_pct": 88.4,
-      "tij_n": 43,
-      "mxl_pct": 100.0,
-      "mxl_n": 15,
-      "resto_pct": 82.4,
-      "resto_n": 170
-    },
-    {
-      "fecha": "30 ago",
-      "tij_pct": 90.5,
-      "tij_n": 42,
-      "mxl_pct": 100.0,
-      "mxl_n": 15,
-      "resto_pct": 82.2,
-      "resto_n": 169
-    },
-    {
-      "fecha": "31 ago",
-      "tij_pct": 82.4,
-      "tij_n": 34,
-      "mxl_pct": 100.0,
-      "mxl_n": 11,
-      "resto_pct": 79.1,
-      "resto_n": 158
-    },
-    {
-      "fecha": "1 sep",
-      "tij_pct": 81.1,
-      "tij_n": 37,
-      "mxl_pct": 100.0,
-      "mxl_n": 11,
-      "resto_pct": 78.2,
-      "resto_n": 170
-    },
-    {
-      "fecha": "2 sep",
-      "tij_pct": 75.0,
-      "tij_n": 36,
-      "mxl_pct": 100.0,
-      "mxl_n": 11,
-      "resto_pct": 75.7,
-      "resto_n": 177
-    },
-    {
-      "fecha": "3 sep",
-      "tij_pct": 75.8,
-      "tij_n": 33,
-      "mxl_pct": 100.0,
-      "mxl_n": 10,
-      "resto_pct": 75.3,
-      "resto_n": 170
-    },
-    {
-      "fecha": "4 sep",
-      "tij_pct": 82.8,
-      "tij_n": 29,
-      "mxl_pct": 87.5,
-      "mxl_n": 8,
-      "resto_pct": 76.1,
-      "resto_n": 163
+      "label": "31 ago–6 sep (parcial)",
+      "tij": 32,
+      "mxl": 10,
+      "resto": 179,
+      "es_parcial": true
     }
   ],
   "aprob_daily_volume": [
@@ -830,6 +593,6 @@
   "aprob_meta": {
     "fecha_min": "1 ago",
     "fecha_max": "4 sep",
-    "generado_en": "2026-09-07T10:45:10.692792"
+    "generado_en": "2026-09-07T11:23:59.975138"
   }
 }
