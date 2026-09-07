@@ -1,5 +1,5 @@
 window.__DASHBOARD_DATA__ = {
-  "generated_at": "2026-09-07T16:47:35.277241Z",
+  "generated_at": "2026-09-07T17:04:44.583986Z",
   "months": [
     "Ago 25",
     "Sep 25",
@@ -291,9 +291,9 @@ window.__DASHBOARD_DATA__ = {
   "waitlist_gap": [
     {
       "ciudad": "CDMX / Edo Mex",
-      "espera": 278,
+      "espera": 279,
       "listo": 0,
-      "gap": 278
+      "gap": 279
     },
     {
       "ciudad": "Monterrey",
@@ -520,7 +520,7 @@ window.__DASHBOARD_DATA__ = {
     {
       "key": "0-30",
       "label": "0-30 días",
-      "value": 227
+      "value": 228
     },
     {
       "key": "31-60",
@@ -538,18 +538,18 @@ window.__DASHBOARD_DATA__ = {
       "value": 70
     }
   ],
-  "tiers_total": 671,
+  "tiers_total": 672,
   "max_wait_days": 259,
   "city_tier": [
     {
       "ciudad": "CDMX / Edo Mex",
       "vals": [
-        118,
+        119,
         77,
         63,
         20
       ],
-      "total": 278
+      "total": 279
     },
     {
       "ciudad": "Monterrey",
@@ -656,12 +656,12 @@ window.__DASHBOARD_DATA__ = {
     {
       "key": "@Daniela Fav",
       "vals": [
-        12,
+        13,
         9,
         12,
         7
       ],
-      "total": 40
+      "total": 41
     },
     {
       "key": "Ana Rodriguez",

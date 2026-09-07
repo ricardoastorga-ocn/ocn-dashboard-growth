@@ -502,8 +502,8 @@ table.data-table td.pct-bad  { color: var(--s-critical); font-weight: 700; }
     </div>
     <p class="card-note" style="margin-top:8px;">Tamaño del segmento = volumen de solicitudes; el % es la aprobación de esa ciudad.</p>
 
-    <p class="subsection-title">% de aprobación, tendencia diaria por ciudad — foco Tijuana y Mexicali</p>
-    <p class="card-note" style="margin-top:-6px;">Promedio móvil de 7 días (para no leer ruido de días con pocos casos) sobre solicitudes ya resueltas (Aprobado + Rechazado). Tijuana y Mexicali resaltadas; el resto de ciudades en tono tenue como referencia.</p>
+    <p class="subsection-title">Volumen de solicitudes, tendencia diaria — foco Tijuana y Mexicali</p>
+    <p class="card-note" style="margin-top:-6px;">Promedio móvil de 7 días (para no leer ruido de días sueltos) del volumen de solicitudes resueltas (Aprobado + Rechazado). Tijuana y Mexicali resaltadas contra el resto de la red.</p>
     <div class="legend" id="legend-aprob-focus"></div>
     <div class="chart-wrap" id="aprob-focus-chart-wrap">
       <svg class="chart" id="chart-aprob-focus"></svg>
@@ -1528,22 +1528,22 @@ table.data-table td.pct-bad  { color: var(--s-critical); font-weight: 700; }
         centerSubLabel: 'aprobación'
       });
 
-      // Solo 3 lineas: Tijuana, Mexicali (foco) + "Resto de la red" agregado. Se probo
-      // primero con 7 lineas (una por ciudad) y Ricardo la rechazo por ilegible -- con 35
-      // dias en el eje, 5 lineas delgadas de referencia encima de las 2 que importan era
-      // puro ruido. El agregado da la misma comparacion en una sola linea de referencia limpia.
+      // Solo 3 lineas: Tijuana, Mexicali (foco) + "Resto de la red" agregado -- VOLUMEN
+      // (conteo, ventana movil 7 dias para no leer ruido de dias sueltos), no %. Antes
+      // esta grafica media % de aprobacion; Ricardo pidio explicitamente volumen aqui.
+      // 7 lineas individuales por ciudad ya se probaron y se rechazaron por ilegibles con
+      // 35 dias en el eje -- el agregado da la misma comparacion en una linea limpia.
       const legendAprobFocus = document.getElementById('legend-aprob-focus');
       if (legendAprobFocus) legendAprobFocus.innerHTML =
         '<span class="legend-item"><span class="legend-swatch" style="background:var(--s-mg3)"></span>Tijuana</span>' +
         '<span class="legend-item"><span class="legend-swatch" style="background:var(--s-tiggo)"></span>Mexicali</span>' +
-        '<span class="legend-item"><span class="legend-swatch" style="background:var(--s-otros)"></span>Resto de la red (promedio)</span>';
+        '<span class="legend-item"><span class="legend-swatch" style="background:var(--s-otros)"></span>Resto de la red</span>';
       drawLineChart('chart-aprob-focus', 'tooltip-aprob-focus', APROB_DAILY_FOCUS.map(d=>d.fecha),
-        [{key:'tij_pct', label:'Tijuana', colorVar:'--s-mg3', bold:true},
-         {key:'mxl_pct', label:'Mexicali', colorVar:'--s-tiggo', bold:true},
-         {key:'resto_pct', label:'Resto de la red', colorVar:'--s-otros', bold:false}], {
-        ariaLabel: "Porcentaje de aprobación diario, Tijuana y Mexicali vs. el resto de la red, promedio móvil de 7 días",
+        [{key:'tij_n', label:'Tijuana', colorVar:'--s-mg3', bold:true},
+         {key:'mxl_n', label:'Mexicali', colorVar:'--s-tiggo', bold:true},
+         {key:'resto_n', label:'Resto de la red', colorVar:'--s-otros', bold:false}], {
+        ariaLabel: "Volumen de solicitudes diario, Tijuana y Mexicali vs. el resto de la red, promedio móvil de 7 días",
         dataOf: (key,i) => APROB_DAILY_FOCUS[i][key],
-        fmtFn: v => v.toFixed(1) + '%',
         fitContainer: true,
         hidePointLabels: true,
         xLabelEvery: Math.max(1, Math.ceil(APROB_DAILY_FOCUS.length / 9))
@@ -1556,12 +1556,11 @@ table.data-table td.pct-bad  { color: var(--s-critical); font-weight: 700; }
       if (tijPoints.length && mxlPoints.length) {
         const tijFirst = tijPoints[0], tijLast = tijPoints[tijPoints.length-1];
         const mxlFirst = mxlPoints[0], mxlLast = mxlPoints[mxlPoints.length-1];
-        const tijDelta = (tijLast.tij_pct - tijFirst.tij_pct);
-        const mxlDelta = (mxlLast.mxl_pct - mxlFirst.mxl_pct);
-        const restoLast = APROB_DAILY_FOCUS[APROB_DAILY_FOCUS.length-1].resto_pct;
+        const tijDelta = tijLast.tij_n - tijFirst.tij_n;
+        const mxlDelta = mxlLast.mxl_n - mxlFirst.mxl_n;
         el2('callout-aprob-focus',
-          '<strong>Tijuana:</strong> '+tijFirst.tij_pct+'% → '+tijLast.tij_pct+'% ('+(tijDelta>=0?'+':'')+tijDelta.toFixed(1)+' pp), '+(tijLast.tij_pct >= restoLast ? 'por encima' : 'por debajo')+' del resto de la red ('+restoLast+'%). ' +
-          '<strong>Mexicali:</strong> '+mxlFirst.mxl_pct+'% → '+mxlLast.mxl_pct+'% ('+(mxlDelta>=0?'+':'')+mxlDelta.toFixed(1)+' pp) — volumen bajo ('+fmt(mxlCity?mxlCity.total:0)+' solicitudes en todo el periodo vs. '+fmt(tijCity?tijCity.total:0)+' de Tijuana), leer con cautela.'
+          '<strong>Tijuana:</strong> '+fmt(tijFirst.tij_n)+' → '+fmt(tijLast.tij_n)+' solicitudes/semana ('+(tijDelta>=0?'+':'')+fmt(tijDelta)+'). ' +
+          '<strong>Mexicali:</strong> '+fmt(mxlFirst.mxl_n)+' → '+fmt(mxlLast.mxl_n)+' solicitudes/semana ('+(mxlDelta>=0?'+':'')+fmt(mxlDelta)+') — volumen bajo ('+fmt(mxlCity?mxlCity.total:0)+' solicitudes en todo el periodo vs. '+fmt(tijCity?tijCity.total:0)+' de Tijuana), leer con cautela.'
         , true);
       }
 
