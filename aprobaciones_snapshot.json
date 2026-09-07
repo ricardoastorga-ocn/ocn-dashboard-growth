@@ -475,9 +475,361 @@
       "resto_n": 163
     }
   ],
+  "aprob_daily_volume": [
+    {
+      "fecha": "1 ago",
+      "tij": 0,
+      "cdmx": 1,
+      "mty": 0,
+      "qro": 0,
+      "gdl": 0,
+      "mxl": 0,
+      "otros": 0
+    },
+    {
+      "fecha": "2 ago",
+      "tij": 0,
+      "cdmx": 0,
+      "mty": 0,
+      "qro": 0,
+      "gdl": 0,
+      "mxl": 0,
+      "otros": 0
+    },
+    {
+      "fecha": "3 ago",
+      "tij": 17,
+      "cdmx": 19,
+      "mty": 12,
+      "qro": 5,
+      "gdl": 7,
+      "mxl": 2,
+      "otros": 9
+    },
+    {
+      "fecha": "4 ago",
+      "tij": 4,
+      "cdmx": 30,
+      "mty": 19,
+      "qro": 6,
+      "gdl": 4,
+      "mxl": 1,
+      "otros": 15
+    },
+    {
+      "fecha": "5 ago",
+      "tij": 4,
+      "cdmx": 14,
+      "mty": 7,
+      "qro": 3,
+      "gdl": 5,
+      "mxl": 1,
+      "otros": 4
+    },
+    {
+      "fecha": "6 ago",
+      "tij": 1,
+      "cdmx": 26,
+      "mty": 12,
+      "qro": 2,
+      "gdl": 3,
+      "mxl": 1,
+      "otros": 8
+    },
+    {
+      "fecha": "7 ago",
+      "tij": 6,
+      "cdmx": 19,
+      "mty": 4,
+      "qro": 0,
+      "gdl": 4,
+      "mxl": 2,
+      "otros": 5
+    },
+    {
+      "fecha": "8 ago",
+      "tij": 0,
+      "cdmx": 0,
+      "mty": 0,
+      "qro": 0,
+      "gdl": 0,
+      "mxl": 0,
+      "otros": 0
+    },
+    {
+      "fecha": "9 ago",
+      "tij": 0,
+      "cdmx": 0,
+      "mty": 0,
+      "qro": 0,
+      "gdl": 0,
+      "mxl": 0,
+      "otros": 0
+    },
+    {
+      "fecha": "10 ago",
+      "tij": 9,
+      "cdmx": 30,
+      "mty": 11,
+      "qro": 5,
+      "gdl": 1,
+      "mxl": 0,
+      "otros": 5
+    },
+    {
+      "fecha": "11 ago",
+      "tij": 0,
+      "cdmx": 17,
+      "mty": 10,
+      "qro": 1,
+      "gdl": 6,
+      "mxl": 0,
+      "otros": 5
+    },
+    {
+      "fecha": "12 ago",
+      "tij": 2,
+      "cdmx": 46,
+      "mty": 11,
+      "qro": 3,
+      "gdl": 4,
+      "mxl": 1,
+      "otros": 5
+    },
+    {
+      "fecha": "13 ago",
+      "tij": 4,
+      "cdmx": 23,
+      "mty": 5,
+      "qro": 3,
+      "gdl": 1,
+      "mxl": 2,
+      "otros": 7
+    },
+    {
+      "fecha": "14 ago",
+      "tij": 1,
+      "cdmx": 4,
+      "mty": 6,
+      "qro": 1,
+      "gdl": 1,
+      "mxl": 1,
+      "otros": 3
+    },
+    {
+      "fecha": "15 ago",
+      "tij": 0,
+      "cdmx": 0,
+      "mty": 0,
+      "qro": 0,
+      "gdl": 0,
+      "mxl": 0,
+      "otros": 0
+    },
+    {
+      "fecha": "16 ago",
+      "tij": 0,
+      "cdmx": 0,
+      "mty": 0,
+      "qro": 0,
+      "gdl": 0,
+      "mxl": 0,
+      "otros": 0
+    },
+    {
+      "fecha": "17 ago",
+      "tij": 5,
+      "cdmx": 11,
+      "mty": 8,
+      "qro": 3,
+      "gdl": 3,
+      "mxl": 2,
+      "otros": 3
+    },
+    {
+      "fecha": "18 ago",
+      "tij": 13,
+      "cdmx": 37,
+      "mty": 19,
+      "qro": 1,
+      "gdl": 9,
+      "mxl": 2,
+      "otros": 11
+    },
+    {
+      "fecha": "19 ago",
+      "tij": 7,
+      "cdmx": 23,
+      "mty": 16,
+      "qro": 1,
+      "gdl": 5,
+      "mxl": 3,
+      "otros": 4
+    },
+    {
+      "fecha": "20 ago",
+      "tij": 3,
+      "cdmx": 18,
+      "mty": 9,
+      "qro": 2,
+      "gdl": 3,
+      "mxl": 2,
+      "otros": 6
+    },
+    {
+      "fecha": "21 ago",
+      "tij": 9,
+      "cdmx": 13,
+      "mty": 13,
+      "qro": 1,
+      "gdl": 3,
+      "mxl": 2,
+      "otros": 6
+    },
+    {
+      "fecha": "22 ago",
+      "tij": 1,
+      "cdmx": 1,
+      "mty": 0,
+      "qro": 0,
+      "gdl": 0,
+      "mxl": 0,
+      "otros": 0
+    },
+    {
+      "fecha": "23 ago",
+      "tij": 1,
+      "cdmx": 1,
+      "mty": 0,
+      "qro": 0,
+      "gdl": 0,
+      "mxl": 0,
+      "otros": 0
+    },
+    {
+      "fecha": "24 ago",
+      "tij": 13,
+      "cdmx": 16,
+      "mty": 15,
+      "qro": 2,
+      "gdl": 6,
+      "mxl": 7,
+      "otros": 5
+    },
+    {
+      "fecha": "25 ago",
+      "tij": 7,
+      "cdmx": 20,
+      "mty": 12,
+      "qro": 5,
+      "gdl": 5,
+      "mxl": 1,
+      "otros": 6
+    },
+    {
+      "fecha": "26 ago",
+      "tij": 10,
+      "cdmx": 9,
+      "mty": 6,
+      "qro": 1,
+      "gdl": 3,
+      "mxl": 0,
+      "otros": 4
+    },
+    {
+      "fecha": "27 ago",
+      "tij": 6,
+      "cdmx": 19,
+      "mty": 11,
+      "qro": 4,
+      "gdl": 2,
+      "mxl": 3,
+      "otros": 4
+    },
+    {
+      "fecha": "28 ago",
+      "tij": 8,
+      "cdmx": 15,
+      "mty": 7,
+      "qro": 1,
+      "gdl": 3,
+      "mxl": 3,
+      "otros": 4
+    },
+    {
+      "fecha": "29 ago",
+      "tij": 3,
+      "cdmx": 3,
+      "mty": 1,
+      "qro": 0,
+      "gdl": 0,
+      "mxl": 1,
+      "otros": 0
+    },
+    {
+      "fecha": "30 ago",
+      "tij": 0,
+      "cdmx": 0,
+      "mty": 0,
+      "qro": 0,
+      "gdl": 0,
+      "mxl": 0,
+      "otros": 0
+    },
+    {
+      "fecha": "31 ago",
+      "tij": 5,
+      "cdmx": 14,
+      "mty": 7,
+      "qro": 0,
+      "gdl": 5,
+      "mxl": 4,
+      "otros": 3
+    },
+    {
+      "fecha": "1 sep",
+      "tij": 10,
+      "cdmx": 26,
+      "mty": 15,
+      "qro": 3,
+      "gdl": 4,
+      "mxl": 2,
+      "otros": 9
+    },
+    {
+      "fecha": "2 sep",
+      "tij": 9,
+      "cdmx": 10,
+      "mty": 7,
+      "qro": 1,
+      "gdl": 4,
+      "mxl": 0,
+      "otros": 11
+    },
+    {
+      "fecha": "3 sep",
+      "tij": 4,
+      "cdmx": 18,
+      "mty": 9,
+      "qro": 1,
+      "gdl": 1,
+      "mxl": 3,
+      "otros": 7
+    },
+    {
+      "fecha": "4 sep",
+      "tij": 4,
+      "cdmx": 11,
+      "mty": 10,
+      "qro": 1,
+      "gdl": 0,
+      "mxl": 1,
+      "otros": 2
+    }
+  ],
   "aprob_meta": {
     "fecha_min": "1 ago",
     "fecha_max": "4 sep",
-    "generado_en": "2026-09-07T10:20:42.647885"
+    "generado_en": "2026-09-07T10:45:10.692792"
   }
 }

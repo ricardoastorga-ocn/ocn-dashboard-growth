@@ -182,6 +182,27 @@ def main():
         focus_daily.append(row)
     n_gap_days = sum(1 for row in focus_daily if row["tij_n"] == 0 or row["mxl_n"] == 0)
 
+    # ---------- volumen diario por ciudad (todas, sin agrupar) ----------
+    # A diferencia del % de aprobacion (una tasa independiente por ciudad, ruidosa con
+    # muchas lineas), el VOLUMEN si tiene sentido apilado -- cada ciudad es una parte
+    # real del total de solicitudes de ese dia, por eso aqui se muestran las 7 ciudades
+    # completas (mismos buckets/colores ya establecidos, DIAS_KEYS) sin agrupar en
+    # "resto". Cuenta TODAS las solicitudes del dia (Aprobado+Rechazado+Pendiente), sin
+    # ventana movil -- es volumen crudo, no una tasa, no necesita el suavizado de 7 dias.
+    VOLUME_BUCKETS = {
+        "Tijuana": "tij", "CDMX / Edo Mex": "cdmx", "Monterrey": "mty",
+        "Queretaro": "qro", "Guadalajara": "gdl", "Mexicali": "mxl",
+        "Merida": "otros", "Puebla": "otros", "Saltillo": "otros", "Otro": "otros",
+    }
+    VOLUME_KEYS = ["tij", "cdmx", "mty", "qro", "gdl", "mxl", "otros"]
+    volume_by_day = {d: {k: 0 for k in VOLUME_KEYS} for d in all_days}
+    for r in rows:
+        bucket = VOLUME_BUCKETS.get(r["_city"])
+        if bucket is None:
+            continue
+        volume_by_day[r["_date"]][bucket] += 1
+    daily_volume = [{"fecha": fmt_short(d), **volume_by_day[d]} for d in all_days]
+
     out = {
         "aprob_kpis": {
             "total": total, "aprobado": aprobado, "rechazado": rechazado, "pendiente": pendiente,
@@ -190,6 +211,7 @@ def main():
         "aprob_weekly": weekly_list,
         "aprob_by_city": city_list,
         "aprob_daily_focus": focus_daily,
+        "aprob_daily_volume": daily_volume,
         "aprob_meta": {
             "fecha_min": fmt_short(date_min), "fecha_max": fmt_short(date_max),
             "generado_en": datetime.datetime.now().isoformat(),

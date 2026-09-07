@@ -510,6 +510,15 @@ table.data-table td.pct-bad  { color: var(--s-critical); font-weight: 700; }
       <div class="tooltip" id="tooltip-aprob-focus"></div>
     </div>
     <p class="callout" id="callout-aprob-focus"></p>
+
+    <p class="subsection-title">Volumen de solicitudes por ciudad, tendencia diaria</p>
+    <p class="card-note" style="margin-top:-6px;">Solicitudes ingresadas por día, todas las ciudades apiladas — Tijuana y Mexicali en su color habitual del dashboard.</p>
+    <div class="legend" id="legend-aprob-volume"></div>
+    <div class="chart-wrap" id="aprob-volume-chart-wrap">
+      <div class="chart-scroll"><svg class="chart" id="chart-aprob-volume"></svg></div>
+      <div class="tooltip" id="tooltip-aprob-volume"></div>
+    </div>
+    <p class="callout" id="callout-aprob-volume"></p>
   </section>
 
   <section class="card" id="card-agenda-decline">
@@ -611,6 +620,7 @@ table.data-table td.pct-bad  { color: var(--s-critical); font-weight: 700; }
   const APROB_WEEKLY = DATA.aprob_weekly || [];
   const APROB_BY_CITY = DATA.aprob_by_city || [];
   const APROB_DAILY_FOCUS = DATA.aprob_daily_focus || [];
+  const APROB_DAILY_VOLUME = DATA.aprob_daily_volume || [];
   const APROB_META = DATA.aprob_meta || {};
 
   const AGENDA_KPIS = DATA.agenda_decline_kpis;
@@ -658,8 +668,11 @@ table.data-table td.pct-bad  { color: var(--s-critical); font-weight: 700; }
     const monthLabels = opts.months || MONTHS;
     const forecastIndex = (typeof opts.forecastIndex === 'number') ? opts.forecastIndex : -1;
 
-    const minWidth = monthLabels.length * 28 + 70;
-    const width = Math.max(minWidth, (svg.closest('.chart-scroll')||svg).clientWidth || (monthLabels.length * 58 + 70));
+    // opts.minPerLabel: ancho minimo por columna (default 28) -- se puede bajar para
+    // series con muchos puntos (ej. 35 dias) y que el ancho real se ajuste al
+    // contenedor en vez de forzar scroll horizontal.
+    const minWidth = monthLabels.length * (opts.minPerLabel || 28) + 70;
+    const width = Math.max(minWidth, (svg.closest('.chart-scroll')||svg).clientWidth || (monthLabels.length * (opts.minPerLabel || 58) + 70));
     const height = 300;
     const padL = 48, padR = 12, padT = 26, padB = 34;
     const plotW = width - padL - padR;
@@ -724,15 +737,20 @@ table.data-table td.pct-bad  { color: var(--s-critical); font-weight: 700; }
         }
         yCursor -= segH;
       });
-      // total cap label
-      const capY = padT + yScale(totals[i]) - 7;
-      const lbl = el("text", {class:"cap-label", x: cx, y: Math.max(capY, padT-6), "text-anchor":"middle"}, svg);
-      lbl.textContent = fmt(totals[i]);
-      if (isForecast) lbl.setAttribute("fill", "var(--muted)");
-      // x label
-      const xl = el("text", {class:"x-label", x: cx, y: padT+plotH+20, "text-anchor":"middle"}, svg);
-      xl.textContent = m;
-      if (isForecast) xl.setAttribute("font-style", "italic");
+      // opts.xLabelEvery: en series con muchas columnas, solo se dibuja el total y la
+      // fecha cada N columnas (siempre la ultima) para no saturar el eje
+      const showLabelHere = !opts.xLabelEvery || i % opts.xLabelEvery === 0 || i === monthLabels.length-1;
+      if (showLabelHere) {
+        // total cap label
+        const capY = padT + yScale(totals[i]) - 7;
+        const lbl = el("text", {class:"cap-label", x: cx, y: Math.max(capY, padT-6), "text-anchor":"middle"}, svg);
+        lbl.textContent = fmt(totals[i]);
+        if (isForecast) lbl.setAttribute("fill", "var(--muted)");
+        // x label
+        const xl = el("text", {class:"x-label", x: cx, y: padT+plotH+20, "text-anchor":"middle"}, svg);
+        xl.textContent = m;
+        if (isForecast) xl.setAttribute("font-style", "italic");
+      }
 
       // hover hit target across the whole column
       const hit = el("rect", {x: cx-step/2+1, y: padT, width: step-2, height: plotH, fill:"transparent"}, svg);
@@ -1544,6 +1562,33 @@ table.data-table td.pct-bad  { color: var(--s-critical); font-weight: 700; }
         el2('callout-aprob-focus',
           '<strong>Tijuana:</strong> '+tijFirst.tij_pct+'% → '+tijLast.tij_pct+'% ('+(tijDelta>=0?'+':'')+tijDelta.toFixed(1)+' pp), '+(tijLast.tij_pct >= restoLast ? 'por encima' : 'por debajo')+' del resto de la red ('+restoLast+'%). ' +
           '<strong>Mexicali:</strong> '+mxlFirst.mxl_pct+'% → '+mxlLast.mxl_pct+'% ('+(mxlDelta>=0?'+':'')+mxlDelta.toFixed(1)+' pp) — volumen bajo ('+fmt(mxlCity?mxlCity.total:0)+' solicitudes en todo el periodo vs. '+fmt(tijCity?tijCity.total:0)+' de Tijuana), leer con cautela.'
+        , true);
+      }
+
+      // Volumen (no tasa) -- SI tiene sentido apilar las 7 ciudades completas, cada una
+      // es una parte real del total de solicitudes de ese dia. minPerLabel bajo para que
+      // 35 dias quepan en el ancho real de la tarjeta sin forzar scroll.
+      const legendAprobVolume = document.getElementById('legend-aprob-volume');
+      if (legendAprobVolume) legendAprobVolume.innerHTML = DIAS_KEYS.map(dk =>
+        '<span class="legend-item"><span class="legend-swatch" style="background:var('+DIAS_COLOR[dk]+')"></span>'+DIAS_LABELS_CIUDAD[dk].split(' (')[0]+'</span>'
+      ).join('');
+      drawStackedChart('chart-aprob-volume', 'tooltip-aprob-volume', APROB_DAILY_VOLUME, DIAS_KEYS, dk => DIAS_COLOR[dk], {
+        ariaLabel: "Volumen de solicitudes por día, apilado por ciudad",
+        labelOf: dk => DIAS_LABELS_CIUDAD[dk],
+        months: APROB_DAILY_VOLUME.map(d => d.fecha),
+        minPerLabel: 12,
+        xLabelEvery: Math.max(1, Math.ceil(APROB_DAILY_VOLUME.length / 10))
+      });
+      if (APROB_DAILY_VOLUME.length) {
+        const tijTotal = APROB_DAILY_VOLUME.reduce((s,d)=>s+(d.tij||0),0);
+        const mxlTotal = APROB_DAILY_VOLUME.reduce((s,d)=>s+(d.mxl||0),0);
+        const tijFirstWk = APROB_DAILY_VOLUME.slice(0,7).reduce((s,d)=>s+(d.tij||0),0);
+        const tijLastWk = APROB_DAILY_VOLUME.slice(-7).reduce((s,d)=>s+(d.tij||0),0);
+        const mxlFirstWk = APROB_DAILY_VOLUME.slice(0,7).reduce((s,d)=>s+(d.mxl||0),0);
+        const mxlLastWk = APROB_DAILY_VOLUME.slice(-7).reduce((s,d)=>s+(d.mxl||0),0);
+        el2('callout-aprob-volume',
+          '<strong>Tijuana:</strong> '+fmt(tijTotal)+' solicitudes en todo el periodo — primeros 7 días: '+fmt(tijFirstWk)+', últimos 7 días: '+fmt(tijLastWk)+'. ' +
+          '<strong>Mexicali:</strong> '+fmt(mxlTotal)+' solicitudes — primeros 7 días: '+fmt(mxlFirstWk)+', últimos 7 días: '+fmt(mxlLastWk)+'.'
         , true);
       }
     }
