@@ -1,10 +1,10 @@
 {
   "aprob_kpis": {
-    "total": 1268,
-    "aprobado": 997,
-    "rechazado": 162,
-    "pendiente": 109,
-    "pct_aprobacion": 86.0
+    "total": 1391,
+    "aprobado": 1088,
+    "rechazado": 191,
+    "pendiente": 112,
+    "pct_aprobacion": 85.1
   },
   "aprob_weekly": [
     {
@@ -28,37 +28,46 @@
     {
       "label": "10 ago–16 ago",
       "aprobado": 205,
-      "rechazado": 17,
+      "rechazado": 18,
       "pendiente": 12,
-      "total": 234,
-      "pct_aprobacion": 92.3,
+      "total": 235,
+      "pct_aprobacion": 91.9,
       "es_parcial": false
     },
     {
       "label": "17 ago–23 ago",
       "aprobado": 219,
-      "rechazado": 35,
+      "rechazado": 34,
       "pendiente": 26,
-      "total": 280,
-      "pct_aprobacion": 86.2,
+      "total": 279,
+      "pct_aprobacion": 86.6,
       "es_parcial": false
     },
     {
       "label": "24 ago–30 ago",
-      "aprobado": 192,
-      "rechazado": 34,
-      "pendiente": 25,
-      "total": 251,
-      "pct_aprobacion": 85.0,
+      "aprobado": 197,
+      "rechazado": 35,
+      "pendiente": 23,
+      "total": 255,
+      "pct_aprobacion": 84.9,
       "es_parcial": false
     },
     {
-      "label": "31 ago–6 sep (parcial)",
+      "label": "31 ago–6 sep",
       "aprobado": 149,
       "rechazado": 44,
-      "pendiente": 28,
-      "total": 221,
+      "pendiente": 22,
+      "total": 215,
       "pct_aprobacion": 77.2,
+      "es_parcial": false
+    },
+    {
+      "label": "7 sep–13 sep (parcial)",
+      "aprobado": 86,
+      "rechazado": 28,
+      "pendiente": 11,
+      "total": 125,
+      "pct_aprobacion": 75.4,
       "es_parcial": true
     }
   ],
@@ -66,127 +75,127 @@
     {
       "ciudad": "Tijuana",
       "colorVar": "--s-mg3",
-      "total": 166,
-      "aprobado": 127,
-      "rechazado": 22,
-      "pendiente": 17,
-      "resueltas": 149,
-      "pct_aprobacion": 85.2,
-      "pct_h1": 85.7,
-      "pct_h2": 84.9,
-      "delta_pp": -0.8
+      "total": 183,
+      "aprobado": 140,
+      "rechazado": 27,
+      "pendiente": 16,
+      "resueltas": 167,
+      "pct_aprobacion": 83.8,
+      "pct_h1": 86.1,
+      "pct_h2": 82.1,
+      "delta_pp": -4.0
     },
     {
       "ciudad": "CDMX / Edo Mex",
       "colorVar": "--s-byd",
-      "total": 494,
-      "aprobado": 380,
-      "rechazado": 77,
-      "pendiente": 37,
-      "resueltas": 457,
-      "pct_aprobacion": 83.2,
-      "pct_h1": 89.5,
-      "pct_h2": 75.0,
-      "delta_pp": -14.5
+      "total": 530,
+      "aprobado": 410,
+      "rechazado": 82,
+      "pendiente": 38,
+      "resueltas": 492,
+      "pct_aprobacion": 83.3,
+      "pct_h1": 88.2,
+      "pct_h2": 76.0,
+      "delta_pp": -12.2
     },
     {
       "ciudad": "Monterrey",
       "colorVar": "--s-mg5",
-      "total": 262,
-      "aprobado": 212,
-      "rechazado": 26,
-      "pendiente": 24,
-      "resueltas": 238,
-      "pct_aprobacion": 89.1,
-      "pct_h1": 90.8,
-      "pct_h2": 87.3,
-      "delta_pp": -3.5
+      "total": 283,
+      "aprobado": 227,
+      "rechazado": 33,
+      "pendiente": 23,
+      "resueltas": 260,
+      "pct_aprobacion": 87.3,
+      "pct_h1": 91.7,
+      "pct_h2": 81.9,
+      "delta_pp": -9.8
     },
     {
       "ciudad": "Mexicali",
       "colorVar": "--s-tiggo",
-      "total": 47,
-      "aprobado": 39,
-      "rechazado": 2,
-      "pendiente": 6,
-      "resueltas": 41,
-      "pct_aprobacion": 95.1,
+      "total": 59,
+      "aprobado": 48,
+      "rechazado": 4,
+      "pendiente": 7,
+      "resueltas": 52,
+      "pct_aprobacion": 92.3,
       "pct_h1": 100.0,
-      "pct_h2": 92.9,
-      "delta_pp": -7.1
+      "pct_h2": 88.6,
+      "delta_pp": -11.4
     },
     {
       "ciudad": "Guadalajara",
       "colorVar": "--s-king",
-      "total": 92,
-      "aprobado": 73,
-      "rechazado": 12,
+      "total": 99,
+      "aprobado": 77,
+      "rechazado": 15,
       "pendiente": 7,
-      "resueltas": 85,
-      "pct_aprobacion": 85.9,
-      "pct_h1": 86.7,
-      "pct_h2": 85.0,
-      "delta_pp": -1.7
+      "resueltas": 92,
+      "pct_aprobacion": 83.7,
+      "pct_h1": 88.2,
+      "pct_h2": 78.0,
+      "delta_pp": -10.2
     },
     {
       "ciudad": "Queretaro",
       "colorVar": "--s-aion",
-      "total": 56,
-      "aprobado": 46,
-      "rechazado": 5,
-      "pendiente": 5,
-      "resueltas": 51,
-      "pct_aprobacion": 90.2,
-      "pct_h1": 90.0,
-      "pct_h2": 90.5,
-      "delta_pp": 0.5
+      "total": 65,
+      "aprobado": 51,
+      "rechazado": 8,
+      "pendiente": 6,
+      "resueltas": 59,
+      "pct_aprobacion": 86.4,
+      "pct_h1": 90.9,
+      "pct_h2": 80.8,
+      "delta_pp": -10.1
     },
     {
       "ciudad": "Merida",
       "colorVar": "--s-otros",
-      "total": 50,
-      "aprobado": 40,
-      "rechazado": 3,
+      "total": 54,
+      "aprobado": 43,
+      "rechazado": 4,
       "pendiente": 7,
-      "resueltas": 43,
-      "pct_aprobacion": 93.0,
-      "pct_h1": 92.3,
-      "pct_h2": 94.1,
-      "delta_pp": 1.8
+      "resueltas": 47,
+      "pct_aprobacion": 91.5,
+      "pct_h1": 93.5,
+      "pct_h2": 87.5,
+      "delta_pp": -6.0
     },
     {
       "ciudad": "Puebla",
       "colorVar": "--s-otros",
-      "total": 61,
-      "aprobado": 43,
-      "rechazado": 13,
+      "total": 66,
+      "aprobado": 47,
+      "rechazado": 14,
       "pendiente": 5,
-      "resueltas": 56,
-      "pct_aprobacion": 76.8,
-      "pct_h1": 84.0,
-      "pct_h2": 71.0,
-      "delta_pp": -13.0
+      "resueltas": 61,
+      "pct_aprobacion": 77.0,
+      "pct_h1": 85.7,
+      "pct_h2": 69.7,
+      "delta_pp": -16.0
     },
     {
       "ciudad": "Saltillo",
       "colorVar": "--s-otros",
-      "total": 30,
-      "aprobado": 27,
-      "rechazado": 2,
-      "pendiente": 1,
-      "resueltas": 29,
-      "pct_aprobacion": 93.1,
+      "total": 41,
+      "aprobado": 35,
+      "rechazado": 4,
+      "pendiente": 2,
+      "resueltas": 39,
+      "pct_aprobacion": 89.7,
       "pct_h1": 100.0,
-      "pct_h2": 83.3,
-      "delta_pp": -16.7
+      "pct_h2": 81.8,
+      "delta_pp": -18.2
     },
     {
       "ciudad": "Otro",
       "colorVar": "--s-otros",
-      "total": 10,
+      "total": 11,
       "aprobado": 10,
       "rechazado": 0,
-      "pendiente": 0,
+      "pendiente": 1,
       "resueltas": 10,
       "pct_aprobacion": 100.0,
       "pct_h1": 100.0,
@@ -211,7 +220,7 @@
     },
     {
       "label": "10 ago–16 ago",
-      "tij": 16,
+      "tij": 17,
       "mxl": 4,
       "resto": 214,
       "es_parcial": false
@@ -220,21 +229,28 @@
       "label": "17 ago–23 ago",
       "tij": 39,
       "mxl": 11,
-      "resto": 230,
+      "resto": 229,
       "es_parcial": false
     },
     {
       "label": "24 ago–30 ago",
       "tij": 47,
       "mxl": 15,
-      "resto": 189,
+      "resto": 193,
       "es_parcial": false
     },
     {
-      "label": "31 ago–6 sep (parcial)",
-      "tij": 32,
+      "label": "31 ago–6 sep",
+      "tij": 31,
       "mxl": 10,
-      "resto": 179,
+      "resto": 174,
+      "es_parcial": false
+    },
+    {
+      "label": "7 sep–13 sep (parcial)",
+      "tij": 17,
+      "mxl": 12,
+      "resto": 96,
       "es_parcial": true
     }
   ],
@@ -331,7 +347,7 @@
     },
     {
       "fecha": "10 ago",
-      "tij": 9,
+      "tij": 10,
       "cdmx": 30,
       "mty": 11,
       "qro": 5,
@@ -423,7 +439,7 @@
       "fecha": "19 ago",
       "tij": 7,
       "cdmx": 23,
-      "mty": 16,
+      "mty": 15,
       "qro": 1,
       "gdl": 5,
       "mxl": 3,
@@ -482,8 +498,8 @@
     {
       "fecha": "25 ago",
       "tij": 7,
-      "cdmx": 20,
-      "mty": 12,
+      "cdmx": 21,
+      "mty": 13,
       "qro": 5,
       "gdl": 5,
       "mxl": 1,
@@ -497,7 +513,7 @@
       "qro": 1,
       "gdl": 3,
       "mxl": 0,
-      "otros": 4
+      "otros": 5
     },
     {
       "fecha": "27 ago",
@@ -517,17 +533,17 @@
       "qro": 1,
       "gdl": 3,
       "mxl": 3,
-      "otros": 4
+      "otros": 3
     },
     {
       "fecha": "29 ago",
       "tij": 3,
       "cdmx": 3,
-      "mty": 1,
+      "mty": 2,
       "qro": 0,
       "gdl": 0,
       "mxl": 1,
-      "otros": 0
+      "otros": 1
     },
     {
       "fecha": "30 ago",
@@ -541,19 +557,19 @@
     },
     {
       "fecha": "31 ago",
-      "tij": 5,
+      "tij": 6,
       "cdmx": 14,
       "mty": 7,
       "qro": 0,
       "gdl": 5,
       "mxl": 4,
-      "otros": 3
+      "otros": 4
     },
     {
       "fecha": "1 sep",
       "tij": 10,
       "cdmx": 26,
-      "mty": 15,
+      "mty": 14,
       "qro": 3,
       "gdl": 4,
       "mxl": 2,
@@ -561,38 +577,88 @@
     },
     {
       "fecha": "2 sep",
-      "tij": 9,
+      "tij": 8,
       "cdmx": 10,
       "mty": 7,
       "qro": 1,
       "gdl": 4,
       "mxl": 0,
-      "otros": 11
+      "otros": 10
     },
     {
       "fecha": "3 sep",
-      "tij": 4,
-      "cdmx": 18,
+      "tij": 3,
+      "cdmx": 17,
       "mty": 9,
       "qro": 1,
       "gdl": 1,
       "mxl": 3,
-      "otros": 7
+      "otros": 5
     },
     {
       "fecha": "4 sep",
       "tij": 4,
       "cdmx": 11,
-      "mty": 10,
+      "mty": 9,
       "qro": 1,
       "gdl": 0,
       "mxl": 1,
       "otros": 2
+    },
+    {
+      "fecha": "5 sep",
+      "tij": 0,
+      "cdmx": 0,
+      "mty": 0,
+      "qro": 0,
+      "gdl": 0,
+      "mxl": 0,
+      "otros": 0
+    },
+    {
+      "fecha": "6 sep",
+      "tij": 0,
+      "cdmx": 0,
+      "mty": 0,
+      "qro": 0,
+      "gdl": 0,
+      "mxl": 0,
+      "otros": 0
+    },
+    {
+      "fecha": "7 sep",
+      "tij": 11,
+      "cdmx": 24,
+      "mty": 15,
+      "qro": 4,
+      "gdl": 2,
+      "mxl": 9,
+      "otros": 6
+    },
+    {
+      "fecha": "8 sep",
+      "tij": 5,
+      "cdmx": 12,
+      "mty": 7,
+      "qro": 5,
+      "gdl": 5,
+      "mxl": 3,
+      "otros": 16
+    },
+    {
+      "fecha": "9 sep",
+      "tij": 1,
+      "cdmx": 0,
+      "mty": 0,
+      "qro": 0,
+      "gdl": 0,
+      "mxl": 0,
+      "otros": 0
     }
   ],
   "aprob_meta": {
     "fecha_min": "1 ago",
-    "fecha_max": "4 sep",
-    "generado_en": "2026-09-07T11:23:59.975138"
+    "fecha_max": "9 sep",
+    "generado_en": "2026-09-09T11:37:04.381771"
   }
 }

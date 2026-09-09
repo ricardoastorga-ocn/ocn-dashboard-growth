@@ -15,9 +15,12 @@ import os
 import unicodedata
 
 CSV_PATHS = [
-    "/Users/rich/Desktop/APROBADAS AGOSTO.csv",
-    "/Users/rich/Desktop/APROBADAS SEP.csv",
+    "/Users/rich/Desktop/tablero_preaprobaciones_ventas_lh.csv",
 ]
+# 9-sep-2026: este archivo consolidado (1-ago a 9-sep, sin duplicados) reemplaza a los
+# 2 CSVs incrementales anteriores (APROBADAS AGOSTO.csv / APROBADAS SEP.csv) -- mismo
+# esquema de columnas exacto, Ricardo empezo a exportar un solo tablero acumulado en
+# vez de cortes mensuales sueltos.
 
 # mismo orden de ciudades ya establecido en refresh_data.py (CITY_ORDER)
 CITY_ORDER = ["Tijuana", "CDMX / Edo Mex", "Monterrey", "Mexicali", "Guadalajara",
