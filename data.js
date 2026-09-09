@@ -1,5 +1,5 @@
 window.__DASHBOARD_DATA__ = {
-  "generated_at": "2026-09-09T17:37:32.634397Z",
+  "generated_at": "2026-09-09T17:38:58.985271Z",
   "months": [
     "Ago 25",
     "Sep 25",
@@ -71,7 +71,7 @@ window.__DASHBOARD_DATA__ = {
     },
     {
       "nuevo": 3,
-      "seminuevo": 37
+      "seminuevo": 38
     }
   ],
   "modelo": [
@@ -195,7 +195,7 @@ window.__DASHBOARD_DATA__ = {
     {
       "byd": 19,
       "mg5": 11,
-      "mg3": 6,
+      "mg3": 7,
       "aion": 0,
       "king": 1,
       "tiggo": 1,
@@ -231,7 +231,7 @@ window.__DASHBOARD_DATA__ = {
     },
     {
       "key": "cenv",
-      "value": 3
+      "value": 2
     },
     {
       "key": "liga",
@@ -239,7 +239,7 @@ window.__DASHBOARD_DATA__ = {
     },
     {
       "key": "entregado",
-      "value": 40
+      "value": 41
     },
     {
       "key": "issue",
@@ -269,17 +269,17 @@ window.__DASHBOARD_DATA__ = {
       "Tijuana": 14,
       "Guadalajara": 4,
       "Monterrey": 12,
-      "Puebla": 1,
+      "Puebla": 2,
       "CDMX / Edo Mex": 8,
       "Queretaro": 1
     },
-    "cenv": {
-      "CDMX / Edo Mex": 2,
-      "Monterrey": 1
-    },
     "liga": {
-      "Guadalajara": 1,
-      "Puebla": 1
+      "CDMX / Edo Mex": 1,
+      "Guadalajara": 1
+    },
+    "cenv": {
+      "CDMX / Edo Mex": 1,
+      "Monterrey": 1
     }
   },
   "entregado_target_pct": 95,
@@ -426,7 +426,7 @@ window.__DASHBOARD_DATA__ = {
       "qro": 0,
       "gdl": 0,
       "mxl": 0,
-      "otros": 0
+      "otros": 1
     },
     {
       "cdmx": 0,
@@ -454,7 +454,7 @@ window.__DASHBOARD_DATA__ = {
     0,
     0,
     0,
-    20,
+    19,
     3,
     3
   ],
