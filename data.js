@@ -1,5 +1,5 @@
 window.__DASHBOARD_DATA__ = {
-  "generated_at": "2026-09-09T00:24:02.546003Z",
+  "generated_at": "2026-09-09T02:14:38.794568Z",
   "months": [
     "Ago 25",
     "Sep 25",
@@ -959,7 +959,7 @@ window.__DASHBOARD_DATA__ = {
     "fecha": "2026-09-08",
     "mes_label": "Sep 26"
   },
-  "fleet_total": 130,
+  "fleet_total": 133,
   "fleet_desflote_n": 8,
   "fleet_city_stage": [
     {
@@ -967,12 +967,12 @@ window.__DASHBOARD_DATA__ = {
       "vals": [
         2,
         3,
-        13,
-        6,
+        12,
+        8,
         10,
         2
       ],
-      "total": 36
+      "total": 37
     },
     {
       "ciudad": "Tijuana",
@@ -980,11 +980,11 @@ window.__DASHBOARD_DATA__ = {
         0,
         0,
         8,
-        12,
+        13,
         4,
         3
       ],
-      "total": 27
+      "total": 28
     },
     {
       "ciudad": "Guadalajara",
@@ -992,29 +992,29 @@ window.__DASHBOARD_DATA__ = {
         4,
         9,
         7,
-        2,
+        3,
         1,
         0
       ],
-      "total": 24
+      "total": 25
     },
     {
       "ciudad": "Sin identificar",
       "vals": [
         0,
-        2,
+        3,
         8,
         1,
         10,
         0
       ],
-      "total": 24
+      "total": 25
     },
     {
       "ciudad": "Monterrey",
       "vals": [
-        1,
-        1,
+        0,
+        2,
         2,
         1,
         4,
@@ -1029,10 +1029,10 @@ window.__DASHBOARD_DATA__ = {
         1,
         0,
         2,
-        1,
+        0,
         0
       ],
-      "total": 7
+      "total": 6
     },
     {
       "ciudad": "Puebla",
@@ -1100,7 +1100,7 @@ window.__DASHBOARD_DATA__ = {
     },
     {
       "tij": 3,
-      "cdmx": 2,
+      "cdmx": 3,
       "gdl": 4,
       "qro": 0,
       "mty": 0,
@@ -1110,14 +1110,14 @@ window.__DASHBOARD_DATA__ = {
       "tij": 12,
       "cdmx": 2,
       "gdl": 7,
-      "qro": 3,
+      "qro": 2,
       "mty": 0,
-      "otros": 5
+      "otros": 6
     },
     {
       "tij": 0,
       "cdmx": 1,
-      "gdl": 0,
+      "gdl": 1,
       "qro": 0,
       "mty": 0,
       "otros": 0
@@ -1171,7 +1171,7 @@ window.__DASHBOARD_DATA__ = {
       "otros": 1
     },
     {
-      "tij": 1,
+      "tij": 2,
       "cdmx": 0,
       "gdl": 0,
       "qro": 0,
@@ -1221,7 +1221,7 @@ window.__DASHBOARD_DATA__ = {
   ],
   "fleet_sin_fecha_n": 44,
   "fleet_vencido_dias": 12,
-  "fleet_vencido_unidades": 68,
+  "fleet_vencido_unidades": 71,
   "en_prep_by_ciudad": [],
   "en_prep_total": 0,
   "agenda_decline_kpis": {
