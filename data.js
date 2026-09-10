@@ -1,5 +1,5 @@
 window.__DASHBOARD_DATA__ = {
-  "generated_at": "2026-09-09T23:49:14.149220Z",
+  "generated_at": "2026-09-10T00:19:37.558887Z",
   "months": [
     "Ago 25",
     "Sep 25",
@@ -211,7 +211,7 @@ window.__DASHBOARD_DATA__ = {
     "tiggo",
     "otros"
   ],
-  "etapas_total": 86,
+  "etapas_total": 106,
   "etapas": [
     {
       "key": "prep",
@@ -219,7 +219,7 @@ window.__DASHBOARD_DATA__ = {
     },
     {
       "key": "listo",
-      "value": 20
+      "value": 40
     },
     {
       "key": "agendada",
@@ -256,9 +256,13 @@ window.__DASHBOARD_DATA__ = {
       "Puebla": 1
     },
     "listo": {
-      "Tijuana": 15,
+      "Tijuana": 16,
       "Mexicali": 2,
-      "Monterrey": 3
+      "Monterrey": 8,
+      "CDMX / Edo Mex": 7,
+      "Guadalajara": 2,
+      "Puebla": 1,
+      "Queretaro": 4
     },
     "entregado": {
       "Tijuana": 18,
@@ -273,29 +277,45 @@ window.__DASHBOARD_DATA__ = {
   "ciudad_listo": [
     {
       "ciudad": "Tijuana",
-      "value": 15
+      "value": 16
     },
     {
       "ciudad": "Monterrey",
-      "value": 3
+      "value": 8
+    },
+    {
+      "ciudad": "CDMX / Edo Mex",
+      "value": 7
+    },
+    {
+      "ciudad": "Queretaro",
+      "value": 4
     },
     {
       "ciudad": "Mexicali",
       "value": 2
+    },
+    {
+      "ciudad": "Guadalajara",
+      "value": 2
+    },
+    {
+      "ciudad": "Puebla",
+      "value": 1
     }
   ],
   "waitlist_gap": [
     {
       "ciudad": "CDMX / Edo Mex",
       "espera": 273,
-      "listo": 0,
-      "gap": 273
+      "listo": 7,
+      "gap": 266
     },
     {
       "ciudad": "Monterrey",
       "espera": 88,
-      "listo": 3,
-      "gap": 85
+      "listo": 8,
+      "gap": 80
     },
     {
       "ciudad": "Merida",
@@ -306,20 +326,20 @@ window.__DASHBOARD_DATA__ = {
     {
       "ciudad": "Puebla",
       "espera": 72,
-      "listo": 0,
-      "gap": 72
+      "listo": 1,
+      "gap": 71
     },
     {
       "ciudad": "Guadalajara",
       "espera": 61,
-      "listo": 0,
-      "gap": 61
+      "listo": 2,
+      "gap": 59
     },
     {
       "ciudad": "Queretaro",
       "espera": 46,
-      "listo": 0,
-      "gap": 46
+      "listo": 4,
+      "gap": 42
     },
     {
       "ciudad": "Saltillo",
@@ -336,8 +356,8 @@ window.__DASHBOARD_DATA__ = {
     {
       "ciudad": "Tijuana",
       "espera": 8,
-      "listo": 15,
-      "gap": -7
+      "listo": 16,
+      "gap": -8
     }
   ],
   "dias_labels": [
@@ -539,10 +559,10 @@ window.__DASHBOARD_DATA__ = {
     },
     {
       "fecha": "9-sep",
-      "total": 20,
-      "tij": 15,
+      "total": 40,
+      "tij": 16,
       "mxl": 2,
-      "mty": 3
+      "mty": 8
     }
   ],
   "tiers": [
