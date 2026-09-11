@@ -1,5 +1,5 @@
 window.__DASHBOARD_DATA__ = {
-  "generated_at": "2026-09-11T00:05:44.841667Z",
+  "generated_at": "2026-09-11T00:20:57.352746Z",
   "months": [
     "Ago 25",
     "Sep 25",
@@ -219,11 +219,11 @@ window.__DASHBOARD_DATA__ = {
     },
     {
       "key": "listo",
-      "value": 17
+      "value": 16
     },
     {
       "key": "agendada",
-      "value": 17
+      "value": 18
     },
     {
       "key": "contrato",
@@ -260,7 +260,7 @@ window.__DASHBOARD_DATA__ = {
     "agendada": {
       "Mexicali": 1,
       "Monterrey": 2,
-      "Tijuana": 5,
+      "Tijuana": 6,
       "CDMX / Edo Mex": 4,
       "Guadalajara": 2,
       "Queretaro": 3
@@ -272,14 +272,14 @@ window.__DASHBOARD_DATA__ = {
       "Mexicali": 2,
       "Monterrey": 2,
       "Queretaro": 1,
-      "Tijuana": 12
+      "Tijuana": 11
     }
   },
   "entregado_target_pct": 95,
   "ciudad_listo": [
     {
       "ciudad": "Tijuana",
-      "value": 12
+      "value": 11
     },
     {
       "ciudad": "Mexicali",
@@ -346,8 +346,8 @@ window.__DASHBOARD_DATA__ = {
     {
       "ciudad": "Tijuana",
       "espera": 8,
-      "listo": 12,
-      "gap": -4
+      "listo": 11,
+      "gap": -3
     }
   ],
   "dias_labels": [
@@ -463,7 +463,7 @@ window.__DASHBOARD_DATA__ = {
     0,
     0,
     1,
-    15,
+    16,
     2
   ],
   "inv_log": [
