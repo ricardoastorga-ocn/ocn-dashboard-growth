@@ -369,27 +369,40 @@ def main():
     # Bug real encontrado 31-ago-2026: esta version solo escribia una vez (si faltaba la fila del
     # dia) y nunca la volvia a tocar -- Ricardo veia 22-33 unidades Listo/Entrega en vivo mientras
     # el log del dia se quedo congelado en 18, capturado en el primer refresh de la mañana.
-    log_rng = "'Log Inventario Diario'!A1:J1000"
-    log_rows = sheets_get(token, BO_ID, log_rng)
-    log_header, log_data = log_rows[0], log_rows[1:]
-    today_iso = today.isoformat()
-    today_row_idx = next((i for i, row in enumerate(log_data) if row and row[0] == today_iso), None)
+    # Blindado con try/except: esta seccion es una BITACORA auxiliar (side-effect,
+    # no forma parte de los numeros principales del dashboard) -- si falla (ej. se
+    # revoco el permiso de escritura sobre el Back Office, incidente real 10-sep-2026:
+    # HTTP 403 PERMISSION_DENIED en el append, 5 corridas seguidas tronaron COMPLETO
+    # el refresh y el dashboard entero se quedo sin actualizar por horas, no solo
+    # este log) NUNCA debe tumbar el resto del refresh. Si falla, se sigue con los
+    # datos ya leidos (o vacios) y se reporta por stdout, pero data.js se termina de
+    # escribir igual.
+    log_data = []
+    try:
+        log_rng = "'Log Inventario Diario'!A1:J1000"
+        log_rows = sheets_get(token, BO_ID, log_rng)
+        log_header, log_data = log_rows[0], log_rows[1:]
+        today_iso = today.isoformat()
+        today_row_idx = next((i for i, row in enumerate(log_data) if row and row[0] == today_iso), None)
 
-    listo_by_city = etapas_ciudades.get("listo", {})
-    new_row = [
-        today_iso, str(sum(listo_by_city.values())),
-        str(listo_by_city.get("Tijuana", 0)), str(listo_by_city.get("Mexicali", 0)),
-        str(listo_by_city.get("Monterrey", 0)), str(listo_by_city.get("Guadalajara", 0)),
-        str(listo_by_city.get("Queretaro", 0)), str(listo_by_city.get("CDMX / Edo Mex", 0)),
-        str(listo_by_city.get("Merida", 0)), str(listo_by_city.get("Saltillo", 0)),
-    ]
-    if today_row_idx is None:
-        sheets_append(token, BO_ID, "'Log Inventario Diario'!A1:J1", new_row)
-        log_data.append(new_row)
-    else:
-        sheet_row_num = today_row_idx + 2  # +1 por header, +1 por indexado en 1
-        sheets_update(token, BO_ID, f"'Log Inventario Diario'!A{sheet_row_num}:J{sheet_row_num}", new_row)
-        log_data[today_row_idx] = new_row
+        listo_by_city = etapas_ciudades.get("listo", {})
+        new_row = [
+            today_iso, str(sum(listo_by_city.values())),
+            str(listo_by_city.get("Tijuana", 0)), str(listo_by_city.get("Mexicali", 0)),
+            str(listo_by_city.get("Monterrey", 0)), str(listo_by_city.get("Guadalajara", 0)),
+            str(listo_by_city.get("Queretaro", 0)), str(listo_by_city.get("CDMX / Edo Mex", 0)),
+            str(listo_by_city.get("Merida", 0)), str(listo_by_city.get("Saltillo", 0)),
+        ]
+        if today_row_idx is None:
+            sheets_append(token, BO_ID, "'Log Inventario Diario'!A1:J1", new_row)
+            log_data.append(new_row)
+        else:
+            sheet_row_num = today_row_idx + 2  # +1 por header, +1 por indexado en 1
+            sheets_update(token, BO_ID, f"'Log Inventario Diario'!A{sheet_row_num}:J{sheet_row_num}", new_row)
+            log_data[today_row_idx] = new_row
+    except Exception as e:
+        print(f"WARNING: Log Inventario Diario fallo ({type(e).__name__}: {e}) -- "
+              f"se sigue con el refresh, el resto del dashboard NO se ve afectado.")
 
     inv_log = []
     for row in log_data[-14:]:  # ultimas 2 semanas
