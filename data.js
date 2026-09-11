@@ -1,5 +1,5 @@
 window.__DASHBOARD_DATA__ = {
-  "generated_at": "2026-09-11T20:10:06.662081Z",
+  "generated_at": "2026-09-11T22:10:06.419551Z",
   "months": [
     "Ago 25",
     "Sep 25",
@@ -71,7 +71,7 @@ window.__DASHBOARD_DATA__ = {
     },
     {
       "nuevo": 3,
-      "seminuevo": 73
+      "seminuevo": 79
     }
   ],
   "modelo": [
@@ -193,9 +193,9 @@ window.__DASHBOARD_DATA__ = {
       "otros": 2
     },
     {
-      "byd": 37,
-      "mg5": 23,
-      "mg3": 9,
+      "byd": 40,
+      "mg5": 25,
+      "mg3": 10,
       "aion": 1,
       "king": 1,
       "tiggo": 3,
@@ -227,7 +227,7 @@ window.__DASHBOARD_DATA__ = {
     },
     {
       "key": "contrato",
-      "value": 8
+      "value": 3
     },
     {
       "key": "cenv",
@@ -235,11 +235,11 @@ window.__DASHBOARD_DATA__ = {
     },
     {
       "key": "liga",
-      "value": 1
+      "value": 0
     },
     {
       "key": "entregado",
-      "value": 76
+      "value": 82
     },
     {
       "key": "issue",
@@ -253,16 +253,13 @@ window.__DASHBOARD_DATA__ = {
       "Monterrey": 23,
       "Puebla": 4,
       "Saltillo": 1,
-      "Tijuana": 21,
-      "Guadalajara": 5,
+      "Tijuana": 25,
+      "Guadalajara": 7,
       "Queretaro": 2
     },
     "contrato": {
       "Mexicali": 1,
-      "CDMX / Edo Mex": 3,
-      "Guadalajara": 1,
-      "Queretaro": 1,
-      "Tijuana": 2
+      "CDMX / Edo Mex": 2
     },
     "listo": {
       "Monterrey": 2,
@@ -270,16 +267,13 @@ window.__DASHBOARD_DATA__ = {
       "Queretaro": 1,
       "Tijuana": 9
     },
-    "liga": {
-      "Tijuana": 1
-    },
     "cenv": {
-      "Guadalajara": 1
+      "CDMX / Edo Mex": 1
     },
     "agendada": {
       "Monterrey": 1,
-      "Queretaro": 1,
-      "Tijuana": 3
+      "Queretaro": 2,
+      "Tijuana": 2
     },
     "issue": {
       "Tijuana": 1
@@ -448,9 +442,9 @@ window.__DASHBOARD_DATA__ = {
     {
       "cdmx": 1,
       "mty": 1,
-      "tij": 1,
+      "tij": 5,
       "qro": 1,
-      "gdl": 0,
+      "gdl": 2,
       "mxl": 0,
       "otros": 0
     },
@@ -473,7 +467,7 @@ window.__DASHBOARD_DATA__ = {
     0,
     0,
     0,
-    10,
+    4,
     5
   ],
   "inv_log": [
@@ -978,14 +972,14 @@ window.__DASHBOARD_DATA__ = {
     "workdays_total": 22,
     "rate": 9.0,
     "total": 198,
-    "nuevo": 8,
-    "seminuevo": 190
+    "nuevo": 7,
+    "seminuevo": 191
   },
   "corte": {
     "fecha": "2026-09-11",
     "mes_label": "Sep 26"
   },
-  "fleet_total": 130,
+  "fleet_total": 132,
   "fleet_desflote_n": 9,
   "fleet_city_stage": [
     {
@@ -994,8 +988,8 @@ window.__DASHBOARD_DATA__ = {
         2,
         4,
         11,
-        5,
-        14,
+        6,
+        13,
         2
       ],
       "total": 38
@@ -1005,8 +999,8 @@ window.__DASHBOARD_DATA__ = {
       "vals": [
         0,
         0,
-        9,
-        13,
+        8,
+        14,
         4,
         3
       ],
@@ -1018,11 +1012,11 @@ window.__DASHBOARD_DATA__ = {
         4,
         9,
         8,
-        0,
         1,
+        2,
         0
       ],
-      "total": 23
+      "total": 25
     },
     {
       "ciudad": "Sin identificar",
@@ -1051,11 +1045,11 @@ window.__DASHBOARD_DATA__ = {
     {
       "ciudad": "Queretaro",
       "vals": [
-        2,
+        3,
         1,
         0,
         3,
-        2,
+        1,
         0
       ],
       "total": 8
@@ -1090,8 +1084,8 @@ window.__DASHBOARD_DATA__ = {
         0,
         0,
         0,
-        0,
-        2,
+        1,
+        1,
         0
       ],
       "total": 2
@@ -1128,7 +1122,7 @@ window.__DASHBOARD_DATA__ = {
     {
       "tij": 3,
       "cdmx": 1,
-      "gdl": 3,
+      "gdl": 4,
       "qro": 1,
       "mty": 0,
       "otros": 1
@@ -1254,9 +1248,9 @@ window.__DASHBOARD_DATA__ = {
       "otros": 0
     }
   ],
-  "fleet_sin_fecha_n": 39,
+  "fleet_sin_fecha_n": 40,
   "fleet_vencido_dias": 14,
-  "fleet_vencido_unidades": 70,
+  "fleet_vencido_unidades": 71,
   "en_prep_by_ciudad": [],
   "en_prep_total": 0,
   "agenda_decline_kpis": {
