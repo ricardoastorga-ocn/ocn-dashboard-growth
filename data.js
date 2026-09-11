@@ -1,5 +1,5 @@
 window.__DASHBOARD_DATA__ = {
-  "generated_at": "2026-09-11T00:20:57.352746Z",
+  "generated_at": "2026-09-11T02:14:34.748352Z",
   "months": [
     "Ago 25",
     "Sep 25",
@@ -71,7 +71,7 @@ window.__DASHBOARD_DATA__ = {
     },
     {
       "nuevo": 3,
-      "seminuevo": 68
+      "seminuevo": 69
     }
   ],
   "modelo": [
@@ -193,7 +193,7 @@ window.__DASHBOARD_DATA__ = {
       "otros": 2
     },
     {
-      "byd": 35,
+      "byd": 36,
       "mg5": 21,
       "mg3": 9,
       "aion": 1,
@@ -235,11 +235,11 @@ window.__DASHBOARD_DATA__ = {
     },
     {
       "key": "liga",
-      "value": 1
+      "value": 0
     },
     {
       "key": "entregado",
-      "value": 71
+      "value": 72
     },
     {
       "key": "issue",
@@ -248,7 +248,7 @@ window.__DASHBOARD_DATA__ = {
   ],
   "etapas_ciudades": {
     "entregado": {
-      "CDMX / Edo Mex": 16,
+      "CDMX / Edo Mex": 17,
       "Mexicali": 2,
       "Monterrey": 22,
       "Puebla": 4,
@@ -264,9 +264,6 @@ window.__DASHBOARD_DATA__ = {
       "CDMX / Edo Mex": 4,
       "Guadalajara": 2,
       "Queretaro": 3
-    },
-    "liga": {
-      "CDMX / Edo Mex": 1
     },
     "listo": {
       "Mexicali": 2,
@@ -427,7 +424,7 @@ window.__DASHBOARD_DATA__ = {
       "otros": 1
     },
     {
-      "cdmx": 4,
+      "cdmx": 5,
       "mty": 6,
       "tij": 2,
       "qro": 0,
@@ -462,7 +459,7 @@ window.__DASHBOARD_DATA__ = {
     0,
     0,
     0,
-    1,
+    0,
     16,
     2
   ],
@@ -975,7 +972,7 @@ window.__DASHBOARD_DATA__ = {
     "fecha": "2026-09-10",
     "mes_label": "Sep 26"
   },
-  "fleet_total": 141,
+  "fleet_total": 143,
   "fleet_desflote_n": 9,
   "fleet_city_stage": [
     {
@@ -985,18 +982,18 @@ window.__DASHBOARD_DATA__ = {
         4,
         12,
         8,
-        13,
+        14,
         2
       ],
-      "total": 41
+      "total": 42
     },
     {
       "ciudad": "Tijuana",
       "vals": [
         0,
         0,
-        9,
-        12,
+        8,
+        13,
         5,
         3
       ],
@@ -1033,10 +1030,10 @@ window.__DASHBOARD_DATA__ = {
         1,
         2,
         3,
-        5,
+        6,
         3
       ],
-      "total": 14
+      "total": 15
     },
     {
       "ciudad": "Queretaro",
@@ -1145,7 +1142,7 @@ window.__DASHBOARD_DATA__ = {
       "cdmx": 1,
       "gdl": 0,
       "qro": 0,
-      "mty": 1,
+      "mty": 2,
       "otros": 0
     },
     {
@@ -1253,9 +1250,9 @@ window.__DASHBOARD_DATA__ = {
       "otros": 0
     }
   ],
-  "fleet_sin_fecha_n": 44,
+  "fleet_sin_fecha_n": 45,
   "fleet_vencido_dias": 14,
-  "fleet_vencido_unidades": 75,
+  "fleet_vencido_unidades": 76,
   "en_prep_by_ciudad": [],
   "en_prep_total": 0,
   "agenda_decline_kpis": {
