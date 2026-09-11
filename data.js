@@ -1,5 +1,5 @@
 window.__DASHBOARD_DATA__ = {
-  "generated_at": "2026-09-11T00:04:23.533836Z",
+  "generated_at": "2026-09-11T00:05:12.709428Z",
   "months": [
     "Ago 25",
     "Sep 25",
