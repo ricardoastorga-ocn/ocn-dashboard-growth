@@ -102,6 +102,133 @@
       "pct_aprobacion": 74.1
     }
   ],
+  "aprob_by_agente_mes": [
+    {
+      "asesor": "Adolfo Jaimes",
+      "solicitudes": 12,
+      "aprobadas": 10
+    },
+    {
+      "asesor": "Ana Rodriguez",
+      "solicitudes": 19,
+      "aprobadas": 17
+    },
+    {
+      "asesor": "Angelica Torres",
+      "solicitudes": 18,
+      "aprobadas": 11
+    },
+    {
+      "asesor": "Antonio Cruz",
+      "solicitudes": 7,
+      "aprobadas": 7
+    },
+    {
+      "asesor": "Arturo Sanchez",
+      "solicitudes": 24,
+      "aprobadas": 16
+    },
+    {
+      "asesor": "Daniela Favela",
+      "solicitudes": 22,
+      "aprobadas": 16
+    },
+    {
+      "asesor": "Diana Moreno",
+      "solicitudes": 19,
+      "aprobadas": 12
+    },
+    {
+      "asesor": "Edwin Hernandez",
+      "solicitudes": 22,
+      "aprobadas": 13
+    },
+    {
+      "asesor": "Elisa Urrutia",
+      "solicitudes": 21,
+      "aprobadas": 15
+    },
+    {
+      "asesor": "Enrique Jimenez",
+      "solicitudes": 2,
+      "aprobadas": 0
+    },
+    {
+      "asesor": "Fernando Medina",
+      "solicitudes": 13,
+      "aprobadas": 10
+    },
+    {
+      "asesor": "Imanol Cortez",
+      "solicitudes": 11,
+      "aprobadas": 8
+    },
+    {
+      "asesor": "Ishell Miranda",
+      "solicitudes": 16,
+      "aprobadas": 13
+    },
+    {
+      "asesor": "Ivette Cardona",
+      "solicitudes": 18,
+      "aprobadas": 11
+    },
+    {
+      "asesor": "Jeremy Tamayo",
+      "solicitudes": 13,
+      "aprobadas": 11
+    },
+    {
+      "asesor": "Jessica Martinez",
+      "solicitudes": 22,
+      "aprobadas": 16
+    },
+    {
+      "asesor": "Joel Flores",
+      "solicitudes": 20,
+      "aprobadas": 15
+    },
+    {
+      "asesor": "Jrego Nolasco",
+      "solicitudes": 38,
+      "aprobadas": 26
+    },
+    {
+      "asesor": "Karen Garcia",
+      "solicitudes": 20,
+      "aprobadas": 13
+    },
+    {
+      "asesor": "Michelle Ruiz",
+      "solicitudes": 22,
+      "aprobadas": 18
+    },
+    {
+      "asesor": "Mirna Cruz",
+      "solicitudes": 16,
+      "aprobadas": 8
+    },
+    {
+      "asesor": "Monserrat Rivera",
+      "solicitudes": 21,
+      "aprobadas": 11
+    },
+    {
+      "asesor": "Oscar Alvarez",
+      "solicitudes": 26,
+      "aprobadas": 12
+    },
+    {
+      "asesor": "Rafael Martinez",
+      "solicitudes": 16,
+      "aprobadas": 6
+    },
+    {
+      "asesor": "Ricardo Salinas",
+      "solicitudes": 6,
+      "aprobadas": 4
+    }
+  ],
   "aprob_daily_volume": [
     {
       "fecha": "1 ago",
@@ -557,6 +684,6 @@
   "aprob_meta": {
     "fecha_min": "1 ago",
     "fecha_max": "14 sep",
-    "generado_en": "2026-09-15T12:46:58.109466"
+    "generado_en": "2026-09-15T13:31:25.066447"
   }
 }

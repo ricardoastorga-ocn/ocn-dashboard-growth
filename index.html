@@ -443,8 +443,6 @@ table.data-table td.pct-bad  { color: var(--s-critical); font-weight: 700; }
       </div>
     </div>
 
-    <div class="finding-row" id="aprob-kpis" style="margin:6px 0 20px;flex-wrap:wrap;gap:24px 32px;"></div>
-
     <p class="subsection-title">Comparativo — mismos días hábiles</p>
     <p class="card-note" style="margin-top:-6px;" id="note-aprob-compare"></p>
     <div class="grid-2" id="aprob-compare-grid" style="margin:10px 0 4px;"></div>
@@ -460,7 +458,7 @@ table.data-table td.pct-bad  { color: var(--s-critical); font-weight: 700; }
 
     <p class="subsection-title">% de aprobación por semana</p>
     <div class="chart-wrap" id="aprob-weekly-pct-chart-wrap">
-      <div class="chart-scroll"><svg class="chart" id="chart-aprob-weekly-pct"></svg></div>
+      <div class="chart-scroll chart-center"><svg class="chart" id="chart-aprob-weekly-pct"></svg></div>
       <div class="tooltip" id="tooltip-aprob-weekly-pct"></div>
     </div>
 
@@ -481,10 +479,8 @@ table.data-table td.pct-bad  { color: var(--s-critical); font-weight: 700; }
         <p class="card-note" id="note-entregas-agente"></p>
       </div>
     </div>
-    <div class="chart-wrap" id="entregas-agente-chart-wrap">
-      <div class="chart-scroll"><svg class="chart" id="chart-entregas-agente"></svg></div>
-      <div class="tooltip" id="tooltip-entregas-agente"></div>
-    </div>
+    <div class="grid-2" id="entregas-equipo-grid" style="margin-top:10px;"></div>
+    <div id="entregas-sin-equipo-wrap"></div>
   </section>
 
 
@@ -530,7 +526,7 @@ table.data-table td.pct-bad  { color: var(--s-critical); font-weight: 700; }
   const DIAS_COLOR = {cdmx:"--s-byd", mty:"--s-mg5", tij:"--s-mg3", qro:"--s-aion", gdl:"--s-king", mxl:"--s-tiggo", otros:"--s-otros"};
   const ENTREGADOS_DIA = DATA.entregados_dia;
   const AGENDADAS_DIA = DATA.agendadas_dia;
-  const ENTREGAS_AGENTE = DATA.entregas_agente_mes || [];
+  const ENTREGAS_POR_EQUIPO = DATA.entregas_por_asesor_equipo || {};
 
   const TIER_KEYS = ["0-30","31-60","61-90","90+"];
   const TIER_LABELS = {"0-30":"0-30 días","31-60":"31-60 días","61-90":"61-90 días","90+":"90+ días"};
@@ -651,15 +647,21 @@ table.data-table td.pct-bad  { color: var(--s-critical); font-weight: 700; }
         }
         yCursor -= segH;
       });
-      // opts.xLabelEvery: en series con muchas columnas, solo se dibuja el total y la
-      // fecha cada N columnas (siempre la ultima) para no saturar el eje
+      // opts.xLabelEvery: en series con muchas columnas, solo se dibuja la fecha cada N
+      // columnas (siempre la ultima) para no saturar el eje. opts.totalLabelEvery es lo
+      // mismo pero para el total arriba de la barra -- separado de xLabelEvery porque a
+      // veces se quiere el total en CADA barra aunque las fechas del eje sigan espaciadas
+      // (pedido de Ricardo 15-sep-2026 para "Entregados por día").
+      const showTotalHere = !opts.totalLabelEvery || i % opts.totalLabelEvery === 0 || i === monthLabels.length-1;
       const showLabelHere = !opts.xLabelEvery || i % opts.xLabelEvery === 0 || i === monthLabels.length-1;
-      if (showLabelHere) {
+      if (showTotalHere && totals[i] > 0) {
         // total cap label
         const capY = padT + yScale(totals[i]) - 7;
         const lbl = el("text", {class:"cap-label", x: cx, y: Math.max(capY, padT-6), "text-anchor":"middle"}, svg);
         lbl.textContent = fmt(totals[i]);
         if (isForecast) lbl.setAttribute("fill", "var(--muted)");
+      }
+      if (showLabelHere) {
         // x label
         const xl = el("text", {class:"x-label", x: cx, y: padT+plotH+20, "text-anchor":"middle"}, svg);
         xl.textContent = m;
@@ -1271,8 +1273,9 @@ table.data-table td.pct-bad  { color: var(--s-critical); font-weight: 700; }
       hideZero: true,
       lineValues: AGENDADAS_DIA,
       lineLabel: "Agendada / pendiente",
-      minPerLabel: 13,
-      xLabelEvery: Math.max(1, Math.ceil(DIAS_LABELS.length / 15))
+      minPerLabel: 20,
+      xLabelEvery: Math.max(1, Math.ceil(DIAS_LABELS.length / 15)),
+      totalLabelEvery: 1
     });
     buildTable('dias-table-wrap', 'Unidades entregadas por día desde agosto, por ciudad (agendada/pendiente aparte, no suma al total)', DIAS_KEYS.map(k=>DIAS_LABELS_CIUDAD[k]),
       DIAS_LABELS.map((d,i)=>({label:d, values: DIAS_KEYS.map(k=>ENTREGADOS_DIA[i][k])})), 'Día');
@@ -1387,15 +1390,9 @@ table.data-table td.pct-bad  { color: var(--s-critical); font-weight: 700; }
     });
 
     // ---- Aprobaciones — desempeño de solicitudes ----
+    // Se quitó la franja de KPIs generales del periodo completo (pedido de Ricardo,
+    // 15-sep-2026) -- se deja el comparativo mes-vs-mes-anterior como cabecera de la tarjeta.
     if (APROB_WEEKLY.length) {
-      const k = APROB_KPIS;
-      const wrap = document.getElementById('aprob-kpis');
-      if (wrap) wrap.innerHTML =
-        '<div class="finding-stat"><span class="v" style="color:var(--text)">'+fmt(k.total)+'</span><span class="k">solicitudes</span></div>' +
-        '<div class="finding-stat"><span class="v" style="color:var(--s-entregado)">'+k.pct_aprobacion+'<small style="font-size:.5em;">%</small></span><span class="k">% aprobación</span></div>' +
-        '<div class="finding-stat"><span class="v" style="color:var(--text)">'+fmt(k.aprobado)+'</span><span class="k">aprobadas</span></div>' +
-        '<div class="finding-stat"><span class="v" style="color:var(--s-critical)">'+fmt(k.rechazado)+'</span><span class="k">rechazadas</span></div>' +
-        '<div class="finding-stat"><span class="v" style="color:var(--s-pendiente)">'+fmt(k.pendiente)+'</span><span class="k">pendientes</span></div>';
       el2('note-aprobaciones', 'Fuente: exportes manuales del admin (no autorefresca con el resto del dashboard) · '+(APROB_META.fecha_min||'')+' – '+(APROB_META.fecha_max||''));
 
       const APROB_WEEK_KEYS = ['aprobado','rechazado','pendiente'];
@@ -1473,27 +1470,60 @@ table.data-table td.pct-bad  { color: var(--s-critical); font-weight: 700; }
       }
     }
 
-    // ---- Entregas de septiembre — ranking por asesor ----
-    // Reemplaza "Agendas declinadas" (pedido explícito de Ricardo, 15-sep-2026). Fuente:
-    // Back Office "SEGUIMIENTO ENTREGAS", columna "Agente" -- es el asesor que cerró la
-    // entrega, no un rollup por supervisor (no hay mapeo asesor→supervisor para este
-    // equipo en ninguna otra fuente de este dashboard). Si Ricardo quiere agrupar por
-    // supervisor más adelante, hace falta que traiga ese mapeo.
-    if (ENTREGAS_AGENTE.length) {
-      const totalEntregasAgente = ENTREGAS_AGENTE.reduce((s,d)=>s+d.total, 0);
-      el2('note-entregas-agente', fmt(totalEntregasAgente)+' entregas en lo que va de septiembre, por asesor (Back Office, columna "Agente")');
-      drawEmphasisBarChart('chart-entregas-agente', 'tooltip-entregas-agente',
-        ENTREGAS_AGENTE.map(d => ({key: d.agente, value: d.total})), {
-        ariaLabel: "Entregas de septiembre, ranking por asesor",
-        labelOf: d => d.key,
-        allAccent: true,
-        labelWidth: 150,
-        padRight: 40,
-        rowH: 22,
-        gap: 7
-      });
-    } else {
-      el2('note-entregas-agente', 'Sin entregas registradas todavía este mes.');
+    // ---- Entregas de septiembre — ranking por asesor, por team leader ----
+    // Rediseño a pedido de Ricardo (15-sep-2026, con captura de referencia del reporte de
+    // Avance de Marcación) -- tarjetas por team leader (Bernardo/Paulina, roster AGENT_TEAM
+    // en refresh_data.py), asesores rankeados por entregas dentro de cada una, con
+    // solicitudes/aprobadas del mes cruzadas del CSV de aprobaciones cuando el cruce de
+    // nombre es seguro (ver match_roster() en refresh_data.py -- si no cruza, se deja "—",
+    // nunca se adivina). "Sin equipo" = Agente del Back Office que no cruzó con el roster.
+    {
+      const TEAM_COLOR = {Bernardo: '--s-aion', Paulina: '--s-entregado'};
+      const teamCardHtml = (team, rows) => {
+        const totalEntregas = rows.reduce((s,r)=>s+r.entregas, 0);
+        const conSolicitud = rows.filter(r => r.solicitudes != null);
+        const totalSolicitudes = conSolicitud.reduce((s,r)=>s+r.solicitudes, 0);
+        const totalAprobadas = conSolicitud.reduce((s,r)=>s+r.aprobadas, 0);
+        const pctAprob = totalSolicitudes ? Math.round(totalAprobadas/totalSolicitudes*100) : null;
+        const colorVar = TEAM_COLOR[team] || '--ocn';
+        const rowsHtml = rows.map(r => `
+          <tr>
+            <td>${r.asesor}</td>
+            <td style="font-weight:700;">${fmt(r.entregas)}</td>
+            <td>${r.solicitudes != null ? fmt(r.solicitudes) : '—'}</td>
+            <td>${r.aprobadas != null ? fmt(r.aprobadas) : '—'}</td>
+            <td>${(r.solicitudes) ? Math.round(r.aprobadas/r.solicitudes*100)+'%' : '—'}</td>
+          </tr>`).join('');
+        return `
+          <div class="card">
+            <div style="display:flex; align-items:baseline; justify-content:space-between; gap:10px; margin-bottom:4px;">
+              <p style="margin:0; font-weight:700; font-size:1.05em;">Team ${team}</p>
+              <span style="font-weight:800; font-size:1.6em; color:var(${colorVar});">${fmt(totalEntregas)}</span>
+            </div>
+            <p class="card-note" style="margin-bottom:10px;">entregas de septiembre${pctAprob != null ? ' · '+fmt(totalSolicitudes)+' solicitudes · '+pctAprob+'% aprobación' : ''}</p>
+            <div class="table-wrap compact"><table class="data-table">
+              <thead><tr><th>Asesor</th><th>Entregas</th><th>Solicitudes</th><th>Aprobadas</th><th>% Aprob.</th></tr></thead>
+              <tbody>${rowsHtml}</tbody>
+            </table></div>
+          </div>`;
+      };
+
+      const equipoGrid = document.getElementById('entregas-equipo-grid');
+      const teams = ['Bernardo', 'Paulina'].filter(t => (ENTREGAS_POR_EQUIPO[t]||[]).length);
+      if (equipoGrid) equipoGrid.innerHTML = teams.map(t => teamCardHtml(t, ENTREGAS_POR_EQUIPO[t])).join('');
+
+      const sinEquipo = ENTREGAS_POR_EQUIPO['Sin equipo'] || [];
+      const sinEquipoWrap = document.getElementById('entregas-sin-equipo-wrap');
+      if (sinEquipoWrap) sinEquipoWrap.innerHTML = sinEquipo.length ? `
+        <p class="subsection-title">Sin equipo confirmado</p>
+        <p class="card-note" style="margin-top:-6px;">Nombre del Back Office no cruza con certeza contra el roster Bernardo/Paulina (ver nota abajo) -- se muestra aparte en vez de perderse u ocultarse.</p>
+        ${teamCardHtml('Sin equipo', sinEquipo).replace('<div class="card">','<div class="card" style="max-width:420px;">')}
+      ` : '';
+
+      const totalEntregasTodas = teams.reduce((s,t)=>s+ENTREGAS_POR_EQUIPO[t].reduce((a,r)=>a+r.entregas,0),0) + sinEquipo.reduce((a,r)=>a+r.entregas,0);
+      el2('note-entregas-agente', totalEntregasTodas
+        ? fmt(totalEntregasTodas)+' entregas en lo que va de septiembre, por asesor (Back Office, columna "Agente") · solicitudes/aprobadas del CSV de aprobaciones cuando el nombre cruza con certeza'
+        : 'Sin entregas registradas todavía este mes.');
     }
 
     drawStackBar('chart-fleet-city-stage', 'tooltip-fleet-city-stage', FLEET_CITY_STAGE.map(r=>({label:r.ciudad, vals:r.vals, total:r.total})), {

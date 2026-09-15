@@ -1,5 +1,5 @@
 window.__DASHBOARD_DATA__ = {
-  "generated_at": "2026-09-15T18:56:39.022015Z",
+  "generated_at": "2026-09-15T19:35:03.656869Z",
   "months": [
     "Ago 25",
     "Sep 25",
@@ -71,7 +71,7 @@ window.__DASHBOARD_DATA__ = {
     },
     {
       "nuevo": 3,
-      "seminuevo": 94
+      "seminuevo": 95
     }
   ],
   "modelo": [
@@ -196,7 +196,7 @@ window.__DASHBOARD_DATA__ = {
       "byd": 50,
       "mg5": 27,
       "mg3": 11,
-      "aion": 1,
+      "aion": 2,
       "king": 1,
       "tiggo": 5,
       "otros": 2
@@ -227,7 +227,7 @@ window.__DASHBOARD_DATA__ = {
     },
     {
       "key": "contrato",
-      "value": 2
+      "value": 1
     },
     {
       "key": "cenv",
@@ -239,7 +239,7 @@ window.__DASHBOARD_DATA__ = {
     },
     {
       "key": "entregado",
-      "value": 97
+      "value": 98
     },
     {
       "key": "issue",
@@ -253,7 +253,7 @@ window.__DASHBOARD_DATA__ = {
       "Monterrey": 26,
       "Puebla": 4,
       "Saltillo": 2,
-      "Tijuana": 28,
+      "Tijuana": 29,
       "Guadalajara": 8,
       "Queretaro": 4
     },
@@ -267,11 +267,10 @@ window.__DASHBOARD_DATA__ = {
       "Monterrey": 6,
       "CDMX / Edo Mex": 1
     },
-    "cenv": {
-      "Tijuana": 1
-    },
     "contrato": {
-      "CDMX / Edo Mex": 1,
+      "CDMX / Edo Mex": 1
+    },
+    "cenv": {
       "Monterrey": 1
     }
   },
@@ -678,7 +677,7 @@ window.__DASHBOARD_DATA__ = {
     {
       "cdmx": 2,
       "mty": 3,
-      "tij": 1,
+      "tij": 2,
       "qro": 0,
       "gdl": 1,
       "mxl": 0,
@@ -727,99 +726,173 @@ window.__DASHBOARD_DATA__ = {
     0,
     0,
     0,
-    3,
+    2,
     7
   ],
-  "entregas_agente_mes": [
-    {
-      "agente": "Jessica Martinez",
-      "total": 9
-    },
-    {
-      "agente": "Aaron Sanchez",
-      "total": 9
-    },
-    {
-      "agente": "Angelica Torres",
-      "total": 7
-    },
-    {
-      "agente": "Daniela Favela",
-      "total": 7
-    },
-    {
-      "agente": "IVETTE IXEL",
-      "total": 7
-    },
-    {
-      "agente": "Jrego Nolasco",
-      "total": 7
-    },
-    {
-      "agente": "Antonio Cruz",
-      "total": 6
-    },
-    {
-      "agente": "Joel Flores",
-      "total": 5
-    },
-    {
-      "agente": "MICHELLE R",
-      "total": 5
-    },
-    {
-      "agente": "Diana Moreno",
-      "total": 4
-    },
-    {
-      "agente": "Mayte Urrutia",
-      "total": 4
-    },
-    {
-      "agente": "Edwin Hernandez",
-      "total": 4
-    },
-    {
-      "agente": "Karen Garcia",
-      "total": 3
-    },
-    {
-      "agente": "Fernando Medina",
-      "total": 3
-    },
-    {
-      "agente": "Ana Rodriguez",
-      "total": 3
-    },
-    {
-      "agente": "Ishell Miranda",
-      "total": 3
-    },
-    {
-      "agente": "Rafael Leon",
-      "total": 3
-    },
-    {
-      "agente": "Oscar Alvarez",
-      "total": 2
-    },
-    {
-      "agente": "Mirna Cruz",
-      "total": 2
-    },
-    {
-      "agente": "ADOLFO JAIMES",
-      "total": 2
-    },
-    {
-      "agente": "Imanol Cortez",
-      "total": 1
-    },
-    {
-      "agente": "Monserrat Rivera",
-      "total": 1
-    }
-  ],
+  "entregas_por_asesor_equipo": {
+    "Bernardo": [
+      {
+        "asesor": "Aaron Sanchez",
+        "entregas": 9,
+        "solicitudes": null,
+        "aprobadas": null
+      },
+      {
+        "asesor": "Angelica Torres",
+        "entregas": 7,
+        "solicitudes": 18,
+        "aprobadas": 11
+      },
+      {
+        "asesor": "Jrego Nolasco",
+        "entregas": 7,
+        "solicitudes": 38,
+        "aprobadas": 26
+      },
+      {
+        "asesor": "Antonio Cruz",
+        "entregas": 6,
+        "solicitudes": 7,
+        "aprobadas": 7
+      },
+      {
+        "asesor": "Michelle R",
+        "entregas": 5,
+        "solicitudes": 22,
+        "aprobadas": 18
+      },
+      {
+        "asesor": "Diana Moreno",
+        "entregas": 4,
+        "solicitudes": 19,
+        "aprobadas": 12
+      },
+      {
+        "asesor": "Edwin Hernandez",
+        "entregas": 4,
+        "solicitudes": 22,
+        "aprobadas": 13
+      },
+      {
+        "asesor": "Fernando Medina",
+        "entregas": 3,
+        "solicitudes": 13,
+        "aprobadas": 10
+      },
+      {
+        "asesor": "Mirna Cruz",
+        "entregas": 2,
+        "solicitudes": 16,
+        "aprobadas": 8
+      },
+      {
+        "asesor": "Oscar Alvarez",
+        "entregas": 2,
+        "solicitudes": 26,
+        "aprobadas": 12
+      },
+      {
+        "asesor": "Monserrat Rivera",
+        "entregas": 1,
+        "solicitudes": 21,
+        "aprobadas": 11
+      },
+      {
+        "asesor": "Ricardo Salinas",
+        "entregas": 0,
+        "solicitudes": 6,
+        "aprobadas": 4
+      }
+    ],
+    "Paulina": [
+      {
+        "asesor": "Jessica Martinez",
+        "entregas": 9,
+        "solicitudes": 22,
+        "aprobadas": 16
+      },
+      {
+        "asesor": "Daniela Favela",
+        "entregas": 7,
+        "solicitudes": 22,
+        "aprobadas": 16
+      },
+      {
+        "asesor": "Joel Flores",
+        "entregas": 5,
+        "solicitudes": 20,
+        "aprobadas": 15
+      },
+      {
+        "asesor": "Mayte Urrutia",
+        "entregas": 4,
+        "solicitudes": null,
+        "aprobadas": null
+      },
+      {
+        "asesor": "Ana Rodriguez",
+        "entregas": 3,
+        "solicitudes": 19,
+        "aprobadas": 17
+      },
+      {
+        "asesor": "Ishell Miranda",
+        "entregas": 3,
+        "solicitudes": 16,
+        "aprobadas": 13
+      },
+      {
+        "asesor": "Karen Garcia",
+        "entregas": 3,
+        "solicitudes": 20,
+        "aprobadas": 13
+      },
+      {
+        "asesor": "Rafael Leon",
+        "entregas": 3,
+        "solicitudes": null,
+        "aprobadas": null
+      },
+      {
+        "asesor": "Adolfo Jaimes",
+        "entregas": 2,
+        "solicitudes": 12,
+        "aprobadas": 10
+      },
+      {
+        "asesor": "Imanol Cortez",
+        "entregas": 1,
+        "solicitudes": 11,
+        "aprobadas": 8
+      },
+      {
+        "asesor": "Enrique Jimenez",
+        "entregas": 0,
+        "solicitudes": 2,
+        "aprobadas": 0
+      },
+      {
+        "asesor": "Ivette Rojas",
+        "entregas": 0,
+        "solicitudes": null,
+        "aprobadas": null
+      },
+      {
+        "asesor": "Jeremy Tamayo",
+        "entregas": 0,
+        "solicitudes": 13,
+        "aprobadas": 11
+      }
+    ],
+    "Sin equipo": [
+      {
+        "asesor": "IVETTE IXEL",
+        "entregas": 8,
+        "solicitudes": null,
+        "aprobadas": null
+      }
+    ]
+  },
   "tiers": [
     {
       "key": "0-30",
@@ -1218,12 +1291,12 @@ window.__DASHBOARD_DATA__ = {
   "decline_total": 912,
   "forecast": {
     "workdays_elapsed": 10,
-    "actual_elapsed": 97,
+    "actual_elapsed": 98,
     "workdays_total": 22,
-    "rate": 9.7,
-    "total": 213,
+    "rate": 9.8,
+    "total": 216,
     "nuevo": 7,
-    "seminuevo": 206
+    "seminuevo": 209
   },
   "corte": {
     "fecha": "2026-09-15",
@@ -1442,6 +1515,133 @@ window.__DASHBOARD_DATA__ = {
       "rechazado": 110,
       "pendiente": 53,
       "pct_aprobacion": 74.1
+    }
+  ],
+  "aprob_by_agente_mes": [
+    {
+      "asesor": "Adolfo Jaimes",
+      "solicitudes": 12,
+      "aprobadas": 10
+    },
+    {
+      "asesor": "Ana Rodriguez",
+      "solicitudes": 19,
+      "aprobadas": 17
+    },
+    {
+      "asesor": "Angelica Torres",
+      "solicitudes": 18,
+      "aprobadas": 11
+    },
+    {
+      "asesor": "Antonio Cruz",
+      "solicitudes": 7,
+      "aprobadas": 7
+    },
+    {
+      "asesor": "Arturo Sanchez",
+      "solicitudes": 24,
+      "aprobadas": 16
+    },
+    {
+      "asesor": "Daniela Favela",
+      "solicitudes": 22,
+      "aprobadas": 16
+    },
+    {
+      "asesor": "Diana Moreno",
+      "solicitudes": 19,
+      "aprobadas": 12
+    },
+    {
+      "asesor": "Edwin Hernandez",
+      "solicitudes": 22,
+      "aprobadas": 13
+    },
+    {
+      "asesor": "Elisa Urrutia",
+      "solicitudes": 21,
+      "aprobadas": 15
+    },
+    {
+      "asesor": "Enrique Jimenez",
+      "solicitudes": 2,
+      "aprobadas": 0
+    },
+    {
+      "asesor": "Fernando Medina",
+      "solicitudes": 13,
+      "aprobadas": 10
+    },
+    {
+      "asesor": "Imanol Cortez",
+      "solicitudes": 11,
+      "aprobadas": 8
+    },
+    {
+      "asesor": "Ishell Miranda",
+      "solicitudes": 16,
+      "aprobadas": 13
+    },
+    {
+      "asesor": "Ivette Cardona",
+      "solicitudes": 18,
+      "aprobadas": 11
+    },
+    {
+      "asesor": "Jeremy Tamayo",
+      "solicitudes": 13,
+      "aprobadas": 11
+    },
+    {
+      "asesor": "Jessica Martinez",
+      "solicitudes": 22,
+      "aprobadas": 16
+    },
+    {
+      "asesor": "Joel Flores",
+      "solicitudes": 20,
+      "aprobadas": 15
+    },
+    {
+      "asesor": "Jrego Nolasco",
+      "solicitudes": 38,
+      "aprobadas": 26
+    },
+    {
+      "asesor": "Karen Garcia",
+      "solicitudes": 20,
+      "aprobadas": 13
+    },
+    {
+      "asesor": "Michelle Ruiz",
+      "solicitudes": 22,
+      "aprobadas": 18
+    },
+    {
+      "asesor": "Mirna Cruz",
+      "solicitudes": 16,
+      "aprobadas": 8
+    },
+    {
+      "asesor": "Monserrat Rivera",
+      "solicitudes": 21,
+      "aprobadas": 11
+    },
+    {
+      "asesor": "Oscar Alvarez",
+      "solicitudes": 26,
+      "aprobadas": 12
+    },
+    {
+      "asesor": "Rafael Martinez",
+      "solicitudes": 16,
+      "aprobadas": 6
+    },
+    {
+      "asesor": "Ricardo Salinas",
+      "solicitudes": 6,
+      "aprobadas": 4
     }
   ],
   "aprob_daily_volume": [
@@ -1899,6 +2099,6 @@ window.__DASHBOARD_DATA__ = {
   "aprob_meta": {
     "fecha_min": "1 ago",
     "fecha_max": "14 sep",
-    "generado_en": "2026-09-15T12:46:58.109466"
+    "generado_en": "2026-09-15T13:31:25.066447"
   }
 };

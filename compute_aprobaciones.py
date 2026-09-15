@@ -191,6 +191,36 @@ def main():
          **summarize_window(mes_actual_inicio, date_max)},
     ]
 
+    # ---------- solicitudes y aprobadas del mes, por asesor ----------
+    # Para el ranking de entregas por asesor/team leader del dashboard (refresh_data.py hace
+    # el cruce contra el roster Bernardo/Paulina) -- pedido de Ricardo 15-sep-2026. "asesor"
+    # en este CSV viene como email (nombre.apellido@onecarnow.com); se deriva un nombre
+    # "Nombre Apellido" para poder cruzarlo por nombre+inicial de apellido contra el roster.
+    # Cuentas que no son personas (colas de Contact Center, "SIN ASESOR") se excluyen.
+    NO_PERSONA_PREFIXES = ("tlconcentra", "agconcentra", "ageconcentra")
+
+    def asesor_display(email):
+        local = (email or "").split("@")[0].strip()
+        if not local or local.lower().startswith(NO_PERSONA_PREFIXES):
+            return None
+        parts = [p for p in local.split(".") if p]
+        if len(parts) < 2:
+            return None
+        return " ".join(p.capitalize() for p in parts)
+
+    agente_mes_counts = {}
+    for r in rows:
+        if not (mes_actual_inicio <= r["_date"] <= date_max):
+            continue
+        disp = asesor_display(r.get("asesor"))
+        if not disp:
+            continue
+        c = agente_mes_counts.setdefault(disp, {"solicitudes": 0, "aprobadas": 0})
+        c["solicitudes"] += 1
+        if r["resultado"] == "APROBADO":
+            c["aprobadas"] += 1
+    aprob_by_agente_mes = [{"asesor": a, **c} for a, c in sorted(agente_mes_counts.items())]
+
     # ---------- volumen diario por ciudad (todas, sin agrupar) ----------
     # A diferencia del % de aprobacion (una tasa independiente por ciudad, ruidosa con
     # muchas lineas), el VOLUMEN si tiene sentido apilado -- cada ciudad es una parte
@@ -219,6 +249,7 @@ def main():
         },
         "aprob_weekly": weekly_list,
         "aprob_month_compare": month_compare,
+        "aprob_by_agente_mes": aprob_by_agente_mes,
         "aprob_daily_volume": daily_volume,
         "aprob_meta": {
             "fecha_min": fmt_short(date_min), "fecha_max": fmt_short(date_max),

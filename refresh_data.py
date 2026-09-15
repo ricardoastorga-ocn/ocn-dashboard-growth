@@ -50,6 +50,52 @@ KNOWN_AGENT_KEYS = [
     "Ricardo Salinas",
 ]
 
+# Team Bernardo / Team Paulina -- mismo universo de personas que KNOWN_AGENT_KEYS arriba,
+# con el team leader de cada quien. Extraído 15-sep-2026 de la columna "supervisor" del
+# roster en vivo de Avance de Marcación (voto por moda por asesor, mismo criterio que ese
+# proyecto usa) y confirmado visualmente contra una captura de pantalla que Ricardo compartió
+# de ese mismo reporte. Se usa para agrupar "Entregas de septiembre — ranking por asesor" por
+# team leader (pedido de Ricardo). Si el roster real cambia (alguien cambia de team, entra/sale
+# gente), este dict hay que actualizarlo a mano -- no hay una fuente en vivo conectada a este
+# proyecto para el team leader.
+AGENT_TEAM = {
+    "Aaron Sanchez": "Bernardo", "Adolfo Jaimes": "Paulina", "Ana Rodriguez": "Paulina",
+    "Angelica Torres": "Bernardo", "Antonio Cruz": "Bernardo", "Daniela Favela": "Paulina",
+    "Diana Moreno": "Bernardo", "Edwin Hernandez": "Bernardo", "Enrique Jimenez": "Paulina",
+    "Fernando Medina": "Bernardo", "Imanol Cortez": "Paulina", "Ishell Miranda": "Paulina",
+    "Ivette Rojas": "Paulina", "Jeremy Tamayo": "Paulina", "Jessica Martinez": "Paulina",
+    "Joel Flores": "Paulina", "Jrego Nolasco": "Bernardo", "Karen Garcia": "Paulina",
+    "Mayte Urrutia": "Paulina", "Michelle R": "Bernardo", "Mirna Cruz": "Bernardo",
+    "Monserrat Rivera": "Bernardo", "Oscar Alvarez": "Bernardo", "Rafael Leon": "Paulina",
+    "Ricardo Salinas": "Bernardo",
+}
+
+
+def _first_last(s):
+    parts = norm_ascii(s or "").lower().split()
+    if not parts:
+        return "", ""
+    return parts[0], (parts[-1] if len(parts) > 1 else "")
+
+
+def match_roster(name, roster_names):
+    """Empareja `name` contra `roster_names` (lista/keys) por nombre normalizado exacto, o
+    si no hay cruce exacto por nombre + inicial de apellido (cubre abreviaciones como
+    "Michelle R" / "Michelle Ruiz"). Devuelve None si no hay un cruce único y seguro --
+    nunca adivina entre 2+ candidatos ni cruza solo por nombre de pila (ver caveat de
+    "Arturo Sanchez" vs "Aaron Sanchez" / "Ivette Cardona" vs "Ivette Rojas" en memoria:
+    mismo nombre de pila, apellido distinto -- personas distintas, no se deben mezclar)."""
+    key = re.sub(r"\s+", " ", norm_ascii(name or "")).strip().lower()
+    for r in roster_names:
+        if re.sub(r"\s+", " ", norm_ascii(r)).strip().lower() == key:
+            return r
+    fn, ln = _first_last(name)
+    if not fn or not ln:
+        return None
+    candidates = [r for r in roster_names if _first_last(r)[0] == fn and _first_last(r)[1][:1] == ln[:1]]
+    return candidates[0] if len(candidates) == 1 else None
+
+
 # Histórico cerrado (ago-2025 a jul-2026), pestaña GLOBAL OCN -- no cambia dia a dia.
 # Si un mes se cierra y se consolida a GLOBAL OCN, agregar su fila aqui a mano una vez.
 MONTHS_CLOSED = ["Ago 25", "Sep 25", "Oct 25", "Nov 25", "Dic 25", "Ene 26", "Feb 26",
@@ -372,6 +418,31 @@ def main():
     entregas_agente_mes = [{"agente": a, "total": n}
                             for a, n in entregas_por_agente_mes.most_common()]
 
+    # "Entregas de septiembre — ranking por asesor", agrupado por team leader (Bernardo/
+    # Paulina) -- reemplaza el ranking plano por asesor, pedido de Ricardo 15-sep-2026
+    # (mismo estilo que el reporte de Avance de Marcación). Arranca con TODO el roster en 0
+    # entregas (no solo los que ya entregaron algo este mes, para que el team se vea completo
+    # como en la referencia) y acumula los matches de "Agente" del Back Office contra el
+    # roster via match_roster(). Lo que no cruza (persona real fuera del roster, o roster
+    # desactualizado) cae en "Sin equipo" en vez de perderse en silencio.
+    equipo_rows = {team: {} for team in ("Bernardo", "Paulina")}
+    sin_equipo_rows = {}
+    for nombre, team in AGENT_TEAM.items():
+        equipo_rows[team][nombre] = {"asesor": nombre, "entregas": 0, "solicitudes": None, "aprobadas": None}
+    for item in entregas_agente_mes:
+        agente_raw, n = item["agente"], item["total"]
+        matched = match_roster(agente_raw, AGENT_TEAM.keys())
+        if matched:
+            equipo_rows[AGENT_TEAM[matched]][matched]["entregas"] += n
+        else:
+            row = sin_equipo_rows.setdefault(agente_raw, {"asesor": agente_raw, "entregas": 0, "solicitudes": None, "aprobadas": None})
+            row["entregas"] += n
+    entregas_por_asesor_equipo = {
+        team: sorted(rows.values(), key=lambda r: -r["entregas"]) for team, rows in equipo_rows.items()
+    }
+    if sin_equipo_rows:
+        entregas_por_asesor_equipo["Sin equipo"] = sorted(sin_equipo_rows.values(), key=lambda r: -r["entregas"])
+
     # ---------- Forecast del mes en curso ----------
     yesterday = today - datetime.timedelta(days=1)
     workdays_elapsed = business_days_between(datetime.date(today.year, today.month, 1), yesterday) \
@@ -552,7 +623,7 @@ def main():
     # "Volumen esperado por día, por ciudad" (Chart 2 de Fleet Backlog) y "Agendas declinadas —
     # recuperación de ventas" (pestaña GLOBAL DECLINADOS) -- eliminados del dashboard 15-sep-2026
     # a pedido de Ricardo (no aportaban valor / no se actualizaban de forma útil). Reemplazado
-    # "Agendas declinadas" por el ranking de entregas por asesor (entregas_agente_mes, arriba).
+    # "Agendas declinadas" por el ranking de entregas por asesor/team leader (arriba).
 
     data = {
         "generated_at": datetime.datetime.utcnow().isoformat() + "Z",
@@ -570,7 +641,7 @@ def main():
         "dias_labels": dias_labels,
         "entregados_dia": entregados_dia,
         "agendadas_dia": agendadas_dia,
-        "entregas_agente_mes": entregas_agente_mes,
+        "entregas_por_asesor_equipo": entregas_por_asesor_equipo,
         "tiers": tiers,
         "tiers_total": sum(tier_totals.values()),
         "max_wait_days": max_wait_days,
@@ -600,6 +671,18 @@ def main():
     if os.path.exists(aprob_snapshot_path):
         with open(aprob_snapshot_path, encoding="utf-8") as f:
             data.update(json.load(f))
+
+    # Cruzar solicitudes/aprobadas del mes (CSV, via aprob_by_agente_mes de arriba) contra el
+    # ranking de entregas por asesor/team -- mismo match_roster() que arriba, esta vez contra
+    # los nombres "Nombre Apellido" que ya trae entregas_por_asesor_equipo (roster + "Sin
+    # equipo"), no contra AGENT_TEAM directo, para que tambien alcance a los de "Sin equipo".
+    for team_rows in data.get("entregas_por_asesor_equipo", {}).values():
+        by_name = {r["asesor"]: r for r in team_rows}
+        for csv_row in data.get("aprob_by_agente_mes", []):
+            matched = match_roster(csv_row["asesor"], by_name.keys())
+            if matched:
+                by_name[matched]["solicitudes"] = csv_row["solicitudes"]
+                by_name[matched]["aprobadas"] = csv_row["aprobadas"]
 
     out_path = os.path.join(os.path.dirname(__file__), "data.js")
     with open(out_path, "w", encoding="utf-8") as f:
