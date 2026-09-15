@@ -1,5 +1,5 @@
 window.__DASHBOARD_DATA__ = {
-  "generated_at": "2026-09-15T22:46:59.136549Z",
+  "generated_at": "2026-09-15T23:57:34.726649Z",
   "months": [
     "Ago 25",
     "Sep 25",
@@ -1410,15 +1410,6 @@ window.__DASHBOARD_DATA__ = {
   },
   "aprob_weekly": [
     {
-      "label": "27 jul–2 ago (parcial)",
-      "aprobado": 1,
-      "rechazado": 0,
-      "pendiente": 0,
-      "total": 1,
-      "pct_aprobacion": 100.0,
-      "es_parcial": true
-    },
-    {
       "label": "3 ago–9 ago",
       "aprobado": 232,
       "rechazado": 32,
@@ -2086,6 +2077,6 @@ window.__DASHBOARD_DATA__ = {
   "aprob_meta": {
     "fecha_min": "1 ago",
     "fecha_max": "14 sep",
-    "generado_en": "2026-09-15T13:31:25.066447"
+    "generado_en": "2026-09-15T17:55:15.851070"
   }
 };
