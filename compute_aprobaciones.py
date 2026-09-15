@@ -126,22 +126,30 @@ def main():
     # ---------- semanal (lunes-domingo) ----------
     # Verificado 7-sep-2026 a peticion de Ricardo ("revisa que este actualizada semanal de
     # lunes a domingo"): monday_of() SI corta lunes-domingo correcto (confirmado contra
-    # calendario real: 3-ago-2026 es lunes, 31-ago-2026 es lunes, etc.). El hallazgo real
-    # no era la logica de corte sino que la PRIMERA semana (27-jul-2 ago, solo 1 dia real,
-    # 1-ago) y la ULTIMA (31 ago-6 sep, solo 5 de 7 dias reales, datos hasta el 4-sep) son
-    # semanas PARCIALES -- se marcan explicitamente (`es_parcial`) para no leerlas como una
-    # caida real de volumen cuando en realidad la semana todavia no termina de capturarse.
+    # calendario real: 3-ago-2026 es lunes, 31-ago-2026 es lunes, etc.). La semana que cae al
+    # FINAL del rango (la mas reciente, con datos hasta el corte del CSV) se marca `es_parcial`
+    # en vez de eliminarse -- ya trae varios dias reales, no leerla como caida real de volumen.
+    # La semana del INICIO del rango (27-jul-2 ago, historicamente solo 1 dia real, 1-ago) se
+    # elimina por completo del listado (no solo se marca) -- pedido explicito de Ricardo
+    # 15-sep-2026, "quita el primer periodo... que no tienen info".
     weekly = {}
     for r in rows:
         wk_start = monday_of(r["_date"])
         c = weekly.setdefault(wk_start, {"aprobado": 0, "rechazado": 0, "pendiente": 0})
         c[RESULT_KEY[r["resultado"]]] += 1
+    # La primera semana (27-jul-2-ago) se descarta por completo -- no solo se marca parcial --
+    # porque solo tiene 1 dia real (1-ago) y casi no aporta volumen (pedido de Ricardo
+    # 15-sep-2026: "quita el primer periodo... que no tienen info"). La ULTIMA semana parcial
+    # SÍ se conserva (marcada `es_parcial`) porque ya trae varios dias reales de datos, a
+    # diferencia de la primera.
     weekly_list = []
     for wk_start in sorted(weekly):
+        if wk_start < date_min:
+            continue
         wk_end = wk_start + datetime.timedelta(days=6)
         c = weekly[wk_start]
         res = c["aprobado"] + c["rechazado"]
-        es_parcial = wk_start < date_min or wk_end > date_max
+        es_parcial = wk_end > date_max
         weekly_list.append({
             "label": f"{fmt_short(wk_start)}–{fmt_short(wk_end)}" + (" (parcial)" if es_parcial else ""),
             "aprobado": c["aprobado"], "rechazado": c["rechazado"], "pendiente": c["pendiente"],
@@ -263,7 +271,7 @@ def main():
     print(f"OK -- aprobaciones_snapshot.json escrito. total={total} aprobado={aprobado} "
           f"rechazado={rechazado} pendiente={pendiente} pct_aprobacion={pct_aprobacion}%")
     print(f"rango: {fmt_short(date_min)} - {fmt_short(date_max)}  dias={len(all_days)}  "
-          f"semanas={len(weekly_list)} (primera y ultima parciales)")
+          f"semanas={len(weekly_list)} (ultima parcial, primera semana sin cobertura ya excluida)")
     print("comparativo mismos dias habiles:", month_compare)
 
 
