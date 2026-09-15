@@ -305,7 +305,7 @@ table.data-table td.pct-bad  { color: var(--s-critical); font-weight: 700; }
   <section class="card" id="card-dias">
     <div class="card-head">
       <div>
-        <p class="card-title">Entregados por día — agosto 2026, por ciudad</p>
+        <p class="card-title">Entregados por día — agosto a la fecha, por ciudad</p>
         <p class="card-note" id="note-dias"></p>
       </div>
       <div class="card-actions">
@@ -358,20 +358,6 @@ table.data-table td.pct-bad  { color: var(--s-critical); font-weight: 700; }
     </div>
   </section>
 
-  <section class="card" id="card-inv-log">
-    <div class="card-head">
-      <div>
-        <p class="card-title">Log de Inventario Diario</p>
-        <p class="card-note">Captura una vez al día, desde el 17-ago (pestaña "Log Inventario Diario" del Sheet Back Office)</p>
-      </div>
-    </div>
-    <div class="chart-wrap" id="inv-chart-wrap">
-      <div class="chart-scroll chart-center"><svg class="chart" id="chart-inv"></svg></div>
-      <div class="tooltip" id="tooltip-inv"></div>
-    </div>
-    <div class="legend" id="legend-inv" style="justify-content:center;"></div>
-  </section>
-
   <section class="card" id="card-fleet-backlog">
     <div class="card-head">
       <div>
@@ -387,29 +373,6 @@ table.data-table td.pct-bad  { color: var(--s-critical); font-weight: 700; }
     </div>
     <div class="legend" id="legend-fleet-city-stage"></div>
     <p class="callout" id="callout-fleet-city-stage"></p>
-
-    <div class="grid-2">
-      <div>
-        <p class="subsection-title">Volumen esperado por día, por ciudad</p>
-        <div class="chart-wrap" id="fleet-day-chart-wrap">
-          <div class="chart-scroll"><svg class="chart" id="chart-fleet-day"></svg></div>
-          <div class="tooltip" id="tooltip-fleet-day"></div>
-        </div>
-        <div class="legend" id="legend-fleet-day"></div>
-        <p class="callout" id="callout-fleet-day"></p>
-      </div>
-      <div style="display:flex; flex-direction:column;">
-        <p class="subsection-title">En preparación — listos para agendar</p>
-        <p class="card-note" style="margin-top:-6px;">Back Office, Estatus BO = "En preparación": ya salieron de Fleet, van hacia el equipo comercial. Trabajar de inmediato para confirmar cita y entregar ASAP.</p>
-        <div style="flex:1; display:flex; flex-direction:column; justify-content:center;">
-          <div class="chart-wrap" id="enprep-chart-wrap">
-            <div class="chart-scroll chart-center"><svg class="chart" id="chart-enprep"></svg></div>
-            <div class="tooltip" id="tooltip-enprep"></div>
-          </div>
-        </div>
-        <p class="callout" id="callout-enprep"></p>
-      </div>
-    </div>
   </section>
 
   <section class="card" id="card-waitlist">
@@ -482,6 +445,11 @@ table.data-table td.pct-bad  { color: var(--s-critical); font-weight: 700; }
 
     <div class="finding-row" id="aprob-kpis" style="margin:6px 0 20px;flex-wrap:wrap;gap:24px 32px;"></div>
 
+    <p class="subsection-title">Comparativo — mismos días hábiles</p>
+    <p class="card-note" style="margin-top:-6px;" id="note-aprob-compare"></p>
+    <div class="grid-2" id="aprob-compare-grid" style="margin:10px 0 4px;"></div>
+    <p class="callout" id="callout-aprob-compare"></p>
+
     <p class="subsection-title">Solicitudes por semana</p>
     <p class="card-note" style="margin-top:-6px;">Semanas lunes a domingo. La primera y la última semana del periodo son parciales (aún no terminan de capturarse) — marcadas explícitamente, no leerlas como caída real de volumen.</p>
     <div class="chart-wrap" id="aprob-weekly-chart-wrap">
@@ -496,23 +464,6 @@ table.data-table td.pct-bad  { color: var(--s-critical); font-weight: 700; }
       <div class="tooltip" id="tooltip-aprob-weekly-pct"></div>
     </div>
 
-    <p class="subsection-title">Aprobación por ciudad</p>
-    <div class="chart-wrap donut-wrap" id="aprob-city-chart-wrap">
-      <svg class="chart" id="chart-aprob-city" style="flex-shrink:0;"></svg>
-      <div class="donut-legend" id="legend-aprob-city"></div>
-      <div class="tooltip" id="tooltip-aprob-city"></div>
-    </div>
-    <p class="card-note" style="margin-top:8px;">Tamaño del segmento = volumen de solicitudes; % = aprobación del periodo completo; ▲/▼ = cuánto cambió esa ciudad de la primera a la segunda mitad del periodo (así se ve si de verdad va mejorando, no solo el nivel actual).</p>
-
-    <p class="subsection-title">Volumen de solicitudes por semana — foco Tijuana y Mexicali</p>
-    <p class="card-note" style="margin-top:-6px;">Mismas semanas lunes a domingo que "Solicitudes por semana" (primera y última parciales). Tijuana y Mexicali en su color habitual, resto de la red agrupado como referencia.</p>
-    <div class="legend" id="legend-aprob-focus"></div>
-    <div class="chart-wrap" id="aprob-focus-chart-wrap">
-      <div class="chart-scroll"><svg class="chart" id="chart-aprob-focus"></svg></div>
-      <div class="tooltip" id="tooltip-aprob-focus"></div>
-    </div>
-    <p class="callout" id="callout-aprob-focus"></p>
-
     <p class="subsection-title">Volumen de solicitudes por ciudad, tendencia diaria</p>
     <p class="card-note" style="margin-top:-6px;">Solicitudes ingresadas por día, todas las ciudades apiladas — Tijuana y Mexicali en su color habitual del dashboard.</p>
     <div class="legend" id="legend-aprob-volume"></div>
@@ -523,41 +474,17 @@ table.data-table td.pct-bad  { color: var(--s-critical); font-weight: 700; }
     <p class="callout" id="callout-aprob-volume"></p>
   </section>
 
-  <section class="card" id="card-agenda-decline">
+  <section class="card" id="card-entregas-agente">
     <div class="card-head">
       <div>
-        <p class="card-title">Agendas declinadas — recuperación de ventas</p>
-        <p class="card-note" id="note-agenda-decline"></p>
+        <p class="card-title">Entregas de septiembre — ranking por asesor</p>
+        <p class="card-note" id="note-entregas-agente"></p>
       </div>
     </div>
-
-    <div class="finding-row" id="agenda-decline-kpis" style="margin:6px 0 20px;flex-wrap:wrap;gap:24px 32px;"></div>
-
-    <div class="grid-2">
-      <div>
-        <p class="subsection-title">Declinados por mes</p>
-        <div class="chart-wrap" id="agenda-month-chart-wrap">
-          <div class="chart-scroll"><svg class="chart" id="chart-agenda-month"></svg></div>
-          <div class="tooltip" id="tooltip-agenda-month"></div>
-        </div>
-        <div class="legend" id="legend-agenda-month"></div>
-      </div>
-      <div>
-        <p class="subsection-title">Pendiente — semáforo a Contact Center</p>
-        <div class="chart-wrap" id="agenda-semaforo-chart-wrap">
-          <div class="chart-scroll"><svg class="chart" id="chart-agenda-semaforo"></svg></div>
-          <div class="tooltip" id="tooltip-agenda-semaforo"></div>
-        </div>
-        <div class="legend" id="legend-agenda-semaforo"></div>
-      </div>
+    <div class="chart-wrap" id="entregas-agente-chart-wrap">
+      <div class="chart-scroll"><svg class="chart" id="chart-entregas-agente"></svg></div>
+      <div class="tooltip" id="tooltip-entregas-agente"></div>
     </div>
-
-    <p class="subsection-title">Motivo de declinación</p>
-    <div class="chart-wrap" id="agenda-motivos-chart-wrap">
-      <div class="chart-scroll"><svg class="chart" id="chart-agenda-motivos"></svg></div>
-      <div class="tooltip" id="tooltip-agenda-motivos"></div>
-    </div>
-    <div class="legend" id="legend-agenda-motivos"></div>
   </section>
 
 
@@ -603,8 +530,7 @@ table.data-table td.pct-bad  { color: var(--s-critical); font-weight: 700; }
   const DIAS_COLOR = {cdmx:"--s-byd", mty:"--s-mg5", tij:"--s-mg3", qro:"--s-aion", gdl:"--s-king", mxl:"--s-tiggo", otros:"--s-otros"};
   const ENTREGADOS_DIA = DATA.entregados_dia;
   const AGENDADAS_DIA = DATA.agendadas_dia;
-
-  const INV_LOG = DATA.inv_log;
+  const ENTREGAS_AGENTE = DATA.entregas_agente_mes || [];
 
   const TIER_KEYS = ["0-30","31-60","61-90","90+"];
   const TIER_LABELS = {"0-30":"0-30 días","31-60":"31-60 días","61-90":"61-90 días","90+":"90+ días"};
@@ -620,14 +546,9 @@ table.data-table td.pct-bad  { color: var(--s-critical); font-weight: 700; }
 
   const APROB_KPIS = DATA.aprob_kpis || {};
   const APROB_WEEKLY = DATA.aprob_weekly || [];
-  const APROB_BY_CITY = DATA.aprob_by_city || [];
-  const APROB_WEEKLY_FOCUS = DATA.aprob_weekly_focus || [];
+  const APROB_MONTH_COMPARE = DATA.aprob_month_compare || [];
   const APROB_DAILY_VOLUME = DATA.aprob_daily_volume || [];
   const APROB_META = DATA.aprob_meta || {};
-
-  const AGENDA_KPIS = DATA.agenda_decline_kpis;
-  const AGENDA_MONTH = DATA.agenda_decline_by_month;
-  const AGENDA_MOTIVOS = DATA.agenda_decline_motivos;
 
   // Fleet Backlog (RAW DATA, solo lectura) -- universo = LISTA_TRABAJO "Backlog Fleet" menos
   // TALLER_ESTATUS "DESFLOTE" (esas no se convierten en inventario). Etapa en orden de proceso;
@@ -637,15 +558,6 @@ table.data-table td.pct-bad  { color: var(--s-critical); font-weight: 700; }
   const FLEET_STAGE_COLORVAR = {"POR INGRESAR":"--tier-0","EN DIAGNOSTICO":"--tier-1","EN REPARACION":"--tier-2","ENTREGADO":"--s-entregado","SIN_ESTATUS":"--s-otros","DESFLOTE":"--flag-deficit"};
   const FLEET_STAGE_LABELCOLOR = {"POR INGRESAR":"dark","EN DIAGNOSTICO":"dark","EN REPARACION":"light","ENTREGADO":"dark","SIN_ESTATUS":"dark","DESFLOTE":"dark"};
   const FLEET_CITY_STAGE = DATA.fleet_city_stage;
-
-  const FLEET_DAY_KEYS = ["tij","cdmx","gdl","qro","mty","otros"];
-  const FLEET_DAY_LABELS = {tij:"Tijuana", cdmx:"CDMX/Edo Mex", gdl:"Guadalajara", qro:"Queretaro", mty:"Monterrey", otros:"Otros / sin identificar"};
-  const FLEET_DAY_COLOR = {tij:"--s-mg3", cdmx:"--s-byd", gdl:"--s-king", qro:"--s-aion", mty:"--s-mg5", otros:"--s-otros"};
-  const FLEET_DIAS_LABELS = DATA.fleet_dias_labels;
-  const FLEET_BY_DAY = DATA.fleet_by_day;
-
-  const EN_PREP_BY_CIUDAD = DATA.en_prep_by_ciudad;
-  const EN_PREP_TOTAL = DATA.en_prep_total;
 
   const svgNS = "http://www.w3.org/2000/svg";
   function el(tag, attrs, parent){
@@ -1254,11 +1166,11 @@ table.data-table td.pct-bad  { color: var(--s-critical); font-weight: 700; }
       '<li><strong>'+fmt(listoTotal)+' unidades listas para entrega hoy</strong> en '+CIUDAD_LISTO.length+' ciudad'+(CIUDAD_LISTO.length===1?'':'es')+'.</li>';
 
     el2('callout-forecast', 'Ritmo actual: <strong>~'+FORECAST_RATE.toFixed(1)+' unidades/día laboral</strong> → proyección de cierre <strong>~'+fmt(FORECAST_TOTAL)+' unidades</strong> en '+monName+'.', true);
-    el2('note-dias', fmt(entregado)+' unidades entregadas, datos completos hasta el '+day+'-'+monAbbr+' · línea = unidades agendadas/pendientes con fecha ya asignada');
+    el2('note-dias', fmt(entregado)+' unidades entregadas, datos completos hasta el '+day+'-'+monAbbr+' · histórico desde agosto · línea = unidades agendadas/pendientes con fecha ya asignada');
 
     const agendadaPairs = DIAS_LABELS.map((l,i)=>[l, AGENDADAS_DIA[i]]).filter(([l,v])=>v>0);
     el2('callout-agendadas', agendadaPairs.length
-      ? 'Línea punteada = agendadas sin confirmar todavía (' + agendadaPairs.map(([l,v])=>l+'-'+monAbbr+': '+v).join(', ') + ').'
+      ? 'Línea punteada = agendadas sin confirmar todavía (' + agendadaPairs.map(([l,v])=>l+': '+v).join(', ') + ').'
       : 'Línea punteada = agendadas sin confirmar todavía.', true);
 
     el2('note-etapas-total', fmt(ETAPAS_TOTAL)+' unidades con estatus capturado, en orden de proceso · % sobre el total');
@@ -1312,12 +1224,6 @@ table.data-table td.pct-bad  { color: var(--s-critical); font-weight: 700; }
     } else {
       el2('callout-fleet-city-stage', 'Ninguna de las ciudades con superávit hoy tiene volumen de Fleet a punto de llegar (en reparación o entregado del taller).', true);
     }
-
-    if (FLEET_DIAS_LABELS.length) {
-      el2('callout-fleet-day', '<strong>'+fmt(DATA.fleet_vencido_unidades)+' unidades</strong> (en '+fmt(DATA.fleet_vencido_dias)+' de '+fmt(FLEET_DIAS_LABELS.length)+' fechas) ya pasaron su fecha compromiso y siguen sin liberarse — trátalas como alerta de atraso, no asumas que van a llegar justo ese día. '+fmt(DATA.fleet_sin_fecha_n)+' unidades no tienen ninguna fecha capturada y no aparecen en esta gráfica.', true);
-    } else {
-      el2('callout-fleet-day', 'Ninguna de las '+fmt(DATA.fleet_sin_fecha_n)+' unidades del backlog tiene fecha compromiso capturada hoy en Fleet — no se puede armar la línea de tiempo por ahora. Se muestra en cuanto el equipo de Fleet vuelva a capturar fechas.', true);
-    }
   }
 
   function el2(id, text, isHTML){
@@ -1359,15 +1265,17 @@ table.data-table td.pct-bad  { color: var(--s-critical); font-weight: 700; }
     ).join('') + '<span class="legend-item"><span class="legend-swatch" style="background:var(--muted);opacity:.6;border:1.5px dashed var(--muted)"></span>Agendada / pendiente</span>';
 
     drawStackedChart('chart-dias', 'tooltip-dias', ENTREGADOS_DIA, DIAS_KEYS, k => DIAS_COLOR[k], {
-      ariaLabel: "Unidades entregadas por día en agosto, por ciudad, con línea de agendadas/pendientes",
+      ariaLabel: "Unidades entregadas por día desde agosto, por ciudad, con línea de agendadas/pendientes",
       labelOf: k => DIAS_LABELS_CIUDAD[k],
       months: DIAS_LABELS,
       hideZero: true,
       lineValues: AGENDADAS_DIA,
-      lineLabel: "Agendada / pendiente"
+      lineLabel: "Agendada / pendiente",
+      minPerLabel: 13,
+      xLabelEvery: Math.max(1, Math.ceil(DIAS_LABELS.length / 15))
     });
-    buildTable('dias-table-wrap', 'Unidades entregadas por día de agosto, por ciudad (agendada/pendiente aparte, no suma al total)', DIAS_KEYS.map(k=>DIAS_LABELS_CIUDAD[k]),
-      DIAS_LABELS.map((d,i)=>({label:d+'-ago', values: DIAS_KEYS.map(k=>ENTREGADOS_DIA[i][k])})), 'Día');
+    buildTable('dias-table-wrap', 'Unidades entregadas por día desde agosto, por ciudad (agendada/pendiente aparte, no suma al total)', DIAS_KEYS.map(k=>DIAS_LABELS_CIUDAD[k]),
+      DIAS_LABELS.map((d,i)=>({label:d, values: DIAS_KEYS.map(k=>ENTREGADOS_DIA[i][k])})), 'Día');
 
     drawEmphasisBarChart('chart-etapas', 'tooltip-etapas', ETAPAS.filter(d=>d.value>0), {
       ariaLabel: "Unidades por etapa del embudo BO, agosto 2026, en orden de proceso",
@@ -1404,21 +1312,6 @@ table.data-table td.pct-bad  { color: var(--s-critical); font-weight: 700; }
       labelOf: d => d.key,
       allAccent: true,
       labelWidth: 110
-    });
-
-    const legendInv = document.getElementById('legend-inv');
-    const invSeries = [
-      {key:'total', label:'Total', colorVar:'--ocn', bold:true},
-      {key:'tij', label:'Tijuana', colorVar:'--s-mg3', bold:false},
-      {key:'mxl', label:'Mexicali', colorVar:'--s-tiggo', bold:false},
-      {key:'mty', label:'Monterrey', colorVar:'--s-mg5', bold:false}
-    ];
-    legendInv.innerHTML = invSeries.map(s =>
-      '<span class="legend-item"><span class="legend-swatch" style="background:var('+s.colorVar+')"></span>'+s.label+'</span>'
-    ).join('');
-    drawLineChart('chart-inv', 'tooltip-inv', INV_LOG.map(d=>d.fecha), invSeries, {
-      ariaLabel: "Inventario Listo/Entrega por día, total y top 3 ciudades",
-      dataOf: (key, i) => INV_LOG[i][key]
     });
 
     const entregadoPct = ETAPAS.find(d=>d.key==='entregado').value / ETAPAS_TOTAL * 100;
@@ -1526,44 +1419,29 @@ table.data-table td.pct-bad  { color: var(--s-critical); font-weight: 700; }
         fmtFn: v => v.toFixed(1) + '%'
       });
 
-      drawDonutChart('chart-aprob-city', 'tooltip-aprob-city', 'legend-aprob-city',
-        APROB_BY_CITY.map(d => ({key: d.ciudad, label: d.ciudad, value: d.total, pct: d.pct_aprobacion, deltaPp: d.delta_pp, colorVar: d.colorVar})), {
-        ariaLabel: "Solicitudes por ciudad (tamaño), % de aprobación y tendencia 1a vs 2a mitad del periodo",
-        size: 190,
-        centerLabel: k.pct_aprobacion + '%',
-        centerSubLabel: 'aprobación'
-      });
-
-      // Solo 3 series -- Tijuana, Mexicali (foco) + "Resto de la red" agregado -- VOLUMEN,
-      // ahora en BARRAS SEMANALES (lunes-domingo, mismo corte que "Solicitudes por
-      // semana") a pedido de Ricardo ("hazlo en gráfica de barras... que sea claro el
-      // comportamiento semanal") -- antes era una línea diaria. 7 series individuales por
-      // ciudad ya se probaron y se rechazaron por ilegibles; el agregado da la misma
-      // comparación en una sola serie de referencia limpia.
-      const legendAprobFocus = document.getElementById('legend-aprob-focus');
-      if (legendAprobFocus) legendAprobFocus.innerHTML =
-        '<span class="legend-item"><span class="legend-swatch" style="background:var(--s-mg3)"></span>Tijuana</span>' +
-        '<span class="legend-item"><span class="legend-swatch" style="background:var(--s-tiggo)"></span>Mexicali</span>' +
-        '<span class="legend-item"><span class="legend-swatch" style="background:var(--s-otros)"></span>Resto de la red</span>';
-      drawStackedChart('chart-aprob-focus', 'tooltip-aprob-focus', APROB_WEEKLY_FOCUS,
-        ['tij','mxl','resto'], k => ({tij:'--s-mg3', mxl:'--s-tiggo', resto:'--s-otros'})[k], {
-        ariaLabel: "Volumen de solicitudes por semana, Tijuana y Mexicali vs. el resto de la red",
-        labelOf: k => ({tij:'Tijuana', mxl:'Mexicali', resto:'Resto de la red'})[k],
-        months: APROB_WEEKLY_FOCUS.map(w => w.label),
-        minPerLabel: 90
-      });
-
-      // Comparacion primera vs. ultima semana COMPLETA (se excluyen las parciales de los
-      // extremos para no leer una semana a medio capturar como una caida/subida real)
-      const completeFocusWeeks = APROB_WEEKLY_FOCUS.filter(w => !w.es_parcial);
-      const tijCity = APROB_BY_CITY.find(c => c.ciudad === 'Tijuana');
-      const mxlCity = APROB_BY_CITY.find(c => c.ciudad === 'Mexicali');
-      if (completeFocusWeeks.length >= 2) {
-        const wFirst = completeFocusWeeks[0], wLast = completeFocusWeeks[completeFocusWeeks.length-1];
-        const tijDelta = wLast.tij - wFirst.tij, mxlDelta = wLast.mxl - wFirst.mxl;
-        el2('callout-aprob-focus',
-          '<strong>Tijuana:</strong> '+fmt(wFirst.tij)+' → '+fmt(wLast.tij)+' solicitudes/semana ('+(tijDelta>=0?'+':'')+fmt(tijDelta)+'), semanas completas de '+wFirst.label+' a '+wLast.label+'. ' +
-          '<strong>Mexicali:</strong> '+fmt(wFirst.mxl)+' → '+fmt(wLast.mxl)+' ('+(mxlDelta>=0?'+':'')+fmt(mxlDelta)+') — volumen bajo ('+fmt(mxlCity?mxlCity.total:0)+' solicitudes en todo el periodo vs. '+fmt(tijCity?tijCity.total:0)+' de Tijuana), leer con cautela.'
+      // Comparativo mes actual vs. mes anterior, cortados al mismo numero de dias habiles
+      // desde el dia 1 -- reemplaza al donut por ciudad y al foco Tijuana/Mexicali, que
+      // Ricardo pidio quitar. Generico (usa el mes/rango que traiga el snapshot), asi que
+      // el proximo CSV que Ricardo traiga avanza el comparativo solo, sin tocar este HTML.
+      const compareGrid = document.getElementById('aprob-compare-grid');
+      if (compareGrid && APROB_MONTH_COMPARE.length === 2) {
+        const [prev, cur] = APROB_MONTH_COMPARE;
+        const blockHtml = (m, highlight) => `
+          <div style="border:1px solid var(--border); border-radius:10px; padding:16px 18px;${highlight ? ' background:var(--ocn-dim);' : ''}">
+            <p style="margin:0 0 2px; font-weight:700; font-size:1.05em;">${m.mes}</p>
+            <p style="margin:0 0 12px; font-size:.85em; color:var(--muted);">${m.rango} · ${m.dias_habiles} días hábiles</p>
+            <div class="finding-row" style="gap:20px 26px; flex-wrap:wrap;">
+              <div class="finding-stat"><span class="v" style="color:var(--text)">${fmt(m.total)}</span><span class="k">solicitudes</span></div>
+              <div class="finding-stat"><span class="v" style="color:var(--s-entregado)">${m.pct_aprobacion}<small style="font-size:.5em;">%</small></span><span class="k">% aprobación</span></div>
+              <div class="finding-stat"><span class="v" style="color:var(--text)">${fmt(m.aprobado)}</span><span class="k">aprobadas</span></div>
+              <div class="finding-stat"><span class="v" style="color:var(--s-critical)">${fmt(m.rechazado)}</span><span class="k">rechazadas</span></div>
+            </div>
+          </div>`;
+        compareGrid.innerHTML = blockHtml(prev, false) + blockHtml(cur, true);
+        el2('note-aprob-compare', 'Mismo número de días hábiles desde el día 1 de cada mes, para comparar el avance real (no el mes completo vs. uno a medias).');
+        const deltaPp = Math.round((cur.pct_aprobacion - prev.pct_aprobacion) * 10) / 10;
+        el2('callout-aprob-compare',
+          '<strong>% de aprobación:</strong> '+prev.pct_aprobacion+'% → '+cur.pct_aprobacion+'% ('+(deltaPp>=0?'+':'')+deltaPp+' pp) en los mismos '+cur.dias_habiles+' días hábiles del mes.'
         , true);
       }
 
@@ -1595,75 +1473,27 @@ table.data-table td.pct-bad  { color: var(--s-critical); font-weight: 700; }
       }
     }
 
-    // ---- Agendas declinadas — recuperación de ventas ----
-    {
-      const k = AGENDA_KPIS;
-      const wrap = document.getElementById('agenda-decline-kpis');
-      wrap.innerHTML =
-        '<div class="finding-stat"><span class="v" style="color:var(--text)">'+fmt(k.total)+'</span><span class="k">declinados históricos</span></div>' +
-        '<div class="finding-stat"><span class="v" style="color:var(--s-entregado)">'+k.pct_recuperado+'<small style="font-size:.5em;">%</small></span><span class="k">recuperados</span></div>' +
-        '<div class="finding-stat"><span class="v" style="color:var(--s-pendiente)">'+fmt(k.pendiente)+'</span><span class="k">pendientes hoy</span></div>';
-      el2('note-agenda-decline', 'Fuente: Back Office, "GLOBAL DECLINADOS".');
-    }
-
-    const AGENDA_MONTH_KEYS = ['recuperado', 'pendiente', 'perdido'];
-    const AGENDA_MONTH_COLORVAR = {recuperado: '--s-entregado', pendiente: '--s-pendiente', perdido: '--s-perdido'};
-    const AGENDA_MONTH_LABEL = {recuperado: 'Recuperado', pendiente: 'Pendiente', perdido: 'Perdido'};
-    const legendAgendaMonth = document.getElementById('legend-agenda-month');
-    if (legendAgendaMonth) legendAgendaMonth.innerHTML = AGENDA_MONTH_KEYS.map(kk =>
-      '<span class="legend-item"><span class="legend-swatch" style="background:var('+AGENDA_MONTH_COLORVAR[kk]+')"></span>'+AGENDA_MONTH_LABEL[kk]+'</span>'
-    ).join('');
-    drawStackedChart('chart-agenda-month', 'tooltip-agenda-month', AGENDA_MONTH, AGENDA_MONTH_KEYS, k => AGENDA_MONTH_COLORVAR[k], {
-      ariaLabel: "Agendas declinadas por mes, desglosadas en recuperado, pendiente y perdido",
-      labelOf: k => AGENDA_MONTH_LABEL[k],
-      months: AGENDA_MONTH.map(m => m.mes.replace(' 2026', '')),
-      showSegmentPct: true
-    });
-
-    {
-      const SEM = DATA.agenda_decline_semaforo;
-      const semRows = [
-        {key: 'verde', label: '0-15 días', value: SEM.verde, colorVar: '--s-entregado'},
-        {key: 'amarillo', label: '16-30 días', value: SEM.amarillo, colorVar: '--s-pendiente'},
-        {key: 'rojo', label: 'Vencido (>30d)', value: SEM.rojo, colorVar: '--s-critical'},
-      ];
-      const legendSem = document.getElementById('legend-agenda-semaforo');
-      if (legendSem) legendSem.innerHTML = semRows.map(s =>
-        '<span class="legend-item"><span class="legend-swatch" style="background:var('+s.colorVar+')"></span>'+s.label+' · '+fmt(s.value)+'</span>'
-      ).join('');
-      drawStackBar('chart-agenda-semaforo', 'tooltip-agenda-semaforo', [{label:"", vals: semRows.map(s=>s.value), total: semRows.reduce((a,s)=>a+s.value,0)}], {
-        ariaLabel: "Semáforo del volumen pendiente hacia el límite de 30 días a Contact Center",
-        rowLabelOf: () => "",
-        rowTotalOf: r => r.total,
-        segValueOf: (r, i) => r.vals[i],
-        segKeys: semRows.map(s=>s.key),
-        segLabelOf: k => semRows.find(s=>s.key===k).label,
-        colorVarOf: k => semRows.find(s=>s.key===k).colorVar,
-        labelColorOf: k => k === 'amarillo' ? 'dark' : 'light',
-        labelWidth: 2,
-        padRight: 4,
-        rowH: 56,
-        segLabelMode: "both",
-        minSegWidthForLabel: 58
+    // ---- Entregas de septiembre — ranking por asesor ----
+    // Reemplaza "Agendas declinadas" (pedido explícito de Ricardo, 15-sep-2026). Fuente:
+    // Back Office "SEGUIMIENTO ENTREGAS", columna "Agente" -- es el asesor que cerró la
+    // entrega, no un rollup por supervisor (no hay mapeo asesor→supervisor para este
+    // equipo en ninguna otra fuente de este dashboard). Si Ricardo quiere agrupar por
+    // supervisor más adelante, hace falta que traiga ese mapeo.
+    if (ENTREGAS_AGENTE.length) {
+      const totalEntregasAgente = ENTREGAS_AGENTE.reduce((s,d)=>s+d.total, 0);
+      el2('note-entregas-agente', fmt(totalEntregasAgente)+' entregas en lo que va de septiembre, por asesor (Back Office, columna "Agente")');
+      drawEmphasisBarChart('chart-entregas-agente', 'tooltip-entregas-agente',
+        ENTREGAS_AGENTE.map(d => ({key: d.agente, value: d.total})), {
+        ariaLabel: "Entregas de septiembre, ranking por asesor",
+        labelOf: d => d.key,
+        allAccent: true,
+        labelWidth: 150,
+        padRight: 40,
+        rowH: 22,
+        gap: 7
       });
-    }
-
-    {
-      const legendMotivos = document.getElementById('legend-agenda-motivos');
-      if (legendMotivos) legendMotivos.innerHTML =
-        '<span class="legend-item"><span class="legend-swatch" style="background:var(--ocn)"></span>Trabajable</span>' +
-        '<span class="legend-item"><span class="legend-swatch" style="background:var(--s-otros)"></span>No trabajable</span>';
-      const motivosSorted = AGENDA_MOTIVOS.slice().sort((a,b) => (b.trabajable - a.trabajable) || (b.count - a.count));
-      drawEmphasisBarChart('chart-agenda-motivos', 'tooltip-agenda-motivos',
-        motivosSorted.map(d => ({key: d.motivo, value: d.count, trabajable: d.trabajable})), {
-        ariaLabel: "Motivo de declinación, separado en trabajable vs no trabajable",
-        labelOf: d => d.key.charAt(0) + d.key.slice(1).toLowerCase(),
-        colorOf: d => d.trabajable ? '--ocn' : '--s-otros',
-        labelWidth: 180,
-        padRight: 50,
-        rowH: 18,
-        gap: 6
-      });
+    } else {
+      el2('note-entregas-agente', 'Sin entregas registradas todavía este mes.');
     }
 
     drawStackBar('chart-fleet-city-stage', 'tooltip-fleet-city-stage', FLEET_CITY_STAGE.map(r=>({label:r.ciudad, vals:r.vals, total:r.total})), {
@@ -1680,50 +1510,6 @@ table.data-table td.pct-bad  { color: var(--s-critical); font-weight: 700; }
       segLabelMode: "both",
       minSegWidthForLabel: 58
     });
-
-    const legendFleetDay = document.getElementById('legend-fleet-day');
-    if (legendFleetDay) legendFleetDay.innerHTML = FLEET_DAY_KEYS.map(k =>
-      '<span class="legend-item"><span class="legend-swatch" style="background:var('+FLEET_DAY_COLOR[k]+')"></span>'+FLEET_DAY_LABELS[k]+'</span>'
-    ).join('');
-
-    const fleetDayWrap = document.getElementById('fleet-day-chart-wrap');
-    if (FLEET_BY_DAY.length) {
-      if (fleetDayWrap) fleetDayWrap.style.display = '';
-      drawStackedChart('chart-fleet-day', 'tooltip-fleet-day', FLEET_BY_DAY, FLEET_DAY_KEYS, k => FLEET_DAY_COLOR[k], {
-        ariaLabel: "Volumen de Fleet Backlog esperado por día, por ciudad",
-        labelOf: k => FLEET_DAY_LABELS[k],
-        months: FLEET_DIAS_LABELS,
-        hideZero: true
-      });
-    } else if (fleetDayWrap) {
-      fleetDayWrap.style.display = 'none';
-    }
-
-    const calloutEnprep = document.getElementById('callout-enprep');
-    if (EN_PREP_BY_CIUDAD.length) {
-      drawEmphasisBarChart('chart-enprep', 'tooltip-enprep',
-        EN_PREP_BY_CIUDAD.map(d => ({key: d.ciudad, value: d.count, modelos: d.modelos, vins: d.vins})), {
-        ariaLabel: "Autos en preparación por ciudad, saliendo de Fleet hacia Sales",
-        labelOf: d => d.key,
-        allAccent: true,
-        labelWidth: 110,
-        padRight: 40,
-        minWidth: 320,
-        rowH: 34,
-        gap: 10,
-        subLabelBelow: d => {
-          const counts = {};
-          d.modelos.forEach(m => { counts[m] = (counts[m]||0) + 1; });
-          const txt = Object.keys(counts).map(m => counts[m] > 1 ? m + ' ×' + counts[m] : m).join(', ');
-          return txt.length > 26 ? txt.slice(0, 24) + '…' : txt;
-        },
-        tooltipExtra: d => '<div class="tt-row">' + d.vins.join('<br>') + '</div>'
-      });
-      if (calloutEnprep) calloutEnprep.textContent =
-        EN_PREP_TOTAL + ' auto' + (EN_PREP_TOTAL === 1 ? '' : 's') + ' en preparación ahora mismo.';
-    } else if (calloutEnprep) {
-      calloutEnprep.textContent = 'Ninguno en preparación ahora mismo.';
-    }
 
     initToggles();
   }

@@ -1,10 +1,10 @@
 {
   "aprob_kpis": {
-    "total": 1391,
-    "aprobado": 1088,
-    "rechazado": 191,
-    "pendiente": 112,
-    "pct_aprobacion": 85.1
+    "total": 1569,
+    "aprobado": 1196,
+    "rechazado": 241,
+    "pendiente": 132,
+    "pct_aprobacion": 83.2
   },
   "aprob_weekly": [
     {
@@ -18,11 +18,11 @@
     },
     {
       "label": "3 ago–9 ago",
-      "aprobado": 231,
+      "aprobado": 232,
       "rechazado": 32,
-      "pendiente": 18,
+      "pendiente": 17,
       "total": 281,
-      "pct_aprobacion": 87.8,
+      "pct_aprobacion": 87.9,
       "es_parcial": false
     },
     {
@@ -37,221 +37,69 @@
     {
       "label": "17 ago–23 ago",
       "aprobado": 219,
-      "rechazado": 34,
-      "pendiente": 26,
+      "rechazado": 35,
+      "pendiente": 25,
       "total": 279,
-      "pct_aprobacion": 86.6,
+      "pct_aprobacion": 86.2,
       "es_parcial": false
     },
     {
       "label": "24 ago–30 ago",
       "aprobado": 197,
-      "rechazado": 35,
-      "pendiente": 23,
-      "total": 255,
-      "pct_aprobacion": 84.9,
-      "es_parcial": false
-    },
-    {
-      "label": "31 ago–6 sep",
-      "aprobado": 149,
-      "rechazado": 44,
+      "rechazado": 36,
       "pendiente": 22,
-      "total": 215,
-      "pct_aprobacion": 77.2,
-      "es_parcial": false
-    },
-    {
-      "label": "7 sep–13 sep (parcial)",
-      "aprobado": 86,
-      "rechazado": 28,
-      "pendiente": 11,
-      "total": 125,
-      "pct_aprobacion": 75.4,
-      "es_parcial": true
-    }
-  ],
-  "aprob_by_city": [
-    {
-      "ciudad": "Tijuana",
-      "colorVar": "--s-mg3",
-      "total": 183,
-      "aprobado": 140,
-      "rechazado": 27,
-      "pendiente": 16,
-      "resueltas": 167,
-      "pct_aprobacion": 83.8,
-      "pct_h1": 86.1,
-      "pct_h2": 82.1,
-      "delta_pp": -4.0
-    },
-    {
-      "ciudad": "CDMX / Edo Mex",
-      "colorVar": "--s-byd",
-      "total": 530,
-      "aprobado": 410,
-      "rechazado": 82,
-      "pendiente": 38,
-      "resueltas": 492,
-      "pct_aprobacion": 83.3,
-      "pct_h1": 88.2,
-      "pct_h2": 76.0,
-      "delta_pp": -12.2
-    },
-    {
-      "ciudad": "Monterrey",
-      "colorVar": "--s-mg5",
-      "total": 283,
-      "aprobado": 227,
-      "rechazado": 33,
-      "pendiente": 23,
-      "resueltas": 260,
-      "pct_aprobacion": 87.3,
-      "pct_h1": 91.7,
-      "pct_h2": 81.9,
-      "delta_pp": -9.8
-    },
-    {
-      "ciudad": "Mexicali",
-      "colorVar": "--s-tiggo",
-      "total": 59,
-      "aprobado": 48,
-      "rechazado": 4,
-      "pendiente": 7,
-      "resueltas": 52,
-      "pct_aprobacion": 92.3,
-      "pct_h1": 100.0,
-      "pct_h2": 88.6,
-      "delta_pp": -11.4
-    },
-    {
-      "ciudad": "Guadalajara",
-      "colorVar": "--s-king",
-      "total": 99,
-      "aprobado": 77,
-      "rechazado": 15,
-      "pendiente": 7,
-      "resueltas": 92,
-      "pct_aprobacion": 83.7,
-      "pct_h1": 88.2,
-      "pct_h2": 78.0,
-      "delta_pp": -10.2
-    },
-    {
-      "ciudad": "Queretaro",
-      "colorVar": "--s-aion",
-      "total": 65,
-      "aprobado": 51,
-      "rechazado": 8,
-      "pendiente": 6,
-      "resueltas": 59,
-      "pct_aprobacion": 86.4,
-      "pct_h1": 90.9,
-      "pct_h2": 80.8,
-      "delta_pp": -10.1
-    },
-    {
-      "ciudad": "Merida",
-      "colorVar": "--s-otros",
-      "total": 54,
-      "aprobado": 43,
-      "rechazado": 4,
-      "pendiente": 7,
-      "resueltas": 47,
-      "pct_aprobacion": 91.5,
-      "pct_h1": 93.5,
-      "pct_h2": 87.5,
-      "delta_pp": -6.0
-    },
-    {
-      "ciudad": "Puebla",
-      "colorVar": "--s-otros",
-      "total": 66,
-      "aprobado": 47,
-      "rechazado": 14,
-      "pendiente": 5,
-      "resueltas": 61,
-      "pct_aprobacion": 77.0,
-      "pct_h1": 85.7,
-      "pct_h2": 69.7,
-      "delta_pp": -16.0
-    },
-    {
-      "ciudad": "Saltillo",
-      "colorVar": "--s-otros",
-      "total": 41,
-      "aprobado": 35,
-      "rechazado": 4,
-      "pendiente": 2,
-      "resueltas": 39,
-      "pct_aprobacion": 89.7,
-      "pct_h1": 100.0,
-      "pct_h2": 81.8,
-      "delta_pp": -18.2
-    },
-    {
-      "ciudad": "Otro",
-      "colorVar": "--s-otros",
-      "total": 11,
-      "aprobado": 10,
-      "rechazado": 0,
-      "pendiente": 1,
-      "resueltas": 10,
-      "pct_aprobacion": 100.0,
-      "pct_h1": 100.0,
-      "pct_h2": 100.0,
-      "delta_pp": 0.0
-    }
-  ],
-  "aprob_weekly_focus": [
-    {
-      "label": "27 jul–2 ago (parcial)",
-      "tij": 0,
-      "mxl": 0,
-      "resto": 1,
-      "es_parcial": true
-    },
-    {
-      "label": "3 ago–9 ago",
-      "tij": 32,
-      "mxl": 7,
-      "resto": 242,
-      "es_parcial": false
-    },
-    {
-      "label": "10 ago–16 ago",
-      "tij": 17,
-      "mxl": 4,
-      "resto": 214,
-      "es_parcial": false
-    },
-    {
-      "label": "17 ago–23 ago",
-      "tij": 39,
-      "mxl": 11,
-      "resto": 229,
-      "es_parcial": false
-    },
-    {
-      "label": "24 ago–30 ago",
-      "tij": 47,
-      "mxl": 15,
-      "resto": 193,
+      "total": 255,
+      "pct_aprobacion": 84.5,
       "es_parcial": false
     },
     {
       "label": "31 ago–6 sep",
-      "tij": 31,
-      "mxl": 10,
-      "resto": 174,
+      "aprobado": 151,
+      "rechazado": 42,
+      "pendiente": 21,
+      "total": 214,
+      "pct_aprobacion": 78.2,
       "es_parcial": false
     },
     {
-      "label": "7 sep–13 sep (parcial)",
-      "tij": 17,
-      "mxl": 12,
-      "resto": 96,
+      "label": "7 sep–13 sep",
+      "aprobado": 157,
+      "rechazado": 59,
+      "pendiente": 25,
+      "total": 241,
+      "pct_aprobacion": 72.7,
+      "es_parcial": false
+    },
+    {
+      "label": "14 sep–20 sep (parcial)",
+      "aprobado": 34,
+      "rechazado": 19,
+      "pendiente": 10,
+      "total": 63,
+      "pct_aprobacion": 64.2,
       "es_parcial": true
+    }
+  ],
+  "aprob_month_compare": [
+    {
+      "mes": "Agosto",
+      "rango": "1 ago–14 ago",
+      "dias_habiles": 10,
+      "total": 517,
+      "aprobado": 438,
+      "rechazado": 50,
+      "pendiente": 29,
+      "pct_aprobacion": 89.8
+    },
+    {
+      "mes": "Septiembre",
+      "rango": "1 sep–14 sep",
+      "dias_habiles": 10,
+      "total": 478,
+      "aprobado": 315,
+      "rechazado": 110,
+      "pendiente": 53,
+      "pct_aprobacion": 74.1
     }
   ],
   "aprob_daily_volume": [
@@ -580,7 +428,7 @@
       "tij": 8,
       "cdmx": 10,
       "mty": 7,
-      "qro": 1,
+      "qro": 0,
       "gdl": 4,
       "mxl": 0,
       "otros": 10
@@ -647,18 +495,68 @@
     },
     {
       "fecha": "9 sep",
+      "tij": 7,
+      "cdmx": 11,
+      "mty": 13,
+      "qro": 5,
+      "gdl": 3,
+      "mxl": 2,
+      "otros": 5
+    },
+    {
+      "fecha": "10 sep",
       "tij": 1,
+      "cdmx": 12,
+      "mty": 5,
+      "qro": 1,
+      "gdl": 2,
+      "mxl": 1,
+      "otros": 5
+    },
+    {
+      "fecha": "11 sep",
+      "tij": 9,
+      "cdmx": 15,
+      "mty": 12,
+      "qro": 5,
+      "gdl": 0,
+      "mxl": 1,
+      "otros": 2
+    },
+    {
+      "fecha": "12 sep",
+      "tij": 0,
       "cdmx": 0,
       "mty": 0,
       "qro": 0,
       "gdl": 0,
       "mxl": 0,
       "otros": 0
+    },
+    {
+      "fecha": "13 sep",
+      "tij": 0,
+      "cdmx": 0,
+      "mty": 0,
+      "qro": 0,
+      "gdl": 0,
+      "mxl": 0,
+      "otros": 0
+    },
+    {
+      "fecha": "14 sep",
+      "tij": 6,
+      "cdmx": 20,
+      "mty": 17,
+      "qro": 5,
+      "gdl": 4,
+      "mxl": 2,
+      "otros": 9
     }
   ],
   "aprob_meta": {
     "fecha_min": "1 ago",
-    "fecha_max": "9 sep",
-    "generado_en": "2026-09-09T11:37:04.381771"
+    "fecha_max": "14 sep",
+    "generado_en": "2026-09-15T12:46:58.109466"
   }
 }

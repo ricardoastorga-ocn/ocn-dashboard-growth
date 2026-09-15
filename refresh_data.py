@@ -4,7 +4,7 @@ Refresca los datos del Dashboard - Growth (OCN) desde Google Sheets y escribe da
 Corre sin intervención humana (GitHub Actions) o a mano (`python3 refresh_data.py`).
 
 Fuentes:
-  - Back Office (GLOBAL OCN + SEGUIMIENTO ENTREGAS + Log Inventario Diario)
+  - Back Office (GLOBAL OCN + SEGUIMIENTO ENTREGAS)
   - Presales-Inventory (Waitlist + Tabla Waitlist como cruce de verificación)
   - Fleet Backlog (RAW DATA, columnas LISTA_TRABAJO/UBICACION_ACTUAL/TALLER_ESTATUS/
     GEST_FECHA_COMPROMISO_ENTREGA) -- SOLO LECTURA, nunca se escribe nada en ese Sheet.
@@ -75,6 +75,37 @@ MODELO_CLOSED = [
     {"byd": 193, "mg5": 122, "mg3": 44, "aion": 6, "king": 197, "tiggo": 9, "otros": 6},
     {"byd": 131, "mg5": 120, "mg3": 34, "aion": 8, "king": 9, "tiggo": 6, "otros": 4},
     {"byd": 123, "mg5": 88, "mg3": 25, "aion": 5, "king": 6, "tiggo": 11, "otros": 2},
+]
+
+# "Entregados por día" -- Back Office ("SEGUIMIENTO ENTREGAS") solo conserva el mes en curso;
+# agosto ya fue archivado/rotado de esa pestaña (confirmado 15-sep-2026: 0 filas con F/Entrega
+# en agosto en una lectura en vivo). Igual que MIX_CLOSED/MODELO_CLOSED arriba, agosto se congela
+# aqui a mano (extraido del ultimo data.js generado antes de la rotacion, commit 8c81493,
+# 2026-08-31 22:46 UTC) y se prepende al mes en curso en cada corrida. Formato: (label "D-ago",
+# dict por ciudad igual a DIAS_KEYS, agendadas_pendientes_ese_dia).
+DIAS_AGOSTO_CLOSED = [
+    ("3-ago", {"cdmx": 0, "mty": 1, "tij": 0, "qro": 0, "gdl": 0, "mxl": 0, "otros": 1}, 0),
+    ("4-ago", {"cdmx": 7, "mty": 3, "tij": 1, "qro": 0, "gdl": 0, "mxl": 0, "otros": 0}, 0),
+    ("5-ago", {"cdmx": 5, "mty": 5, "tij": 3, "qro": 0, "gdl": 0, "mxl": 0, "otros": 1}, 0),
+    ("6-ago", {"cdmx": 6, "mty": 4, "tij": 3, "qro": 0, "gdl": 2, "mxl": 0, "otros": 0}, 0),
+    ("7-ago", {"cdmx": 5, "mty": 4, "tij": 4, "qro": 0, "gdl": 0, "mxl": 0, "otros": 0}, 0),
+    ("10-ago", {"cdmx": 1, "mty": 3, "tij": 0, "qro": 3, "gdl": 0, "mxl": 0, "otros": 0}, 0),
+    ("11-ago", {"cdmx": 1, "mty": 3, "tij": 1, "qro": 0, "gdl": 1, "mxl": 0, "otros": 3}, 0),
+    ("12-ago", {"cdmx": 4, "mty": 2, "tij": 2, "qro": 3, "gdl": 0, "mxl": 0, "otros": 1}, 0),
+    ("13-ago", {"cdmx": 5, "mty": 2, "tij": 3, "qro": 0, "gdl": 0, "mxl": 0, "otros": 1}, 0),
+    ("14-ago", {"cdmx": 3, "mty": 1, "tij": 1, "qro": 0, "gdl": 0, "mxl": 0, "otros": 0}, 0),
+    ("17-ago", {"cdmx": 3, "mty": 2, "tij": 1, "qro": 3, "gdl": 4, "mxl": 0, "otros": 1}, 0),
+    ("18-ago", {"cdmx": 0, "mty": 2, "tij": 4, "qro": 0, "gdl": 0, "mxl": 3, "otros": 0}, 0),
+    ("19-ago", {"cdmx": 2, "mty": 1, "tij": 2, "qro": 0, "gdl": 4, "mxl": 1, "otros": 3}, 0),
+    ("20-ago", {"cdmx": 3, "mty": 4, "tij": 1, "qro": 4, "gdl": 1, "mxl": 0, "otros": 2}, 0),
+    ("21-ago", {"cdmx": 3, "mty": 2, "tij": 4, "qro": 2, "gdl": 0, "mxl": 3, "otros": 0}, 0),
+    ("24-ago", {"cdmx": 3, "mty": 6, "tij": 4, "qro": 0, "gdl": 1, "mxl": 1, "otros": 1}, 0),
+    ("25-ago", {"cdmx": 4, "mty": 4, "tij": 1, "qro": 0, "gdl": 0, "mxl": 1, "otros": 0}, 0),
+    ("26-ago", {"cdmx": 6, "mty": 5, "tij": 4, "qro": 0, "gdl": 0, "mxl": 0, "otros": 1}, 0),
+    ("27-ago", {"cdmx": 4, "mty": 2, "tij": 3, "qro": 0, "gdl": 0, "mxl": 2, "otros": 1}, 0),
+    ("28-ago", {"cdmx": 5, "mty": 1, "tij": 2, "qro": 0, "gdl": 0, "mxl": 1, "otros": 2}, 0),
+    ("29-ago", {"cdmx": 4, "mty": 2, "tij": 2, "qro": 0, "gdl": 1, "mxl": 0, "otros": 0}, 0),
+    ("31-ago", {"cdmx": 4, "mty": 5, "tij": 1, "qro": 0, "gdl": 0, "mxl": 0, "otros": 2}, 9),
 ]
 
 MODELO_KEYS = ["byd", "mg5", "mg3", "aion", "king", "tiggo", "otros"]
@@ -243,7 +274,7 @@ def main():
     seg = sheets_get(token, BO_ID, "'SEGUIMIENTO ENTREGAS'!A1:BZ1000")
     header, rows = seg[0], seg[1:]
     validar_columnas("SEGUIMIENTO ENTREGAS", header,
-                      ["Estatus BO", "Ciudad Base", "Modelo", "Nuevo / Semi", "F / Entrega", "VIN"])
+                      ["Estatus BO", "Ciudad Base", "Modelo", "Nuevo / Semi", "F / Entrega", "VIN", "Agente"])
     idx = {h: i for i, h in enumerate(header)}
 
     def get(r, col):
@@ -266,13 +297,23 @@ def main():
     modelo_mtd = collections.Counter()
     nuevo_semi_mtd = collections.Counter()
     unmapped_status = collections.Counter()
-    en_prep_por_ciudad = collections.defaultdict(list)
 
     def parse_fe(s):
         return parse_date_multi(s, ["%d/%m/%Y", "%m/%d/%Y", "%Y-%m-%d"])
 
+    # "Entregados por día" debe conservar historico desde agosto (no solo el mes en curso) para
+    # que Ricardo no tenga que scrollear para ver la tendencia completa -- pedido explicito
+    # 15-sep-2026. La fuente en vivo (SEGUIMIENTO ENTREGAS) solo conserva el mes en curso
+    # (agosto ya fue archivado de esa pestaña), asi que el rango en vivo arranca en el dia 1
+    # del mes en curso -- agosto se cubre aparte via DIAS_AGOSTO_CLOSED (mismo patron que
+    # MIX_CLOSED/MODELO_CLOSED). Sin límite superior (igual que el filtro anterior por mes, que
+    # tampoco topaba en "hoy" -- una fecha agendada más adelante en el mes seguía contando para
+    # la línea de agendadas/pendientes).
+    DIAS_RANGE_START = datetime.date(today.year, today.month, 1)
+
     entregado_by_day = collections.defaultdict(collections.Counter)
     agendada_by_day = collections.Counter()
+    entregas_por_agente_mes = collections.Counter()
     DIAS_KEYS = ["cdmx", "mty", "tij", "qro", "gdl", "mxl", "otros"]
     CITY_TO_DIASKEY = {"CDMX / Edo Mex": "cdmx", "Monterrey": "mty", "Tijuana": "tij",
                        "Queretaro": "qro", "Guadalajara": "gdl", "Mexicali": "mxl",
@@ -283,10 +324,6 @@ def main():
         stage = STAGE_MAP.get(raw_status, "__UNMAPPED__")
         city_raw = get(r, "Ciudad Base").strip()
         city = CITY_MAP.get(city_raw, city_raw)
-        if raw_status == "EN PREPARACION":
-            modelo_raw = get(r, "Modelo").strip()
-            vin = get(r, "VIN").strip()
-            en_prep_por_ciudad[city or "Sin ciudad"].append({"vin": vin, "modelo": modelo_raw})
         if stage == "__UNMAPPED__":
             unmapped_status[raw_status] += 1
             continue
@@ -304,39 +341,36 @@ def main():
         # este filtro nuevo_semi_mtd/modelo_mtd mezclaban ambos meses bajo la etiqueta del mes
         # nuevo. Ver project_dashboard_growth_automation.md para el detalle completo.
         fe = parse_fe(get(r, "F / Entrega"))
-        if fe and fe.month == today.month and fe.year == today.year:
-            diaskey = CITY_TO_DIASKEY.get(city, "otros")
+        is_current_month = fe and fe.month == today.month and fe.year == today.year
+        if is_current_month:
             if raw_status == "ENTREGADO":
-                entregado_by_day[fe.day][diaskey] += 1
                 nuevo_semi_mtd[get(r, "Nuevo / Semi").strip()] += 1
                 modelo_raw = get(r, "Modelo").strip()
                 mkey = MODEL_MAP.get(modelo_raw, "otros")
                 modelo_mtd[mkey] += 1
+                agente = get(r, "Agente").strip()
+                if agente:
+                    entregas_por_agente_mes[agente] += 1
+        if fe and fe >= DIAS_RANGE_START:
+            diaskey = CITY_TO_DIASKEY.get(city, "otros")
+            if raw_status == "ENTREGADO":
+                entregado_by_day[fe][diaskey] += 1
             elif stage is not None:
-                agendada_by_day[fe.day] += 1
+                agendada_by_day[fe] += 1
 
     if unmapped_status:
         print("WARNING: Estatus BO sin mapear:", dict(unmapped_status), file=sys.stderr)
-
-    # "En preparación" = ya salió de Fleet, va hacia Sales/Growth -- el equipo debe trabajarlo de
-    # inmediato para agendar cita y entregar ASAP. Pedido explícito de Ricardo 3-sep-2026 (ver
-    # project_dashboard_growth_automation.md). VIN/Modelo sí están poblados en la fuente; Driver/
-    # Numero/Agente/F-Tentativa-Liberacion casi siempre vienen vacíos todavía -- no se muestran.
-    en_prep_by_ciudad = sorted(
-        [{"ciudad": c, "count": len(items),
-          "modelos": [i["modelo"] for i in items],
-          "vins": [i["vin"] for i in items if i["vin"]]}
-         for c, items in en_prep_por_ciudad.items()],
-        key=lambda d: -d["count"])
-    en_prep_total = sum(d["count"] for d in en_prep_by_ciudad)
 
     etapas_total = sum(etapas_count.values())
     entregado_mtd = etapas_count.get("entregado", 0)
 
     dias_present = sorted(set(list(entregado_by_day.keys()) + list(agendada_by_day.keys())))
-    dias_labels = [str(d) for d in dias_present]
-    entregados_dia = [{k: entregado_by_day[d].get(k, 0) for k in DIAS_KEYS} for d in dias_present]
-    agendadas_dia = [agendada_by_day.get(d, 0) for d in dias_present]
+    dias_labels = [a[0] for a in DIAS_AGOSTO_CLOSED] + [f"{d.day}-{MONTH_LABELS_ES[d.month-1].lower()}" for d in dias_present]
+    entregados_dia = [a[1] for a in DIAS_AGOSTO_CLOSED] + [{k: entregado_by_day[d].get(k, 0) for k in DIAS_KEYS} for d in dias_present]
+    agendadas_dia = [a[2] for a in DIAS_AGOSTO_CLOSED] + [agendada_by_day.get(d, 0) for d in dias_present]
+
+    entregas_agente_mes = [{"agente": a, "total": n}
+                            for a, n in entregas_por_agente_mes.most_common()]
 
     # ---------- Forecast del mes en curso ----------
     yesterday = today - datetime.timedelta(days=1)
@@ -361,59 +395,10 @@ def main():
         [{"ciudad": c, "value": v} for c, v in etapas_ciudades.get("listo", {}).items()],
         key=lambda d: -d["value"])
 
-    # ---------- Log Inventario Diario: leer, escribir/actualizar hoy, releer ----------
-    # La fila de HOY se sobreescribe en cada refresh (no solo se escribe una vez) -- este log
-    # es una foto de "Listo/Entrega ahora mismo", no un acumulado del dia, asi que debe reflejar
-    # el estado mas reciente cada vez que el pipeline corre, igual que el proceso manual que
-    # reemplazo (ver project_mix_flota_report.md, actualizaba in-place varias veces por dia).
-    # Bug real encontrado 31-ago-2026: esta version solo escribia una vez (si faltaba la fila del
-    # dia) y nunca la volvia a tocar -- Ricardo veia 22-33 unidades Listo/Entrega en vivo mientras
-    # el log del dia se quedo congelado en 18, capturado en el primer refresh de la mañana.
-    # Blindado con try/except: esta seccion es una BITACORA auxiliar (side-effect,
-    # no forma parte de los numeros principales del dashboard) -- si falla (ej. se
-    # revoco el permiso de escritura sobre el Back Office, incidente real 10-sep-2026:
-    # HTTP 403 PERMISSION_DENIED en el append, 5 corridas seguidas tronaron COMPLETO
-    # el refresh y el dashboard entero se quedo sin actualizar por horas, no solo
-    # este log) NUNCA debe tumbar el resto del refresh. Si falla, se sigue con los
-    # datos ya leidos (o vacios) y se reporta por stdout, pero data.js se termina de
-    # escribir igual.
-    log_data = []
-    try:
-        log_rng = "'Log Inventario Diario'!A1:J1000"
-        log_rows = sheets_get(token, BO_ID, log_rng)
-        log_header, log_data = log_rows[0], log_rows[1:]
-        today_iso = today.isoformat()
-        today_row_idx = next((i for i, row in enumerate(log_data) if row and row[0] == today_iso), None)
-
-        listo_by_city = etapas_ciudades.get("listo", {})
-        new_row = [
-            today_iso, str(sum(listo_by_city.values())),
-            str(listo_by_city.get("Tijuana", 0)), str(listo_by_city.get("Mexicali", 0)),
-            str(listo_by_city.get("Monterrey", 0)), str(listo_by_city.get("Guadalajara", 0)),
-            str(listo_by_city.get("Queretaro", 0)), str(listo_by_city.get("CDMX / Edo Mex", 0)),
-            str(listo_by_city.get("Merida", 0)), str(listo_by_city.get("Saltillo", 0)),
-        ]
-        if today_row_idx is None:
-            sheets_append(token, BO_ID, "'Log Inventario Diario'!A1:J1", new_row)
-            log_data.append(new_row)
-        else:
-            sheet_row_num = today_row_idx + 2  # +1 por header, +1 por indexado en 1
-            sheets_update(token, BO_ID, f"'Log Inventario Diario'!A{sheet_row_num}:J{sheet_row_num}", new_row)
-            log_data[today_row_idx] = new_row
-    except Exception as e:
-        print(f"WARNING: Log Inventario Diario fallo ({type(e).__name__}: {e}) -- "
-              f"se sigue con el refresh, el resto del dashboard NO se ve afectado.")
-
-    inv_log = []
-    for row in log_data[-14:]:  # ultimas 2 semanas
-        if not row or not row[0]:
-            continue
-        d = datetime.datetime.strptime(row[0], "%Y-%m-%d").date()
-        inv_log.append({
-            "fecha": f"{d.day}-{MONTH_LABELS_ES[d.month-1].lower()}",
-            "total": int(row[1] or 0), "tij": int(row[2] or 0),
-            "mxl": int(row[3] or 0), "mty": int(row[4] or 0),
-        })
+    # Log Inventario Diario -- eliminado del dashboard 15-sep-2026 a pedido de Ricardo (no se
+    # podia actualizar desde el 10-sep, ver project_dashboard_growth_automation.md para el
+    # detalle completo de como se sacaba, por si se retoma a futuro cuando se restaure el
+    # acceso de escritura al Back Office).
 
     # ---------- Presales-Inventory: Waitlist (raw) ----------
     # Rango con margen generoso (20 columnas reales al momento de escribir esto, AZ=52) -- mismo
@@ -564,178 +549,10 @@ def main():
         key=lambda d: -d["total"])
     fleet_city_stage = [d for d in fleet_city_stage if d["total"] > 0]
 
-    # ---- Chart 2: volumen esperado por día, por ciudad (excluye DESFLOTE y "sin fecha") ----
-    def fleet_first_date(s):
-        s = s.strip()
-        if not s:
-            return None
-        part = s.split("|")[0].strip()
-        m = re.match(r"^(\d{4})-(\d{2})-(\d{2})$", part)
-        if m:
-            return datetime.date(int(m.group(1)), int(m.group(2)), int(m.group(3)))
-        return None
-
-    FLEET_DAY_KEYS = ["tij", "cdmx", "gdl", "qro", "mty", "otros"]
-    FLEET_DAY_CITY_MAP = {"Tijuana": "tij", "CDMX / Edo Mex": "cdmx", "Guadalajara": "gdl",
-                           "Queretaro": "qro", "Monterrey": "mty"}
-
-    fleet_sin_fecha_n = 0
-    day_buckets = collections.defaultdict(lambda: collections.Counter())
-    for r in fleet_backlog:
-        fd = fleet_first_date(fget(r, "GEST_FECHA_COMPROMISO_ENTREGA"))
-        if fd is None:
-            fleet_sin_fecha_n += 1
-            continue
-        city = fleet_map_city(fget(r, "UBICACION_ACTUAL").strip())
-        key = FLEET_DAY_CITY_MAP.get(city, "otros")
-        day_buckets[fd][key] += 1
-
-    fleet_dias_labels = [f"{d.day}-{MONTH_LABELS_ES[d.month-1].lower()}" for d in sorted(day_buckets.keys())]
-    fleet_by_day = [{k: day_buckets[d].get(k, 0) for k in FLEET_DAY_KEYS} for d in sorted(day_buckets.keys())]
-    fleet_vencido_dias = sum(1 for d in day_buckets if d < today)
-    fleet_vencido_unidades = sum(sum(day_buckets[d].values()) for d in day_buckets if d < today)
-
-    # ---------- Back Office: GLOBAL DECLINADOS (agendas de entrega declinadas + recuperación) ----------
-    # Regla de negocio (confirmada por Ricardo 30-ago-2026): un asesor tiene 30 dias desde la
-    # fecha de agenda declinada para recuperar al cliente -- despues de eso pasa a Contact
-    # Center y ya no cuenta en sus comisiones. "vencido" abajo = pendiente con mas de 30 dias.
-    DEPARTED_AGENTS = {"araceli olvera", "mariam bangoura", "fernando velazquez",
-                        "hector vera", "carlos mejia", "yael munoz"}
-
-    def norm_simple(s):
-        return re.sub(r"\s+", " ", norm_ascii(s)).strip().lower()
-
-    decl_raw = sheets_get(token, BO_ID, "'GLOBAL DECLINADOS'!A1:P1001")
-    dheader, drows = decl_raw[0], decl_raw[1:]
-    validar_columnas("GLOBAL DECLINADOS", dheader,
-                      ["Agente", "STATUS DECLINADO", "MOTIVO", "MES DECLINACIÓN", "FECHA AGENDA "])
-    didx = {h: i for i, h in enumerate(dheader)}
-
-    def dget(r, col):
-        i = didx.get(col)
-        if i is None or len(r) <= i:
-            return ""
-        return r[i]
-
-    MES_ORDER = {"enero": 1, "febrero": 2, "marzo": 3, "abril": 4, "mayo": 5, "junio": 6,
-                 "julio": 7, "agosto": 8, "septiembre": 9, "octubre": 10, "noviembre": 11,
-                 "diciembre": 12}
-
-    # Clasificacion trabajable/no-trabajable por motivo (juicio de negocio, no un dato --
-    # confirmar/ajustar con Ricardo si algun motivo deberia cambiar de lado). "Trabajable" =
-    # se puede reactivar con la accion correcta (seguimiento, otro modelo, inventario nuevo).
-    # "No trabajable" = el cliente ya resolvio su necesidad por otro lado o ya no califica.
-    MOTIVO_TRABAJABLE = {
-        "DEJA DE CONTESTAR": True, "TUVO UN IMPREVISTO": True, "QUIERE OTRO MODELO": True,
-        "NO QUIERE SEMINUEVO": True, "NO CONSIGUIÓ AVAL": True, "NO LE CONVENCE EL CONTRATO": True,
-        "LE FATA UN DOCUMENTO": True, "ISSUE MECANICO/ESTETICO": True, "NO CONSIGUE DINERO": True,
-        "YA ADQUIRIÓ AUTO": False, "EXPRESA NO SEGUIR": False, "YA NO TRABAJA EN PLATAFORMAS": False,
-    }
-
-    agenda_total = agenda_recuperado = agenda_perdido = agenda_pendiente = agenda_vencido = 0
-    agenda_by_month = collections.OrderedDict()
-    agenda_motivos = collections.Counter()
-    agenda_motivo_trabajable = {}
-    agenda_by_agent = collections.defaultdict(collections.Counter)
-    agenda_orphan = collections.defaultdict(list)
-    agenda_semaforo = collections.Counter()  # pendientes por bracket de dias hacia el limite de 30
-
-    for r in drows:
-        ciudad_d = (r[0].strip() if len(r) > 0 else "")
-        agente_d = dget(r, "Agente").strip()
-        status_d = dget(r, "STATUS DECLINADO").strip()
-        motivo_d = dget(r, "MOTIVO").strip()
-        mes_d = dget(r, "MES DECLINACIÓN").strip()
-        fecha_d = dget(r, "FECHA AGENDA ").strip()
-        if not agente_d and not ciudad_d:
-            continue
-        agenda_total += 1
-        fecha_parsed = parse_date_multi(fecha_d, ["%d/%m/%Y"])
-        age_days = (today - fecha_parsed).days if fecha_parsed else None
-        is_pending = status_d == "DECLINADO/SIGUE EN ESPERA"
-        is_vencido = is_pending and age_days is not None and age_days > 30
-
-        if status_d == "ENTREGADO":
-            agenda_recuperado += 1
-        elif status_d == "NO VUELVE A RETOMAR":
-            agenda_perdido += 1
-        elif is_pending:
-            agenda_pendiente += 1
-            if is_vencido:
-                agenda_vencido += 1
-            if age_days is None:
-                agenda_semaforo["sin_fecha"] += 1
-            elif age_days <= 15:
-                agenda_semaforo["verde"] += 1
-            elif age_days <= 30:
-                agenda_semaforo["amarillo"] += 1
-            else:
-                agenda_semaforo["rojo"] += 1
-
-        if mes_d:
-            mc = agenda_by_month.setdefault(mes_d, collections.Counter())
-            mc["total"] += 1
-            if status_d == "ENTREGADO":
-                mc["recuperado"] += 1
-            elif status_d == "NO VUELVE A RETOMAR":
-                mc["perdido"] += 1
-            elif is_pending:
-                mc["pendiente"] += 1
-
-        if motivo_d:
-            agenda_motivos[motivo_d] += 1
-            if motivo_d not in agenda_motivo_trabajable:
-                agenda_motivo_trabajable[motivo_d] = MOTIVO_TRABAJABLE.get(motivo_d, True)
-
-        if agente_d:
-            ac = agenda_by_agent[agente_d]
-            ac["total"] += 1
-            if status_d == "ENTREGADO":
-                ac["recuperado"] += 1
-            elif status_d == "NO VUELVE A RETOMAR":
-                ac["perdido"] += 1
-            elif is_pending:
-                ac["pendiente"] += 1
-                if is_vencido:
-                    ac["vencido"] += 1
-            if norm_simple(agente_d) in DEPARTED_AGENTS and is_pending:
-                agenda_orphan[agente_d].append(age_days if age_days is not None else 0)
-
-    def mes_sort_key(mes_label):
-        parts = mes_label.split()
-        if len(parts) == 2 and parts[0].lower() in MES_ORDER:
-            return (parts[1], MES_ORDER[parts[0].lower()])
-        return ("9999", 99)
-
-    agenda_decline_by_month = [
-        {"mes": m, "total": c["total"], "recuperado": c.get("recuperado", 0),
-         "pendiente": c.get("pendiente", 0), "perdido": c.get("perdido", 0),
-         "pct_recuperado": round(c.get("recuperado", 0) / c["total"] * 100, 1) if c["total"] else 0}
-        for m, c in sorted(agenda_by_month.items(), key=lambda kv: mes_sort_key(kv[0]))
-    ]
-
-    agenda_decline_motivos = [
-        {"motivo": k, "count": v, "trabajable": agenda_motivo_trabajable.get(k, True)}
-        for k, v in agenda_motivos.most_common()
-    ]
-
-    agenda_decline_by_agent = []
-    for agente_d, c in agenda_by_agent.items():
-        if norm_simple(agente_d) in DEPARTED_AGENTS:
-            continue
-        total_a = c["total"]
-        agenda_decline_by_agent.append({
-            "agente": agente_d, "total": total_a,
-            "recuperado": c.get("recuperado", 0), "pendiente": c.get("pendiente", 0),
-            "vencido": c.get("vencido", 0), "perdido": c.get("perdido", 0),
-            "pct_recuperado": round(c.get("recuperado", 0) / total_a * 100, 1) if total_a else 0,
-        })
-    agenda_decline_by_agent.sort(key=lambda d: -d["total"])
-
-    agenda_decline_orphaned = [
-        {"agente": a, "count": len(ages), "min_age": min(ages), "max_age": max(ages)}
-        for a, ages in sorted(agenda_orphan.items(), key=lambda kv: -len(kv[1]))
-    ]
+    # "Volumen esperado por día, por ciudad" (Chart 2 de Fleet Backlog) y "Agendas declinadas —
+    # recuperación de ventas" (pestaña GLOBAL DECLINADOS) -- eliminados del dashboard 15-sep-2026
+    # a pedido de Ricardo (no aportaban valor / no se actualizaban de forma útil). Reemplazado
+    # "Agendas declinadas" por el ranking de entregas por asesor (entregas_agente_mes, arriba).
 
     data = {
         "generated_at": datetime.datetime.utcnow().isoformat() + "Z",
@@ -753,7 +570,7 @@ def main():
         "dias_labels": dias_labels,
         "entregados_dia": entregados_dia,
         "agendadas_dia": agendadas_dia,
-        "inv_log": inv_log,
+        "entregas_agente_mes": entregas_agente_mes,
         "tiers": tiers,
         "tiers_total": sum(tier_totals.values()),
         "max_wait_days": max_wait_days,
@@ -770,28 +587,6 @@ def main():
         "fleet_total": len(fleet_backlog),
         "fleet_desflote_n": fleet_desflote_n,
         "fleet_city_stage": fleet_city_stage,
-        "fleet_dias_labels": fleet_dias_labels,
-        "fleet_by_day": fleet_by_day,
-        "fleet_sin_fecha_n": fleet_sin_fecha_n,
-        "fleet_vencido_dias": fleet_vencido_dias,
-        "fleet_vencido_unidades": fleet_vencido_unidades,
-        "en_prep_by_ciudad": en_prep_by_ciudad,
-        "en_prep_total": en_prep_total,
-        "agenda_decline_kpis": {
-            "total": agenda_total, "recuperado": agenda_recuperado,
-            "pct_recuperado": round(agenda_recuperado / agenda_total * 100, 1) if agenda_total else 0,
-            "pendiente": agenda_pendiente, "vencido": agenda_vencido,
-            "pct_vencido_of_pendiente": round(agenda_vencido / agenda_pendiente * 100, 1) if agenda_pendiente else 0,
-            "perdido": agenda_perdido,
-        },
-        "agenda_decline_by_month": agenda_decline_by_month,
-        "agenda_decline_semaforo": {
-            "verde": agenda_semaforo.get("verde", 0), "amarillo": agenda_semaforo.get("amarillo", 0),
-            "rojo": agenda_semaforo.get("rojo", 0),
-        },
-        "agenda_decline_motivos": agenda_decline_motivos,
-        "agenda_decline_by_agent": agenda_decline_by_agent,
-        "agenda_decline_orphaned": agenda_decline_orphaned,
     }
 
     # ---------- Aprobaciones (fuente: CSVs manuales, ver compute_aprobaciones.py) ----------

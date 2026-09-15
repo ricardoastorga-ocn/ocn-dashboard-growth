@@ -26,13 +26,6 @@ CSV_PATHS = [
 CITY_ORDER = ["Tijuana", "CDMX / Edo Mex", "Monterrey", "Mexicali", "Guadalajara",
               "Queretaro", "Merida", "Puebla", "Saltillo"]
 
-# mismos tokens de color ya usados en el resto del dashboard para estas ciudades
-# (ver DIAS_COLOR / FLEET_DAY_COLOR en index.html)
-CITY_COLOR = {
-    "Tijuana": "--s-mg3", "CDMX / Edo Mex": "--s-byd", "Monterrey": "--s-mg5",
-    "Mexicali": "--s-tiggo", "Guadalajara": "--s-king", "Queretaro": "--s-aion",
-}
-
 MESES = ["ene", "feb", "mar", "abr", "may", "jun", "jul", "ago", "sep", "oct", "nov", "dic"]
 
 RESULT_KEY = {"APROBADO": "aprobado", "RECHAZADO": "rechazado", "PENDIENTE": "pendiente"}
@@ -61,12 +54,33 @@ def clean_date(s):
     return s
 
 
+MES_NOMBRE = ["enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto",
+              "septiembre", "octubre", "noviembre", "diciembre"]
+
+
 def fmt_short(d):
     return f"{d.day} {MESES[d.month - 1]}"
 
 
 def monday_of(d):
     return d - datetime.timedelta(days=d.weekday())
+
+
+def business_days_between(start, end):
+    n = 0
+    d = start
+    while d <= end:
+        if d.weekday() < 5:
+            n += 1
+        d += datetime.timedelta(days=1)
+    return n
+
+
+def add_months(d, delta):
+    m = d.month - 1 + delta
+    y = d.year + m // 12
+    m = m % 12 + 1
+    return datetime.date(y, m, 1)
 
 
 def load_rows():
@@ -108,7 +122,6 @@ def main():
     dates_sorted = sorted(set(r["_date"] for r in rows))
     date_min, date_max = dates_sorted[0], dates_sorted[-1]
     all_days = [date_min + datetime.timedelta(days=i) for i in range((date_max - date_min).days + 1)]
-    midpoint = date_min + datetime.timedelta(days=(date_max - date_min).days // 2)
 
     # ---------- semanal (lunes-domingo) ----------
     # Verificado 7-sep-2026 a peticion de Ricardo ("revisa que este actualizada semanal de
@@ -137,77 +150,46 @@ def main():
             "es_parcial": es_parcial,
         })
 
-    # ---------- por ciudad (todo el periodo) + tendencia (1a mitad vs 2a mitad) ----------
-    # El donut es una foto de todo el periodo -- no muestra si una ciudad va mejorando o
-    # no. Se agrega delta_pp comparando el % de aprobacion de la 1a mitad del periodo vs.
-    # la 2a mitad, para que "sigue sin moverse" (Ricardo) se pueda leer directo en la
-    # leyenda sin necesitar una gráfica de tendencia aparte.
-    by_city = {}
-    by_city_half = {}
-    for r in rows:
-        c = by_city.setdefault(r["_city"], {"aprobado": 0, "rechazado": 0, "pendiente": 0})
-        c[RESULT_KEY[r["resultado"]]] += 1
-        if r["resultado"] in ("APROBADO", "RECHAZADO"):
-            half = "h1" if r["_date"] <= midpoint else "h2"
-            hc = by_city_half.setdefault(r["_city"], {"h1": {"aprobado": 0, "rechazado": 0}, "h2": {"aprobado": 0, "rechazado": 0}})
-            hc[half][RESULT_KEY[r["resultado"]]] += 1
-    city_list = []
-    for c in CITY_ORDER + ["Otro"]:
-        if c not in by_city:
-            continue
-        d = by_city[c]
-        res = d["aprobado"] + d["rechazado"]
-        h = by_city_half.get(c, {"h1": {"aprobado": 0, "rechazado": 0}, "h2": {"aprobado": 0, "rechazado": 0}})
-        h1_res = h["h1"]["aprobado"] + h["h1"]["rechazado"]
-        h2_res = h["h2"]["aprobado"] + h["h2"]["rechazado"]
-        pct_h1 = round(h["h1"]["aprobado"] / h1_res * 100, 1) if h1_res else None
-        pct_h2 = round(h["h2"]["aprobado"] / h2_res * 100, 1) if h2_res else None
-        delta_pp = round(pct_h2 - pct_h1, 1) if (pct_h1 is not None and pct_h2 is not None) else None
-        city_list.append({
-            "ciudad": c, "colorVar": CITY_COLOR.get(c, "--s-otros"),
-            "total": d["aprobado"] + d["rechazado"] + d["pendiente"],
-            "aprobado": d["aprobado"], "rechazado": d["rechazado"], "pendiente": d["pendiente"],
-            "resueltas": res,
-            "pct_aprobacion": round(d["aprobado"] / res * 100, 1) if res else 0.0,
-            "pct_h1": pct_h1, "pct_h2": pct_h2, "delta_pp": delta_pp,
-        })
+    # ---------- comparativo mes actual vs. mes anterior, mismos dias habiles ----------
+    # Reemplaza el donut "Aprobacion por ciudad" y el foco Tijuana/Mexicali -- Ricardo pidio
+    # en su lugar un comparativo directo de 2 columnas (mes en curso vs. el mes anterior,
+    # cortando ambos al mismo numero de dias habiles desde el dia 1) para saber cuanto se
+    # ha aprobado/rechazado en lo que va del mes vs. el mismo avance del mes previo
+    # (15-sep-2026). Generico a proposito (no hardcodea "agosto"/"septiembre") para que
+    # el proximo mes que Ricardo traiga un CSV nuevo, el comparativo avance solo.
+    mes_actual_inicio = datetime.date(date_max.year, date_max.month, 1)
+    mes_dias_habiles = business_days_between(mes_actual_inicio, date_max)
 
-    # Solo 3 series -- Tijuana y Mexicali (foco explicito de Ricardo) + un "resto de la
-    # red" agregado (CDMX/Edo Mex, Monterrey, Queretaro, Guadalajara, Merida, Puebla,
-    # Saltillo, Otro combinados en un solo pool). Se probo primero con 7 lineas
-    # individuales (una por ciudad) y Ricardo la rechazo por ilegible ("es muy mala la
-    # grafica") -- con muchos dias en el eje, 5 lineas de referencia delgadas encima de
-    # las 2 que importan es puro ruido visual. El agregado da la misma comparacion ("como
-    # le va a Tijuana/Mexicali vs. el resto") en una sola serie de referencia limpia.
-    # Ronda 4 de esta grafica (7-sep, tarde): Ricardo pidio verla como BARRAS semanales
-    # (lunes-domingo, mismo corte que "Solicitudes por semana") en vez de linea diaria,
-    # para que el comportamiento semana a semana sea claro -- ver Ronda correspondiente
-    # en project_dashboard_growth_automation.md.
-    FOCUS_BUCKETS = {
-        "Tijuana": "tij", "Mexicali": "mxl",
-        "CDMX / Edo Mex": "resto", "Monterrey": "resto", "Queretaro": "resto",
-        "Guadalajara": "resto", "Merida": "resto", "Puebla": "resto",
-        "Saltillo": "resto", "Otro": "resto",
-    }
-    FOCUS_KEYS = ["tij", "mxl", "resto"]
-    weekly_focus_counts = {}
-    for r in rows:
-        bucket = FOCUS_BUCKETS.get(r["_city"])
-        if bucket is None:
-            continue
-        wk_start = monday_of(r["_date"])
-        c = weekly_focus_counts.setdefault(wk_start, {"tij": 0, "mxl": 0, "resto": 0})
-        c[bucket] += 1
-    weekly_focus = []
-    for wk_start in sorted(weekly_focus_counts):
-        wk_end = wk_start + datetime.timedelta(days=6)
-        es_parcial = wk_start < date_min or wk_end > date_max
-        c = weekly_focus_counts[wk_start]
-        weekly_focus.append({
-            "label": f"{fmt_short(wk_start)}–{fmt_short(wk_end)}" + (" (parcial)" if es_parcial else ""),
-            "tij": c["tij"], "mxl": c["mxl"], "resto": c["resto"],
-            "es_parcial": es_parcial,
-        })
+    mes_anterior_inicio = add_months(mes_actual_inicio, -1)
+    d = mes_anterior_inicio
+    count = 0
+    while count < mes_dias_habiles:
+        if d.weekday() < 5:
+            count += 1
+        if count == mes_dias_habiles:
+            break
+        d += datetime.timedelta(days=1)
+    mes_anterior_fin = d
+
+    def summarize_window(start, end):
+        subset = [r for r in rows if start <= r["_date"] <= end]
+        ap = sum(1 for r in subset if r["resultado"] == "APROBADO")
+        rc = sum(1 for r in subset if r["resultado"] == "RECHAZADO")
+        pe = sum(1 for r in subset if r["resultado"] == "PENDIENTE")
+        res = ap + rc
+        return {"total": ap + rc + pe, "aprobado": ap, "rechazado": rc, "pendiente": pe,
+                "pct_aprobacion": round(ap / res * 100, 1) if res else 0.0}
+
+    month_compare = [
+        {"mes": MES_NOMBRE[mes_anterior_inicio.month - 1].capitalize(),
+         "rango": f"{fmt_short(mes_anterior_inicio)}–{fmt_short(mes_anterior_fin)}",
+         "dias_habiles": mes_dias_habiles,
+         **summarize_window(mes_anterior_inicio, mes_anterior_fin)},
+        {"mes": MES_NOMBRE[mes_actual_inicio.month - 1].capitalize(),
+         "rango": f"{fmt_short(mes_actual_inicio)}–{fmt_short(date_max)}",
+         "dias_habiles": mes_dias_habiles,
+         **summarize_window(mes_actual_inicio, date_max)},
+    ]
 
     # ---------- volumen diario por ciudad (todas, sin agrupar) ----------
     # A diferencia del % de aprobacion (una tasa independiente por ciudad, ruidosa con
@@ -236,8 +218,7 @@ def main():
             "pct_aprobacion": pct_aprobacion,
         },
         "aprob_weekly": weekly_list,
-        "aprob_by_city": city_list,
-        "aprob_weekly_focus": weekly_focus,
+        "aprob_month_compare": month_compare,
         "aprob_daily_volume": daily_volume,
         "aprob_meta": {
             "fecha_min": fmt_short(date_min), "fecha_max": fmt_short(date_max),
@@ -252,8 +233,7 @@ def main():
           f"rechazado={rechazado} pendiente={pendiente} pct_aprobacion={pct_aprobacion}%")
     print(f"rango: {fmt_short(date_min)} - {fmt_short(date_max)}  dias={len(all_days)}  "
           f"semanas={len(weekly_list)} (primera y ultima parciales)")
-    print("por ciudad (pct_total, pct_h1->pct_h2, delta_pp):",
-          [(c["ciudad"], c["pct_aprobacion"], c["pct_h1"], c["pct_h2"], c["delta_pp"]) for c in city_list])
+    print("comparativo mismos dias habiles:", month_compare)
 
 
 if __name__ == "__main__":
