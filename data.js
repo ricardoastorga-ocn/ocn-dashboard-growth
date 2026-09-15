@@ -1,5 +1,5 @@
 window.__DASHBOARD_DATA__ = {
-  "generated_at": "2026-09-15T17:55:58.401500Z",
+  "generated_at": "2026-09-15T18:56:39.022015Z",
   "months": [
     "Ago 25",
     "Sep 25",
@@ -71,7 +71,7 @@ window.__DASHBOARD_DATA__ = {
     },
     {
       "nuevo": 3,
-      "seminuevo": 90
+      "seminuevo": 94
     }
   ],
   "modelo": [
@@ -193,12 +193,12 @@ window.__DASHBOARD_DATA__ = {
       "otros": 2
     },
     {
-      "byd": 48,
+      "byd": 50,
       "mg5": 27,
       "mg3": 11,
       "aion": 1,
       "king": 1,
-      "tiggo": 3,
+      "tiggo": 5,
       "otros": 2
     }
   ],
@@ -219,27 +219,27 @@ window.__DASHBOARD_DATA__ = {
     },
     {
       "key": "listo",
-      "value": 16
+      "value": 15
     },
     {
       "key": "agendada",
-      "value": 5
+      "value": 7
     },
     {
       "key": "contrato",
-      "value": 4
+      "value": 2
     },
     {
       "key": "cenv",
-      "value": 3
-    },
-    {
-      "key": "liga",
       "value": 1
     },
     {
+      "key": "liga",
+      "value": 0
+    },
+    {
       "key": "entregado",
-      "value": 93
+      "value": 97
     },
     {
       "key": "issue",
@@ -248,36 +248,31 @@ window.__DASHBOARD_DATA__ = {
   ],
   "etapas_ciudades": {
     "entregado": {
-      "CDMX / Edo Mex": 22,
+      "CDMX / Edo Mex": 23,
       "Mexicali": 2,
-      "Monterrey": 24,
+      "Monterrey": 26,
       "Puebla": 4,
       "Saltillo": 2,
-      "Tijuana": 27,
+      "Tijuana": 28,
       "Guadalajara": 8,
       "Queretaro": 4
     },
     "listo": {
       "Mexicali": 3,
-      "Monterrey": 5,
+      "Monterrey": 4,
       "Queretaro": 1,
       "Tijuana": 7
     },
     "agendada": {
-      "Monterrey": 5
-    },
-    "contrato": {
-      "Tijuana": 1,
-      "CDMX / Edo Mex": 2,
-      "Monterrey": 1
+      "Monterrey": 6,
+      "CDMX / Edo Mex": 1
     },
     "cenv": {
-      "Tijuana": 1,
-      "Guadalajara": 1,
-      "Monterrey": 1
+      "Tijuana": 1
     },
-    "liga": {
-      "CDMX / Edo Mex": 1
+    "contrato": {
+      "CDMX / Edo Mex": 1,
+      "Monterrey": 1
     }
   },
   "entregado_target_pct": 95,
@@ -288,7 +283,7 @@ window.__DASHBOARD_DATA__ = {
     },
     {
       "ciudad": "Monterrey",
-      "value": 5
+      "value": 4
     },
     {
       "ciudad": "Mexicali",
@@ -315,8 +310,8 @@ window.__DASHBOARD_DATA__ = {
     {
       "ciudad": "Monterrey",
       "espera": 81,
-      "listo": 5,
-      "gap": 76
+      "listo": 4,
+      "gap": 77
     },
     {
       "ciudad": "Puebla",
@@ -356,20 +351,240 @@ window.__DASHBOARD_DATA__ = {
     }
   ],
   "dias_labels": [
-    "1",
-    "2",
-    "3",
-    "4",
-    "7",
-    "8",
-    "9",
-    "10",
-    "11",
-    "14",
-    "15",
-    "17"
+    "3-ago",
+    "4-ago",
+    "5-ago",
+    "6-ago",
+    "7-ago",
+    "10-ago",
+    "11-ago",
+    "12-ago",
+    "13-ago",
+    "14-ago",
+    "17-ago",
+    "18-ago",
+    "19-ago",
+    "20-ago",
+    "21-ago",
+    "24-ago",
+    "25-ago",
+    "26-ago",
+    "27-ago",
+    "28-ago",
+    "29-ago",
+    "31-ago",
+    "1-sep",
+    "2-sep",
+    "3-sep",
+    "4-sep",
+    "7-sep",
+    "8-sep",
+    "9-sep",
+    "10-sep",
+    "11-sep",
+    "14-sep",
+    "15-sep",
+    "17-sep"
   ],
   "entregados_dia": [
+    {
+      "cdmx": 0,
+      "mty": 1,
+      "tij": 0,
+      "qro": 0,
+      "gdl": 0,
+      "mxl": 0,
+      "otros": 1
+    },
+    {
+      "cdmx": 7,
+      "mty": 3,
+      "tij": 1,
+      "qro": 0,
+      "gdl": 0,
+      "mxl": 0,
+      "otros": 0
+    },
+    {
+      "cdmx": 5,
+      "mty": 5,
+      "tij": 3,
+      "qro": 0,
+      "gdl": 0,
+      "mxl": 0,
+      "otros": 1
+    },
+    {
+      "cdmx": 6,
+      "mty": 4,
+      "tij": 3,
+      "qro": 0,
+      "gdl": 2,
+      "mxl": 0,
+      "otros": 0
+    },
+    {
+      "cdmx": 5,
+      "mty": 4,
+      "tij": 4,
+      "qro": 0,
+      "gdl": 0,
+      "mxl": 0,
+      "otros": 0
+    },
+    {
+      "cdmx": 1,
+      "mty": 3,
+      "tij": 0,
+      "qro": 3,
+      "gdl": 0,
+      "mxl": 0,
+      "otros": 0
+    },
+    {
+      "cdmx": 1,
+      "mty": 3,
+      "tij": 1,
+      "qro": 0,
+      "gdl": 1,
+      "mxl": 0,
+      "otros": 3
+    },
+    {
+      "cdmx": 4,
+      "mty": 2,
+      "tij": 2,
+      "qro": 3,
+      "gdl": 0,
+      "mxl": 0,
+      "otros": 1
+    },
+    {
+      "cdmx": 5,
+      "mty": 2,
+      "tij": 3,
+      "qro": 0,
+      "gdl": 0,
+      "mxl": 0,
+      "otros": 1
+    },
+    {
+      "cdmx": 3,
+      "mty": 1,
+      "tij": 1,
+      "qro": 0,
+      "gdl": 0,
+      "mxl": 0,
+      "otros": 0
+    },
+    {
+      "cdmx": 3,
+      "mty": 2,
+      "tij": 1,
+      "qro": 3,
+      "gdl": 4,
+      "mxl": 0,
+      "otros": 1
+    },
+    {
+      "cdmx": 0,
+      "mty": 2,
+      "tij": 4,
+      "qro": 0,
+      "gdl": 0,
+      "mxl": 3,
+      "otros": 0
+    },
+    {
+      "cdmx": 2,
+      "mty": 1,
+      "tij": 2,
+      "qro": 0,
+      "gdl": 4,
+      "mxl": 1,
+      "otros": 3
+    },
+    {
+      "cdmx": 3,
+      "mty": 4,
+      "tij": 1,
+      "qro": 4,
+      "gdl": 1,
+      "mxl": 0,
+      "otros": 2
+    },
+    {
+      "cdmx": 3,
+      "mty": 2,
+      "tij": 4,
+      "qro": 2,
+      "gdl": 0,
+      "mxl": 3,
+      "otros": 0
+    },
+    {
+      "cdmx": 3,
+      "mty": 6,
+      "tij": 4,
+      "qro": 0,
+      "gdl": 1,
+      "mxl": 1,
+      "otros": 1
+    },
+    {
+      "cdmx": 4,
+      "mty": 4,
+      "tij": 1,
+      "qro": 0,
+      "gdl": 0,
+      "mxl": 1,
+      "otros": 0
+    },
+    {
+      "cdmx": 6,
+      "mty": 5,
+      "tij": 4,
+      "qro": 0,
+      "gdl": 0,
+      "mxl": 0,
+      "otros": 1
+    },
+    {
+      "cdmx": 4,
+      "mty": 2,
+      "tij": 3,
+      "qro": 0,
+      "gdl": 0,
+      "mxl": 2,
+      "otros": 1
+    },
+    {
+      "cdmx": 5,
+      "mty": 1,
+      "tij": 2,
+      "qro": 0,
+      "gdl": 0,
+      "mxl": 1,
+      "otros": 2
+    },
+    {
+      "cdmx": 4,
+      "mty": 2,
+      "tij": 2,
+      "qro": 0,
+      "gdl": 1,
+      "mxl": 0,
+      "otros": 0
+    },
+    {
+      "cdmx": 4,
+      "mty": 5,
+      "tij": 1,
+      "qro": 0,
+      "gdl": 0,
+      "mxl": 0,
+      "otros": 2
+    },
     {
       "cdmx": 0,
       "mty": 1,
@@ -461,9 +676,9 @@ window.__DASHBOARD_DATA__ = {
       "otros": 0
     },
     {
-      "cdmx": 1,
-      "mty": 1,
-      "tij": 0,
+      "cdmx": 2,
+      "mty": 3,
+      "tij": 1,
       "qro": 0,
       "gdl": 1,
       "mxl": 0,
@@ -490,107 +705,119 @@ window.__DASHBOARD_DATA__ = {
     0,
     0,
     0,
-    8,
-    5
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    9,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    3,
+    7
   ],
-  "inv_log": [
+  "entregas_agente_mes": [
     {
-      "fecha": "25-ago",
-      "total": 23,
-      "tij": 14,
-      "mxl": 5,
-      "mty": 4
+      "agente": "Jessica Martinez",
+      "total": 9
     },
     {
-      "fecha": "26-ago",
-      "total": 23,
-      "tij": 16,
-      "mxl": 4,
-      "mty": 2
+      "agente": "Aaron Sanchez",
+      "total": 9
     },
     {
-      "fecha": "27-ago",
-      "total": 17,
-      "tij": 13,
-      "mxl": 4,
-      "mty": 0
+      "agente": "Angelica Torres",
+      "total": 7
     },
     {
-      "fecha": "28-ago",
-      "total": 20,
-      "tij": 16,
-      "mxl": 4,
-      "mty": 0
+      "agente": "Daniela Favela",
+      "total": 7
     },
     {
-      "fecha": "29-ago",
-      "total": 21,
-      "tij": 16,
-      "mxl": 4,
-      "mty": 0
+      "agente": "IVETTE IXEL",
+      "total": 7
     },
     {
-      "fecha": "30-ago",
-      "total": 18,
-      "tij": 15,
-      "mxl": 3,
-      "mty": 0
+      "agente": "Jrego Nolasco",
+      "total": 7
     },
     {
-      "fecha": "31-ago",
-      "total": 34,
-      "tij": 24,
-      "mxl": 4,
-      "mty": 4
+      "agente": "Antonio Cruz",
+      "total": 6
     },
     {
-      "fecha": "1-sep",
-      "total": 28,
-      "tij": 22,
-      "mxl": 4,
-      "mty": 2
+      "agente": "Joel Flores",
+      "total": 5
     },
     {
-      "fecha": "2-sep",
-      "total": 26,
-      "tij": 19,
-      "mxl": 5,
-      "mty": 2
+      "agente": "MICHELLE R",
+      "total": 5
     },
     {
-      "fecha": "3-sep",
-      "total": 32,
-      "tij": 20,
-      "mxl": 5,
-      "mty": 6
+      "agente": "Diana Moreno",
+      "total": 4
     },
     {
-      "fecha": "4-sep",
-      "total": 28,
-      "tij": 16,
-      "mxl": 5,
-      "mty": 6
+      "agente": "Mayte Urrutia",
+      "total": 4
     },
     {
-      "fecha": "7-sep",
-      "total": 41,
-      "tij": 20,
-      "mxl": 5,
-      "mty": 8
+      "agente": "Edwin Hernandez",
+      "total": 4
     },
     {
-      "fecha": "8-sep",
-      "total": 23,
-      "tij": 16,
-      "mxl": 3,
-      "mty": 3
+      "agente": "Karen Garcia",
+      "total": 3
     },
     {
-      "fecha": "9-sep",
-      "total": 40,
-      "tij": 16,
-      "mxl": 2,
-      "mty": 8
+      "agente": "Fernando Medina",
+      "total": 3
+    },
+    {
+      "agente": "Ana Rodriguez",
+      "total": 3
+    },
+    {
+      "agente": "Ishell Miranda",
+      "total": 3
+    },
+    {
+      "agente": "Rafael Leon",
+      "total": 3
+    },
+    {
+      "agente": "Oscar Alvarez",
+      "total": 2
+    },
+    {
+      "agente": "Mirna Cruz",
+      "total": 2
+    },
+    {
+      "agente": "ADOLFO JAIMES",
+      "total": 2
+    },
+    {
+      "agente": "Imanol Cortez",
+      "total": 1
+    },
+    {
+      "agente": "Monserrat Rivera",
+      "total": 1
     }
   ],
   "tiers": [
@@ -991,18 +1218,18 @@ window.__DASHBOARD_DATA__ = {
   "decline_total": 912,
   "forecast": {
     "workdays_elapsed": 10,
-    "actual_elapsed": 89,
+    "actual_elapsed": 97,
     "workdays_total": 22,
-    "rate": 8.9,
-    "total": 196,
-    "nuevo": 6,
-    "seminuevo": 190
+    "rate": 9.7,
+    "total": 213,
+    "nuevo": 7,
+    "seminuevo": 206
   },
   "corte": {
     "fecha": "2026-09-15",
     "mes_label": "Sep 26"
   },
-  "fleet_total": 136,
+  "fleet_total": 138,
   "fleet_desflote_n": 10,
   "fleet_city_stage": [
     {
@@ -1012,10 +1239,10 @@ window.__DASHBOARD_DATA__ = {
         2,
         14,
         6,
-        11,
+        10,
         2
       ],
-      "total": 43
+      "total": 42
     },
     {
       "ciudad": "Tijuana",
@@ -1023,11 +1250,23 @@ window.__DASHBOARD_DATA__ = {
         0,
         0,
         6,
-        14,
+        15,
         4,
         3
       ],
-      "total": 28
+      "total": 29
+    },
+    {
+      "ciudad": "Guadalajara",
+      "vals": [
+        4,
+        8,
+        8,
+        2,
+        0,
+        0
+      ],
+      "total": 23
     },
     {
       "ciudad": "Sin identificar",
@@ -1040,18 +1279,6 @@ window.__DASHBOARD_DATA__ = {
         0
       ],
       "total": 23
-    },
-    {
-      "ciudad": "Guadalajara",
-      "vals": [
-        4,
-        8,
-        8,
-        0,
-        0,
-        0
-      ],
-      "total": 21
     },
     {
       "ciudad": "Monterrey",
@@ -1114,566 +1341,12 @@ window.__DASHBOARD_DATA__ = {
       "total": 3
     }
   ],
-  "fleet_dias_labels": [
-    "17-jul",
-    "24-jul",
-    "31-jul",
-    "1-ago",
-    "11-ago",
-    "13-ago",
-    "19-ago",
-    "20-ago",
-    "21-ago",
-    "24-ago",
-    "28-ago",
-    "4-sep",
-    "8-sep",
-    "10-sep",
-    "11-sep",
-    "17-sep",
-    "18-sep",
-    "1-oct"
-  ],
-  "fleet_by_day": [
-    {
-      "tij": 0,
-      "cdmx": 0,
-      "gdl": 0,
-      "qro": 0,
-      "mty": 2,
-      "otros": 0
-    },
-    {
-      "tij": 3,
-      "cdmx": 1,
-      "gdl": 2,
-      "qro": 1,
-      "mty": 0,
-      "otros": 2
-    },
-    {
-      "tij": 11,
-      "cdmx": 3,
-      "gdl": 7,
-      "qro": 1,
-      "mty": 1,
-      "otros": 7
-    },
-    {
-      "tij": 0,
-      "cdmx": 1,
-      "gdl": 0,
-      "qro": 0,
-      "mty": 0,
-      "otros": 0
-    },
-    {
-      "tij": 0,
-      "cdmx": 1,
-      "gdl": 0,
-      "qro": 0,
-      "mty": 0,
-      "otros": 0
-    },
-    {
-      "tij": 3,
-      "cdmx": 0,
-      "gdl": 1,
-      "qro": 0,
-      "mty": 0,
-      "otros": 1
-    },
-    {
-      "tij": 0,
-      "cdmx": 0,
-      "gdl": 0,
-      "qro": 1,
-      "mty": 0,
-      "otros": 0
-    },
-    {
-      "tij": 0,
-      "cdmx": 0,
-      "gdl": 1,
-      "qro": 0,
-      "mty": 0,
-      "otros": 0
-    },
-    {
-      "tij": 0,
-      "cdmx": 0,
-      "gdl": 0,
-      "qro": 0,
-      "mty": 0,
-      "otros": 1
-    },
-    {
-      "tij": 0,
-      "cdmx": 2,
-      "gdl": 4,
-      "qro": 1,
-      "mty": 0,
-      "otros": 1
-    },
-    {
-      "tij": 3,
-      "cdmx": 0,
-      "gdl": 0,
-      "qro": 0,
-      "mty": 0,
-      "otros": 0
-    },
-    {
-      "tij": 0,
-      "cdmx": 1,
-      "gdl": 1,
-      "qro": 0,
-      "mty": 0,
-      "otros": 1
-    },
-    {
-      "tij": 0,
-      "cdmx": 0,
-      "gdl": 0,
-      "qro": 1,
-      "mty": 0,
-      "otros": 0
-    },
-    {
-      "tij": 1,
-      "cdmx": 0,
-      "gdl": 0,
-      "qro": 0,
-      "mty": 0,
-      "otros": 0
-    },
-    {
-      "tij": 0,
-      "cdmx": 2,
-      "gdl": 0,
-      "qro": 0,
-      "mty": 0,
-      "otros": 0
-    },
-    {
-      "tij": 0,
-      "cdmx": 0,
-      "gdl": 0,
-      "qro": 0,
-      "mty": 0,
-      "otros": 1
-    },
-    {
-      "tij": 1,
-      "cdmx": 7,
-      "gdl": 3,
-      "qro": 2,
-      "mty": 0,
-      "otros": 4
-    },
-    {
-      "tij": 0,
-      "cdmx": 1,
-      "gdl": 0,
-      "qro": 0,
-      "mty": 0,
-      "otros": 0
-    }
-  ],
-  "fleet_sin_fecha_n": 48,
-  "fleet_vencido_dias": 15,
-  "fleet_vencido_unidades": 69,
-  "en_prep_by_ciudad": [],
-  "en_prep_total": 0,
-  "agenda_decline_kpis": {
-    "total": 539,
-    "recuperado": 208,
-    "pct_recuperado": 38.6,
-    "pendiente": 304,
-    "vencido": 265,
-    "pct_vencido_of_pendiente": 87.2,
-    "perdido": 27
-  },
-  "agenda_decline_by_month": [
-    {
-      "mes": "abril 2026",
-      "total": 9,
-      "recuperado": 5,
-      "pendiente": 4,
-      "perdido": 0,
-      "pct_recuperado": 55.6
-    },
-    {
-      "mes": "mayo 2026",
-      "total": 192,
-      "recuperado": 89,
-      "pendiente": 94,
-      "perdido": 9,
-      "pct_recuperado": 46.4
-    },
-    {
-      "mes": "junio 2026",
-      "total": 156,
-      "recuperado": 67,
-      "pendiente": 79,
-      "perdido": 10,
-      "pct_recuperado": 42.9
-    },
-    {
-      "mes": "julio 2026",
-      "total": 103,
-      "recuperado": 39,
-      "pendiente": 58,
-      "perdido": 6,
-      "pct_recuperado": 37.9
-    },
-    {
-      "mes": "agosto 2026",
-      "total": 79,
-      "recuperado": 8,
-      "pendiente": 69,
-      "perdido": 2,
-      "pct_recuperado": 10.1
-    }
-  ],
-  "agenda_decline_semaforo": {
-    "verde": 11,
-    "amarillo": 27,
-    "rojo": 265
-  },
-  "agenda_decline_motivos": [
-    {
-      "motivo": "DEJA DE CONTESTAR",
-      "count": 120,
-      "trabajable": true
-    },
-    {
-      "motivo": "TUVO UN IMPREVISTO",
-      "count": 54,
-      "trabajable": true
-    },
-    {
-      "motivo": "QUIERE OTRO MODELO",
-      "count": 44,
-      "trabajable": true
-    },
-    {
-      "motivo": "NO CONSIGUE DINERO",
-      "count": 29,
-      "trabajable": true
-    },
-    {
-      "motivo": "NO QUIERE SEMINUEVO",
-      "count": 25,
-      "trabajable": true
-    },
-    {
-      "motivo": "YA ADQUIRIÓ AUTO",
-      "count": 15,
-      "trabajable": false
-    },
-    {
-      "motivo": "NO CONSIGUIÓ AVAL",
-      "count": 14,
-      "trabajable": true
-    },
-    {
-      "motivo": "NO LE CONVENCE EL CONTRATO",
-      "count": 13,
-      "trabajable": true
-    },
-    {
-      "motivo": "ISSUE MECANICO/ESTETICO",
-      "count": 7,
-      "trabajable": true
-    },
-    {
-      "motivo": "EXPRESA NO SEGUIR",
-      "count": 6,
-      "trabajable": false
-    },
-    {
-      "motivo": "YA NO TRABAJA EN PLATAFORMAS",
-      "count": 3,
-      "trabajable": false
-    },
-    {
-      "motivo": "LE FATA UN DOCUMENTO",
-      "count": 1,
-      "trabajable": true
-    }
-  ],
-  "agenda_decline_by_agent": [
-    {
-      "agente": "Edwin Hernandez",
-      "total": 45,
-      "recuperado": 16,
-      "pendiente": 27,
-      "vencido": 26,
-      "perdido": 2,
-      "pct_recuperado": 35.6
-    },
-    {
-      "agente": "Jrego Nolasco",
-      "total": 35,
-      "recuperado": 11,
-      "pendiente": 21,
-      "vencido": 18,
-      "perdido": 3,
-      "pct_recuperado": 31.4
-    },
-    {
-      "agente": "Ishell Miranda",
-      "total": 35,
-      "recuperado": 14,
-      "pendiente": 18,
-      "vencido": 16,
-      "perdido": 3,
-      "pct_recuperado": 40.0
-    },
-    {
-      "agente": "Angelica Torres",
-      "total": 30,
-      "recuperado": 14,
-      "pendiente": 15,
-      "vencido": 12,
-      "perdido": 1,
-      "pct_recuperado": 46.7
-    },
-    {
-      "agente": "Aaron Sanchez",
-      "total": 28,
-      "recuperado": 7,
-      "pendiente": 19,
-      "vencido": 12,
-      "perdido": 2,
-      "pct_recuperado": 25.0
-    },
-    {
-      "agente": "Rafael Leon",
-      "total": 24,
-      "recuperado": 5,
-      "pendiente": 19,
-      "vencido": 18,
-      "perdido": 0,
-      "pct_recuperado": 20.8
-    },
-    {
-      "agente": "ADOLFO JAIMES",
-      "total": 23,
-      "recuperado": 7,
-      "pendiente": 15,
-      "vencido": 12,
-      "perdido": 1,
-      "pct_recuperado": 30.4
-    },
-    {
-      "agente": "Fernando Medina",
-      "total": 22,
-      "recuperado": 13,
-      "pendiente": 8,
-      "vencido": 8,
-      "perdido": 1,
-      "pct_recuperado": 59.1
-    },
-    {
-      "agente": "Karen Garcia",
-      "total": 21,
-      "recuperado": 7,
-      "pendiente": 14,
-      "vencido": 14,
-      "perdido": 0,
-      "pct_recuperado": 33.3
-    },
-    {
-      "agente": "MICHELLE R",
-      "total": 21,
-      "recuperado": 6,
-      "pendiente": 13,
-      "vencido": 11,
-      "perdido": 2,
-      "pct_recuperado": 28.6
-    },
-    {
-      "agente": "Joel Flores",
-      "total": 21,
-      "recuperado": 8,
-      "pendiente": 11,
-      "vencido": 8,
-      "perdido": 2,
-      "pct_recuperado": 38.1
-    },
-    {
-      "agente": "Imanol Cortez",
-      "total": 20,
-      "recuperado": 4,
-      "pendiente": 15,
-      "vencido": 14,
-      "perdido": 1,
-      "pct_recuperado": 20.0
-    },
-    {
-      "agente": "Monserrat Rivera",
-      "total": 19,
-      "recuperado": 9,
-      "pendiente": 10,
-      "vencido": 10,
-      "perdido": 0,
-      "pct_recuperado": 47.4
-    },
-    {
-      "agente": "IVETTE IXEL",
-      "total": 18,
-      "recuperado": 6,
-      "pendiente": 12,
-      "vencido": 9,
-      "perdido": 0,
-      "pct_recuperado": 33.3
-    },
-    {
-      "agente": "Daniela Favela",
-      "total": 18,
-      "recuperado": 8,
-      "pendiente": 10,
-      "vencido": 9,
-      "perdido": 0,
-      "pct_recuperado": 44.4
-    },
-    {
-      "agente": "Oscar Alvarez",
-      "total": 13,
-      "recuperado": 3,
-      "pendiente": 9,
-      "vencido": 7,
-      "perdido": 1,
-      "pct_recuperado": 23.1
-    },
-    {
-      "agente": "Mayte Urrutia",
-      "total": 13,
-      "recuperado": 2,
-      "pendiente": 9,
-      "vencido": 9,
-      "perdido": 2,
-      "pct_recuperado": 15.4
-    },
-    {
-      "agente": "Ana Rodriguez",
-      "total": 13,
-      "recuperado": 7,
-      "pendiente": 6,
-      "vencido": 5,
-      "perdido": 0,
-      "pct_recuperado": 53.8
-    },
-    {
-      "agente": "Enrique Jimenez",
-      "total": 12,
-      "recuperado": 11,
-      "pendiente": 1,
-      "vencido": 1,
-      "perdido": 0,
-      "pct_recuperado": 91.7
-    },
-    {
-      "agente": "Jeremy Tamayo",
-      "total": 10,
-      "recuperado": 6,
-      "pendiente": 4,
-      "vencido": 4,
-      "perdido": 0,
-      "pct_recuperado": 60.0
-    },
-    {
-      "agente": "Jessica Martinez",
-      "total": 10,
-      "recuperado": 8,
-      "pendiente": 2,
-      "vencido": 1,
-      "perdido": 0,
-      "pct_recuperado": 80.0
-    },
-    {
-      "agente": "Diana Moreno",
-      "total": 9,
-      "recuperado": 1,
-      "pendiente": 8,
-      "vencido": 5,
-      "perdido": 0,
-      "pct_recuperado": 11.1
-    },
-    {
-      "agente": "Mirna Cruz",
-      "total": 7,
-      "recuperado": 3,
-      "pendiente": 4,
-      "vencido": 3,
-      "perdido": 0,
-      "pct_recuperado": 42.9
-    },
-    {
-      "agente": "Antonio Cruz",
-      "total": 6,
-      "recuperado": 3,
-      "pendiente": 3,
-      "vencido": 2,
-      "perdido": 0,
-      "pct_recuperado": 50.0
-    },
-    {
-      "agente": "Ricardo Salinas",
-      "total": 1,
-      "recuperado": 0,
-      "pendiente": 1,
-      "vencido": 1,
-      "perdido": 0,
-      "pct_recuperado": 0.0
-    }
-  ],
-  "agenda_decline_orphaned": [
-    {
-      "agente": "Yael Munoz",
-      "count": 8,
-      "min_age": 64,
-      "max_age": 111
-    },
-    {
-      "agente": "Hector Vera",
-      "count": 6,
-      "min_age": 64,
-      "max_age": 132
-    },
-    {
-      "agente": "Araceli Olvera",
-      "count": 6,
-      "min_age": 77,
-      "max_age": 125
-    },
-    {
-      "agente": "Mariam Bangoura",
-      "count": 4,
-      "min_age": 94,
-      "max_age": 116
-    },
-    {
-      "agente": "Fernando Velazquez",
-      "count": 4,
-      "min_age": 75,
-      "max_age": 113
-    },
-    {
-      "agente": "Carlos Mejia",
-      "count": 1,
-      "min_age": 110,
-      "max_age": 110
-    }
-  ],
   "aprob_kpis": {
-    "total": 1391,
-    "aprobado": 1088,
-    "rechazado": 191,
-    "pendiente": 112,
-    "pct_aprobacion": 85.1
+    "total": 1569,
+    "aprobado": 1196,
+    "rechazado": 241,
+    "pendiente": 132,
+    "pct_aprobacion": 83.2
   },
   "aprob_weekly": [
     {
@@ -1687,11 +1360,11 @@ window.__DASHBOARD_DATA__ = {
     },
     {
       "label": "3 ago–9 ago",
-      "aprobado": 231,
+      "aprobado": 232,
       "rechazado": 32,
-      "pendiente": 18,
+      "pendiente": 17,
       "total": 281,
-      "pct_aprobacion": 87.8,
+      "pct_aprobacion": 87.9,
       "es_parcial": false
     },
     {
@@ -1706,221 +1379,69 @@ window.__DASHBOARD_DATA__ = {
     {
       "label": "17 ago–23 ago",
       "aprobado": 219,
-      "rechazado": 34,
-      "pendiente": 26,
+      "rechazado": 35,
+      "pendiente": 25,
       "total": 279,
-      "pct_aprobacion": 86.6,
+      "pct_aprobacion": 86.2,
       "es_parcial": false
     },
     {
       "label": "24 ago–30 ago",
       "aprobado": 197,
-      "rechazado": 35,
-      "pendiente": 23,
-      "total": 255,
-      "pct_aprobacion": 84.9,
-      "es_parcial": false
-    },
-    {
-      "label": "31 ago–6 sep",
-      "aprobado": 149,
-      "rechazado": 44,
+      "rechazado": 36,
       "pendiente": 22,
-      "total": 215,
-      "pct_aprobacion": 77.2,
-      "es_parcial": false
-    },
-    {
-      "label": "7 sep–13 sep (parcial)",
-      "aprobado": 86,
-      "rechazado": 28,
-      "pendiente": 11,
-      "total": 125,
-      "pct_aprobacion": 75.4,
-      "es_parcial": true
-    }
-  ],
-  "aprob_by_city": [
-    {
-      "ciudad": "Tijuana",
-      "colorVar": "--s-mg3",
-      "total": 183,
-      "aprobado": 140,
-      "rechazado": 27,
-      "pendiente": 16,
-      "resueltas": 167,
-      "pct_aprobacion": 83.8,
-      "pct_h1": 86.1,
-      "pct_h2": 82.1,
-      "delta_pp": -4.0
-    },
-    {
-      "ciudad": "CDMX / Edo Mex",
-      "colorVar": "--s-byd",
-      "total": 530,
-      "aprobado": 410,
-      "rechazado": 82,
-      "pendiente": 38,
-      "resueltas": 492,
-      "pct_aprobacion": 83.3,
-      "pct_h1": 88.2,
-      "pct_h2": 76.0,
-      "delta_pp": -12.2
-    },
-    {
-      "ciudad": "Monterrey",
-      "colorVar": "--s-mg5",
-      "total": 283,
-      "aprobado": 227,
-      "rechazado": 33,
-      "pendiente": 23,
-      "resueltas": 260,
-      "pct_aprobacion": 87.3,
-      "pct_h1": 91.7,
-      "pct_h2": 81.9,
-      "delta_pp": -9.8
-    },
-    {
-      "ciudad": "Mexicali",
-      "colorVar": "--s-tiggo",
-      "total": 59,
-      "aprobado": 48,
-      "rechazado": 4,
-      "pendiente": 7,
-      "resueltas": 52,
-      "pct_aprobacion": 92.3,
-      "pct_h1": 100.0,
-      "pct_h2": 88.6,
-      "delta_pp": -11.4
-    },
-    {
-      "ciudad": "Guadalajara",
-      "colorVar": "--s-king",
-      "total": 99,
-      "aprobado": 77,
-      "rechazado": 15,
-      "pendiente": 7,
-      "resueltas": 92,
-      "pct_aprobacion": 83.7,
-      "pct_h1": 88.2,
-      "pct_h2": 78.0,
-      "delta_pp": -10.2
-    },
-    {
-      "ciudad": "Queretaro",
-      "colorVar": "--s-aion",
-      "total": 65,
-      "aprobado": 51,
-      "rechazado": 8,
-      "pendiente": 6,
-      "resueltas": 59,
-      "pct_aprobacion": 86.4,
-      "pct_h1": 90.9,
-      "pct_h2": 80.8,
-      "delta_pp": -10.1
-    },
-    {
-      "ciudad": "Merida",
-      "colorVar": "--s-otros",
-      "total": 54,
-      "aprobado": 43,
-      "rechazado": 4,
-      "pendiente": 7,
-      "resueltas": 47,
-      "pct_aprobacion": 91.5,
-      "pct_h1": 93.5,
-      "pct_h2": 87.5,
-      "delta_pp": -6.0
-    },
-    {
-      "ciudad": "Puebla",
-      "colorVar": "--s-otros",
-      "total": 66,
-      "aprobado": 47,
-      "rechazado": 14,
-      "pendiente": 5,
-      "resueltas": 61,
-      "pct_aprobacion": 77.0,
-      "pct_h1": 85.7,
-      "pct_h2": 69.7,
-      "delta_pp": -16.0
-    },
-    {
-      "ciudad": "Saltillo",
-      "colorVar": "--s-otros",
-      "total": 41,
-      "aprobado": 35,
-      "rechazado": 4,
-      "pendiente": 2,
-      "resueltas": 39,
-      "pct_aprobacion": 89.7,
-      "pct_h1": 100.0,
-      "pct_h2": 81.8,
-      "delta_pp": -18.2
-    },
-    {
-      "ciudad": "Otro",
-      "colorVar": "--s-otros",
-      "total": 11,
-      "aprobado": 10,
-      "rechazado": 0,
-      "pendiente": 1,
-      "resueltas": 10,
-      "pct_aprobacion": 100.0,
-      "pct_h1": 100.0,
-      "pct_h2": 100.0,
-      "delta_pp": 0.0
-    }
-  ],
-  "aprob_weekly_focus": [
-    {
-      "label": "27 jul–2 ago (parcial)",
-      "tij": 0,
-      "mxl": 0,
-      "resto": 1,
-      "es_parcial": true
-    },
-    {
-      "label": "3 ago–9 ago",
-      "tij": 32,
-      "mxl": 7,
-      "resto": 242,
-      "es_parcial": false
-    },
-    {
-      "label": "10 ago–16 ago",
-      "tij": 17,
-      "mxl": 4,
-      "resto": 214,
-      "es_parcial": false
-    },
-    {
-      "label": "17 ago–23 ago",
-      "tij": 39,
-      "mxl": 11,
-      "resto": 229,
-      "es_parcial": false
-    },
-    {
-      "label": "24 ago–30 ago",
-      "tij": 47,
-      "mxl": 15,
-      "resto": 193,
+      "total": 255,
+      "pct_aprobacion": 84.5,
       "es_parcial": false
     },
     {
       "label": "31 ago–6 sep",
-      "tij": 31,
-      "mxl": 10,
-      "resto": 174,
+      "aprobado": 151,
+      "rechazado": 42,
+      "pendiente": 21,
+      "total": 214,
+      "pct_aprobacion": 78.2,
       "es_parcial": false
     },
     {
-      "label": "7 sep–13 sep (parcial)",
-      "tij": 17,
-      "mxl": 12,
-      "resto": 96,
+      "label": "7 sep–13 sep",
+      "aprobado": 157,
+      "rechazado": 59,
+      "pendiente": 25,
+      "total": 241,
+      "pct_aprobacion": 72.7,
+      "es_parcial": false
+    },
+    {
+      "label": "14 sep–20 sep (parcial)",
+      "aprobado": 34,
+      "rechazado": 19,
+      "pendiente": 10,
+      "total": 63,
+      "pct_aprobacion": 64.2,
       "es_parcial": true
+    }
+  ],
+  "aprob_month_compare": [
+    {
+      "mes": "Agosto",
+      "rango": "1 ago–14 ago",
+      "dias_habiles": 10,
+      "total": 517,
+      "aprobado": 438,
+      "rechazado": 50,
+      "pendiente": 29,
+      "pct_aprobacion": 89.8
+    },
+    {
+      "mes": "Septiembre",
+      "rango": "1 sep–14 sep",
+      "dias_habiles": 10,
+      "total": 478,
+      "aprobado": 315,
+      "rechazado": 110,
+      "pendiente": 53,
+      "pct_aprobacion": 74.1
     }
   ],
   "aprob_daily_volume": [
@@ -2249,7 +1770,7 @@ window.__DASHBOARD_DATA__ = {
       "tij": 8,
       "cdmx": 10,
       "mty": 7,
-      "qro": 1,
+      "qro": 0,
       "gdl": 4,
       "mxl": 0,
       "otros": 10
@@ -2316,18 +1837,68 @@ window.__DASHBOARD_DATA__ = {
     },
     {
       "fecha": "9 sep",
+      "tij": 7,
+      "cdmx": 11,
+      "mty": 13,
+      "qro": 5,
+      "gdl": 3,
+      "mxl": 2,
+      "otros": 5
+    },
+    {
+      "fecha": "10 sep",
       "tij": 1,
+      "cdmx": 12,
+      "mty": 5,
+      "qro": 1,
+      "gdl": 2,
+      "mxl": 1,
+      "otros": 5
+    },
+    {
+      "fecha": "11 sep",
+      "tij": 9,
+      "cdmx": 15,
+      "mty": 12,
+      "qro": 5,
+      "gdl": 0,
+      "mxl": 1,
+      "otros": 2
+    },
+    {
+      "fecha": "12 sep",
+      "tij": 0,
       "cdmx": 0,
       "mty": 0,
       "qro": 0,
       "gdl": 0,
       "mxl": 0,
       "otros": 0
+    },
+    {
+      "fecha": "13 sep",
+      "tij": 0,
+      "cdmx": 0,
+      "mty": 0,
+      "qro": 0,
+      "gdl": 0,
+      "mxl": 0,
+      "otros": 0
+    },
+    {
+      "fecha": "14 sep",
+      "tij": 6,
+      "cdmx": 20,
+      "mty": 17,
+      "qro": 5,
+      "gdl": 4,
+      "mxl": 2,
+      "otros": 9
     }
   ],
   "aprob_meta": {
     "fecha_min": "1 ago",
-    "fecha_max": "9 sep",
-    "generado_en": "2026-09-09T11:37:04.381771"
+    "fecha_max": "14 sep",
+    "generado_en": "2026-09-15T12:46:58.109466"
   }
 };
