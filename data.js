@@ -1,5 +1,5 @@
 window.__DASHBOARD_DATA__ = {
-  "generated_at": "2026-09-15T19:35:03.656869Z",
+  "generated_at": "2026-09-15T19:41:13.824858Z",
   "months": [
     "Ago 25",
     "Sep 25",
@@ -211,7 +211,7 @@ window.__DASHBOARD_DATA__ = {
     "tiggo",
     "otros"
   ],
-  "etapas_total": 122,
+  "etapas_total": 132,
   "etapas": [
     {
       "key": "prep",
@@ -219,7 +219,7 @@ window.__DASHBOARD_DATA__ = {
     },
     {
       "key": "listo",
-      "value": 15
+      "value": 25
     },
     {
       "key": "agendada",
@@ -261,7 +261,8 @@ window.__DASHBOARD_DATA__ = {
       "Mexicali": 3,
       "Monterrey": 4,
       "Queretaro": 1,
-      "Tijuana": 7
+      "Tijuana": 13,
+      "CDMX / Edo Mex": 4
     },
     "agendada": {
       "Monterrey": 6,
@@ -278,10 +279,14 @@ window.__DASHBOARD_DATA__ = {
   "ciudad_listo": [
     {
       "ciudad": "Tijuana",
-      "value": 7
+      "value": 13
     },
     {
       "ciudad": "Monterrey",
+      "value": 4
+    },
+    {
+      "ciudad": "CDMX / Edo Mex",
       "value": 4
     },
     {
@@ -297,8 +302,8 @@ window.__DASHBOARD_DATA__ = {
     {
       "ciudad": "CDMX / Edo Mex",
       "espera": 256,
-      "listo": 0,
-      "gap": 256
+      "listo": 4,
+      "gap": 252
     },
     {
       "ciudad": "Merida",
@@ -337,16 +342,16 @@ window.__DASHBOARD_DATA__ = {
       "gap": 28
     },
     {
-      "ciudad": "Tijuana",
-      "espera": 7,
-      "listo": 7,
-      "gap": 0
-    },
-    {
       "ciudad": "Mexicali",
       "espera": 2,
       "listo": 3,
       "gap": -1
+    },
+    {
+      "ciudad": "Tijuana",
+      "espera": 7,
+      "listo": 13,
+      "gap": -6
     }
   ],
   "dias_labels": [
@@ -812,6 +817,12 @@ window.__DASHBOARD_DATA__ = {
         "aprobadas": 16
       },
       {
+        "asesor": "Ivette Ixel Cardona",
+        "entregas": 8,
+        "solicitudes": 18,
+        "aprobadas": 11
+      },
+      {
         "asesor": "Daniela Favela",
         "entregas": 7,
         "solicitudes": 22,
@@ -872,24 +883,10 @@ window.__DASHBOARD_DATA__ = {
         "aprobadas": 0
       },
       {
-        "asesor": "Ivette Rojas",
-        "entregas": 0,
-        "solicitudes": null,
-        "aprobadas": null
-      },
-      {
         "asesor": "Jeremy Tamayo",
         "entregas": 0,
         "solicitudes": 13,
         "aprobadas": 11
-      }
-    ],
-    "Sin equipo": [
-      {
-        "asesor": "IVETTE IXEL",
-        "entregas": 8,
-        "solicitudes": null,
-        "aprobadas": null
       }
     ]
   },

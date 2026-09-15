@@ -50,6 +50,10 @@ KNOWN_AGENT_KEYS = [
     "Ricardo Salinas",
 ]
 
+def norm_ascii(s):
+    return unicodedata.normalize("NFKD", s).encode("ascii", "ignore").decode()
+
+
 # Team Bernardo / Team Paulina -- mismo universo de personas que KNOWN_AGENT_KEYS arriba,
 # con el team leader de cada quien. Extraído 15-sep-2026 de la columna "supervisor" del
 # roster en vivo de Avance de Marcación (voto por moda por asesor, mismo criterio que ese
@@ -63,7 +67,7 @@ AGENT_TEAM = {
     "Angelica Torres": "Bernardo", "Antonio Cruz": "Bernardo", "Daniela Favela": "Paulina",
     "Diana Moreno": "Bernardo", "Edwin Hernandez": "Bernardo", "Enrique Jimenez": "Paulina",
     "Fernando Medina": "Bernardo", "Imanol Cortez": "Paulina", "Ishell Miranda": "Paulina",
-    "Ivette Rojas": "Paulina", "Jeremy Tamayo": "Paulina", "Jessica Martinez": "Paulina",
+    "Ivette Ixel Cardona": "Paulina", "Jeremy Tamayo": "Paulina", "Jessica Martinez": "Paulina",
     "Joel Flores": "Paulina", "Jrego Nolasco": "Bernardo", "Karen Garcia": "Paulina",
     "Mayte Urrutia": "Paulina", "Michelle R": "Bernardo", "Mirna Cruz": "Bernardo",
     "Monserrat Rivera": "Bernardo", "Oscar Alvarez": "Bernardo", "Rafael Leon": "Paulina",
@@ -78,16 +82,39 @@ def _first_last(s):
     return parts[0], (parts[-1] if len(parts) > 1 else "")
 
 
+def _simple_norm(s):
+    return re.sub(r"\s+", " ", norm_ascii(s or "")).strip().lower()
+
+
+# Identidades confirmadas a mano por Ricardo cuando el cruce automático (exacto o
+# nombre+inicial de apellido) no alcanza -- nunca se adivina, solo se agrega aquí después de
+# que Ricardo confirma explícitamente que dos textos son la misma persona. Caso real
+# 15-sep-2026: "Ivette Ixel Cardona" (nombre completo real, confirmado por Ricardo) aparece
+# como "IVETTE IXEL" en Back Office "SEGUIMIENTO ENTREGAS" (nombre + segundo nombre) y como
+# "Ivette Cardona" en el CSV de aprobaciones (nombre + apellido, derivado del email
+# ivette.cardona@onecarnow.com) -- "Ixel" y "Cardona" no comparten inicial, así que el cruce
+# automático nunca los habría unido solo. Llave = texto normalizado tal cual viene de la
+# fuente, valor = nombre canónico tal cual está en AGENT_TEAM.
+AGENT_ALIASES = {
+    _simple_norm("Ivette Ixel"): "Ivette Ixel Cardona",
+    _simple_norm("Ivette Cardona"): "Ivette Ixel Cardona",
+}
+
+
 def match_roster(name, roster_names):
-    """Empareja `name` contra `roster_names` (lista/keys) por nombre normalizado exacto, o
-    si no hay cruce exacto por nombre + inicial de apellido (cubre abreviaciones como
-    "Michelle R" / "Michelle Ruiz"). Devuelve None si no hay un cruce único y seguro --
-    nunca adivina entre 2+ candidatos ni cruza solo por nombre de pila (ver caveat de
-    "Arturo Sanchez" vs "Aaron Sanchez" / "Ivette Cardona" vs "Ivette Rojas" en memoria:
-    mismo nombre de pila, apellido distinto -- personas distintas, no se deben mezclar)."""
-    key = re.sub(r"\s+", " ", norm_ascii(name or "")).strip().lower()
+    """Empareja `name` contra `roster_names` (lista/keys) por alias confirmado a mano
+    (AGENT_ALIASES), o nombre normalizado exacto, o si no hay cruce exacto por nombre +
+    inicial de apellido (cubre abreviaciones como "Michelle R" / "Michelle Ruiz"). Devuelve
+    None si no hay un cruce único y seguro -- nunca adivina entre 2+ candidatos ni cruza solo
+    por nombre de pila (ver caveat de "Arturo Sanchez" vs "Aaron Sanchez" en memoria: mismo
+    nombre de pila, apellido distinto -- personas distintas, no se deben mezclar)."""
+    key = _simple_norm(name)
+    if key in AGENT_ALIASES:
+        canon = AGENT_ALIASES[key]
+        if canon in roster_names:
+            return canon
     for r in roster_names:
-        if re.sub(r"\s+", " ", norm_ascii(r)).strip().lower() == key:
+        if _simple_norm(r) == key:
             return r
     fn, ln = _first_last(name)
     if not fn or not ln:
@@ -252,10 +279,6 @@ def sheets_update(token, sheet_id, rng, row):
         with urllib.request.urlopen(req) as resp:
             return json.loads(resp.read())
     return _retry_transient(_do)
-
-
-def norm_ascii(s):
-    return unicodedata.normalize("NFKD", s).encode("ascii", "ignore").decode()
 
 
 def norm_city(s):
