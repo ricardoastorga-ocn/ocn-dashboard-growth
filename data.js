@@ -1,5 +1,5 @@
 window.__DASHBOARD_DATA__ = {
-  "generated_at": "2026-09-16T01:48:17.805067Z",
+  "generated_at": "2026-09-16T06:53:03.536560Z",
   "months": [
     "Ago 25",
     "Sep 25",
@@ -889,29 +889,29 @@ window.__DASHBOARD_DATA__ = {
     {
       "key": "31-60",
       "label": "31-60 días",
-      "value": 196
+      "value": 193
     },
     {
       "key": "61-90",
       "label": "61-90 días",
-      "value": 158
+      "value": 153
     },
     {
       "key": "90+",
       "label": "90+ días",
-      "value": 97
+      "value": 105
     }
   ],
   "tiers_total": 617,
-  "max_wait_days": 267,
+  "max_wait_days": 268,
   "city_tier": [
     {
       "ciudad": "CDMX / Edo Mex",
       "vals": [
         84,
-        86,
-        52,
-        34
+        85,
+        50,
+        37
       ],
       "total": 256
     },
@@ -920,8 +920,8 @@ window.__DASHBOARD_DATA__ = {
       "vals": [
         27,
         20,
-        25,
-        9
+        24,
+        10
       ],
       "total": 81
     },
@@ -930,8 +930,8 @@ window.__DASHBOARD_DATA__ = {
       "vals": [
         7,
         20,
-        29,
-        22
+        28,
+        23
       ],
       "total": 78
     },
@@ -939,9 +939,9 @@ window.__DASHBOARD_DATA__ = {
       "ciudad": "Puebla",
       "vals": [
         10,
-        29,
+        28,
         18,
-        11
+        12
       ],
       "total": 68
     },
@@ -949,9 +949,9 @@ window.__DASHBOARD_DATA__ = {
       "ciudad": "Guadalajara",
       "vals": [
         16,
-        13,
-        20,
-        9
+        12,
+        19,
+        11
       ],
       "total": 58
     },
@@ -1002,8 +1002,8 @@ window.__DASHBOARD_DATA__ = {
       "vals": [
         14,
         18,
-        18,
-        8
+        17,
+        9
       ],
       "total": 58
     },
@@ -1012,8 +1012,8 @@ window.__DASHBOARD_DATA__ = {
       "vals": [
         18,
         14,
-        14,
-        3
+        12,
+        5
       ],
       "total": 49
     },
@@ -1032,8 +1032,8 @@ window.__DASHBOARD_DATA__ = {
       "vals": [
         13,
         11,
-        8,
-        4
+        7,
+        5
       ],
       "total": 36
     },
@@ -1081,9 +1081,9 @@ window.__DASHBOARD_DATA__ = {
       "key": "@Michelle Ruiz",
       "vals": [
         7,
-        7,
         6,
-        5
+        5,
+        7
       ],
       "total": 25
     },
@@ -1092,8 +1092,8 @@ window.__DASHBOARD_DATA__ = {
       "vals": [
         5,
         13,
-        5,
-        2
+        4,
+        3
       ],
       "total": 25
     },
@@ -1181,8 +1181,8 @@ window.__DASHBOARD_DATA__ = {
       "key": "@Ivette",
       "vals": [
         4,
-        8,
-        3,
+        6,
+        5,
         3
       ],
       "total": 18
@@ -1242,8 +1242,8 @@ window.__DASHBOARD_DATA__ = {
       "vals": [
         0,
         2,
-        2,
-        3
+        1,
+        4
       ],
       "total": 7
     }
@@ -1277,16 +1277,16 @@ window.__DASHBOARD_DATA__ = {
   ],
   "decline_total": 912,
   "forecast": {
-    "workdays_elapsed": 10,
+    "workdays_elapsed": 11,
     "actual_elapsed": 100,
     "workdays_total": 22,
-    "rate": 10.0,
-    "total": 220,
-    "nuevo": 7,
-    "seminuevo": 213
+    "rate": 9.09,
+    "total": 200,
+    "nuevo": 6,
+    "seminuevo": 194
   },
   "corte": {
-    "fecha": "2026-09-15",
+    "fecha": "2026-09-16",
     "mes_label": "Sep 26"
   },
   "fleet_total": 132,
