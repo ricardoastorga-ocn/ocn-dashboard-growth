@@ -30,6 +30,14 @@ MX_TZ = ZoneInfo("America/Mexico_City")
 BO_ID = "1hMTlrcklmQQpDiNmrav4gZM_ZWmmCniGlJEUgLhIzCY"
 PI_ID = "1hmIkvqU342xgN3APYt5dKJbQfM4H1ZmFXWacMsAmiwQ"
 FLEET_ID = "1yrz2kBYLSfrpOqNL450Xxs6KavnQdb4RIPcjwaifhtw"
+# Aprobaciones -- hasta el 17-sep-2026 este dato venia de un CSV manual que Ricardo
+# exportaba y dejaba en su Desktop (por eso "Aprobaciones" no era parte del refresh
+# automatico, ver compute_aprobaciones.py, ahora obsoleto). Ricardo confirmo que este
+# Sheet mantiene el mismo tablero siempre actualizado -- se puede leer en vivo igual
+# que cualquier otra fuente de este pipeline, así que esta seccion ya se computa aqui
+# mismo en cada corrida automatica, sin depender de que Ricardo traiga un CSV.
+APROB_ID = "1Tfk0zHj_JZjQhYdp9Cq0h3k25-Hvx7l3vzl7ynM-lxc"
+APROB_TAB = "tablero_preaprobaciones_ventas_lh.csv"
 
 CITY_ORDER = ["Tijuana", "CDMX / Edo Mex", "Monterrey", "Mexicali", "Guadalajara",
               "Queretaro", "Merida", "Puebla", "Saltillo"]
@@ -327,6 +335,199 @@ def month_workdays(year, month):
     import calendar
     last_day = calendar.monthrange(year, month)[1]
     return business_days_between(datetime.date(year, month, 1), datetime.date(year, month, last_day))
+
+
+_APROB_MESES_CORTAS = ["ene", "feb", "mar", "abr", "may", "jun", "jul", "ago", "sep", "oct", "nov", "dic"]
+_APROB_MESES_LARGAS = ["enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto",
+                        "septiembre", "octubre", "noviembre", "diciembre"]
+_APROB_RESULT_KEY = {"APROBADO": "aprobado", "RECHAZADO": "rechazado", "PENDIENTE": "pendiente"}
+_APROB_NO_PERSONA_PREFIXES = ("tlconcentra", "agconcentra", "ageconcentra")
+
+
+def _aprob_norm_city(raw):
+    s = norm_ascii(raw or "").upper().strip()
+    s = s.replace("EDOMEX", "EDO MEX")
+    for c in CITY_ORDER:
+        cn = norm_ascii(c).upper()
+        if s == cn or s.replace(" / ", " ") == cn.replace(" / ", " "):
+            return c
+    if "CDMX" in s or "EDO MEX" in s:
+        return "CDMX / Edo Mex"
+    return "Otro"
+
+
+def _aprob_clean_date(s):
+    s = (s or "").strip()
+    return None if s.lower() in ("", "null", "none", "nan") else s
+
+
+def _aprob_fmt_short(d):
+    return f"{d.day} {_APROB_MESES_CORTAS[d.month - 1]}"
+
+
+def _aprob_monday_of(d):
+    return d - datetime.timedelta(days=d.weekday())
+
+
+def _aprob_add_months(d, delta):
+    m = d.month - 1 + delta
+    y = d.year + m // 12
+    m = m % 12 + 1
+    return datetime.date(y, m, 1)
+
+
+def _aprob_asesor_display(email):
+    local = (email or "").split("@")[0].strip()
+    if not local or local.lower().startswith(_APROB_NO_PERSONA_PREFIXES):
+        return None
+    parts = [p for p in local.split(".") if p]
+    if len(parts) < 2:
+        return None
+    return " ".join(p.capitalize() for p in parts)
+
+
+def compute_aprobaciones(token):
+    """Aprobaciones -- desempeño de aprobación de solicitudes. Leído en vivo del Sheet
+    `APROB_ID` (mismo tablero que antes vivía como CSV manual en el Desktop de Ricardo,
+    confirmado 17-sep-2026 que se mantiene actualizado ahí) -- ya forma parte normal del
+    refresh automático, no depende de que Ricardo traiga un archivo."""
+    raw = sheets_get(token, APROB_ID, f"'{APROB_TAB}'!A1:N20000")
+    header, data_rows = raw[0], raw[1:]
+    idx = {h: i for i, h in enumerate(header) if h}
+
+    def g(r, name):
+        i = idx.get(name)
+        return r[i] if i is not None and i < len(r) else ""
+
+    # dedup por url_solicitud -- si aparece mas de una vez, se queda la fecha_envio_valuacion
+    # mas reciente (mismo criterio que el CSV manual traia cuando venia de 2 archivos).
+    by_url = {}
+    for r in data_rows:
+        d = _aprob_clean_date(g(r, "fecha_envio_valuacion"))
+        if d is None:
+            continue
+        url = g(r, "url_solicitud")
+        existing = by_url.get(url)
+        if existing is None or d > existing["_fecha"]:
+            by_url[url] = {
+                "_fecha": d, "resultado": g(r, "resultado").strip(),
+                "ciudad": g(r, "ciudad"), "asesor": g(r, "asesor"),
+            }
+    rows = list(by_url.values())
+    for r in rows:
+        r["_date"] = datetime.date.fromisoformat(r["_fecha"])
+        r["_city"] = _aprob_norm_city(r["ciudad"])
+
+    total = len(rows)
+    aprobado = sum(1 for r in rows if r["resultado"] == "APROBADO")
+    rechazado = sum(1 for r in rows if r["resultado"] == "RECHAZADO")
+    pendiente = sum(1 for r in rows if r["resultado"] == "PENDIENTE")
+    resueltas = aprobado + rechazado
+    pct_aprobacion = round(aprobado / resueltas * 100, 1) if resueltas else 0.0
+
+    dates_sorted = sorted(set(r["_date"] for r in rows))
+    date_min, date_max = dates_sorted[0], dates_sorted[-1]
+    all_days = [date_min + datetime.timedelta(days=i) for i in range((date_max - date_min).days + 1)]
+
+    # ---------- semanal (lunes-domingo) ----------
+    weekly = {}
+    for r in rows:
+        wk_start = _aprob_monday_of(r["_date"])
+        c = weekly.setdefault(wk_start, {"aprobado": 0, "rechazado": 0, "pendiente": 0})
+        c[_APROB_RESULT_KEY[r["resultado"]]] += 1
+    weekly_list = []
+    for wk_start in sorted(weekly):
+        if wk_start < date_min:
+            continue
+        wk_end = wk_start + datetime.timedelta(days=6)
+        c = weekly[wk_start]
+        res = c["aprobado"] + c["rechazado"]
+        es_parcial = wk_end > date_max
+        weekly_list.append({
+            "label": f"{_aprob_fmt_short(wk_start)}–{_aprob_fmt_short(wk_end)}" + (" (parcial)" if es_parcial else ""),
+            "aprobado": c["aprobado"], "rechazado": c["rechazado"], "pendiente": c["pendiente"],
+            "total": c["aprobado"] + c["rechazado"] + c["pendiente"],
+            "pct_aprobacion": round(c["aprobado"] / res * 100, 1) if res else 0.0,
+            "es_parcial": es_parcial,
+        })
+
+    # ---------- comparativo mes actual vs. mes anterior, mismos dias habiles ----------
+    mes_actual_inicio = datetime.date(date_max.year, date_max.month, 1)
+    mes_dias_habiles = business_days_between(mes_actual_inicio, date_max)
+    mes_anterior_inicio = _aprob_add_months(mes_actual_inicio, -1)
+    d = mes_anterior_inicio
+    count = 0
+    while count < mes_dias_habiles:
+        if d.weekday() < 5:
+            count += 1
+        if count == mes_dias_habiles:
+            break
+        d += datetime.timedelta(days=1)
+    mes_anterior_fin = d
+
+    def summarize_window(start, end):
+        subset = [r for r in rows if start <= r["_date"] <= end]
+        ap = sum(1 for r in subset if r["resultado"] == "APROBADO")
+        rc = sum(1 for r in subset if r["resultado"] == "RECHAZADO")
+        pe = sum(1 for r in subset if r["resultado"] == "PENDIENTE")
+        res = ap + rc
+        return {"total": ap + rc + pe, "aprobado": ap, "rechazado": rc, "pendiente": pe,
+                "pct_aprobacion": round(ap / res * 100, 1) if res else 0.0}
+
+    month_compare = [
+        {"mes": _APROB_MESES_LARGAS[mes_anterior_inicio.month - 1].capitalize(),
+         "rango": f"{_aprob_fmt_short(mes_anterior_inicio)}–{_aprob_fmt_short(mes_anterior_fin)}",
+         "dias_habiles": mes_dias_habiles,
+         **summarize_window(mes_anterior_inicio, mes_anterior_fin)},
+        {"mes": _APROB_MESES_LARGAS[mes_actual_inicio.month - 1].capitalize(),
+         "rango": f"{_aprob_fmt_short(mes_actual_inicio)}–{_aprob_fmt_short(date_max)}",
+         "dias_habiles": mes_dias_habiles,
+         **summarize_window(mes_actual_inicio, date_max)},
+    ]
+
+    # ---------- solicitudes y aprobadas del mes, por asesor ----------
+    agente_mes_counts = {}
+    for r in rows:
+        if not (mes_actual_inicio <= r["_date"] <= date_max):
+            continue
+        disp = _aprob_asesor_display(r.get("asesor"))
+        if not disp:
+            continue
+        c = agente_mes_counts.setdefault(disp, {"solicitudes": 0, "aprobadas": 0})
+        c["solicitudes"] += 1
+        if r["resultado"] == "APROBADO":
+            c["aprobadas"] += 1
+    aprob_by_agente_mes = [{"asesor": a, **c} for a, c in sorted(agente_mes_counts.items())]
+
+    # ---------- volumen diario por ciudad ----------
+    VOLUME_BUCKETS = {
+        "Tijuana": "tij", "CDMX / Edo Mex": "cdmx", "Monterrey": "mty",
+        "Queretaro": "qro", "Guadalajara": "gdl", "Mexicali": "mxl",
+        "Merida": "otros", "Puebla": "otros", "Saltillo": "otros", "Otro": "otros",
+    }
+    VOLUME_KEYS = ["tij", "cdmx", "mty", "qro", "gdl", "mxl", "otros"]
+    volume_by_day = {d: {k: 0 for k in VOLUME_KEYS} for d in all_days}
+    for r in rows:
+        bucket = VOLUME_BUCKETS.get(r["_city"])
+        if bucket is None:
+            continue
+        volume_by_day[r["_date"]][bucket] += 1
+    daily_volume = [{"fecha": _aprob_fmt_short(d), **volume_by_day[d]} for d in all_days]
+
+    return {
+        "aprob_kpis": {
+            "total": total, "aprobado": aprobado, "rechazado": rechazado, "pendiente": pendiente,
+            "pct_aprobacion": pct_aprobacion,
+        },
+        "aprob_weekly": weekly_list,
+        "aprob_month_compare": month_compare,
+        "aprob_by_agente_mes": aprob_by_agente_mes,
+        "aprob_daily_volume": daily_volume,
+        "aprob_meta": {
+            "fecha_min": _aprob_fmt_short(date_min), "fecha_max": _aprob_fmt_short(date_max),
+            "generado_en": datetime.datetime.now().isoformat(),
+        },
+    }
 
 
 def main():
@@ -683,17 +884,12 @@ def main():
         "fleet_city_stage": fleet_city_stage,
     }
 
-    # ---------- Aprobaciones (fuente: CSVs manuales, ver compute_aprobaciones.py) ----------
-    # Este pipeline corre en GitHub Actions (nube, sin acceso a los CSVs locales de Ricardo),
-    # asi que esta seccion NO se recalcula aqui -- se recalcula a mano corriendo
-    # compute_aprobaciones.py cada vez que Ricardo trae CSVs nuevos, lo que escribe
-    # aprobaciones_snapshot.json (committed al repo). Aqui solo se relee ese snapshot ya
-    # calculado y se reincrusta en data.js en cada corrida automatica, para que el resto del
-    # dashboard se siga refrescando solo sin que esta seccion desaparezca ni truene.
-    aprob_snapshot_path = os.path.join(os.path.dirname(__file__), "aprobaciones_snapshot.json")
-    if os.path.exists(aprob_snapshot_path):
-        with open(aprob_snapshot_path, encoding="utf-8") as f:
-            data.update(json.load(f))
+    # ---------- Aprobaciones (fuente: Sheet en vivo, ver compute_aprobaciones()) ----------
+    # Hasta el 17-sep-2026 esto dependia de que Ricardo trajera un CSV manual y se recalculara
+    # a mano con compute_aprobaciones.py (ahora obsoleto), escribiendo aprobaciones_snapshot.json.
+    # Ricardo confirmo que APROB_ID/APROB_TAB es el mismo tablero, siempre actualizado, asi que
+    # ya se lee en vivo aqui mismo en cada corrida automatica.
+    data.update(compute_aprobaciones(token))
 
     # Cruzar solicitudes/aprobadas del mes (CSV, via aprob_by_agente_mes de arriba) contra el
     # ranking de entregas por asesor/team -- mismo match_roster() que arriba, esta vez contra

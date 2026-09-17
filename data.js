@@ -1,5 +1,5 @@
 window.__DASHBOARD_DATA__ = {
-  "generated_at": "2026-09-17T06:48:20.208295Z",
+  "generated_at": "2026-09-17T03:34:10.383337Z",
   "months": [
     "Ago 25",
     "Sep 25",
@@ -884,32 +884,32 @@ window.__DASHBOARD_DATA__ = {
     {
       "key": "0-30",
       "label": "0-30 días",
-      "value": 154
+      "value": 166
     },
     {
       "key": "31-60",
       "label": "31-60 días",
-      "value": 205
+      "value": 193
     },
     {
       "key": "61-90",
       "label": "61-90 días",
-      "value": 150
+      "value": 153
     },
     {
       "key": "90+",
       "label": "90+ días",
-      "value": 108
+      "value": 105
     }
   ],
   "tiers_total": 617,
-  "max_wait_days": 269,
+  "max_wait_days": 268,
   "city_tier": [
     {
       "ciudad": "CDMX / Edo Mex",
       "vals": [
-        75,
-        94,
+        84,
+        85,
         50,
         37
       ],
@@ -928,10 +928,10 @@ window.__DASHBOARD_DATA__ = {
     {
       "ciudad": "Merida",
       "vals": [
-        6,
-        21,
-        26,
-        25
+        7,
+        20,
+        28,
+        23
       ],
       "total": 78
     },
@@ -948,18 +948,18 @@ window.__DASHBOARD_DATA__ = {
     {
       "ciudad": "Guadalajara",
       "vals": [
-        15,
-        13,
-        18,
-        12
+        16,
+        12,
+        19,
+        11
       ],
       "total": 58
     },
     {
       "ciudad": "Queretaro",
       "vals": [
-        12,
-        9,
+        13,
+        8,
         8,
         10
       ],
@@ -1010,28 +1010,28 @@ window.__DASHBOARD_DATA__ = {
     {
       "key": "Mayte Urrutia",
       "vals": [
-        17,
-        15,
-        11,
-        6
+        18,
+        14,
+        12,
+        5
       ],
       "total": 49
     },
     {
       "key": "@Daniela Fav",
       "vals": [
-        9,
-        14,
-        6,
-        13
+        11,
+        12,
+        7,
+        12
       ],
       "total": 42
     },
     {
       "key": "Ana Rodriguez",
       "vals": [
-        12,
-        12,
+        13,
+        11,
         7,
         5
       ],
@@ -1100,10 +1100,10 @@ window.__DASHBOARD_DATA__ = {
     {
       "key": "Angelica Torres",
       "vals": [
-        8,
         9,
-        5,
-        2
+        8,
+        6,
+        1
       ],
       "total": 24
     },
@@ -1120,8 +1120,8 @@ window.__DASHBOARD_DATA__ = {
     {
       "key": "@Joel Flores Lopez",
       "vals": [
-        1,
-        10,
+        2,
+        9,
         6,
         6
       ],
@@ -1140,8 +1140,8 @@ window.__DASHBOARD_DATA__ = {
     {
       "key": "Aaron Sanchez",
       "vals": [
-        7,
         8,
+        7,
         5,
         1
       ],
@@ -1150,8 +1150,8 @@ window.__DASHBOARD_DATA__ = {
     {
       "key": "Imanol Cortez",
       "vals": [
-        4,
-        4,
+        7,
+        1,
         7,
         4
       ],
@@ -1170,8 +1170,8 @@ window.__DASHBOARD_DATA__ = {
     {
       "key": "Diana Moreno",
       "vals": [
-        7,
         8,
+        7,
         1,
         2
       ],
@@ -1180,8 +1180,8 @@ window.__DASHBOARD_DATA__ = {
     {
       "key": "@Ivette",
       "vals": [
-        3,
-        7,
+        4,
+        6,
         5,
         3
       ],
@@ -1277,19 +1277,19 @@ window.__DASHBOARD_DATA__ = {
   ],
   "decline_total": 912,
   "forecast": {
-    "workdays_elapsed": 12,
+    "workdays_elapsed": 11,
     "actual_elapsed": 100,
     "workdays_total": 22,
-    "rate": 8.33,
-    "total": 183,
-    "nuevo": 5,
-    "seminuevo": 178
+    "rate": 9.09,
+    "total": 200,
+    "nuevo": 6,
+    "seminuevo": 194
   },
   "corte": {
-    "fecha": "2026-09-17",
+    "fecha": "2026-09-16",
     "mes_label": "Sep 26"
   },
-  "fleet_total": 125,
+  "fleet_total": 124,
   "fleet_desflote_n": 10,
   "fleet_city_stage": [
     {
@@ -1297,12 +1297,12 @@ window.__DASHBOARD_DATA__ = {
       "vals": [
         8,
         2,
-        14,
+        13,
         4,
         8,
         2
       ],
-      "total": 38
+      "total": 37
     },
     {
       "ciudad": "Sin identificar",

@@ -1,12 +1,21 @@
 #!/usr/bin/env python3
-"""Aprobaciones -- desempeno de aprobacion de solicitudes, agregado a Dashboard Growth.
+"""OBSOLETO desde el 17-sep-2026 -- ver compute_aprobaciones(token) en refresh_data.py.
 
-Fuente: CSVs manuales que Ricardo exporta desde el admin (no hay Sheet/API en vivo para
-esto todavia) -- por eso este script se corre A MANO cada vez que Ricardo trae CSVs
-nuevos, NO es parte del refresh automatico de GitHub Actions (que corre en la nube y no
-tiene acceso a archivos locales del Desktop de Ricardo). Escribe aprobaciones_snapshot.json
-(committed al repo); refresh_data.py lo lee y lo re-embebe en cada corrida automatica, asi
-el resto del dashboard se sigue refrescando solo sin que esta seccion desaparezca ni truene.
+Ricardo confirmo que el Sheet 1Tfk0zHj_JZjQhYdp9Cq0h3k25-Hvx7l3vzl7ynM-lxc (pestaña
+"tablero_preaprobaciones_ventas_lh.csv") es el mismo tablero, siempre actualizado en
+vivo, con exactamente el mismo esquema que los CSVs manuales que este script leia. Por
+eso la logica de aqui se porteo tal cual a refresh_data.py y ya corre sola en cada
+refresh automatico de GitHub Actions -- ya no depende de que Ricardo traiga un CSV a
+mano. Se deja este archivo (y aprobaciones_snapshot.json) sin usar, solo de referencia
+historica.
+
+Aprobaciones -- desempeno de aprobacion de solicitudes, agregado a Dashboard Growth.
+
+Fuente (historica): CSVs manuales que Ricardo exportaba desde el admin -- por eso este
+script se corria A MANO cada vez que Ricardo traia CSVs nuevos, y no era parte del
+refresh automatico de GitHub Actions (que corre en la nube y no tiene acceso a archivos
+locales del Desktop de Ricardo). Escribia aprobaciones_snapshot.json (committed al
+repo); refresh_data.py lo leia y lo reincrustaba en cada corrida automatica.
 """
 import csv
 import datetime
