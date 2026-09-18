@@ -1,5 +1,5 @@
 window.__DASHBOARD_DATA__ = {
-  "generated_at": "2026-09-18T01:39:23.290189Z",
+  "generated_at": "2026-09-18T06:44:06.156028Z",
   "months": [
     "Ago 25",
     "Sep 25",
@@ -896,44 +896,44 @@ window.__DASHBOARD_DATA__ = {
     {
       "key": "0-30",
       "label": "0-30 días",
-      "value": 136
+      "value": 128
     },
     {
       "key": "31-60",
       "label": "31-60 días",
-      "value": 190
+      "value": 198
     },
     {
       "key": "61-90",
       "label": "61-90 días",
-      "value": 139
+      "value": 130
     },
     {
       "key": "90+",
       "label": "90+ días",
-      "value": 93
+      "value": 102
     }
   ],
   "tiers_total": 558,
-  "max_wait_days": 269,
+  "max_wait_days": 270,
   "city_tier": [
     {
       "ciudad": "CDMX / Edo Mex",
       "vals": [
-        66,
-        88,
-        46,
-        30
+        62,
+        92,
+        44,
+        32
       ],
       "total": 230
     },
     {
       "ciudad": "Monterrey",
       "vals": [
-        21,
         20,
-        24,
-        10
+        21,
+        23,
+        11
       ],
       "total": 75
     },
@@ -942,8 +942,8 @@ window.__DASHBOARD_DATA__ = {
       "vals": [
         6,
         19,
-        26,
-        22
+        23,
+        25
       ],
       "total": 73
     },
@@ -952,18 +952,18 @@ window.__DASHBOARD_DATA__ = {
       "vals": [
         10,
         24,
-        16,
-        10
+        15,
+        11
       ],
       "total": 60
     },
     {
       "ciudad": "Guadalajara",
       "vals": [
+        12,
+        15,
         14,
-        13,
-        16,
-        10
+        12
       ],
       "total": 53
     },
@@ -980,8 +980,8 @@ window.__DASHBOARD_DATA__ = {
     {
       "ciudad": "Saltillo",
       "vals": [
-        6,
-        15,
+        5,
+        16,
         3,
         1
       ],
@@ -1012,8 +1012,8 @@ window.__DASHBOARD_DATA__ = {
     {
       "key": "Adolfo Jaimes",
       "vals": [
-        12,
-        17,
+        11,
+        18,
         17,
         7
       ],
@@ -1022,8 +1022,8 @@ window.__DASHBOARD_DATA__ = {
     {
       "key": "Mayte Urrutia",
       "vals": [
-        17,
-        14,
+        15,
+        16,
         9,
         4
       ],
@@ -1042,8 +1042,8 @@ window.__DASHBOARD_DATA__ = {
     {
       "key": "Oscar Alvarez",
       "vals": [
-        9,
-        12,
+        8,
+        13,
         10,
         1
       ],
@@ -1054,8 +1054,8 @@ window.__DASHBOARD_DATA__ = {
       "vals": [
         6,
         10,
-        6,
-        8
+        5,
+        9
       ],
       "total": 30
     },
@@ -1084,18 +1084,18 @@ window.__DASHBOARD_DATA__ = {
       "vals": [
         5,
         10,
-        8,
-        3
+        7,
+        4
       ],
       "total": 26
     },
     {
       "key": "@Michelle Ruiz",
       "vals": [
-        7,
         6,
-        5,
-        7
+        7,
+        4,
+        8
       ],
       "total": 25
     },
@@ -1104,18 +1104,18 @@ window.__DASHBOARD_DATA__ = {
       "vals": [
         5,
         13,
-        4,
-        3
+        3,
+        4
       ],
       "total": 25
     },
     {
       "key": "Angelica Torres",
       "vals": [
-        8,
-        9,
-        5,
-        2
+        7,
+        10,
+        4,
+        3
       ],
       "total": 24
     },
@@ -1132,8 +1132,8 @@ window.__DASHBOARD_DATA__ = {
     {
       "key": "Aaron Sanchez",
       "vals": [
-        7,
-        8,
+        6,
+        9,
         5,
         1
       ],
@@ -1154,8 +1154,8 @@ window.__DASHBOARD_DATA__ = {
       "vals": [
         1,
         6,
-        7,
-        3
+        6,
+        4
       ],
       "total": 17
     },
@@ -1174,8 +1174,8 @@ window.__DASHBOARD_DATA__ = {
       "vals": [
         4,
         3,
-        6,
-        3
+        4,
+        5
       ],
       "total": 16
     },
@@ -1222,8 +1222,8 @@ window.__DASHBOARD_DATA__ = {
     {
       "key": "@Ivette",
       "vals": [
-        1,
-        6,
+        0,
+        7,
         3,
         3
       ],
@@ -1254,8 +1254,8 @@ window.__DASHBOARD_DATA__ = {
       "vals": [
         0,
         2,
-        1,
-        3
+        0,
+        4
       ],
       "total": 6
     }
@@ -1289,16 +1289,16 @@ window.__DASHBOARD_DATA__ = {
   ],
   "decline_total": 953,
   "forecast": {
-    "workdays_elapsed": 12,
+    "workdays_elapsed": 13,
     "actual_elapsed": 110,
     "workdays_total": 22,
-    "rate": 9.17,
-    "total": 202,
+    "rate": 8.46,
+    "total": 186,
     "nuevo": 7,
-    "seminuevo": 195
+    "seminuevo": 179
   },
   "corte": {
-    "fecha": "2026-09-17",
+    "fecha": "2026-09-18",
     "mes_label": "Sep 26"
   },
   "fleet_total": 128,
@@ -2119,6 +2119,6 @@ window.__DASHBOARD_DATA__ = {
   "aprob_meta": {
     "fecha_min": "1 ago",
     "fecha_max": "17 sep",
-    "generado_en": "2026-09-18T01:39:23.975132"
+    "generado_en": "2026-09-18T06:44:06.853101"
   }
 };
