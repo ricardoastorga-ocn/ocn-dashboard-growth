@@ -1,5 +1,5 @@
 window.__DASHBOARD_DATA__ = {
-  "generated_at": "2026-09-18T01:08:26.116431Z",
+  "generated_at": "2026-09-18T01:39:23.290189Z",
   "months": [
     "Ago 25",
     "Sep 25",
@@ -1333,8 +1333,8 @@ window.__DASHBOARD_DATA__ = {
       "vals": [
         0,
         0,
-        4,
-        11,
+        3,
+        12,
         3,
         3
       ],
@@ -2119,6 +2119,6 @@ window.__DASHBOARD_DATA__ = {
   "aprob_meta": {
     "fecha_min": "1 ago",
     "fecha_max": "17 sep",
-    "generado_en": "2026-09-18T01:08:26.979801"
+    "generado_en": "2026-09-18T01:39:23.975132"
   }
 };
