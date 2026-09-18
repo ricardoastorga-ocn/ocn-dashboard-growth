@@ -1150,6 +1150,7 @@ table.data-table td.pct-bad  { color: var(--s-critical); font-weight: 700; }
     const monName = MONTH_NAMES_ES[corte.getMonth()];
     const year = corte.getFullYear();
     const entregado = ETAPAS.find(d=>d.key==='entregado').value;
+    const ciudadDisponible = DATA.ciudad_base_disponible !== false;
     // listoTotal viene de ETAPAS (cuenta total de unidades en etapa "listo", independiente de
     // ciudad), no de sumar CIUDAD_LISTO -- si la columna de ciudad falta en la fuente (ver guard
     // de CIUDAD_LISTO.length===0 mas abajo), CIUDAD_LISTO llega vacio pero SI hay unidades listas
@@ -1175,7 +1176,8 @@ table.data-table td.pct-bad  { color: var(--s-critical); font-weight: 700; }
       '<li><strong>'+fmt(listoTotal)+' unidades listas para entrega hoy</strong>'+porCiudadTxt+'.</li>';
 
     el2('callout-forecast', 'Ritmo actual: <strong>~'+FORECAST_RATE.toFixed(1)+' unidades/día laboral</strong> → proyección de cierre <strong>~'+fmt(FORECAST_TOTAL)+' unidades</strong> en '+monName+'.', true);
-    el2('note-dias', fmt(entregado)+' unidades entregadas, datos completos hasta el '+day+'-'+monAbbr+' · histórico desde agosto · línea = unidades agendadas/pendientes con fecha ya asignada');
+    el2('note-dias', fmt(entregado)+' unidades entregadas, datos completos hasta el '+day+'-'+monAbbr+' · histórico desde agosto · línea = unidades agendadas/pendientes con fecha ya asignada'
+      + (ciudadDisponible ? '' : ' · el desglose por ciudad no está disponible desde que falta esa columna en la fuente — los días recientes caen todos en "Otros", no es una ciudad real'));
 
     const agendadaPairs = DIAS_LABELS.map((l,i)=>[l, AGENDADAS_DIA[i]]).filter(([l,v])=>v>0);
     el2('callout-agendadas', agendadaPairs.length
@@ -1187,8 +1189,10 @@ table.data-table td.pct-bad  { color: var(--s-critical); font-weight: 700; }
 
     const waitTotal = WAITLIST.reduce((a,d)=>a+d.espera,0);
     el2('note-waitlist-gap', fmt(waitTotal)+' drivers en espera de inventario (fuente: Presales-Inventory) vs. las unidades Listo/Entrega de este reporte');
-    const surplus = WAITLIST.filter(d=>d.gap<0).map(d=>d.ciudad);
-    el2('callout-waitlist-gap', surplus.length
+    const surplus = ciudadDisponible ? WAITLIST.filter(d=>d.gap<0).map(d=>d.ciudad) : [];
+    el2('callout-waitlist-gap', !ciudadDisponible
+      ? 'Comparación por ciudad no disponible este corte — falta la columna de ciudad en la fuente.'
+      : surplus.length
       ? '<strong>'+surplus.join(' y ')+'</strong>: único'+(surplus.length===1?'':'s')+' superávit (más inventario que gente esperando) — foco de venta inmediato.'
       : 'Ninguna ciudad tiene hoy más inventario que gente esperando.', true);
 
@@ -1220,7 +1224,7 @@ table.data-table td.pct-bad  { color: var(--s-critical); font-weight: 700; }
 
     // Cruce dinámico: de las ciudades en superávit (más listo que gente esperando), ¿cuál tiene más
     // volumen de Fleet a punto de llegar (En reparación + Entregado)? Eso agrava el superávit si nadie actúa.
-    const surplusCities = new Set(WAITLIST.filter(d=>d.gap<0).map(d=>d.ciudad));
+    const surplusCities = new Set(ciudadDisponible ? WAITLIST.filter(d=>d.gap<0).map(d=>d.ciudad) : []);
     const idxReparacion = FLEET_STAGE_KEYS.indexOf('EN REPARACION'), idxEntregado = FLEET_STAGE_KEYS.indexOf('ENTREGADO');
     const surplusIncoming = FLEET_CITY_STAGE
       .filter(r => surplusCities.has(r.ciudad))
@@ -1341,18 +1345,30 @@ table.data-table td.pct-bad  { color: var(--s-critical); font-weight: 700; }
 
     {
       const wrap = document.getElementById('waitlist-table-wrap');
-      let html = '<table class="data-table"><caption>Waitlist vs. Listo/Entrega por ciudad, ordenado de mayor a menor oportunidad</caption><thead><tr><th>Ciudad</th><th>En espera</th><th>Listo/Entrega</th><th>Gap</th><th>Lectura</th></tr></thead><tbody>';
-      let sumEspera=0, sumListo=0;
-      WAITLIST.forEach(d => {
-        sumEspera+=d.espera; sumListo+=d.listo;
-        const isOpp = d.gap < 0;
-        html += '<tr class="'+(isOpp?'row-surplus':'row-deficit')+'"><td>'+d.ciudad+'</td><td>'+fmt(d.espera)+'</td><td>'+fmt(d.listo)+'</td>' +
-          '<td class="'+(isOpp?'opp':'def')+'">'+(d.gap>0?'+':'')+fmt(d.gap)+'</td>' +
-          '<td style="text-align:left;font-weight:400;font-variant-numeric:normal;">'+(isOpp ? 'Superávit — foco de venta/marcación' : 'Déficit — falta inventario')+'</td></tr>';
-      });
-      html += '<tr><td>Total</td><td>'+fmt(sumEspera)+'</td><td>'+fmt(sumListo)+'</td><td>'+(sumEspera-sumListo>0?'+':'')+fmt(sumEspera-sumListo)+'</td><td></td></tr>';
-      html += '</tbody></table>';
-      wrap.innerHTML = html;
+      if (!ciudadDisponible) {
+        // "Listo/Entrega" y "Gap" por ciudad no se pueden calcular sin la columna de ciudad en
+        // la fuente (ver refresh_data.py, ciudad_base_disponible) -- se muestra solo "En espera"
+        // en vez de columnas con "—"/0 que se leerian como que no hay inventario listo en ninguna
+        // ciudad (falso).
+        let sumEspera = 0;
+        let html = '<table class="data-table"><caption>Waitlist por ciudad — comparación contra Listo/Entrega no disponible este corte</caption><thead><tr><th>Ciudad</th><th>En espera</th></tr></thead><tbody>';
+        WAITLIST.forEach(d => { sumEspera += d.espera; html += '<tr><td>'+d.ciudad+'</td><td>'+fmt(d.espera)+'</td></tr>'; });
+        html += '<tr><td>Total</td><td>'+fmt(sumEspera)+'</td></tr></tbody></table>';
+        wrap.innerHTML = html;
+      } else {
+        let html = '<table class="data-table"><caption>Waitlist vs. Listo/Entrega por ciudad, ordenado de mayor a menor oportunidad</caption><thead><tr><th>Ciudad</th><th>En espera</th><th>Listo/Entrega</th><th>Gap</th><th>Lectura</th></tr></thead><tbody>';
+        let sumEspera=0, sumListo=0;
+        WAITLIST.forEach(d => {
+          sumEspera+=d.espera; sumListo+=d.listo;
+          const isOpp = d.gap < 0;
+          html += '<tr class="'+(isOpp?'row-surplus':'row-deficit')+'"><td>'+d.ciudad+'</td><td>'+fmt(d.espera)+'</td><td>'+fmt(d.listo)+'</td>' +
+            '<td class="'+(isOpp?'opp':'def')+'">'+(d.gap>0?'+':'')+fmt(d.gap)+'</td>' +
+            '<td style="text-align:left;font-weight:400;font-variant-numeric:normal;">'+(isOpp ? 'Superávit — foco de venta/marcación' : 'Déficit — falta inventario')+'</td></tr>';
+        });
+        html += '<tr><td>Total</td><td>'+fmt(sumEspera)+'</td><td>'+fmt(sumListo)+'</td><td>'+(sumEspera-sumListo>0?'+':'')+fmt(sumEspera-sumListo)+'</td><td></td></tr>';
+        html += '</tbody></table>';
+        wrap.innerHTML = html;
+      }
     }
 
     const legendTiers = document.getElementById('legend-tiers');

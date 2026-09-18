@@ -1,5 +1,5 @@
 window.__DASHBOARD_DATA__ = {
-  "generated_at": "2026-09-18T18:31:55.740673Z",
+  "generated_at": "2026-09-18T18:42:11.766666Z",
   "months": [
     "Ago 25",
     "Sep 25",
@@ -248,61 +248,62 @@ window.__DASHBOARD_DATA__ = {
   ],
   "etapas_ciudades": {},
   "entregado_target_pct": 95,
+  "ciudad_base_disponible": false,
   "ciudad_listo": [],
   "waitlist_gap": [
     {
       "ciudad": "CDMX / Edo Mex",
       "espera": 230,
-      "listo": 0,
-      "gap": 230
+      "listo": null,
+      "gap": null
     },
     {
       "ciudad": "Monterrey",
       "espera": 75,
-      "listo": 0,
-      "gap": 75
+      "listo": null,
+      "gap": null
     },
     {
       "ciudad": "Merida",
       "espera": 73,
-      "listo": 0,
-      "gap": 73
+      "listo": null,
+      "gap": null
     },
     {
       "ciudad": "Puebla",
       "espera": 60,
-      "listo": 0,
-      "gap": 60
+      "listo": null,
+      "gap": null
     },
     {
       "ciudad": "Guadalajara",
       "espera": 53,
-      "listo": 0,
-      "gap": 53
+      "listo": null,
+      "gap": null
     },
     {
       "ciudad": "Queretaro",
       "espera": 35,
-      "listo": 0,
-      "gap": 35
+      "listo": null,
+      "gap": null
     },
     {
       "ciudad": "Saltillo",
       "espera": 25,
-      "listo": 0,
-      "gap": 25
+      "listo": null,
+      "gap": null
     },
     {
       "ciudad": "Tijuana",
       "espera": 6,
-      "listo": 0,
-      "gap": 6
+      "listo": null,
+      "gap": null
     },
     {
       "ciudad": "Mexicali",
       "espera": 1,
-      "listo": 0,
-      "gap": 1
+      "listo": null,
+      "gap": null
     }
   ],
   "dias_labels": [
@@ -2079,6 +2080,6 @@ window.__DASHBOARD_DATA__ = {
   "aprob_meta": {
     "fecha_min": "1 ago",
     "fecha_max": "17 sep",
-    "generado_en": "2026-09-18T12:31:56.256844"
+    "generado_en": "2026-09-18T12:42:12.522227"
   }
 };

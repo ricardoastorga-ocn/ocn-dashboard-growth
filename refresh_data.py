@@ -562,7 +562,8 @@ def main():
     # ciudad ya maneja "" con gracia (ver `if city:` / `CITY_TO_DIASKEY.get(city, "otros")` abajo)
     # -- asi que el desglose POR CIUDAD queda vacio/agrupado en "otros" hasta que Back Office
     # confirme si el cambio fue intencional y, si no, la restaure. Pendiente de Ricardo.
-    if "Ciudad Base" not in header:
+    ciudad_base_disponible = "Ciudad Base" in header
+    if not ciudad_base_disponible:
         print("WARNING: 'Ciudad Base' ya no existe en SEGUIMIENTO ENTREGAS -- desglose por ciudad queda vacio este refresh.")
     validar_columnas("SEGUIMIENTO ENTREGAS", header,
                       ["Estatus BO", "Modelo", "Nuevo / Semi", "F / Entrega", "VIN", "Agente"])
@@ -797,12 +798,16 @@ def main():
 
     # ---------- WAITLIST (gap por ciudad) ----------
     # Usa los mismos city_tier recien calculados como "espera", y "listo" de ETAPAS_CIUDADES.
+    # Si "Ciudad Base" no esta disponible en la fuente, "listo" por ciudad NO se puede saber --
+    # se deja explicito como None (no 0, que se leeria como "cero inventario listo en ninguna
+    # ciudad", falso y alarmante) y "gap" tambien None (no tiene sentido restar un dato ausente).
     listo_by_city = etapas_ciudades.get("listo", {})
     waitlist_gap = sorted([
-        {"ciudad": c, "espera": sum(city_tier[c].values()), "listo": listo_by_city.get(c, 0),
-         "gap": sum(city_tier[c].values()) - listo_by_city.get(c, 0)}
+        {"ciudad": c, "espera": sum(city_tier[c].values()),
+         "listo": (listo_by_city.get(c, 0) if ciudad_base_disponible else None),
+         "gap": (sum(city_tier[c].values()) - listo_by_city.get(c, 0) if ciudad_base_disponible else None)}
         for c in CITY_ORDER
-    ], key=lambda d: -d["gap"])
+    ], key=lambda d: -(d["gap"] if d["gap"] is not None else d["espera"]))
 
     # ---------- Fleet Backlog (RAW DATA) -- SOLO LECTURA ----------
     # Universo = LISTA_TRABAJO == "Backlog Fleet" (lo que Fleet está trabajando y eventualmente
@@ -881,6 +886,7 @@ def main():
                    for k in ["prep", "listo", "agendada", "contrato", "cenv", "liga", "entregado", "issue"]],
         "etapas_ciudades": {k: dict(v) for k, v in etapas_ciudades.items()},
         "entregado_target_pct": 95,
+        "ciudad_base_disponible": ciudad_base_disponible,
         "ciudad_listo": ciudad_listo,
         "waitlist_gap": waitlist_gap,
         "dias_labels": dias_labels,
