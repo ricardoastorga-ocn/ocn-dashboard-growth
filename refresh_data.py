@@ -357,8 +357,20 @@ def _aprob_norm_city(raw):
 
 
 def _aprob_clean_date(s):
+    """La mayoria de las fechas de este Sheet ya vienen en ISO (YYYY-MM-DD), pero
+    algunas filas se capturan a mano en DD/MM/YYYY (confirmado 18-sep-2026: 31 filas
+    nuevas con 'fecha_ultima_etapa' como '13/08/2026' -- el 13 solo puede ser dia, no
+    mes, así que el formato es DD/MM/YYYY, no MM/DD/YYYY -- consistente con que el
+    equipo captura en México). Se normaliza a ISO aqui para que el resto del computo
+    siga asumiendo ISO como hasta ahora."""
     s = (s or "").strip()
-    return None if s.lower() in ("", "null", "none", "nan") else s
+    if s.lower() in ("", "null", "none", "nan"):
+        return None
+    m = re.match(r"^(\d{1,2})/(\d{1,2})/(\d{4})$", s)
+    if m:
+        dd, mm, yyyy = m.groups()
+        return f"{yyyy}-{int(mm):02d}-{int(dd):02d}"
+    return s
 
 
 def _aprob_fmt_short(d):
@@ -543,8 +555,17 @@ def main():
     # ColumnasFaltantesError para por qué el margen y la validación importan aquí.
     seg = sheets_get(token, BO_ID, "'SEGUIMIENTO ENTREGAS'!A1:BZ1000")
     header, rows = seg[0], seg[1:]
+    # "Ciudad Base" desaparecio por completo de esta pestana (18-sep-2026, confirmado que no se
+    # movio a ninguna otra columna/pestana de Back Office, no solo se reordeno) -- ya NO es
+    # requisito fatal para no bloquear el resto del refresh (entregas/aprobaciones/waitlist no
+    # dependen de ciudad). `get()` ya devuelve "" para columnas ausentes, y el resto del codigo de
+    # ciudad ya maneja "" con gracia (ver `if city:` / `CITY_TO_DIASKEY.get(city, "otros")` abajo)
+    # -- asi que el desglose POR CIUDAD queda vacio/agrupado en "otros" hasta que Back Office
+    # confirme si el cambio fue intencional y, si no, la restaure. Pendiente de Ricardo.
+    if "Ciudad Base" not in header:
+        print("WARNING: 'Ciudad Base' ya no existe en SEGUIMIENTO ENTREGAS -- desglose por ciudad queda vacio este refresh.")
     validar_columnas("SEGUIMIENTO ENTREGAS", header,
-                      ["Estatus BO", "Ciudad Base", "Modelo", "Nuevo / Semi", "F / Entrega", "VIN", "Agente"])
+                      ["Estatus BO", "Modelo", "Nuevo / Semi", "F / Entrega", "VIN", "Agente"])
     idx = {h: i for i, h in enumerate(header)}
 
     def get(r, col):

@@ -1150,7 +1150,11 @@ table.data-table td.pct-bad  { color: var(--s-critical); font-weight: 700; }
     const monName = MONTH_NAMES_ES[corte.getMonth()];
     const year = corte.getFullYear();
     const entregado = ETAPAS.find(d=>d.key==='entregado').value;
-    const listoTotal = CIUDAD_LISTO.reduce((a,d)=>a+d.value,0);
+    // listoTotal viene de ETAPAS (cuenta total de unidades en etapa "listo", independiente de
+    // ciudad), no de sumar CIUDAD_LISTO -- si la columna de ciudad falta en la fuente (ver guard
+    // de CIUDAD_LISTO.length===0 mas abajo), CIUDAD_LISTO llega vacio pero SI hay unidades listas
+    // realmente, y sumar un array vacio habria mostrado "0 unidades listas" siendo falso.
+    const listoTotal = ETAPAS.find(d=>d.key==='listo').value;
 
     const genDate = new Date(DATA.generated_at);
     const genFmt = genDate.toLocaleString('es-MX', {timeZone:'America/Mexico_City', day:'2-digit', month:'short', hour:'2-digit', minute:'2-digit'});
@@ -1162,10 +1166,13 @@ table.data-table td.pct-bad  { color: var(--s-critical); font-weight: 700; }
     el2('stat-forecast', '~' + fmt(FORECAST_TOTAL));
 
     const embudoPct = (entregado/ETAPAS_TOTAL*100).toFixed(1);
+    const porCiudadTxt = CIUDAD_LISTO.length
+      ? ' en '+CIUDAD_LISTO.length+' ciudad'+(CIUDAD_LISTO.length===1?'':'es')
+      : ' (ciudad no disponible este corte)';
     const findingList = document.getElementById('finding-list');
     if (findingList) findingList.innerHTML =
       '<li>Embudo: <strong>'+fmt(entregado)+' de '+fmt(ETAPAS_TOTAL)+'</strong> ya entregadas ('+embudoPct+'%, meta '+ENTREGADO_TARGET_PCT+'%).</li>' +
-      '<li><strong>'+fmt(listoTotal)+' unidades listas para entrega hoy</strong> en '+CIUDAD_LISTO.length+' ciudad'+(CIUDAD_LISTO.length===1?'':'es')+'.</li>';
+      '<li><strong>'+fmt(listoTotal)+' unidades listas para entrega hoy</strong>'+porCiudadTxt+'.</li>';
 
     el2('callout-forecast', 'Ritmo actual: <strong>~'+FORECAST_RATE.toFixed(1)+' unidades/día laboral</strong> → proyección de cierre <strong>~'+fmt(FORECAST_TOTAL)+' unidades</strong> en '+monName+'.', true);
     el2('note-dias', fmt(entregado)+' unidades entregadas, datos completos hasta el '+day+'-'+monAbbr+' · histórico desde agosto · línea = unidades agendadas/pendientes con fecha ya asignada');
@@ -1176,7 +1183,7 @@ table.data-table td.pct-bad  { color: var(--s-critical); font-weight: 700; }
       : 'Línea punteada = agendadas sin confirmar todavía.', true);
 
     el2('note-etapas-total', fmt(ETAPAS_TOTAL)+' unidades con estatus capturado, en orden de proceso · % sobre el total');
-    el2('callout-listo', '<strong>'+fmt(listoTotal)+' unidades</strong> listas para entrega hoy, en '+CIUDAD_LISTO.length+' ciudad'+(CIUDAD_LISTO.length===1?'':'es')+'.', true);
+    el2('callout-listo', '<strong>'+fmt(listoTotal)+' unidades</strong> listas para entrega hoy'+porCiudadTxt+'.', true);
 
     const waitTotal = WAITLIST.reduce((a,d)=>a+d.espera,0);
     el2('note-waitlist-gap', fmt(waitTotal)+' drivers en espera de inventario (fuente: Presales-Inventory) vs. las unidades Listo/Entrega de este reporte');
@@ -1310,12 +1317,24 @@ table.data-table td.pct-bad  { color: var(--s-critical); font-weight: 700; }
       wrap.innerHTML = html;
     }
 
-    drawEmphasisBarChart('chart-ciudad', 'tooltip-ciudad', CIUDAD_LISTO.map(d=>({key:d.ciudad, value:d.value})), {
-      ariaLabel: "Unidades Listo/Entrega por ciudad, agosto 2026",
-      labelOf: d => d.key,
-      allAccent: true,
-      labelWidth: 110
-    });
+    {
+      // "Ciudad Base" puede faltar temporalmente en la fuente (Back Office la quito el
+      // 18-sep-2026) -- CIUDAD_LISTO llega vacio en ese caso. drawEmphasisBarChart rompe con
+      // items vacios (Math.max sobre array vacio = -Infinity, altura negativa) -- se oculta la
+      // tarjeta con un aviso en vez de dejarla renderizar rota.
+      const wrap = document.getElementById('card-ciudad-listo');
+      if (CIUDAD_LISTO.length === 0) {
+        wrap.innerHTML = '<div class="card-head"><div><p class="card-title">Inventario "Listo / Entrega" por ciudad</p></div></div>'
+          + '<p class="callout">Sin datos de ciudad en este corte — la columna de ciudad falta temporalmente en la fuente.</p>';
+      } else {
+        drawEmphasisBarChart('chart-ciudad', 'tooltip-ciudad', CIUDAD_LISTO.map(d=>({key:d.ciudad, value:d.value})), {
+          ariaLabel: "Unidades Listo/Entrega por ciudad, agosto 2026",
+          labelOf: d => d.key,
+          allAccent: true,
+          labelWidth: 110
+        });
+      }
+    }
 
     const entregadoPct = ETAPAS.find(d=>d.key==='entregado').value / ETAPAS_TOTAL * 100;
     drawMeter('meter-entregado', entregadoPct, ENTREGADO_TARGET_PCT, 'Entregado / Total embudo · meta ' + ENTREGADO_TARGET_PCT + '%');
