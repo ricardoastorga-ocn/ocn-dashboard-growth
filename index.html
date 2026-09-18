@@ -491,6 +491,9 @@ table.data-table td.pct-bad  { color: var(--s-critical); font-weight: 700; }
 <script>
 (function(){
   const DATA = window.__DASHBOARD_DATA__ || {};
+  // Compartido entre renderText() y render() -- "Ciudad Base" puede faltar en la fuente
+  // (ver refresh_data.py), y varias secciones de ambas funciones necesitan saber esto.
+  const ciudadDisponible = DATA.ciudad_base_disponible !== false;
 
   const MONTHS = DATA.months;
   const MIX = DATA.mix;
@@ -1150,7 +1153,6 @@ table.data-table td.pct-bad  { color: var(--s-critical); font-weight: 700; }
     const monName = MONTH_NAMES_ES[corte.getMonth()];
     const year = corte.getFullYear();
     const entregado = ETAPAS.find(d=>d.key==='entregado').value;
-    const ciudadDisponible = DATA.ciudad_base_disponible !== false;
     // listoTotal viene de ETAPAS (cuenta total de unidades en etapa "listo", independiente de
     // ciudad), no de sumar CIUDAD_LISTO -- si la columna de ciudad falta en la fuente (ver guard
     // de CIUDAD_LISTO.length===0 mas abajo), CIUDAD_LISTO llega vacio pero SI hay unidades listas
