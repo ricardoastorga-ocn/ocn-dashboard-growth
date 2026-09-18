@@ -1,5 +1,5 @@
 window.__DASHBOARD_DATA__ = {
-  "generated_at": "2026-09-18T18:56:07.231388Z",
+  "generated_at": "2026-09-18T20:41:16.876441Z",
   "months": [
     "Ago 25",
     "Sep 25",
@@ -71,7 +71,7 @@ window.__DASHBOARD_DATA__ = {
     },
     {
       "nuevo": 4,
-      "seminuevo": 107
+      "seminuevo": 109
     }
   ],
   "modelo": [
@@ -195,8 +195,8 @@ window.__DASHBOARD_DATA__ = {
     {
       "byd": 58,
       "mg5": 31,
-      "mg3": 12,
-      "aion": 2,
+      "mg3": 13,
+      "aion": 3,
       "king": 1,
       "tiggo": 5,
       "otros": 2
@@ -211,7 +211,7 @@ window.__DASHBOARD_DATA__ = {
     "tiggo",
     "otros"
   ],
-  "etapas_total": 132,
+  "etapas_total": 131,
   "etapas": [
     {
       "key": "prep",
@@ -219,19 +219,19 @@ window.__DASHBOARD_DATA__ = {
     },
     {
       "key": "listo",
-      "value": 17
+      "value": 13
     },
     {
       "key": "agendada",
-      "value": 0
-    },
-    {
-      "key": "contrato",
       "value": 3
     },
     {
+      "key": "contrato",
+      "value": 2
+    },
+    {
       "key": "cenv",
-      "value": 1
+      "value": 0
     },
     {
       "key": "liga",
@@ -239,7 +239,7 @@ window.__DASHBOARD_DATA__ = {
     },
     {
       "key": "entregado",
-      "value": 111
+      "value": 113
     },
     {
       "key": "issue",
@@ -250,25 +250,25 @@ window.__DASHBOARD_DATA__ = {
     "entregado": {
       "CDMX / Edo Mex": 27,
       "Mexicali": 2,
-      "Monterrey": 32,
+      "Monterrey": 33,
       "Puebla": 4,
       "Saltillo": 2,
-      "Tijuana": 31,
+      "Tijuana": 32,
       "Guadalajara": 9,
       "Queretaro": 4
     },
-    "contrato": {
-      "Monterrey": 1,
-      "CDMX / Edo Mex": 1,
-      "Tijuana": 1
-    },
     "listo": {
       "Mexicali": 2,
-      "Monterrey": 4,
+      "Monterrey": 1,
       "Queretaro": 1,
-      "Tijuana": 10
+      "Tijuana": 9
     },
-    "cenv": {
+    "agendada": {
+      "Monterrey": 2,
+      "Tijuana": 1
+    },
+    "contrato": {
+      "Monterrey": 1,
       "CDMX / Edo Mex": 1
     }
   },
@@ -277,15 +277,15 @@ window.__DASHBOARD_DATA__ = {
   "ciudad_listo": [
     {
       "ciudad": "Tijuana",
-      "value": 10
-    },
-    {
-      "ciudad": "Monterrey",
-      "value": 4
+      "value": 9
     },
     {
       "ciudad": "Mexicali",
       "value": 2
+    },
+    {
+      "ciudad": "Monterrey",
+      "value": 1
     },
     {
       "ciudad": "Queretaro",
@@ -300,16 +300,16 @@ window.__DASHBOARD_DATA__ = {
       "gap": 230
     },
     {
+      "ciudad": "Monterrey",
+      "espera": 75,
+      "listo": 1,
+      "gap": 74
+    },
+    {
       "ciudad": "Merida",
       "espera": 73,
       "listo": 0,
       "gap": 73
-    },
-    {
-      "ciudad": "Monterrey",
-      "espera": 75,
-      "listo": 4,
-      "gap": 71
     },
     {
       "ciudad": "Puebla",
@@ -344,8 +344,8 @@ window.__DASHBOARD_DATA__ = {
     {
       "ciudad": "Tijuana",
       "espera": 6,
-      "listo": 10,
-      "gap": -4
+      "listo": 9,
+      "gap": -3
     }
   ],
   "dias_labels": [
@@ -383,7 +383,8 @@ window.__DASHBOARD_DATA__ = {
     "14-sep",
     "15-sep",
     "17-sep",
-    "18-sep"
+    "18-sep",
+    "21-sep"
   ],
   "entregados_dia": [
     {
@@ -694,10 +695,19 @@ window.__DASHBOARD_DATA__ = {
     },
     {
       "cdmx": 0,
+      "mty": 1,
+      "tij": 1,
+      "qro": 0,
+      "gdl": 1,
+      "mxl": 0,
+      "otros": 0
+    },
+    {
+      "cdmx": 0,
       "mty": 0,
       "tij": 0,
       "qro": 0,
-      "gdl": 1,
+      "gdl": 0,
       "mxl": 0,
       "otros": 0
     }
@@ -737,7 +747,8 @@ window.__DASHBOARD_DATA__ = {
     0,
     0,
     0,
-    4
+    2,
+    3
   ],
   "entregas_por_asesor_equipo": {
     "Bernardo": [
@@ -816,16 +827,16 @@ window.__DASHBOARD_DATA__ = {
     ],
     "Paulina": [
       {
+        "asesor": "Daniela Favela",
+        "entregas": 9,
+        "solicitudes": 22,
+        "aprobadas": 16
+      },
+      {
         "asesor": "Jessica Martinez",
         "entregas": 9,
         "solicitudes": 26,
         "aprobadas": 18
-      },
-      {
-        "asesor": "Daniela Favela",
-        "entregas": 8,
-        "solicitudes": 22,
-        "aprobadas": 16
       },
       {
         "asesor": "Ivette Ixel Cardona",
@@ -834,16 +845,16 @@ window.__DASHBOARD_DATA__ = {
         "aprobadas": 14
       },
       {
+        "asesor": "Ana Rodriguez",
+        "entregas": 5,
+        "solicitudes": 25,
+        "aprobadas": 23
+      },
+      {
         "asesor": "Joel Flores",
         "entregas": 5,
         "solicitudes": 20,
         "aprobadas": 15
-      },
-      {
-        "asesor": "Ana Rodriguez",
-        "entregas": 4,
-        "solicitudes": 25,
-        "aprobadas": 23
       },
       {
         "asesor": "Ishell Miranda",
@@ -1293,19 +1304,19 @@ window.__DASHBOARD_DATA__ = {
   "decline_total": 953,
   "forecast": {
     "workdays_elapsed": 13,
-    "actual_elapsed": 111,
+    "actual_elapsed": 113,
     "workdays_total": 22,
-    "rate": 8.54,
-    "total": 188,
+    "rate": 8.69,
+    "total": 191,
     "nuevo": 7,
-    "seminuevo": 181
+    "seminuevo": 184
   },
   "corte": {
     "fecha": "2026-09-18",
     "mes_label": "Sep 26"
   },
-  "fleet_total": 124,
-  "fleet_desflote_n": 8,
+  "fleet_total": 125,
+  "fleet_desflote_n": 7,
   "fleet_city_stage": [
     {
       "ciudad": "CDMX / Edo Mex",
@@ -1332,28 +1343,28 @@ window.__DASHBOARD_DATA__ = {
       "total": 23
     },
     {
-      "ciudad": "Guadalajara",
-      "vals": [
-        4,
-        8,
-        8,
-        1,
-        0,
-        0
-      ],
-      "total": 22
-    },
-    {
       "ciudad": "Tijuana",
       "vals": [
         0,
         0,
         3,
-        12,
+        13,
         3,
         3
       ],
-      "total": 21
+      "total": 22
+    },
+    {
+      "ciudad": "Guadalajara",
+      "vals": [
+        4,
+        7,
+        9,
+        1,
+        0,
+        0
+      ],
+      "total": 22
     },
     {
       "ciudad": "Monterrey",
@@ -1363,9 +1374,9 @@ window.__DASHBOARD_DATA__ = {
         1,
         0,
         3,
-        4
+        3
       ],
-      "total": 12
+      "total": 11
     },
     {
       "ciudad": "Queretaro",
@@ -2122,6 +2133,6 @@ window.__DASHBOARD_DATA__ = {
   "aprob_meta": {
     "fecha_min": "1 ago",
     "fecha_max": "17 sep",
-    "generado_en": "2026-09-18T12:56:07.857768"
+    "generado_en": "2026-09-18T20:41:17.585639"
   }
 };
