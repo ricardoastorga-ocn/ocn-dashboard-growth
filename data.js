@@ -1,5 +1,5 @@
 window.__DASHBOARD_DATA__ = {
-  "generated_at": "2026-09-18T18:42:11.766666Z",
+  "generated_at": "2026-09-18T18:56:07.231388Z",
   "months": [
     "Ago 25",
     "Sep 25",
@@ -246,64 +246,106 @@ window.__DASHBOARD_DATA__ = {
       "value": 0
     }
   ],
-  "etapas_ciudades": {},
+  "etapas_ciudades": {
+    "entregado": {
+      "CDMX / Edo Mex": 27,
+      "Mexicali": 2,
+      "Monterrey": 32,
+      "Puebla": 4,
+      "Saltillo": 2,
+      "Tijuana": 31,
+      "Guadalajara": 9,
+      "Queretaro": 4
+    },
+    "contrato": {
+      "Monterrey": 1,
+      "CDMX / Edo Mex": 1,
+      "Tijuana": 1
+    },
+    "listo": {
+      "Mexicali": 2,
+      "Monterrey": 4,
+      "Queretaro": 1,
+      "Tijuana": 10
+    },
+    "cenv": {
+      "CDMX / Edo Mex": 1
+    }
+  },
   "entregado_target_pct": 95,
-  "ciudad_base_disponible": false,
-  "ciudad_listo": [],
+  "ciudad_base_disponible": true,
+  "ciudad_listo": [
+    {
+      "ciudad": "Tijuana",
+      "value": 10
+    },
+    {
+      "ciudad": "Monterrey",
+      "value": 4
+    },
+    {
+      "ciudad": "Mexicali",
+      "value": 2
+    },
+    {
+      "ciudad": "Queretaro",
+      "value": 1
+    }
+  ],
   "waitlist_gap": [
     {
       "ciudad": "CDMX / Edo Mex",
       "espera": 230,
-      "listo": null,
-      "gap": null
-    },
-    {
-      "ciudad": "Monterrey",
-      "espera": 75,
-      "listo": null,
-      "gap": null
+      "listo": 0,
+      "gap": 230
     },
     {
       "ciudad": "Merida",
       "espera": 73,
-      "listo": null,
-      "gap": null
+      "listo": 0,
+      "gap": 73
+    },
+    {
+      "ciudad": "Monterrey",
+      "espera": 75,
+      "listo": 4,
+      "gap": 71
     },
     {
       "ciudad": "Puebla",
       "espera": 60,
-      "listo": null,
-      "gap": null
+      "listo": 0,
+      "gap": 60
     },
     {
       "ciudad": "Guadalajara",
       "espera": 53,
-      "listo": null,
-      "gap": null
+      "listo": 0,
+      "gap": 53
     },
     {
       "ciudad": "Queretaro",
       "espera": 35,
-      "listo": null,
-      "gap": null
+      "listo": 1,
+      "gap": 34
     },
     {
       "ciudad": "Saltillo",
       "espera": 25,
-      "listo": null,
-      "gap": null
-    },
-    {
-      "ciudad": "Tijuana",
-      "espera": 6,
-      "listo": null,
-      "gap": null
+      "listo": 0,
+      "gap": 25
     },
     {
       "ciudad": "Mexicali",
       "espera": 1,
-      "listo": null,
-      "gap": null
+      "listo": 2,
+      "gap": -1
+    },
+    {
+      "ciudad": "Tijuana",
+      "espera": 6,
+      "listo": 10,
+      "gap": -4
     }
   ],
   "dias_labels": [
@@ -544,120 +586,120 @@ window.__DASHBOARD_DATA__ = {
     },
     {
       "cdmx": 0,
-      "mty": 0,
-      "tij": 0,
+      "mty": 1,
+      "tij": 3,
       "qro": 0,
-      "gdl": 0,
+      "gdl": 1,
       "mxl": 0,
-      "otros": 5
+      "otros": 0
     },
     {
       "cdmx": 0,
-      "mty": 0,
-      "tij": 0,
-      "qro": 0,
-      "gdl": 0,
-      "mxl": 0,
-      "otros": 4
-    },
-    {
-      "cdmx": 0,
-      "mty": 0,
-      "tij": 0,
-      "qro": 0,
-      "gdl": 0,
-      "mxl": 0,
-      "otros": 11
-    },
-    {
-      "cdmx": 0,
-      "mty": 0,
-      "tij": 0,
-      "qro": 0,
-      "gdl": 0,
-      "mxl": 0,
-      "otros": 9
-    },
-    {
-      "cdmx": 0,
-      "mty": 0,
-      "tij": 0,
-      "qro": 0,
-      "gdl": 0,
-      "mxl": 0,
-      "otros": 2
-    },
-    {
-      "cdmx": 0,
-      "mty": 0,
-      "tij": 0,
-      "qro": 0,
-      "gdl": 0,
-      "mxl": 0,
-      "otros": 9
-    },
-    {
-      "cdmx": 0,
-      "mty": 0,
-      "tij": 0,
-      "qro": 0,
-      "gdl": 0,
-      "mxl": 0,
-      "otros": 14
-    },
-    {
-      "cdmx": 0,
-      "mty": 0,
-      "tij": 0,
-      "qro": 0,
-      "gdl": 0,
-      "mxl": 0,
-      "otros": 18
-    },
-    {
-      "cdmx": 0,
-      "mty": 0,
-      "tij": 0,
-      "qro": 0,
-      "gdl": 0,
-      "mxl": 0,
-      "otros": 12
-    },
-    {
-      "cdmx": 0,
-      "mty": 0,
-      "tij": 0,
-      "qro": 0,
-      "gdl": 0,
-      "mxl": 0,
-      "otros": 5
-    },
-    {
-      "cdmx": 0,
-      "mty": 0,
-      "tij": 0,
-      "qro": 0,
-      "gdl": 0,
-      "mxl": 0,
-      "otros": 11
-    },
-    {
-      "cdmx": 0,
-      "mty": 0,
-      "tij": 0,
-      "qro": 0,
-      "gdl": 0,
-      "mxl": 0,
-      "otros": 10
-    },
-    {
-      "cdmx": 0,
-      "mty": 0,
-      "tij": 0,
+      "mty": 1,
+      "tij": 2,
       "qro": 0,
       "gdl": 0,
       "mxl": 0,
       "otros": 1
+    },
+    {
+      "cdmx": 3,
+      "mty": 4,
+      "tij": 3,
+      "qro": 1,
+      "gdl": 0,
+      "mxl": 0,
+      "otros": 0
+    },
+    {
+      "cdmx": 4,
+      "mty": 3,
+      "tij": 2,
+      "qro": 0,
+      "gdl": 0,
+      "mxl": 0,
+      "otros": 0
+    },
+    {
+      "cdmx": 0,
+      "mty": 1,
+      "tij": 1,
+      "qro": 0,
+      "gdl": 0,
+      "mxl": 0,
+      "otros": 0
+    },
+    {
+      "cdmx": 1,
+      "mty": 2,
+      "tij": 3,
+      "qro": 0,
+      "gdl": 3,
+      "mxl": 0,
+      "otros": 0
+    },
+    {
+      "cdmx": 4,
+      "mty": 4,
+      "tij": 4,
+      "qro": 0,
+      "gdl": 1,
+      "mxl": 0,
+      "otros": 1
+    },
+    {
+      "cdmx": 5,
+      "mty": 6,
+      "tij": 2,
+      "qro": 0,
+      "gdl": 0,
+      "mxl": 2,
+      "otros": 3
+    },
+    {
+      "cdmx": 3,
+      "mty": 1,
+      "tij": 5,
+      "qro": 1,
+      "gdl": 2,
+      "mxl": 0,
+      "otros": 0
+    },
+    {
+      "cdmx": 1,
+      "mty": 0,
+      "tij": 2,
+      "qro": 2,
+      "gdl": 0,
+      "mxl": 0,
+      "otros": 0
+    },
+    {
+      "cdmx": 3,
+      "mty": 4,
+      "tij": 2,
+      "qro": 0,
+      "gdl": 1,
+      "mxl": 0,
+      "otros": 1
+    },
+    {
+      "cdmx": 3,
+      "mty": 5,
+      "tij": 2,
+      "qro": 0,
+      "gdl": 0,
+      "mxl": 0,
+      "otros": 0
+    },
+    {
+      "cdmx": 0,
+      "mty": 0,
+      "tij": 0,
+      "qro": 0,
+      "gdl": 1,
+      "mxl": 0,
+      "otros": 0
     }
   ],
   "agendadas_dia": [
@@ -2080,6 +2122,6 @@ window.__DASHBOARD_DATA__ = {
   "aprob_meta": {
     "fecha_min": "1 ago",
     "fecha_max": "17 sep",
-    "generado_en": "2026-09-18T12:42:12.522227"
+    "generado_en": "2026-09-18T12:56:07.857768"
   }
 };
