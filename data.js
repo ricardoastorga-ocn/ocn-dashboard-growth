@@ -1,5 +1,5 @@
 window.__DASHBOARD_DATA__ = {
-  "generated_at": "2026-09-18T20:41:16.876441Z",
+  "generated_at": "2026-09-18T23:08:26.491570Z",
   "months": [
     "Ago 25",
     "Sep 25",
@@ -211,7 +211,7 @@ window.__DASHBOARD_DATA__ = {
     "tiggo",
     "otros"
   ],
-  "etapas_total": 131,
+  "etapas_total": 138,
   "etapas": [
     {
       "key": "prep",
@@ -219,19 +219,19 @@ window.__DASHBOARD_DATA__ = {
     },
     {
       "key": "listo",
-      "value": 13
+      "value": 15
     },
     {
       "key": "agendada",
-      "value": 3
+      "value": 8
     },
     {
       "key": "contrato",
-      "value": 2
+      "value": 0
     },
     {
       "key": "cenv",
-      "value": 0
+      "value": 2
     },
     {
       "key": "liga",
@@ -261,13 +261,14 @@ window.__DASHBOARD_DATA__ = {
       "Mexicali": 2,
       "Monterrey": 1,
       "Queretaro": 1,
-      "Tijuana": 9
+      "Tijuana": 11
     },
     "agendada": {
-      "Monterrey": 2,
+      "CDMX / Edo Mex": 4,
+      "Monterrey": 3,
       "Tijuana": 1
     },
-    "contrato": {
+    "cenv": {
       "Monterrey": 1,
       "CDMX / Edo Mex": 1
     }
@@ -277,7 +278,7 @@ window.__DASHBOARD_DATA__ = {
   "ciudad_listo": [
     {
       "ciudad": "Tijuana",
-      "value": 9
+      "value": 11
     },
     {
       "ciudad": "Mexicali",
@@ -344,8 +345,8 @@ window.__DASHBOARD_DATA__ = {
     {
       "ciudad": "Tijuana",
       "espera": 6,
-      "listo": 9,
-      "gap": -3
+      "listo": 11,
+      "gap": -5
     }
   ],
   "dias_labels": [
@@ -748,7 +749,7 @@ window.__DASHBOARD_DATA__ = {
     0,
     0,
     2,
-    3
+    8
   ],
   "entregas_por_asesor_equipo": {
     "Bernardo": [
@@ -1315,7 +1316,7 @@ window.__DASHBOARD_DATA__ = {
     "fecha": "2026-09-18",
     "mes_label": "Sep 26"
   },
-  "fleet_total": 125,
+  "fleet_total": 121,
   "fleet_desflote_n": 7,
   "fleet_city_stage": [
     {
@@ -1324,11 +1325,11 @@ window.__DASHBOARD_DATA__ = {
         8,
         2,
         14,
-        5,
+        3,
         7,
         0
       ],
-      "total": 36
+      "total": 34
     },
     {
       "ciudad": "Sin identificar",
@@ -1343,18 +1344,6 @@ window.__DASHBOARD_DATA__ = {
       "total": 23
     },
     {
-      "ciudad": "Tijuana",
-      "vals": [
-        0,
-        0,
-        3,
-        13,
-        3,
-        3
-      ],
-      "total": 22
-    },
-    {
       "ciudad": "Guadalajara",
       "vals": [
         4,
@@ -1365,6 +1354,18 @@ window.__DASHBOARD_DATA__ = {
         0
       ],
       "total": 22
+    },
+    {
+      "ciudad": "Tijuana",
+      "vals": [
+        0,
+        0,
+        3,
+        11,
+        3,
+        3
+      ],
+      "total": 20
     },
     {
       "ciudad": "Monterrey",
@@ -2133,6 +2134,6 @@ window.__DASHBOARD_DATA__ = {
   "aprob_meta": {
     "fecha_min": "1 ago",
     "fecha_max": "17 sep",
-    "generado_en": "2026-09-18T20:41:17.585639"
+    "generado_en": "2026-09-18T23:08:27.310083"
   }
 };
