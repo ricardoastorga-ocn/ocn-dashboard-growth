@@ -1,5 +1,5 @@
 window.__DASHBOARD_DATA__ = {
-  "generated_at": "2026-09-18T23:08:26.491570Z",
+  "generated_at": "2026-09-19T01:43:43.417587Z",
   "months": [
     "Ago 25",
     "Sep 25",
@@ -71,7 +71,7 @@ window.__DASHBOARD_DATA__ = {
     },
     {
       "nuevo": 4,
-      "seminuevo": 109
+      "seminuevo": 111
     }
   ],
   "modelo": [
@@ -194,7 +194,7 @@ window.__DASHBOARD_DATA__ = {
     },
     {
       "byd": 58,
-      "mg5": 31,
+      "mg5": 33,
       "mg3": 13,
       "aion": 3,
       "king": 1,
@@ -219,11 +219,11 @@ window.__DASHBOARD_DATA__ = {
     },
     {
       "key": "listo",
-      "value": 15
+      "value": 14
     },
     {
       "key": "agendada",
-      "value": 8
+      "value": 9
     },
     {
       "key": "contrato",
@@ -231,7 +231,7 @@ window.__DASHBOARD_DATA__ = {
     },
     {
       "key": "cenv",
-      "value": 2
+      "value": 0
     },
     {
       "key": "liga",
@@ -239,7 +239,7 @@ window.__DASHBOARD_DATA__ = {
     },
     {
       "key": "entregado",
-      "value": 113
+      "value": 115
     },
     {
       "key": "issue",
@@ -248,9 +248,9 @@ window.__DASHBOARD_DATA__ = {
   ],
   "etapas_ciudades": {
     "entregado": {
-      "CDMX / Edo Mex": 27,
+      "CDMX / Edo Mex": 28,
       "Mexicali": 2,
-      "Monterrey": 33,
+      "Monterrey": 34,
       "Puebla": 4,
       "Saltillo": 2,
       "Tijuana": 32,
@@ -261,16 +261,12 @@ window.__DASHBOARD_DATA__ = {
       "Mexicali": 2,
       "Monterrey": 1,
       "Queretaro": 1,
-      "Tijuana": 11
+      "Tijuana": 10
     },
     "agendada": {
       "CDMX / Edo Mex": 4,
       "Monterrey": 3,
-      "Tijuana": 1
-    },
-    "cenv": {
-      "Monterrey": 1,
-      "CDMX / Edo Mex": 1
+      "Tijuana": 2
     }
   },
   "entregado_target_pct": 95,
@@ -278,7 +274,7 @@ window.__DASHBOARD_DATA__ = {
   "ciudad_listo": [
     {
       "ciudad": "Tijuana",
-      "value": 11
+      "value": 10
     },
     {
       "ciudad": "Mexicali",
@@ -345,8 +341,8 @@ window.__DASHBOARD_DATA__ = {
     {
       "ciudad": "Tijuana",
       "espera": 6,
-      "listo": 11,
-      "gap": -5
+      "listo": 10,
+      "gap": -4
     }
   ],
   "dias_labels": [
@@ -385,7 +381,8 @@ window.__DASHBOARD_DATA__ = {
     "15-sep",
     "17-sep",
     "18-sep",
-    "21-sep"
+    "21-sep",
+    "22-sep"
   ],
   "entregados_dia": [
     {
@@ -695,11 +692,20 @@ window.__DASHBOARD_DATA__ = {
       "otros": 0
     },
     {
-      "cdmx": 0,
-      "mty": 1,
+      "cdmx": 1,
+      "mty": 2,
       "tij": 1,
       "qro": 0,
       "gdl": 1,
+      "mxl": 0,
+      "otros": 0
+    },
+    {
+      "cdmx": 0,
+      "mty": 0,
+      "tij": 0,
+      "qro": 0,
+      "gdl": 0,
       "mxl": 0,
       "otros": 0
     },
@@ -748,8 +754,9 @@ window.__DASHBOARD_DATA__ = {
     0,
     0,
     0,
-    2,
-    8
+    0,
+    8,
+    1
   ],
   "entregas_por_asesor_equipo": {
     "Bernardo": [
@@ -778,16 +785,16 @@ window.__DASHBOARD_DATA__ = {
         "aprobadas": 7
       },
       {
+        "asesor": "Michelle R",
+        "entregas": 6,
+        "solicitudes": 25,
+        "aprobadas": 19
+      },
+      {
         "asesor": "Edwin Hernandez",
         "entregas": 5,
         "solicitudes": 25,
         "aprobadas": 15
-      },
-      {
-        "asesor": "Michelle R",
-        "entregas": 5,
-        "solicitudes": 25,
-        "aprobadas": 19
       },
       {
         "asesor": "Diana Moreno",
@@ -847,7 +854,7 @@ window.__DASHBOARD_DATA__ = {
       },
       {
         "asesor": "Ana Rodriguez",
-        "entregas": 5,
+        "entregas": 6,
         "solicitudes": 25,
         "aprobadas": 23
       },
@@ -1305,31 +1312,31 @@ window.__DASHBOARD_DATA__ = {
   "decline_total": 953,
   "forecast": {
     "workdays_elapsed": 13,
-    "actual_elapsed": 113,
+    "actual_elapsed": 115,
     "workdays_total": 22,
-    "rate": 8.69,
-    "total": 191,
+    "rate": 8.85,
+    "total": 195,
     "nuevo": 7,
-    "seminuevo": 184
+    "seminuevo": 188
   },
   "corte": {
     "fecha": "2026-09-18",
     "mes_label": "Sep 26"
   },
-  "fleet_total": 121,
+  "fleet_total": 124,
   "fleet_desflote_n": 7,
   "fleet_city_stage": [
     {
       "ciudad": "CDMX / Edo Mex",
       "vals": [
-        8,
-        2,
-        14,
-        3,
+        5,
+        5,
+        13,
+        7,
         7,
         0
       ],
-      "total": 34
+      "total": 37
     },
     {
       "ciudad": "Sin identificar",
@@ -1346,8 +1353,8 @@ window.__DASHBOARD_DATA__ = {
     {
       "ciudad": "Guadalajara",
       "vals": [
-        4,
-        7,
+        3,
+        8,
         9,
         1,
         0,
@@ -2134,6 +2141,6 @@ window.__DASHBOARD_DATA__ = {
   "aprob_meta": {
     "fecha_min": "1 ago",
     "fecha_max": "17 sep",
-    "generado_en": "2026-09-18T23:08:27.310083"
+    "generado_en": "2026-09-19T01:43:44.140573"
   }
 };
