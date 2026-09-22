@@ -1,5 +1,5 @@
 window.__DASHBOARD_DATA__ = {
-  "generated_at": "2026-09-22T20:44:07.006960Z",
+  "generated_at": "2026-09-22T21:54:15.921409Z",
   "months": [
     "Ago 25",
     "Sep 25",
@@ -211,7 +211,7 @@ window.__DASHBOARD_DATA__ = {
     "tiggo",
     "otros"
   ],
-  "etapas_total": 148,
+  "etapas_total": 149,
   "etapas": [
     {
       "key": "prep",
@@ -219,15 +219,15 @@ window.__DASHBOARD_DATA__ = {
     },
     {
       "key": "listo",
-      "value": 15
+      "value": 13
     },
     {
       "key": "agendada",
-      "value": 6
+      "value": 10
     },
     {
       "key": "contrato",
-      "value": 4
+      "value": 3
     },
     {
       "key": "cenv",
@@ -260,20 +260,21 @@ window.__DASHBOARD_DATA__ = {
     "agendada": {
       "Mexicali": 2,
       "Queretaro": 1,
-      "CDMX / Edo Mex": 3
+      "CDMX / Edo Mex": 3,
+      "Tijuana": 1,
+      "Guadalajara": 2,
+      "Monterrey": 1
     },
     "listo": {
       "Mexicali": 1,
-      "Tijuana": 11,
-      "Monterrey": 2,
-      "Guadalajara": 1
+      "Tijuana": 10,
+      "Monterrey": 2
     },
     "issue": {
       "CDMX / Edo Mex": 1
     },
     "contrato": {
       "Monterrey": 1,
-      "Guadalajara": 1,
       "Puebla": 1,
       "Tijuana": 1
     }
@@ -283,7 +284,7 @@ window.__DASHBOARD_DATA__ = {
   "ciudad_listo": [
     {
       "ciudad": "Tijuana",
-      "value": 11
+      "value": 10
     },
     {
       "ciudad": "Monterrey",
@@ -291,10 +292,6 @@ window.__DASHBOARD_DATA__ = {
     },
     {
       "ciudad": "Mexicali",
-      "value": 1
-    },
-    {
-      "ciudad": "Guadalajara",
       "value": 1
     }
   ],
@@ -326,8 +323,8 @@ window.__DASHBOARD_DATA__ = {
     {
       "ciudad": "Guadalajara",
       "espera": 53,
-      "listo": 1,
-      "gap": 52
+      "listo": 0,
+      "gap": 53
     },
     {
       "ciudad": "Queretaro",
@@ -350,8 +347,8 @@ window.__DASHBOARD_DATA__ = {
     {
       "ciudad": "Tijuana",
       "espera": 6,
-      "listo": 11,
-      "gap": -5
+      "listo": 10,
+      "gap": -4
     }
   ],
   "dias_labels": [
@@ -796,7 +793,7 @@ window.__DASHBOARD_DATA__ = {
     0,
     0,
     4,
-    4,
+    7,
     1,
     1
   ],
@@ -2247,6 +2244,6 @@ window.__DASHBOARD_DATA__ = {
   "aprob_meta": {
     "fecha_min": "1 ago",
     "fecha_max": "22 sep",
-    "generado_en": "2026-09-22T20:44:07.771713"
+    "generado_en": "2026-09-22T21:54:16.801061"
   }
 };
