@@ -1,5 +1,5 @@
 window.__DASHBOARD_DATA__ = {
-  "generated_at": "2026-09-21T23:05:29.449565Z",
+  "generated_at": "2026-09-22T01:57:37.633302Z",
   "months": [
     "Ago 25",
     "Sep 25",
@@ -219,11 +219,11 @@ window.__DASHBOARD_DATA__ = {
     },
     {
       "key": "listo",
-      "value": 18
+      "value": 17
     },
     {
       "key": "agendada",
-      "value": 10
+      "value": 11
     },
     {
       "key": "contrato",
@@ -260,13 +260,13 @@ window.__DASHBOARD_DATA__ = {
     "listo": {
       "Mexicali": 2,
       "Queretaro": 1,
-      "Tijuana": 12,
+      "Tijuana": 11,
       "Monterrey": 2,
       "Guadalajara": 1
     },
     "agendada": {
       "CDMX / Edo Mex": 4,
-      "Tijuana": 1,
+      "Tijuana": 2,
       "Monterrey": 2,
       "Guadalajara": 1,
       "Mexicali": 1,
@@ -281,7 +281,7 @@ window.__DASHBOARD_DATA__ = {
   "ciudad_listo": [
     {
       "ciudad": "Tijuana",
-      "value": 12
+      "value": 11
     },
     {
       "ciudad": "Mexicali",
@@ -352,8 +352,8 @@ window.__DASHBOARD_DATA__ = {
     {
       "ciudad": "Tijuana",
       "espera": 6,
-      "listo": 12,
-      "gap": -6
+      "listo": 11,
+      "gap": -5
     }
   ],
   "dias_labels": [
@@ -394,6 +394,7 @@ window.__DASHBOARD_DATA__ = {
     "18-sep",
     "21-sep",
     "22-sep",
+    "24-sep",
     "25-sep"
   ],
   "entregados_dia": [
@@ -738,6 +739,15 @@ window.__DASHBOARD_DATA__ = {
       "gdl": 0,
       "mxl": 0,
       "otros": 0
+    },
+    {
+      "cdmx": 0,
+      "mty": 0,
+      "tij": 0,
+      "qro": 0,
+      "gdl": 0,
+      "mxl": 0,
+      "otros": 0
     }
   ],
   "agendadas_dia": [
@@ -778,6 +788,7 @@ window.__DASHBOARD_DATA__ = {
     0,
     0,
     8,
+    1,
     1
   ],
   "entregas_por_asesor_equipo": {
@@ -1400,7 +1411,7 @@ window.__DASHBOARD_DATA__ = {
       "ciudad": "Monterrey",
       "vals": [
         1,
-        3,
+        2,
         1,
         0,
         3,
@@ -2212,6 +2223,6 @@ window.__DASHBOARD_DATA__ = {
   "aprob_meta": {
     "fecha_min": "1 ago",
     "fecha_max": "21 sep",
-    "generado_en": "2026-09-21T23:05:30.128666"
+    "generado_en": "2026-09-22T01:57:38.329482"
   }
 };
