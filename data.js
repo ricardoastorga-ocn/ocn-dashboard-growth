@@ -1,5 +1,5 @@
 window.__DASHBOARD_DATA__ = {
-  "generated_at": "2026-09-22T01:57:37.633302Z",
+  "generated_at": "2026-09-22T07:07:57.382208Z",
   "months": [
     "Ago 25",
     "Sep 25",
@@ -956,7 +956,7 @@ window.__DASHBOARD_DATA__ = {
     {
       "key": "31-60",
       "label": "31-60 días",
-      "value": 196
+      "value": 190
     },
     {
       "key": "61-90",
@@ -966,19 +966,19 @@ window.__DASHBOARD_DATA__ = {
     {
       "key": "90+",
       "label": "90+ días",
-      "value": 108
+      "value": 114
     }
   ],
   "tiers_total": 558,
-  "max_wait_days": 273,
+  "max_wait_days": 274,
   "city_tier": [
     {
       "ciudad": "CDMX / Edo Mex",
       "vals": [
         50,
-        99,
-        49,
-        32
+        95,
+        51,
+        34
       ],
       "total": 230
     },
@@ -987,8 +987,8 @@ window.__DASHBOARD_DATA__ = {
       "vals": [
         18,
         19,
-        24,
-        14
+        23,
+        15
       ],
       "total": 75
     },
@@ -996,9 +996,9 @@ window.__DASHBOARD_DATA__ = {
       "ciudad": "Merida",
       "vals": [
         4,
-        19,
-        24,
-        26
+        17,
+        25,
+        27
       ],
       "total": 73
     },
@@ -1017,8 +1017,8 @@ window.__DASHBOARD_DATA__ = {
       "vals": [
         9,
         15,
-        16,
-        13
+        14,
+        15
       ],
       "total": 53
     },
@@ -1068,9 +1068,9 @@ window.__DASHBOARD_DATA__ = {
       "key": "Adolfo Jaimes",
       "vals": [
         8,
-        19,
+        18,
         16,
-        10
+        11
       ],
       "total": 53
     },
@@ -1088,9 +1088,9 @@ window.__DASHBOARD_DATA__ = {
       "key": "Ana Rodriguez",
       "vals": [
         9,
-        13,
+        12,
         6,
-        5
+        6
       ],
       "total": 33
     },
@@ -1099,8 +1099,8 @@ window.__DASHBOARD_DATA__ = {
       "vals": [
         6,
         13,
-        12,
-        1
+        11,
+        2
       ],
       "total": 32
     },
@@ -1109,8 +1109,8 @@ window.__DASHBOARD_DATA__ = {
       "vals": [
         4,
         9,
-        8,
-        9
+        7,
+        10
       ],
       "total": 30
     },
@@ -1128,8 +1128,8 @@ window.__DASHBOARD_DATA__ = {
       "key": "@Jeremy Habner",
       "vals": [
         8,
-        6,
-        1,
+        5,
+        2,
         12
       ],
       "total": 27
@@ -1139,8 +1139,8 @@ window.__DASHBOARD_DATA__ = {
       "vals": [
         5,
         9,
-        8,
-        4
+        7,
+        5
       ],
       "total": 26
     },
@@ -1178,8 +1178,8 @@ window.__DASHBOARD_DATA__ = {
       "key": "@Joel Flores Lopez",
       "vals": [
         1,
-        9,
-        7,
+        8,
+        8,
         5
       ],
       "total": 22
@@ -1189,8 +1189,8 @@ window.__DASHBOARD_DATA__ = {
       "vals": [
         5,
         8,
-        6,
-        2
+        5,
+        3
       ],
       "total": 21
     },
@@ -1248,8 +1248,8 @@ window.__DASHBOARD_DATA__ = {
       "key": "Karen Garcia",
       "vals": [
         1,
-        5,
-        7,
+        3,
+        9,
         2
       ],
       "total": 15
@@ -1344,16 +1344,16 @@ window.__DASHBOARD_DATA__ = {
   ],
   "decline_total": 954,
   "forecast": {
-    "workdays_elapsed": 14,
+    "workdays_elapsed": 15,
     "actual_elapsed": 120,
     "workdays_total": 22,
-    "rate": 8.57,
-    "total": 189,
+    "rate": 8.0,
+    "total": 176,
     "nuevo": 6,
-    "seminuevo": 183
+    "seminuevo": 170
   },
   "corte": {
-    "fecha": "2026-09-21",
+    "fecha": "2026-09-22",
     "mes_label": "Sep 26"
   },
   "fleet_total": 122,
@@ -1374,14 +1374,14 @@ window.__DASHBOARD_DATA__ = {
     {
       "ciudad": "Sin identificar",
       "vals": [
-        0,
+        1,
         2,
         7,
         1,
         11,
         0
       ],
-      "total": 23
+      "total": 24
     },
     {
       "ciudad": "Tijuana",
@@ -1446,14 +1446,14 @@ window.__DASHBOARD_DATA__ = {
     {
       "ciudad": "Mexicali",
       "vals": [
-        1,
+        0,
         0,
         0,
         2,
         1,
         0
       ],
-      "total": 4
+      "total": 3
     },
     {
       "ciudad": "Merida",
@@ -2223,6 +2223,6 @@ window.__DASHBOARD_DATA__ = {
   "aprob_meta": {
     "fecha_min": "1 ago",
     "fecha_max": "21 sep",
-    "generado_en": "2026-09-22T01:57:38.329482"
+    "generado_en": "2026-09-22T07:07:58.222259"
   }
 };
