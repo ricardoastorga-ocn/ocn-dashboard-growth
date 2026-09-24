@@ -1,5 +1,5 @@
 window.__DASHBOARD_DATA__ = {
-  "generated_at": "2026-09-23T22:08:20.553723Z",
+  "generated_at": "2026-09-24T01:15:17.270390Z",
   "months": [
     "Ago 25",
     "Sep 25",
@@ -223,15 +223,15 @@ window.__DASHBOARD_DATA__ = {
     },
     {
       "key": "agendada",
-      "value": 7
+      "value": 8
     },
     {
       "key": "contrato",
-      "value": 2
+      "value": 0
     },
     {
       "key": "cenv",
-      "value": 0
+      "value": 1
     },
     {
       "key": "liga",
@@ -265,16 +265,15 @@ window.__DASHBOARD_DATA__ = {
     },
     "agendada": {
       "CDMX / Edo Mex": 2,
+      "Tijuana": 3,
       "Mexicali": 1,
       "Monterrey": 1,
-      "Tijuana": 2,
       "Puebla": 1
     },
     "issue": {
       "CDMX / Edo Mex": 1
     },
-    "contrato": {
-      "Tijuana": 1,
+    "cenv": {
       "Guadalajara": 1
     }
   },
@@ -796,8 +795,8 @@ window.__DASHBOARD_DATA__ = {
     0,
     0,
     0,
-    2,
-    6,
+    1,
+    7,
     1
   ],
   "entregas_por_asesor_equipo": {
@@ -1365,17 +1364,17 @@ window.__DASHBOARD_DATA__ = {
     "fecha": "2026-09-23",
     "mes_label": "Sep 26"
   },
-  "fleet_total": 116,
+  "fleet_total": 114,
   "fleet_desflote_n": 1,
   "fleet_city_stage": [
     {
       "ciudad": "CDMX / Edo Mex",
       "vals": [
         6,
-        3,
+        4,
         15,
         4,
-        7,
+        6,
         0
       ],
       "total": 35
@@ -1398,11 +1397,11 @@ window.__DASHBOARD_DATA__ = {
         3,
         7,
         8,
+        1,
         0,
-        3,
         0
       ],
-      "total": 22
+      "total": 20
     },
     {
       "ciudad": "Tijuana",
@@ -2247,6 +2246,6 @@ window.__DASHBOARD_DATA__ = {
   "aprob_meta": {
     "fecha_min": "1 ago",
     "fecha_max": "22 sep",
-    "generado_en": "2026-09-23T22:08:21.022926"
+    "generado_en": "2026-09-24T01:15:18.253251"
   }
 };
