@@ -1,5 +1,5 @@
 window.__DASHBOARD_DATA__ = {
-  "generated_at": "2026-09-24T01:42:53.393834Z",
+  "generated_at": "2026-09-24T06:49:14.337977Z",
   "months": [
     "Ago 25",
     "Sep 25",
@@ -959,32 +959,32 @@ window.__DASHBOARD_DATA__ = {
     {
       "key": "0-30",
       "label": "0-30 días",
-      "value": 105
+      "value": 90
     },
     {
       "key": "31-60",
       "label": "31-60 días",
-      "value": 185
+      "value": 199
     },
     {
       "key": "61-90",
       "label": "61-90 días",
-      "value": 148
+      "value": 142
     },
     {
       "key": "90+",
       "label": "90+ días",
-      "value": 120
+      "value": 127
     }
   ],
   "tiers_total": 558,
-  "max_wait_days": 275,
+  "max_wait_days": 276,
   "city_tier": [
     {
       "ciudad": "CDMX / Edo Mex",
       "vals": [
-        50,
-        94,
+        42,
+        102,
         51,
         35
       ],
@@ -993,40 +993,40 @@ window.__DASHBOARD_DATA__ = {
     {
       "ciudad": "Monterrey",
       "vals": [
-        18,
-        18,
-        23,
-        16
+        14,
+        22,
+        22,
+        17
       ],
       "total": 75
     },
     {
       "ciudad": "Merida",
       "vals": [
-        4,
+        3,
         16,
-        24,
-        29
+        23,
+        31
       ],
       "total": 73
     },
     {
       "ciudad": "Puebla",
       "vals": [
-        9,
-        18,
-        21,
-        12
+        8,
+        19,
+        20,
+        13
       ],
       "total": 60
     },
     {
       "ciudad": "Guadalajara",
       "vals": [
-        9,
-        15,
-        13,
-        16
+        8,
+        16,
+        11,
+        18
       ],
       "total": 53
     },
@@ -1035,8 +1035,8 @@ window.__DASHBOARD_DATA__ = {
       "vals": [
         9,
         7,
-        9,
-        10
+        8,
+        11
       ],
       "total": 35
     },
@@ -1075,9 +1075,9 @@ window.__DASHBOARD_DATA__ = {
     {
       "key": "Adolfo Jaimes",
       "vals": [
-        8,
+        7,
         17,
-        17,
+        18,
         11
       ],
       "total": 53
@@ -1085,18 +1085,18 @@ window.__DASHBOARD_DATA__ = {
     {
       "key": "Mayte Urrutia",
       "vals": [
-        11,
-        19,
-        9,
-        5
+        10,
+        20,
+        8,
+        6
       ],
       "total": 44
     },
     {
       "key": "Ana Rodriguez",
       "vals": [
-        9,
-        12,
+        6,
+        15,
         6,
         6
       ],
@@ -1107,8 +1107,8 @@ window.__DASHBOARD_DATA__ = {
       "vals": [
         6,
         13,
-        11,
-        2
+        10,
+        3
       ],
       "total": 32
     },
@@ -1147,28 +1147,28 @@ window.__DASHBOARD_DATA__ = {
       "vals": [
         5,
         9,
-        7,
-        5
+        5,
+        7
       ],
       "total": 26
     },
     {
       "key": "@Michelle Ruiz",
       "vals": [
+        2,
+        10,
         4,
-        8,
-        5,
-        8
+        9
       ],
       "total": 25
     },
     {
       "key": "Jrego Nolasco",
       "vals": [
-        5,
-        12,
         4,
-        4
+        13,
+        3,
+        5
       ],
       "total": 25
     },
@@ -1185,8 +1185,8 @@ window.__DASHBOARD_DATA__ = {
     {
       "key": "@Joel Flores Lopez",
       "vals": [
-        1,
-        8,
+        0,
+        9,
         8,
         5
       ],
@@ -1195,8 +1195,8 @@ window.__DASHBOARD_DATA__ = {
     {
       "key": "Aaron Sanchez",
       "vals": [
-        5,
-        7,
+        4,
+        8,
         6,
         3
       ],
@@ -1205,8 +1205,8 @@ window.__DASHBOARD_DATA__ = {
     {
       "key": "Antonio Cruz",
       "vals": [
-        8,
-        6,
+        7,
+        7,
         2,
         2
       ],
@@ -1235,8 +1235,8 @@ window.__DASHBOARD_DATA__ = {
     {
       "key": "Imanol Cortez",
       "vals": [
-        3,
-        4,
+        1,
+        6,
         4,
         5
       ],
@@ -1265,18 +1265,18 @@ window.__DASHBOARD_DATA__ = {
     {
       "key": "@Jess Martínez",
       "vals": [
-        5,
-        2,
-        7,
-        1
+        4,
+        3,
+        6,
+        2
       ],
       "total": 15
     },
     {
       "key": "Fernando Medina",
       "vals": [
-        2,
-        7,
+        1,
+        8,
         3,
         2
       ],
@@ -1352,16 +1352,16 @@ window.__DASHBOARD_DATA__ = {
   ],
   "decline_total": 954,
   "forecast": {
-    "workdays_elapsed": 16,
+    "workdays_elapsed": 17,
     "actual_elapsed": 129,
     "workdays_total": 22,
-    "rate": 8.06,
-    "total": 177,
+    "rate": 7.59,
+    "total": 167,
     "nuevo": 5,
-    "seminuevo": 172
+    "seminuevo": 162
   },
   "corte": {
-    "fecha": "2026-09-23",
+    "fecha": "2026-09-24",
     "mes_label": "Sep 26"
   },
   "fleet_total": 114,
@@ -2246,6 +2246,6 @@ window.__DASHBOARD_DATA__ = {
   "aprob_meta": {
     "fecha_min": "1 ago",
     "fecha_max": "22 sep",
-    "generado_en": "2026-09-24T01:42:54.291987"
+    "generado_en": "2026-09-24T06:49:15.013376"
   }
 };
