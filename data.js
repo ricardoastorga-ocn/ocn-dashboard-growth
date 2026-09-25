@@ -1,5 +1,5 @@
 window.__DASHBOARD_DATA__ = {
-  "generated_at": "2026-09-25T01:17:37.433768Z",
+  "generated_at": "2026-09-25T01:59:46.076289Z",
   "months": [
     "Ago 25",
     "Sep 25",
@@ -1384,11 +1384,11 @@ window.__DASHBOARD_DATA__ = {
         0,
         2,
         7,
-        1,
+        2,
         10,
         0
       ],
-      "total": 22
+      "total": 23
     },
     {
       "ciudad": "Guadalajara",
@@ -1408,11 +1408,11 @@ window.__DASHBOARD_DATA__ = {
         2,
         0,
         4,
-        7,
+        6,
         2,
         0
       ],
-      "total": 16
+      "total": 15
     },
     {
       "ciudad": "Monterrey",
@@ -2255,6 +2255,6 @@ window.__DASHBOARD_DATA__ = {
   "aprob_meta": {
     "fecha_min": "1 ago",
     "fecha_max": "23 sep",
-    "generado_en": "2026-09-25T01:17:38.150797"
+    "generado_en": "2026-09-25T01:59:46.681059"
   }
 };
