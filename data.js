@@ -1,5 +1,5 @@
 window.__DASHBOARD_DATA__ = {
-  "generated_at": "2026-09-26T01:20:03.520209Z",
+  "generated_at": "2026-09-26T02:05:41.042534Z",
   "months": [
     "Ago 25",
     "Sep 25",
@@ -1403,14 +1403,14 @@ window.__DASHBOARD_DATA__ = {
     {
       "ciudad": "CDMX / Edo Mex",
       "vals": [
-        5,
-        5,
-        12,
         6,
+        4,
+        12,
+        7,
         10,
         0
       ],
-      "total": 38
+      "total": 39
     },
     {
       "ciudad": "Sin identificar",
@@ -1442,11 +1442,11 @@ window.__DASHBOARD_DATA__ = {
         2,
         0,
         4,
-        4,
+        3,
         2,
         1
       ],
-      "total": 13
+      "total": 12
     },
     {
       "ciudad": "Queretaro",
@@ -2299,6 +2299,6 @@ window.__DASHBOARD_DATA__ = {
   "aprob_meta": {
     "fecha_min": "1 ago",
     "fecha_max": "24 sep",
-    "generado_en": "2026-09-26T01:20:04.103126"
+    "generado_en": "2026-09-26T02:05:41.973099"
   }
 };
