@@ -189,6 +189,37 @@ DIAS_AGOSTO_CLOSED = [
     ("31-ago", {"cdmx": 4, "mty": 5, "tij": 1, "qro": 0, "gdl": 0, "mxl": 0, "otros": 2}, 9),
 ]
 
+# Septiembre rescatado el 1-oct-2026 del ultimo data.js commiteado mientras "hoy" en CDMX
+# todavia caia en septiembre (commit 7d6c3a0, 2026-10-01 04:01 UTC = 30-sep 22:01 CDMX) --
+# la unica razon por la que se pudo recuperar es que el historial de git conservaba ese data.js;
+# si hubiera pasado una corrida mas tarde (ya en horario de octubre en CDMX) se habria perdido
+# igual que casi paso aqui. Desde este fix ya NO hace falta agregar un DIAS_OCTUBRE_CLOSED ni
+# ningun mes nuevo a mano -- dias_entregas_historico.json se mantiene solo (ver mas abajo).
+DIAS_SEPTIEMBRE_CLOSED = [
+    ("1-sep", {"cdmx": 0, "mty": 1, "tij": 3, "qro": 0, "gdl": 1, "mxl": 0, "otros": 0}, 0),
+    ("2-sep", {"cdmx": 0, "mty": 1, "tij": 2, "qro": 0, "gdl": 0, "mxl": 0, "otros": 1}, 0),
+    ("3-sep", {"cdmx": 3, "mty": 4, "tij": 3, "qro": 1, "gdl": 0, "mxl": 0, "otros": 0}, 0),
+    ("4-sep", {"cdmx": 4, "mty": 3, "tij": 2, "qro": 0, "gdl": 0, "mxl": 0, "otros": 0}, 0),
+    ("7-sep", {"cdmx": 0, "mty": 1, "tij": 1, "qro": 0, "gdl": 0, "mxl": 0, "otros": 0}, 0),
+    ("8-sep", {"cdmx": 1, "mty": 2, "tij": 3, "qro": 0, "gdl": 3, "mxl": 0, "otros": 0}, 0),
+    ("9-sep", {"cdmx": 4, "mty": 4, "tij": 4, "qro": 0, "gdl": 1, "mxl": 0, "otros": 1}, 0),
+    ("10-sep", {"cdmx": 5, "mty": 6, "tij": 2, "qro": 0, "gdl": 0, "mxl": 2, "otros": 3}, 0),
+    ("11-sep", {"cdmx": 3, "mty": 1, "tij": 4, "qro": 1, "gdl": 2, "mxl": 0, "otros": 0}, 0),
+    ("14-sep", {"cdmx": 1, "mty": 0, "tij": 3, "qro": 2, "gdl": 0, "mxl": 0, "otros": 0}, 0),
+    ("15-sep", {"cdmx": 3, "mty": 4, "tij": 2, "qro": 0, "gdl": 1, "mxl": 0, "otros": 1}, 0),
+    ("17-sep", {"cdmx": 3, "mty": 5, "tij": 2, "qro": 0, "gdl": 0, "mxl": 0, "otros": 0}, 0),
+    ("18-sep", {"cdmx": 1, "mty": 2, "tij": 1, "qro": 0, "gdl": 1, "mxl": 0, "otros": 0}, 0),
+    ("21-sep", {"cdmx": 2, "mty": 2, "tij": 1, "qro": 0, "gdl": 0, "mxl": 0, "otros": 0}, 0),
+    ("22-sep", {"cdmx": 1, "mty": 1, "tij": 2, "qro": 0, "gdl": 0, "mxl": 0, "otros": 1}, 0),
+    ("23-sep", {"cdmx": 2, "mty": 1, "tij": 0, "qro": 0, "gdl": 1, "mxl": 0, "otros": 0}, 0),
+    ("24-sep", {"cdmx": 1, "mty": 2, "tij": 3, "qro": 0, "gdl": 1, "mxl": 1, "otros": 0}, 0),
+    ("25-sep", {"cdmx": 4, "mty": 1, "tij": 2, "qro": 0, "gdl": 0, "mxl": 0, "otros": 1}, 0),
+    ("26-sep", {"cdmx": 0, "mty": 0, "tij": 1, "qro": 0, "gdl": 1, "mxl": 1, "otros": 1}, 0),
+    ("28-sep", {"cdmx": 1, "mty": 0, "tij": 2, "qro": 0, "gdl": 2, "mxl": 0, "otros": 0}, 0),
+    ("29-sep", {"cdmx": 3, "mty": 1, "tij": 1, "qro": 0, "gdl": 0, "mxl": 1, "otros": 1}, 0),
+    ("30-sep", {"cdmx": 9, "mty": 7, "tij": 1, "qro": 2, "gdl": 2, "mxl": 0, "otros": 2}, 0),
+]
+
 MODELO_KEYS = ["byd", "mg5", "mg3", "aion", "king", "tiggo", "otros"]
 MONTH_LABELS_ES = ["Ene", "Feb", "Mar", "Abr", "May", "Jun", "Jul", "Ago", "Sep", "Oct", "Nov", "Dic"]
 
@@ -593,15 +624,22 @@ def main():
     def parse_fe(s):
         return parse_date_multi(s, ["%d/%m/%Y", "%m/%d/%Y", "%Y-%m-%d"])
 
-    # "Entregados por día" debe conservar historico desde agosto (no solo el mes en curso) para
-    # que Ricardo no tenga que scrollear para ver la tendencia completa -- pedido explicito
-    # 15-sep-2026. La fuente en vivo (SEGUIMIENTO ENTREGAS) solo conserva el mes en curso
-    # (agosto ya fue archivado de esa pestaña), asi que el rango en vivo arranca en el dia 1
-    # del mes en curso -- agosto se cubre aparte via DIAS_AGOSTO_CLOSED (mismo patron que
-    # MIX_CLOSED/MODELO_CLOSED). Sin límite superior (igual que el filtro anterior por mes, que
-    # tampoco topaba en "hoy" -- una fecha agendada más adelante en el mes seguía contando para
-    # la línea de agendadas/pendientes).
+    # "Entregados por día" debe conservar historico desde agosto (no solo el mes en curso) --
+    # pedido explicito 15-sep-2026. La fuente en vivo (SEGUIMIENTO ENTREGAS) SOLO conserva el mes
+    # en curso (Back Office archiva/borra el mes anterior en cuanto rueda el mes) -- el approach
+    # original (congelar agosto a mano en una constante DIAS_AGOSTO_CLOSED) se rompio solo, sin
+    # avisar, en cuanto rodo septiembre->octubre: el 1-oct-2026 todo septiembre desaparecio del
+    # dashboard de golpe (Ricardo lo encontro, "veo que no esta correcto") porque septiembre nunca
+    # se habia congelado a mano como paso con agosto. Fix de RAIZ (no otro parche mensual):
+    # `dias_entregas_historico.json` en la raiz del repo es ahora la fuente persistente -- cada
+    # corrida LEE el archivo, hace upsert de los dias del mes en curso que trae la fuente en vivo
+    # (sobreescribe con el dato mas fresco por si BO lo actualiza despues), y ESCRIBE el archivo
+    # de vuelta (igual que snapshots/ o Log Inventario Diario) para que el workflow lo commitee.
+    # Ya no hace falta congelar nada a mano nunca mas -- cada mes que rueda, el dia ya quedo
+    # guardado en el JSON desde que se vivio en vivo. Sin límite superior en el filtro (una fecha
+    # agendada mas adelante en el mes sigue contando para agendadas/pendientes).
     DIAS_RANGE_START = datetime.date(today.year, today.month, 1)
+    DIAS_HIST_PATH = os.path.join(os.path.dirname(__file__), "dias_entregas_historico.json")
 
     entregado_by_day = collections.defaultdict(collections.Counter)
     agendada_by_day = collections.Counter()
@@ -656,10 +694,43 @@ def main():
     etapas_total = sum(etapas_count.values())
     entregado_mtd = etapas_count.get("entregado", 0)
 
+    # Carga el historico persistido (o lo siembra con agosto+septiembre si el archivo no existe
+    # todavia -- primera corrida tras este fix, o un clone nuevo del repo).
+    try:
+        with open(DIAS_HIST_PATH, encoding="utf-8") as f:
+            dias_historico = json.load(f)
+    except FileNotFoundError:
+        dias_historico = {}
+        for lbl, ent, age in DIAS_AGOSTO_CLOSED + DIAS_SEPTIEMBRE_CLOSED:
+            d_str, mes_str = lbl.split("-")
+            mes_num = MONTH_LABELS_ES.index(mes_str.capitalize()) + 1
+            iso = f"{today.year}-{mes_num:02d}-{int(d_str):02d}"
+            dias_historico[iso] = {**ent, "agendadas": age}
+
+    # Upsert: cualquier dia del mes en curso que la fuente en vivo trajo hoy sobreescribe lo que
+    # hubiera en el historico para ese dia (dato mas fresco gana) -- asi el dia de hoy se va
+    # actualizando en cada corrida hasta que se cierre, y de ahi en adelante sobrevive solo.
     dias_present = sorted(set(list(entregado_by_day.keys()) + list(agendada_by_day.keys())))
-    dias_labels = [a[0] for a in DIAS_AGOSTO_CLOSED] + [f"{d.day}-{MONTH_LABELS_ES[d.month-1].lower()}" for d in dias_present]
-    entregados_dia = [a[1] for a in DIAS_AGOSTO_CLOSED] + [{k: entregado_by_day[d].get(k, 0) for k in DIAS_KEYS} for d in dias_present]
-    agendadas_dia = [a[2] for a in DIAS_AGOSTO_CLOSED] + [agendada_by_day.get(d, 0) for d in dias_present]
+    for d in dias_present:
+        iso = d.isoformat()
+        dias_historico[iso] = {
+            **{k: entregado_by_day[d].get(k, 0) for k in DIAS_KEYS},
+            "agendadas": agendada_by_day.get(d, 0),
+        }
+
+    with open(DIAS_HIST_PATH, "w", encoding="utf-8") as f:
+        json.dump(dias_historico, f, ensure_ascii=False, indent=2, sort_keys=True)
+
+    dias_ordenados = sorted(dias_historico.keys())
+    dias_labels = []
+    entregados_dia = []
+    agendadas_dia = []
+    for iso in dias_ordenados:
+        y, m, d = (int(x) for x in iso.split("-"))
+        dias_labels.append(f"{d}-{MONTH_LABELS_ES[m-1].lower()}")
+        row = dias_historico[iso]
+        entregados_dia.append({k: row.get(k, 0) for k in DIAS_KEYS})
+        agendadas_dia.append(row.get("agendadas", 0))
 
     entregas_agente_mes = [{"agente": a, "total": n}
                             for a, n in entregas_por_agente_mes.most_common()]

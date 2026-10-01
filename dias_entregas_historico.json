@@ -1,0 +1,472 @@
+{
+  "2026-08-03": {
+    "agendadas": 0,
+    "cdmx": 0,
+    "gdl": 0,
+    "mty": 1,
+    "mxl": 0,
+    "otros": 1,
+    "qro": 0,
+    "tij": 0
+  },
+  "2026-08-04": {
+    "agendadas": 0,
+    "cdmx": 7,
+    "gdl": 0,
+    "mty": 3,
+    "mxl": 0,
+    "otros": 0,
+    "qro": 0,
+    "tij": 1
+  },
+  "2026-08-05": {
+    "agendadas": 0,
+    "cdmx": 5,
+    "gdl": 0,
+    "mty": 5,
+    "mxl": 0,
+    "otros": 1,
+    "qro": 0,
+    "tij": 3
+  },
+  "2026-08-06": {
+    "agendadas": 0,
+    "cdmx": 6,
+    "gdl": 2,
+    "mty": 4,
+    "mxl": 0,
+    "otros": 0,
+    "qro": 0,
+    "tij": 3
+  },
+  "2026-08-07": {
+    "agendadas": 0,
+    "cdmx": 5,
+    "gdl": 0,
+    "mty": 4,
+    "mxl": 0,
+    "otros": 0,
+    "qro": 0,
+    "tij": 4
+  },
+  "2026-08-10": {
+    "agendadas": 0,
+    "cdmx": 1,
+    "gdl": 0,
+    "mty": 3,
+    "mxl": 0,
+    "otros": 0,
+    "qro": 3,
+    "tij": 0
+  },
+  "2026-08-11": {
+    "agendadas": 0,
+    "cdmx": 1,
+    "gdl": 1,
+    "mty": 3,
+    "mxl": 0,
+    "otros": 3,
+    "qro": 0,
+    "tij": 1
+  },
+  "2026-08-12": {
+    "agendadas": 0,
+    "cdmx": 4,
+    "gdl": 0,
+    "mty": 2,
+    "mxl": 0,
+    "otros": 1,
+    "qro": 3,
+    "tij": 2
+  },
+  "2026-08-13": {
+    "agendadas": 0,
+    "cdmx": 5,
+    "gdl": 0,
+    "mty": 2,
+    "mxl": 0,
+    "otros": 1,
+    "qro": 0,
+    "tij": 3
+  },
+  "2026-08-14": {
+    "agendadas": 0,
+    "cdmx": 3,
+    "gdl": 0,
+    "mty": 1,
+    "mxl": 0,
+    "otros": 0,
+    "qro": 0,
+    "tij": 1
+  },
+  "2026-08-17": {
+    "agendadas": 0,
+    "cdmx": 3,
+    "gdl": 4,
+    "mty": 2,
+    "mxl": 0,
+    "otros": 1,
+    "qro": 3,
+    "tij": 1
+  },
+  "2026-08-18": {
+    "agendadas": 0,
+    "cdmx": 0,
+    "gdl": 0,
+    "mty": 2,
+    "mxl": 3,
+    "otros": 0,
+    "qro": 0,
+    "tij": 4
+  },
+  "2026-08-19": {
+    "agendadas": 0,
+    "cdmx": 2,
+    "gdl": 4,
+    "mty": 1,
+    "mxl": 1,
+    "otros": 3,
+    "qro": 0,
+    "tij": 2
+  },
+  "2026-08-20": {
+    "agendadas": 0,
+    "cdmx": 3,
+    "gdl": 1,
+    "mty": 4,
+    "mxl": 0,
+    "otros": 2,
+    "qro": 4,
+    "tij": 1
+  },
+  "2026-08-21": {
+    "agendadas": 0,
+    "cdmx": 3,
+    "gdl": 0,
+    "mty": 2,
+    "mxl": 3,
+    "otros": 0,
+    "qro": 2,
+    "tij": 4
+  },
+  "2026-08-24": {
+    "agendadas": 0,
+    "cdmx": 3,
+    "gdl": 1,
+    "mty": 6,
+    "mxl": 1,
+    "otros": 1,
+    "qro": 0,
+    "tij": 4
+  },
+  "2026-08-25": {
+    "agendadas": 0,
+    "cdmx": 4,
+    "gdl": 0,
+    "mty": 4,
+    "mxl": 1,
+    "otros": 0,
+    "qro": 0,
+    "tij": 1
+  },
+  "2026-08-26": {
+    "agendadas": 0,
+    "cdmx": 6,
+    "gdl": 0,
+    "mty": 5,
+    "mxl": 0,
+    "otros": 1,
+    "qro": 0,
+    "tij": 4
+  },
+  "2026-08-27": {
+    "agendadas": 0,
+    "cdmx": 4,
+    "gdl": 0,
+    "mty": 2,
+    "mxl": 2,
+    "otros": 1,
+    "qro": 0,
+    "tij": 3
+  },
+  "2026-08-28": {
+    "agendadas": 0,
+    "cdmx": 5,
+    "gdl": 0,
+    "mty": 1,
+    "mxl": 1,
+    "otros": 2,
+    "qro": 0,
+    "tij": 2
+  },
+  "2026-08-29": {
+    "agendadas": 0,
+    "cdmx": 4,
+    "gdl": 1,
+    "mty": 2,
+    "mxl": 0,
+    "otros": 0,
+    "qro": 0,
+    "tij": 2
+  },
+  "2026-08-31": {
+    "agendadas": 9,
+    "cdmx": 4,
+    "gdl": 0,
+    "mty": 5,
+    "mxl": 0,
+    "otros": 2,
+    "qro": 0,
+    "tij": 1
+  },
+  "2026-09-01": {
+    "agendadas": 0,
+    "cdmx": 0,
+    "gdl": 1,
+    "mty": 1,
+    "mxl": 0,
+    "otros": 0,
+    "qro": 0,
+    "tij": 3
+  },
+  "2026-09-02": {
+    "agendadas": 0,
+    "cdmx": 0,
+    "gdl": 0,
+    "mty": 1,
+    "mxl": 0,
+    "otros": 1,
+    "qro": 0,
+    "tij": 2
+  },
+  "2026-09-03": {
+    "agendadas": 0,
+    "cdmx": 3,
+    "gdl": 0,
+    "mty": 4,
+    "mxl": 0,
+    "otros": 0,
+    "qro": 1,
+    "tij": 3
+  },
+  "2026-09-04": {
+    "agendadas": 0,
+    "cdmx": 4,
+    "gdl": 0,
+    "mty": 3,
+    "mxl": 0,
+    "otros": 0,
+    "qro": 0,
+    "tij": 2
+  },
+  "2026-09-07": {
+    "agendadas": 0,
+    "cdmx": 0,
+    "gdl": 0,
+    "mty": 1,
+    "mxl": 0,
+    "otros": 0,
+    "qro": 0,
+    "tij": 1
+  },
+  "2026-09-08": {
+    "agendadas": 0,
+    "cdmx": 1,
+    "gdl": 3,
+    "mty": 2,
+    "mxl": 0,
+    "otros": 0,
+    "qro": 0,
+    "tij": 3
+  },
+  "2026-09-09": {
+    "agendadas": 0,
+    "cdmx": 4,
+    "gdl": 1,
+    "mty": 4,
+    "mxl": 0,
+    "otros": 1,
+    "qro": 0,
+    "tij": 4
+  },
+  "2026-09-10": {
+    "agendadas": 0,
+    "cdmx": 5,
+    "gdl": 0,
+    "mty": 6,
+    "mxl": 2,
+    "otros": 3,
+    "qro": 0,
+    "tij": 2
+  },
+  "2026-09-11": {
+    "agendadas": 0,
+    "cdmx": 3,
+    "gdl": 2,
+    "mty": 1,
+    "mxl": 0,
+    "otros": 0,
+    "qro": 1,
+    "tij": 4
+  },
+  "2026-09-14": {
+    "agendadas": 0,
+    "cdmx": 1,
+    "gdl": 0,
+    "mty": 0,
+    "mxl": 0,
+    "otros": 0,
+    "qro": 2,
+    "tij": 3
+  },
+  "2026-09-15": {
+    "agendadas": 0,
+    "cdmx": 3,
+    "gdl": 1,
+    "mty": 4,
+    "mxl": 0,
+    "otros": 1,
+    "qro": 0,
+    "tij": 2
+  },
+  "2026-09-17": {
+    "agendadas": 0,
+    "cdmx": 3,
+    "gdl": 0,
+    "mty": 5,
+    "mxl": 0,
+    "otros": 0,
+    "qro": 0,
+    "tij": 2
+  },
+  "2026-09-18": {
+    "agendadas": 0,
+    "cdmx": 1,
+    "gdl": 1,
+    "mty": 2,
+    "mxl": 0,
+    "otros": 0,
+    "qro": 0,
+    "tij": 1
+  },
+  "2026-09-21": {
+    "agendadas": 0,
+    "cdmx": 2,
+    "gdl": 0,
+    "mty": 2,
+    "mxl": 0,
+    "otros": 0,
+    "qro": 0,
+    "tij": 1
+  },
+  "2026-09-22": {
+    "agendadas": 0,
+    "cdmx": 1,
+    "gdl": 0,
+    "mty": 1,
+    "mxl": 0,
+    "otros": 1,
+    "qro": 0,
+    "tij": 2
+  },
+  "2026-09-23": {
+    "agendadas": 0,
+    "cdmx": 2,
+    "gdl": 1,
+    "mty": 1,
+    "mxl": 0,
+    "otros": 0,
+    "qro": 0,
+    "tij": 0
+  },
+  "2026-09-24": {
+    "agendadas": 0,
+    "cdmx": 1,
+    "gdl": 1,
+    "mty": 2,
+    "mxl": 1,
+    "otros": 0,
+    "qro": 0,
+    "tij": 3
+  },
+  "2026-09-25": {
+    "agendadas": 0,
+    "cdmx": 4,
+    "gdl": 0,
+    "mty": 1,
+    "mxl": 0,
+    "otros": 1,
+    "qro": 0,
+    "tij": 2
+  },
+  "2026-09-26": {
+    "agendadas": 0,
+    "cdmx": 0,
+    "gdl": 1,
+    "mty": 0,
+    "mxl": 1,
+    "otros": 1,
+    "qro": 0,
+    "tij": 1
+  },
+  "2026-09-28": {
+    "agendadas": 0,
+    "cdmx": 1,
+    "gdl": 2,
+    "mty": 0,
+    "mxl": 0,
+    "otros": 0,
+    "qro": 0,
+    "tij": 2
+  },
+  "2026-09-29": {
+    "agendadas": 0,
+    "cdmx": 3,
+    "gdl": 0,
+    "mty": 1,
+    "mxl": 1,
+    "otros": 1,
+    "qro": 0,
+    "tij": 1
+  },
+  "2026-09-30": {
+    "agendadas": 0,
+    "cdmx": 9,
+    "gdl": 2,
+    "mty": 7,
+    "mxl": 0,
+    "otros": 2,
+    "qro": 2,
+    "tij": 1
+  },
+  "2026-10-01": {
+    "agendadas": 0,
+    "cdmx": 0,
+    "gdl": 0,
+    "mty": 1,
+    "mxl": 0,
+    "otros": 0,
+    "qro": 0,
+    "tij": 1
+  },
+  "2026-10-02": {
+    "agendadas": 4,
+    "cdmx": 0,
+    "gdl": 0,
+    "mty": 0,
+    "mxl": 0,
+    "otros": 0,
+    "qro": 0,
+    "tij": 0
+  },
+  "2026-10-05": {
+    "agendadas": 1,
+    "cdmx": 0,
+    "gdl": 0,
+    "mty": 0,
+    "mxl": 0,
+    "otros": 0,
+    "qro": 0,
+    "tij": 0
+  }
+}
