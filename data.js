@@ -1,5 +1,5 @@
 window.__DASHBOARD_DATA__ = {
-  "generated_at": "2026-09-30T22:56:51.425516Z",
+  "generated_at": "2026-10-01T00:00:03.147887Z",
   "months": [
     "Ago 25",
     "Sep 25",
@@ -71,7 +71,7 @@ window.__DASHBOARD_DATA__ = {
     },
     {
       "nuevo": 4,
-      "seminuevo": 166
+      "seminuevo": 169
     }
   ],
   "modelo": [
@@ -193,8 +193,8 @@ window.__DASHBOARD_DATA__ = {
       "otros": 2
     },
     {
-      "byd": 82,
-      "mg5": 55,
+      "byd": 83,
+      "mg5": 57,
       "mg3": 20,
       "aion": 3,
       "king": 1,
@@ -211,7 +211,7 @@ window.__DASHBOARD_DATA__ = {
     "tiggo",
     "otros"
   ],
-  "etapas_total": 209,
+  "etapas_total": 210,
   "etapas": [
     {
       "key": "prep",
@@ -219,19 +219,19 @@ window.__DASHBOARD_DATA__ = {
     },
     {
       "key": "listo",
-      "value": 23
+      "value": 24
     },
     {
       "key": "agendada",
-      "value": 3
+      "value": 1
     },
     {
       "key": "contrato",
-      "value": 8
+      "value": 4
     },
     {
       "key": "cenv",
-      "value": 2
+      "value": 5
     },
     {
       "key": "liga",
@@ -239,7 +239,7 @@ window.__DASHBOARD_DATA__ = {
     },
     {
       "key": "entregado",
-      "value": 170
+      "value": 173
     },
     {
       "key": "issue",
@@ -248,10 +248,10 @@ window.__DASHBOARD_DATA__ = {
   ],
   "etapas_ciudades": {
     "entregado": {
-      "CDMX / Edo Mex": 44,
+      "CDMX / Edo Mex": 46,
       "Guadalajara": 14,
       "Mexicali": 5,
-      "Monterrey": 45,
+      "Monterrey": 46,
       "Puebla": 7,
       "Queretaro": 6,
       "Saltillo": 3,
@@ -261,27 +261,29 @@ window.__DASHBOARD_DATA__ = {
     "listo": {
       "Mexicali": 2,
       "Tijuana": 15,
-      "Monterrey": 4,
+      "Monterrey": 5,
       "Guadalajara": 2
     },
-    "contrato": {
-      "CDMX / Edo Mex": 6,
-      "Monterrey": 2
+    "cenv": {
+      "CDMX / Edo Mex": 2,
+      "Monterrey": 1,
+      "Merida": 1,
+      "Guadalajara": 1
     },
     "issue": {
       "CDMX / Edo Mex": 1
     },
     "agendada": {
-      "Tijuana": 1,
-      "Monterrey": 1,
-      "Merida": 1
+      "Tijuana": 1
     },
-    "cenv": {
+    "contrato": {
+      "Guadalajara": 1,
       "Monterrey": 1,
-      "CDMX / Edo Mex": 1
+      "CDMX / Edo Mex": 2
     },
     "liga": {
-      "CDMX / Edo Mex": 2
+      "Monterrey": 1,
+      "CDMX / Edo Mex": 1
     }
   },
   "entregado_target_pct": 95,
@@ -293,7 +295,7 @@ window.__DASHBOARD_DATA__ = {
     },
     {
       "ciudad": "Monterrey",
-      "value": 4
+      "value": 5
     },
     {
       "ciudad": "Mexicali",
@@ -320,8 +322,8 @@ window.__DASHBOARD_DATA__ = {
     {
       "ciudad": "Monterrey",
       "espera": 55,
-      "listo": 4,
-      "gap": 51
+      "listo": 5,
+      "gap": 50
     },
     {
       "ciudad": "Puebla",
@@ -796,8 +798,8 @@ window.__DASHBOARD_DATA__ = {
       "otros": 1
     },
     {
-      "cdmx": 2,
-      "mty": 3,
+      "cdmx": 4,
+      "mty": 4,
       "tij": 1,
       "qro": 2,
       "gdl": 0,
@@ -858,7 +860,7 @@ window.__DASHBOARD_DATA__ = {
     0,
     0,
     0,
-    14,
+    11,
     1
   ],
   "entregas_por_asesor_equipo": {
@@ -877,21 +879,21 @@ window.__DASHBOARD_DATA__ = {
       },
       {
         "asesor": "Angelica Torres",
-        "entregas": 9,
+        "entregas": 10,
         "solicitudes": 28,
         "aprobadas": 15
+      },
+      {
+        "asesor": "Edwin Hernandez",
+        "entregas": 9,
+        "solicitudes": 47,
+        "aprobadas": 27
       },
       {
         "asesor": "Michelle R",
         "entregas": 9,
         "solicitudes": 34,
         "aprobadas": 24
-      },
-      {
-        "asesor": "Edwin Hernandez",
-        "entregas": 8,
-        "solicitudes": 47,
-        "aprobadas": 27
       },
       {
         "asesor": "Antonio Cruz",
@@ -969,7 +971,7 @@ window.__DASHBOARD_DATA__ = {
       },
       {
         "asesor": "Imanol Cortez",
-        "entregas": 6,
+        "entregas": 7,
         "solicitudes": 22,
         "aprobadas": 17
       },
@@ -1415,79 +1417,67 @@ window.__DASHBOARD_DATA__ = {
   "decline_total": 977,
   "forecast": {
     "workdays_elapsed": 21,
-    "actual_elapsed": 170,
+    "actual_elapsed": 173,
     "workdays_total": 22,
-    "rate": 8.1,
-    "total": 178,
+    "rate": 8.24,
+    "total": 181,
     "nuevo": 4,
-    "seminuevo": 174
+    "seminuevo": 177
   },
   "corte": {
     "fecha": "2026-09-30",
     "mes_label": "Sep 26"
   },
-  "fleet_total": 175,
+  "fleet_total": 168,
   "fleet_desflote_n": 4,
   "fleet_city_stage": [
     {
       "ciudad": "CDMX / Edo Mex",
       "vals": [
-        5,
+        7,
         5,
         18,
-        11,
-        11,
+        13,
+        6,
         0
       ],
-      "total": 50
+      "total": 49
     },
     {
       "ciudad": "Monterrey",
       "vals": [
-        2,
+        4,
         3,
-        10,
         9,
-        18,
+        10,
+        12,
         3
       ],
-      "total": 45
+      "total": 41
     },
     {
       "ciudad": "Sin identificar",
       "vals": [
         1,
         1,
-        5,
+        6,
         6,
         18,
         0
       ],
-      "total": 32
+      "total": 33
     },
     {
       "ciudad": "Guadalajara",
       "vals": [
         1,
-        7,
-        7,
-        4,
-        0,
-        0
-      ],
-      "total": 19
-    },
-    {
-      "ciudad": "Queretaro",
-      "vals": [
+        5,
+        9,
         3,
-        1,
         0,
-        7,
-        1,
         0
       ],
-      "total": 12
+      "total": 18
     },
     {
       "ciudad": "Tijuana",
@@ -1500,6 +1490,18 @@ window.__DASHBOARD_DATA__ = {
         0
       ],
       "total": 11
+    },
+    {
+      "ciudad": "Queretaro",
+      "vals": [
+        3,
+        1,
+        0,
+        5,
+        1,
+        0
+      ],
+      "total": 10
     },
     {
       "ciudad": "Puebla",
@@ -2375,6 +2377,6 @@ window.__DASHBOARD_DATA__ = {
   "aprob_meta": {
     "fecha_min": "1 ago",
     "fecha_max": "29 sep",
-    "generado_en": "2026-09-30T22:56:52.071264"
+    "generado_en": "2026-10-01T00:00:04.133639"
   }
 };
