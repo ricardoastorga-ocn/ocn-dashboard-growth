@@ -1,5 +1,5 @@
 window.__DASHBOARD_DATA__ = {
-  "generated_at": "2026-10-01T00:45:33.804170Z",
+  "generated_at": "2026-10-01T01:29:41.159397Z",
   "months": [
     "Ago 25",
     "Sep 25",
@@ -71,7 +71,7 @@ window.__DASHBOARD_DATA__ = {
     },
     {
       "nuevo": 4,
-      "seminuevo": 173
+      "seminuevo": 175
     }
   ],
   "modelo": [
@@ -193,7 +193,7 @@ window.__DASHBOARD_DATA__ = {
       "otros": 2
     },
     {
-      "byd": 85,
+      "byd": 87,
       "mg5": 58,
       "mg3": 20,
       "aion": 4,
@@ -227,7 +227,7 @@ window.__DASHBOARD_DATA__ = {
     },
     {
       "key": "contrato",
-      "value": 2
+      "value": 1
     },
     {
       "key": "cenv",
@@ -235,11 +235,11 @@ window.__DASHBOARD_DATA__ = {
     },
     {
       "key": "liga",
-      "value": 2
+      "value": 1
     },
     {
       "key": "entregado",
-      "value": 177
+      "value": 179
     },
     {
       "key": "issue",
@@ -248,10 +248,10 @@ window.__DASHBOARD_DATA__ = {
   ],
   "etapas_ciudades": {
     "entregado": {
-      "CDMX / Edo Mex": 47,
+      "CDMX / Edo Mex": 48,
       "Guadalajara": 14,
       "Mexicali": 5,
-      "Monterrey": 48,
+      "Monterrey": 49,
       "Puebla": 7,
       "Queretaro": 6,
       "Saltillo": 3,
@@ -271,17 +271,15 @@ window.__DASHBOARD_DATA__ = {
     "agendada": {
       "Tijuana": 2
     },
-    "contrato": {
-      "Guadalajara": 1,
+    "cenv": {
+      "Guadalajara": 2,
       "CDMX / Edo Mex": 1
     },
     "liga": {
-      "Monterrey": 1,
       "CDMX / Edo Mex": 1
     },
-    "cenv": {
-      "CDMX / Edo Mex": 2,
-      "Guadalajara": 1
+    "contrato": {
+      "CDMX / Edo Mex": 1
     }
   },
   "entregado_target_pct": 95,
@@ -801,8 +799,8 @@ window.__DASHBOARD_DATA__ = {
       "otros": 1
     },
     {
-      "cdmx": 5,
-      "mty": 6,
+      "cdmx": 6,
+      "mty": 7,
       "tij": 1,
       "qro": 2,
       "gdl": 0,
@@ -872,7 +870,7 @@ window.__DASHBOARD_DATA__ = {
     0,
     0,
     0,
-    7,
+    5,
     1,
     1
   ],
@@ -960,7 +958,7 @@ window.__DASHBOARD_DATA__ = {
       },
       {
         "asesor": "Daniela Favela",
-        "entregas": 11,
+        "entregas": 12,
         "solicitudes": 34,
         "aprobadas": 21
       },
@@ -984,7 +982,7 @@ window.__DASHBOARD_DATA__ = {
       },
       {
         "asesor": "Imanol Cortez",
-        "entregas": 7,
+        "entregas": 8,
         "solicitudes": 22,
         "aprobadas": 17
       },
@@ -1430,12 +1428,12 @@ window.__DASHBOARD_DATA__ = {
   "decline_total": 977,
   "forecast": {
     "workdays_elapsed": 21,
-    "actual_elapsed": 177,
+    "actual_elapsed": 179,
     "workdays_total": 22,
-    "rate": 8.43,
-    "total": 185,
+    "rate": 8.52,
+    "total": 188,
     "nuevo": 4,
-    "seminuevo": 181
+    "seminuevo": 184
   },
   "corte": {
     "fecha": "2026-09-30",
@@ -2390,6 +2388,6 @@ window.__DASHBOARD_DATA__ = {
   "aprob_meta": {
     "fecha_min": "1 ago",
     "fecha_max": "29 sep",
-    "generado_en": "2026-10-01T00:45:34.653214"
+    "generado_en": "2026-10-01T01:29:42.059274"
   }
 };
