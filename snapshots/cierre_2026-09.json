@@ -1,0 +1,46 @@
+{
+  "mes_label": "Sep 26",
+  "fecha_cierre": "2026-09-30",
+  "generado_en": "2026-09-30T22:01:04.579527-06:00",
+  "entregas_totales_mes": 184,
+  "mix_nuevo_semi": {
+    "nuevo": 4,
+    "seminuevo": 180
+  },
+  "modelo_mtd": {
+    "byd": 90,
+    "mg5": 60,
+    "mg3": 20,
+    "aion": 4,
+    "king": 1,
+    "tiggo": 6,
+    "otros": 3
+  },
+  "listo_entrega_por_ciudad": [
+    {
+      "ciudad": "Tijuana",
+      "value": 14
+    },
+    {
+      "ciudad": "Monterrey",
+      "value": 5
+    },
+    {
+      "ciudad": "Mexicali",
+      "value": 2
+    },
+    {
+      "ciudad": "CDMX / Edo Mex",
+      "value": 2
+    },
+    {
+      "ciudad": "Guadalajara",
+      "value": 2
+    }
+  ],
+  "listo_entrega_total": 25,
+  "forecast_vs_cierre": {
+    "forecast_total": 193,
+    "entregas_reales": 184
+  }
+}
