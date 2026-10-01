@@ -37,7 +37,7 @@ jobs:
         run: |
           git config user.name "ocn-dashboard-bot"
           git config user.email "actions@github.com"
-          git add data.js
+          git add data.js snapshots/
           if git diff --cached --quiet; then
             echo "Sin cambios en los datos, no se hace commit."
           else
