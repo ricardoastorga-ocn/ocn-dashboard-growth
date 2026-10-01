@@ -1,5 +1,5 @@
 window.__DASHBOARD_DATA__ = {
-  "generated_at": "2026-10-01T01:56:51.461130Z",
+  "generated_at": "2026-10-01T02:00:12.892893Z",
   "months": [
     "Ago 25",
     "Sep 25",
@@ -71,7 +71,7 @@ window.__DASHBOARD_DATA__ = {
     },
     {
       "nuevo": 4,
-      "seminuevo": 177
+      "seminuevo": 178
     }
   ],
   "modelo": [
@@ -193,7 +193,7 @@ window.__DASHBOARD_DATA__ = {
       "otros": 2
     },
     {
-      "byd": 88,
+      "byd": 89,
       "mg5": 59,
       "mg3": 20,
       "aion": 4,
@@ -235,11 +235,11 @@ window.__DASHBOARD_DATA__ = {
     },
     {
       "key": "liga",
-      "value": 2
+      "value": 1
     },
     {
       "key": "entregado",
-      "value": 181
+      "value": 182
     },
     {
       "key": "issue",
@@ -248,7 +248,7 @@ window.__DASHBOARD_DATA__ = {
   ],
   "etapas_ciudades": {
     "entregado": {
-      "CDMX / Edo Mex": 49,
+      "CDMX / Edo Mex": 50,
       "Guadalajara": 15,
       "Mexicali": 5,
       "Monterrey": 49,
@@ -271,12 +271,11 @@ window.__DASHBOARD_DATA__ = {
     "agendada": {
       "Tijuana": 2
     },
-    "liga": {
-      "CDMX / Edo Mex": 1,
-      "Guadalajara": 1
-    },
     "cenv": {
       "CDMX / Edo Mex": 1
+    },
+    "liga": {
+      "Guadalajara": 1
     }
   },
   "entregado_target_pct": 95,
@@ -796,7 +795,7 @@ window.__DASHBOARD_DATA__ = {
       "otros": 1
     },
     {
-      "cdmx": 7,
+      "cdmx": 8,
       "mty": 7,
       "tij": 1,
       "qro": 2,
@@ -867,7 +866,7 @@ window.__DASHBOARD_DATA__ = {
     0,
     0,
     0,
-    3,
+    2,
     1,
     1
   ],
@@ -996,6 +995,12 @@ window.__DASHBOARD_DATA__ = {
         "aprobadas": 16
       },
       {
+        "asesor": "Jeremy Tamayo",
+        "entregas": 5,
+        "solicitudes": 29,
+        "aprobadas": 21
+      },
+      {
         "asesor": "Karen Garcia",
         "entregas": 5,
         "solicitudes": 30,
@@ -1012,12 +1017,6 @@ window.__DASHBOARD_DATA__ = {
         "entregas": 5,
         "solicitudes": null,
         "aprobadas": null
-      },
-      {
-        "asesor": "Jeremy Tamayo",
-        "entregas": 4,
-        "solicitudes": 29,
-        "aprobadas": 21
       },
       {
         "asesor": "Enrique Jimenez",
@@ -1425,12 +1424,12 @@ window.__DASHBOARD_DATA__ = {
   "decline_total": 977,
   "forecast": {
     "workdays_elapsed": 21,
-    "actual_elapsed": 181,
+    "actual_elapsed": 182,
     "workdays_total": 22,
-    "rate": 8.62,
-    "total": 190,
+    "rate": 8.67,
+    "total": 191,
     "nuevo": 4,
-    "seminuevo": 186
+    "seminuevo": 187
   },
   "corte": {
     "fecha": "2026-09-30",
@@ -2385,6 +2384,6 @@ window.__DASHBOARD_DATA__ = {
   "aprob_meta": {
     "fecha_min": "1 ago",
     "fecha_max": "29 sep",
-    "generado_en": "2026-10-01T01:56:52.103882"
+    "generado_en": "2026-10-01T02:00:13.225717"
   }
 };
