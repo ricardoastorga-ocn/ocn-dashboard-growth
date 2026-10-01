@@ -1,5 +1,5 @@
 window.__DASHBOARD_DATA__ = {
-  "generated_at": "2026-10-01T01:47:14.673690Z",
+  "generated_at": "2026-10-01T01:56:51.461130Z",
   "months": [
     "Ago 25",
     "Sep 25",
@@ -71,7 +71,7 @@ window.__DASHBOARD_DATA__ = {
     },
     {
       "nuevo": 4,
-      "seminuevo": 176
+      "seminuevo": 177
     }
   ],
   "modelo": [
@@ -194,7 +194,7 @@ window.__DASHBOARD_DATA__ = {
     },
     {
       "byd": 88,
-      "mg5": 58,
+      "mg5": 59,
       "mg3": 20,
       "aion": 4,
       "king": 1,
@@ -231,7 +231,7 @@ window.__DASHBOARD_DATA__ = {
     },
     {
       "key": "cenv",
-      "value": 2
+      "value": 1
     },
     {
       "key": "liga",
@@ -239,7 +239,7 @@ window.__DASHBOARD_DATA__ = {
     },
     {
       "key": "entregado",
-      "value": 180
+      "value": 181
     },
     {
       "key": "issue",
@@ -249,7 +249,7 @@ window.__DASHBOARD_DATA__ = {
   "etapas_ciudades": {
     "entregado": {
       "CDMX / Edo Mex": 49,
-      "Guadalajara": 14,
+      "Guadalajara": 15,
       "Mexicali": 5,
       "Monterrey": 49,
       "Puebla": 7,
@@ -271,13 +271,12 @@ window.__DASHBOARD_DATA__ = {
     "agendada": {
       "Tijuana": 2
     },
-    "cenv": {
-      "Guadalajara": 1,
-      "CDMX / Edo Mex": 1
-    },
     "liga": {
       "CDMX / Edo Mex": 1,
       "Guadalajara": 1
+    },
+    "cenv": {
+      "CDMX / Edo Mex": 1
     }
   },
   "entregado_target_pct": 95,
@@ -801,7 +800,7 @@ window.__DASHBOARD_DATA__ = {
       "mty": 7,
       "tij": 1,
       "qro": 2,
-      "gdl": 0,
+      "gdl": 1,
       "mxl": 0,
       "otros": 2
     },
@@ -868,7 +867,7 @@ window.__DASHBOARD_DATA__ = {
     0,
     0,
     0,
-    4,
+    3,
     1,
     1
   ],
@@ -912,7 +911,7 @@ window.__DASHBOARD_DATA__ = {
       },
       {
         "asesor": "Monserrat Rivera",
-        "entregas": 6,
+        "entregas": 7,
         "solicitudes": 34,
         "aprobadas": 21
       },
@@ -1426,12 +1425,12 @@ window.__DASHBOARD_DATA__ = {
   "decline_total": 977,
   "forecast": {
     "workdays_elapsed": 21,
-    "actual_elapsed": 180,
+    "actual_elapsed": 181,
     "workdays_total": 22,
-    "rate": 8.57,
-    "total": 189,
+    "rate": 8.62,
+    "total": 190,
     "nuevo": 4,
-    "seminuevo": 185
+    "seminuevo": 186
   },
   "corte": {
     "fecha": "2026-09-30",
@@ -2386,6 +2385,6 @@ window.__DASHBOARD_DATA__ = {
   "aprob_meta": {
     "fecha_min": "1 ago",
     "fecha_max": "29 sep",
-    "generado_en": "2026-10-01T01:47:23.661218"
+    "generado_en": "2026-10-01T01:56:52.103882"
   }
 };
