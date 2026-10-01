@@ -1,5 +1,5 @@
 window.__DASHBOARD_DATA__ = {
-  "generated_at": "2026-10-01T01:29:41.159397Z",
+  "generated_at": "2026-10-01T01:47:14.673690Z",
   "months": [
     "Ago 25",
     "Sep 25",
@@ -71,7 +71,7 @@ window.__DASHBOARD_DATA__ = {
     },
     {
       "nuevo": 4,
-      "seminuevo": 175
+      "seminuevo": 176
     }
   ],
   "modelo": [
@@ -193,7 +193,7 @@ window.__DASHBOARD_DATA__ = {
       "otros": 2
     },
     {
-      "byd": 87,
+      "byd": 88,
       "mg5": 58,
       "mg3": 20,
       "aion": 4,
@@ -227,19 +227,19 @@ window.__DASHBOARD_DATA__ = {
     },
     {
       "key": "contrato",
-      "value": 1
+      "value": 0
     },
     {
       "key": "cenv",
-      "value": 3
+      "value": 2
     },
     {
       "key": "liga",
-      "value": 1
+      "value": 2
     },
     {
       "key": "entregado",
-      "value": 179
+      "value": 180
     },
     {
       "key": "issue",
@@ -248,7 +248,7 @@ window.__DASHBOARD_DATA__ = {
   ],
   "etapas_ciudades": {
     "entregado": {
-      "CDMX / Edo Mex": 48,
+      "CDMX / Edo Mex": 49,
       "Guadalajara": 14,
       "Mexicali": 5,
       "Monterrey": 49,
@@ -272,14 +272,12 @@ window.__DASHBOARD_DATA__ = {
       "Tijuana": 2
     },
     "cenv": {
-      "Guadalajara": 2,
+      "Guadalajara": 1,
       "CDMX / Edo Mex": 1
     },
     "liga": {
-      "CDMX / Edo Mex": 1
-    },
-    "contrato": {
-      "CDMX / Edo Mex": 1
+      "CDMX / Edo Mex": 1,
+      "Guadalajara": 1
     }
   },
   "entregado_target_pct": 95,
@@ -799,7 +797,7 @@ window.__DASHBOARD_DATA__ = {
       "otros": 1
     },
     {
-      "cdmx": 6,
+      "cdmx": 7,
       "mty": 7,
       "tij": 1,
       "qro": 2,
@@ -870,7 +868,7 @@ window.__DASHBOARD_DATA__ = {
     0,
     0,
     0,
-    5,
+    4,
     1,
     1
   ],
@@ -913,6 +911,12 @@ window.__DASHBOARD_DATA__ = {
         "aprobadas": 13
       },
       {
+        "asesor": "Monserrat Rivera",
+        "entregas": 6,
+        "solicitudes": 34,
+        "aprobadas": 21
+      },
+      {
         "asesor": "Diana Moreno",
         "entregas": 5,
         "solicitudes": 39,
@@ -923,12 +927,6 @@ window.__DASHBOARD_DATA__ = {
         "entregas": 5,
         "solicitudes": 21,
         "aprobadas": 11
-      },
-      {
-        "asesor": "Monserrat Rivera",
-        "entregas": 5,
-        "solicitudes": 34,
-        "aprobadas": 21
       },
       {
         "asesor": "Oscar Alvarez",
@@ -1428,18 +1426,18 @@ window.__DASHBOARD_DATA__ = {
   "decline_total": 977,
   "forecast": {
     "workdays_elapsed": 21,
-    "actual_elapsed": 179,
+    "actual_elapsed": 180,
     "workdays_total": 22,
-    "rate": 8.52,
-    "total": 188,
+    "rate": 8.57,
+    "total": 189,
     "nuevo": 4,
-    "seminuevo": 184
+    "seminuevo": 185
   },
   "corte": {
     "fecha": "2026-09-30",
     "mes_label": "Sep 26"
   },
-  "fleet_total": 171,
+  "fleet_total": 170,
   "fleet_desflote_n": 4,
   "fleet_city_stage": [
     {
@@ -1460,11 +1458,11 @@ window.__DASHBOARD_DATA__ = {
         4,
         3,
         9,
-        12,
+        11,
         12,
         3
       ],
-      "total": 43
+      "total": 42
     },
     {
       "ciudad": "Sin identificar",
@@ -2388,6 +2386,6 @@ window.__DASHBOARD_DATA__ = {
   "aprob_meta": {
     "fecha_min": "1 ago",
     "fecha_max": "29 sep",
-    "generado_en": "2026-10-01T01:29:42.059274"
+    "generado_en": "2026-10-01T01:47:23.661218"
   }
 };
