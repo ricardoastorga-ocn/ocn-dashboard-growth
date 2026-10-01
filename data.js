@@ -1,5 +1,5 @@
 window.__DASHBOARD_DATA__ = {
-  "generated_at": "2026-10-01T21:13:45.349999Z",
+  "generated_at": "2026-10-01T23:47:37.364439Z",
   "months": [
     "Ago 25",
     "Sep 25",
@@ -219,11 +219,11 @@ window.__DASHBOARD_DATA__ = {
     },
     {
       "key": "listo",
-      "value": 20
+      "value": 19
     },
     {
       "key": "agendada",
-      "value": 5
+      "value": 6
     },
     {
       "key": "contrato",
@@ -251,13 +251,12 @@ window.__DASHBOARD_DATA__ = {
       "Monterrey": 3,
       "Tijuana": 12,
       "Mexicali": 2,
-      "CDMX / Edo Mex": 1,
       "Guadalajara": 2
     },
     "agendada": {
       "Monterrey": 1,
       "Tijuana": 3,
-      "CDMX / Edo Mex": 1
+      "CDMX / Edo Mex": 2
     },
     "issue": {
       "CDMX / Edo Mex": 1
@@ -285,18 +284,14 @@ window.__DASHBOARD_DATA__ = {
     {
       "ciudad": "Guadalajara",
       "value": 2
-    },
-    {
-      "ciudad": "CDMX / Edo Mex",
-      "value": 1
     }
   ],
   "waitlist_gap": [
     {
       "ciudad": "CDMX / Edo Mex",
       "espera": 198,
-      "listo": 1,
-      "gap": 197
+      "listo": 0,
+      "gap": 198
     },
     {
       "ciudad": "Merida",
@@ -868,7 +863,7 @@ window.__DASHBOARD_DATA__ = {
     0,
     0,
     4,
-    1
+    2
   ],
   "entregas_por_asesor_equipo": {
     "Bernardo": [
@@ -1435,8 +1430,8 @@ window.__DASHBOARD_DATA__ = {
     "fecha": "2026-10-01",
     "mes_label": "Oct 26"
   },
-  "fleet_total": 156,
-  "fleet_desflote_n": 4,
+  "fleet_total": 155,
+  "fleet_desflote_n": 3,
   "fleet_city_stage": [
     {
       "ciudad": "CDMX / Edo Mex",
@@ -1456,11 +1451,11 @@ window.__DASHBOARD_DATA__ = {
         1,
         2,
         5,
-        8,
+        9,
         18,
         1
       ],
-      "total": 35
+      "total": 36
     },
     {
       "ciudad": "Monterrey",
@@ -1469,10 +1464,10 @@ window.__DASHBOARD_DATA__ = {
         5,
         7,
         3,
-        10,
-        3
+        8,
+        2
       ],
-      "total": 32
+      "total": 29
     },
     {
       "ciudad": "Guadalajara",
@@ -2394,6 +2389,6 @@ window.__DASHBOARD_DATA__ = {
   "aprob_meta": {
     "fecha_min": "1 ago",
     "fecha_max": "30 sep",
-    "generado_en": "2026-10-01T21:13:45.702356"
+    "generado_en": "2026-10-01T23:47:38.238701"
   }
 };
