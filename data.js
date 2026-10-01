@@ -1,5 +1,5 @@
 window.__DASHBOARD_DATA__ = {
-  "generated_at": "2026-10-01T02:00:12.892893Z",
+  "generated_at": "2026-10-01T02:19:33.095857Z",
   "months": [
     "Ago 25",
     "Sep 25",
@@ -71,7 +71,7 @@ window.__DASHBOARD_DATA__ = {
     },
     {
       "nuevo": 4,
-      "seminuevo": 178
+      "seminuevo": 179
     }
   ],
   "modelo": [
@@ -194,7 +194,7 @@ window.__DASHBOARD_DATA__ = {
     },
     {
       "byd": 89,
-      "mg5": 59,
+      "mg5": 60,
       "mg3": 20,
       "aion": 4,
       "king": 1,
@@ -231,7 +231,7 @@ window.__DASHBOARD_DATA__ = {
     },
     {
       "key": "cenv",
-      "value": 1
+      "value": 0
     },
     {
       "key": "liga",
@@ -239,7 +239,7 @@ window.__DASHBOARD_DATA__ = {
     },
     {
       "key": "entregado",
-      "value": 182
+      "value": 183
     },
     {
       "key": "issue",
@@ -249,7 +249,7 @@ window.__DASHBOARD_DATA__ = {
   "etapas_ciudades": {
     "entregado": {
       "CDMX / Edo Mex": 50,
-      "Guadalajara": 15,
+      "Guadalajara": 16,
       "Mexicali": 5,
       "Monterrey": 49,
       "Puebla": 7,
@@ -271,11 +271,8 @@ window.__DASHBOARD_DATA__ = {
     "agendada": {
       "Tijuana": 2
     },
-    "cenv": {
-      "CDMX / Edo Mex": 1
-    },
     "liga": {
-      "Guadalajara": 1
+      "CDMX / Edo Mex": 1
     }
   },
   "entregado_target_pct": 95,
@@ -799,7 +796,7 @@ window.__DASHBOARD_DATA__ = {
       "mty": 7,
       "tij": 1,
       "qro": 2,
-      "gdl": 1,
+      "gdl": 2,
       "mxl": 0,
       "otros": 2
     },
@@ -866,7 +863,7 @@ window.__DASHBOARD_DATA__ = {
     0,
     0,
     0,
-    2,
+    1,
     1,
     1
   ],
@@ -885,16 +882,16 @@ window.__DASHBOARD_DATA__ = {
         "aprobadas": null
       },
       {
+        "asesor": "Michelle R",
+        "entregas": 11,
+        "solicitudes": 34,
+        "aprobadas": 24
+      },
+      {
         "asesor": "Angelica Torres",
         "entregas": 10,
         "solicitudes": 28,
         "aprobadas": 15
-      },
-      {
-        "asesor": "Michelle R",
-        "entregas": 10,
-        "solicitudes": 34,
-        "aprobadas": 24
       },
       {
         "asesor": "Edwin Hernandez",
@@ -1424,12 +1421,12 @@ window.__DASHBOARD_DATA__ = {
   "decline_total": 977,
   "forecast": {
     "workdays_elapsed": 21,
-    "actual_elapsed": 182,
+    "actual_elapsed": 183,
     "workdays_total": 22,
-    "rate": 8.67,
-    "total": 191,
+    "rate": 8.71,
+    "total": 192,
     "nuevo": 4,
-    "seminuevo": 187
+    "seminuevo": 188
   },
   "corte": {
     "fecha": "2026-09-30",
@@ -2384,6 +2381,6 @@ window.__DASHBOARD_DATA__ = {
   "aprob_meta": {
     "fecha_min": "1 ago",
     "fecha_max": "29 sep",
-    "generado_en": "2026-10-01T02:00:13.225717"
+    "generado_en": "2026-10-01T02:19:33.774861"
   }
 };
