@@ -1,0 +1,227 @@
+{
+  "2025-08": {
+    "mix": {
+      "nuevo": 272,
+      "seminuevo": 37
+    },
+    "modelo": {
+      "aion": 0,
+      "byd": 132,
+      "king": 0,
+      "mg3": 56,
+      "mg5": 116,
+      "otros": 1,
+      "tiggo": 4
+    }
+  },
+  "2025-09": {
+    "mix": {
+      "nuevo": 318,
+      "seminuevo": 22
+    },
+    "modelo": {
+      "aion": 0,
+      "byd": 152,
+      "king": 0,
+      "mg3": 55,
+      "mg5": 114,
+      "otros": 17,
+      "tiggo": 2
+    }
+  },
+  "2025-10": {
+    "mix": {
+      "nuevo": 348,
+      "seminuevo": 42
+    },
+    "modelo": {
+      "aion": 0,
+      "byd": 168,
+      "king": 0,
+      "mg3": 81,
+      "mg5": 134,
+      "otros": 5,
+      "tiggo": 2
+    }
+  },
+  "2025-11": {
+    "mix": {
+      "nuevo": 420,
+      "seminuevo": 21
+    },
+    "modelo": {
+      "aion": 0,
+      "byd": 216,
+      "king": 0,
+      "mg3": 72,
+      "mg5": 150,
+      "otros": 0,
+      "tiggo": 3
+    }
+  },
+  "2025-12": {
+    "mix": {
+      "nuevo": 374,
+      "seminuevo": 72
+    },
+    "modelo": {
+      "aion": 0,
+      "byd": 229,
+      "king": 0,
+      "mg3": 76,
+      "mg5": 137,
+      "otros": 2,
+      "tiggo": 2
+    }
+  },
+  "2026-01": {
+    "mix": {
+      "nuevo": 421,
+      "seminuevo": 121
+    },
+    "modelo": {
+      "aion": 24,
+      "byd": 269,
+      "king": 0,
+      "mg3": 68,
+      "mg5": 177,
+      "otros": 1,
+      "tiggo": 3
+    }
+  },
+  "2026-02": {
+    "mix": {
+      "nuevo": 371,
+      "seminuevo": 129
+    },
+    "modelo": {
+      "aion": 104,
+      "byd": 193,
+      "king": 0,
+      "mg3": 57,
+      "mg5": 133,
+      "otros": 4,
+      "tiggo": 9
+    }
+  },
+  "2026-03": {
+    "mix": {
+      "nuevo": 453,
+      "seminuevo": 110
+    },
+    "modelo": {
+      "aion": 130,
+      "byd": 215,
+      "king": 0,
+      "mg3": 41,
+      "mg5": 169,
+      "otros": 4,
+      "tiggo": 4
+    }
+  },
+  "2026-04": {
+    "mix": {
+      "nuevo": 431,
+      "seminuevo": 116
+    },
+    "modelo": {
+      "aion": 83,
+      "byd": 256,
+      "king": 102,
+      "mg3": 18,
+      "mg5": 83,
+      "otros": 4,
+      "tiggo": 1
+    }
+  },
+  "2026-05": {
+    "mix": {
+      "nuevo": 125,
+      "seminuevo": 237
+    },
+    "modelo": {
+      "aion": 37,
+      "byd": 181,
+      "king": 8,
+      "mg3": 22,
+      "mg5": 101,
+      "otros": 6,
+      "tiggo": 7
+    }
+  },
+  "2026-06": {
+    "mix": {
+      "nuevo": 250,
+      "seminuevo": 327
+    },
+    "modelo": {
+      "aion": 6,
+      "byd": 193,
+      "king": 197,
+      "mg3": 44,
+      "mg5": 122,
+      "otros": 6,
+      "tiggo": 9
+    }
+  },
+  "2026-07": {
+    "mix": {
+      "nuevo": 14,
+      "seminuevo": 298
+    },
+    "modelo": {
+      "aion": 8,
+      "byd": 131,
+      "king": 9,
+      "mg3": 34,
+      "mg5": 120,
+      "otros": 4,
+      "tiggo": 6
+    }
+  },
+  "2026-08": {
+    "mix": {
+      "nuevo": 21,
+      "seminuevo": 239
+    },
+    "modelo": {
+      "aion": 5,
+      "byd": 123,
+      "king": 6,
+      "mg3": 25,
+      "mg5": 88,
+      "otros": 2,
+      "tiggo": 11
+    }
+  },
+  "2026-09": {
+    "mix": {
+      "nuevo": 4,
+      "seminuevo": 180
+    },
+    "modelo": {
+      "aion": 4,
+      "byd": 90,
+      "king": 1,
+      "mg3": 20,
+      "mg5": 60,
+      "otros": 3,
+      "tiggo": 6
+    }
+  },
+  "2026-10": {
+    "mix": {
+      "nuevo": 0,
+      "seminuevo": 4
+    },
+    "modelo": {
+      "aion": 0,
+      "byd": 1,
+      "king": 0,
+      "mg3": 0,
+      "mg5": 3,
+      "otros": 0,
+      "tiggo": 0
+    }
+  }
+}

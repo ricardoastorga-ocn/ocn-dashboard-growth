@@ -131,18 +131,32 @@ def match_roster(name, roster_names):
     return candidates[0] if len(candidates) == 1 else None
 
 
-# Histórico cerrado (ago-2025 a jul-2026), pestaña GLOBAL OCN -- no cambia dia a dia.
-# Si un mes se cierra y se consolida a GLOBAL OCN, agregar su fila aqui a mano una vez.
-MONTHS_CLOSED = ["Ago 25", "Sep 25", "Oct 25", "Nov 25", "Dic 25", "Ene 26", "Feb 26",
-                  "Mar 26", "Abr 26", "May 26", "Jun 26", "Jul 26", "Ago 26"]
-MIX_CLOSED = [
+# Histórico mensual (Nuevo/Seminuevo + mix por modelo), pestaña GLOBAL OCN.
+#
+# 🚨 2-oct-2026: este bloque ERA "MONTHS_CLOSED/MIX_CLOSED/MODELO_CLOSED" -- 3 constantes de
+# codigo que se tenian que actualizar A MANO cada vez que un mes se cerraba, mismo patron que
+# DIAS_AGOSTO_CLOSED (ver mas abajo). Se rompio exactamente igual: septiembre nunca se agrego a
+# mano antes de que rodara octubre, asi que el 2-oct Ricardo encontro la primera grafica
+# ("Nuevo vs. Seminuevo, por mes") saltando de Ago 26 directo a Oct 26, sin Sep 26 -- mismo bug
+# de clase que "Entregados por dia" el 1-oct, en una parte distinta del pipeline que no se
+# corrigio en ese momento porque no se audito el archivo completo. Rescatado del mismo commit
+# git usado para rescatar septiembre de "Entregados por dia" (7d6c3a0, 2026-10-01 04:01 UTC):
+# Sep 26 = {"nuevo": 4, "seminuevo": 180}, modelo {"byd":90,"mg5":60,"mg3":20,"aion":4,"king":1,
+# "tiggo":6,"otros":3} -- coincide exacto con snapshots/cierre_2026-09.json, buena señal.
+#
+# Fix de RAIZ (mismo patron que dias_entregas_historico.json): `mix_modelo_historico.json` en la
+# raiz del repo se auto-mantiene, llave "YYYY-MM". Ya NO hace falta agregar ningun mes a mano.
+MESES_HIST_PATH = os.path.join(os.path.dirname(__file__), "mix_modelo_historico.json")
+_SEED_MONTHS_CLOSED = ["2025-08", "2025-09", "2025-10", "2025-11", "2025-12", "2026-01", "2026-02",
+                        "2026-03", "2026-04", "2026-05", "2026-06", "2026-07", "2026-08", "2026-09"]
+_SEED_MIX_CLOSED = [
     {"nuevo": 272, "seminuevo": 37}, {"nuevo": 318, "seminuevo": 22}, {"nuevo": 348, "seminuevo": 42},
     {"nuevo": 420, "seminuevo": 21}, {"nuevo": 374, "seminuevo": 72}, {"nuevo": 421, "seminuevo": 121},
     {"nuevo": 371, "seminuevo": 129}, {"nuevo": 453, "seminuevo": 110}, {"nuevo": 431, "seminuevo": 116},
     {"nuevo": 125, "seminuevo": 237}, {"nuevo": 250, "seminuevo": 327}, {"nuevo": 14, "seminuevo": 298},
-    {"nuevo": 21, "seminuevo": 239},
+    {"nuevo": 21, "seminuevo": 239}, {"nuevo": 4, "seminuevo": 180},
 ]
-MODELO_CLOSED = [
+_SEED_MODELO_CLOSED = [
     {"byd": 132, "mg5": 116, "mg3": 56, "aion": 0, "king": 0, "tiggo": 4, "otros": 1},
     {"byd": 152, "mg5": 114, "mg3": 55, "aion": 0, "king": 0, "tiggo": 2, "otros": 17},
     {"byd": 168, "mg5": 134, "mg3": 81, "aion": 0, "king": 0, "tiggo": 2, "otros": 5},
@@ -156,6 +170,7 @@ MODELO_CLOSED = [
     {"byd": 193, "mg5": 122, "mg3": 44, "aion": 6, "king": 197, "tiggo": 9, "otros": 6},
     {"byd": 131, "mg5": 120, "mg3": 34, "aion": 8, "king": 9, "tiggo": 6, "otros": 4},
     {"byd": 123, "mg5": 88, "mg3": 25, "aion": 5, "king": 6, "tiggo": 11, "otros": 2},
+    {"byd": 90, "mg5": 60, "mg3": 20, "aion": 4, "king": 1, "tiggo": 6, "otros": 3},
 ]
 
 # "Entregados por día" -- Back Office ("SEGUIMIENTO ENTREGAS") solo conserva el mes en curso;
@@ -775,9 +790,32 @@ def main():
     forecast_semi = forecast_total - forecast_nuevo
 
     month_label = f"{MONTH_LABELS_ES[today.month-1]} {str(today.year)[2:]}"
-    months = MONTHS_CLOSED + [month_label]
-    mix = MIX_CLOSED + [{"nuevo": mtd_nuevo, "seminuevo": mtd_semi}]
-    modelo = MODELO_CLOSED + [{k: modelo_mtd.get(k, 0) for k in MODELO_KEYS}]
+    mes_actual_iso = f"{today.year}-{today.month:02d}"
+
+    try:
+        with open(MESES_HIST_PATH, encoding="utf-8") as f:
+            mix_modelo_historico = json.load(f)
+    except FileNotFoundError:
+        mix_modelo_historico = {}
+        for iso, mx, md in zip(_SEED_MONTHS_CLOSED, _SEED_MIX_CLOSED, _SEED_MODELO_CLOSED):
+            mix_modelo_historico[iso] = {"mix": mx, "modelo": md}
+
+    mix_modelo_historico[mes_actual_iso] = {
+        "mix": {"nuevo": mtd_nuevo, "seminuevo": mtd_semi},
+        "modelo": {k: modelo_mtd.get(k, 0) for k in MODELO_KEYS},
+    }
+    with open(MESES_HIST_PATH, "w", encoding="utf-8") as f:
+        json.dump(mix_modelo_historico, f, ensure_ascii=False, indent=2, sort_keys=True)
+
+    meses_ordenados = sorted(mix_modelo_historico.keys())
+    months = []
+    mix = []
+    modelo = []
+    for iso in meses_ordenados:
+        y, m = (int(x) for x in iso.split("-"))
+        months.append(f"{MONTH_LABELS_ES[m-1]} {str(y)[2:]}")
+        mix.append(mix_modelo_historico[iso]["mix"])
+        modelo.append(mix_modelo_historico[iso]["modelo"])
 
     ciudad_listo = sorted(
         [{"ciudad": c, "value": v} for c, v in etapas_ciudades.get("listo", {}).items()],

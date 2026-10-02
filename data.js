@@ -1,5 +1,5 @@
 window.__DASHBOARD_DATA__ = {
-  "generated_at": "2026-10-02T23:38:31.844482Z",
+  "generated_at": "2026-10-02T23:43:46.151315Z",
   "months": [
     "Ago 25",
     "Sep 25",
@@ -14,6 +14,7 @@ window.__DASHBOARD_DATA__ = {
     "Jun 26",
     "Jul 26",
     "Ago 26",
+    "Sep 26",
     "Oct 26"
   ],
   "mix": [
@@ -70,127 +71,140 @@ window.__DASHBOARD_DATA__ = {
       "seminuevo": 239
     },
     {
+      "nuevo": 4,
+      "seminuevo": 180
+    },
+    {
       "nuevo": 0,
       "seminuevo": 4
     }
   ],
   "modelo": [
     {
+      "aion": 0,
       "byd": 132,
-      "mg5": 116,
+      "king": 0,
       "mg3": 56,
-      "aion": 0,
-      "king": 0,
-      "tiggo": 4,
-      "otros": 1
+      "mg5": 116,
+      "otros": 1,
+      "tiggo": 4
     },
     {
+      "aion": 0,
       "byd": 152,
-      "mg5": 114,
+      "king": 0,
       "mg3": 55,
-      "aion": 0,
-      "king": 0,
-      "tiggo": 2,
-      "otros": 17
+      "mg5": 114,
+      "otros": 17,
+      "tiggo": 2
     },
     {
+      "aion": 0,
       "byd": 168,
-      "mg5": 134,
+      "king": 0,
       "mg3": 81,
-      "aion": 0,
-      "king": 0,
-      "tiggo": 2,
-      "otros": 5
+      "mg5": 134,
+      "otros": 5,
+      "tiggo": 2
     },
     {
+      "aion": 0,
       "byd": 216,
-      "mg5": 150,
+      "king": 0,
       "mg3": 72,
-      "aion": 0,
-      "king": 0,
-      "tiggo": 3,
-      "otros": 0
+      "mg5": 150,
+      "otros": 0,
+      "tiggo": 3
     },
     {
+      "aion": 0,
       "byd": 229,
-      "mg5": 137,
+      "king": 0,
       "mg3": 76,
-      "aion": 0,
-      "king": 0,
-      "tiggo": 2,
-      "otros": 2
+      "mg5": 137,
+      "otros": 2,
+      "tiggo": 2
     },
     {
-      "byd": 269,
-      "mg5": 177,
-      "mg3": 68,
       "aion": 24,
+      "byd": 269,
       "king": 0,
-      "tiggo": 3,
-      "otros": 1
+      "mg3": 68,
+      "mg5": 177,
+      "otros": 1,
+      "tiggo": 3
     },
     {
-      "byd": 193,
-      "mg5": 133,
-      "mg3": 57,
       "aion": 104,
-      "king": 0,
-      "tiggo": 9,
-      "otros": 4
-    },
-    {
-      "byd": 215,
-      "mg5": 169,
-      "mg3": 41,
-      "aion": 130,
-      "king": 0,
-      "tiggo": 4,
-      "otros": 4
-    },
-    {
-      "byd": 256,
-      "mg5": 83,
-      "mg3": 18,
-      "aion": 83,
-      "king": 102,
-      "tiggo": 1,
-      "otros": 4
-    },
-    {
-      "byd": 181,
-      "mg5": 101,
-      "mg3": 22,
-      "aion": 37,
-      "king": 8,
-      "tiggo": 7,
-      "otros": 6
-    },
-    {
       "byd": 193,
-      "mg5": 122,
-      "mg3": 44,
+      "king": 0,
+      "mg3": 57,
+      "mg5": 133,
+      "otros": 4,
+      "tiggo": 9
+    },
+    {
+      "aion": 130,
+      "byd": 215,
+      "king": 0,
+      "mg3": 41,
+      "mg5": 169,
+      "otros": 4,
+      "tiggo": 4
+    },
+    {
+      "aion": 83,
+      "byd": 256,
+      "king": 102,
+      "mg3": 18,
+      "mg5": 83,
+      "otros": 4,
+      "tiggo": 1
+    },
+    {
+      "aion": 37,
+      "byd": 181,
+      "king": 8,
+      "mg3": 22,
+      "mg5": 101,
+      "otros": 6,
+      "tiggo": 7
+    },
+    {
       "aion": 6,
+      "byd": 193,
       "king": 197,
-      "tiggo": 9,
-      "otros": 6
+      "mg3": 44,
+      "mg5": 122,
+      "otros": 6,
+      "tiggo": 9
     },
     {
-      "byd": 131,
-      "mg5": 120,
-      "mg3": 34,
       "aion": 8,
+      "byd": 131,
       "king": 9,
-      "tiggo": 6,
-      "otros": 4
+      "mg3": 34,
+      "mg5": 120,
+      "otros": 4,
+      "tiggo": 6
     },
     {
-      "byd": 123,
-      "mg5": 88,
-      "mg3": 25,
       "aion": 5,
+      "byd": 123,
       "king": 6,
-      "tiggo": 11,
-      "otros": 2
+      "mg3": 25,
+      "mg5": 88,
+      "otros": 2,
+      "tiggo": 11
+    },
+    {
+      "aion": 4,
+      "byd": 90,
+      "king": 1,
+      "mg3": 20,
+      "mg5": 60,
+      "otros": 3,
+      "tiggo": 6
     },
     {
       "byd": 1,
@@ -2329,6 +2343,6 @@ window.__DASHBOARD_DATA__ = {
   "aprob_meta": {
     "fecha_min": "1 ago",
     "fecha_max": "2 oct",
-    "generado_en": "2026-10-02T23:38:32.461938"
+    "generado_en": "2026-10-02T17:43:46.861803"
   }
 };
