@@ -1,5 +1,5 @@
 window.__DASHBOARD_DATA__ = {
-  "generated_at": "2026-10-02T23:43:46.151315Z",
+  "generated_at": "2026-10-02T23:46:04.764175Z",
   "months": [
     "Ago 25",
     "Sep 25",
@@ -76,7 +76,7 @@ window.__DASHBOARD_DATA__ = {
     },
     {
       "nuevo": 0,
-      "seminuevo": 4
+      "seminuevo": 5
     }
   ],
   "modelo": [
@@ -208,7 +208,7 @@ window.__DASHBOARD_DATA__ = {
     },
     {
       "byd": 1,
-      "mg5": 3,
+      "mg5": 4,
       "mg3": 0,
       "aion": 0,
       "king": 0,
@@ -249,11 +249,11 @@ window.__DASHBOARD_DATA__ = {
     },
     {
       "key": "liga",
-      "value": 1
+      "value": 0
     },
     {
       "key": "entregado",
-      "value": 4
+      "value": 5
     },
     {
       "key": "issue",
@@ -267,13 +267,10 @@ window.__DASHBOARD_DATA__ = {
       "Mexicali": 2,
       "Guadalajara": 2
     },
-    "liga": {
-      "Monterrey": 1
-    },
     "entregado": {
+      "Monterrey": 2,
       "Tijuana": 2,
-      "CDMX / Edo Mex": 1,
-      "Monterrey": 1
+      "CDMX / Edo Mex": 1
     },
     "agendada": {
       "CDMX / Edo Mex": 1,
@@ -813,7 +810,7 @@ window.__DASHBOARD_DATA__ = {
     },
     {
       "cdmx": 1,
-      "mty": 0,
+      "mty": 1,
       "tij": 1,
       "qro": 0,
       "gdl": 0,
@@ -876,11 +873,17 @@ window.__DASHBOARD_DATA__ = {
     0,
     0,
     0,
-    1,
+    0,
     3
   ],
   "entregas_por_asesor_equipo": {
     "Bernardo": [
+      {
+        "asesor": "Diana Moreno",
+        "entregas": 1,
+        "solicitudes": 1,
+        "aprobadas": 0
+      },
       {
         "asesor": "Jrego Nolasco",
         "entregas": 1,
@@ -910,12 +913,6 @@ window.__DASHBOARD_DATA__ = {
         "entregas": 0,
         "solicitudes": null,
         "aprobadas": null
-      },
-      {
-        "asesor": "Diana Moreno",
-        "entregas": 0,
-        "solicitudes": 1,
-        "aprobadas": 0
       },
       {
         "asesor": "Edwin Hernandez",
@@ -1433,12 +1430,12 @@ window.__DASHBOARD_DATA__ = {
   "decline_total": 977,
   "forecast": {
     "workdays_elapsed": 1,
-    "actual_elapsed": 4,
+    "actual_elapsed": 5,
     "workdays_total": 22,
-    "rate": 4.0,
-    "total": 88,
+    "rate": 5.0,
+    "total": 110,
     "nuevo": 0,
-    "seminuevo": 88
+    "seminuevo": 110
   },
   "corte": {
     "fecha": "2026-10-02",
@@ -2343,6 +2340,6 @@ window.__DASHBOARD_DATA__ = {
   "aprob_meta": {
     "fecha_min": "1 ago",
     "fecha_max": "2 oct",
-    "generado_en": "2026-10-02T17:43:46.861803"
+    "generado_en": "2026-10-02T23:46:05.063278"
   }
 };
