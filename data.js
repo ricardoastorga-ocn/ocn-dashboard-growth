@@ -1,5 +1,5 @@
 window.__DASHBOARD_DATA__ = {
-  "generated_at": "2026-10-01T23:47:37.364439Z",
+  "generated_at": "2026-10-02T02:38:28.097221Z",
   "months": [
     "Ago 25",
     "Sep 25",
@@ -211,7 +211,7 @@ window.__DASHBOARD_DATA__ = {
     "tiggo",
     "otros"
   ],
-  "etapas_total": 28,
+  "etapas_total": 27,
   "etapas": [
     {
       "key": "prep",
@@ -243,7 +243,7 @@ window.__DASHBOARD_DATA__ = {
     },
     {
       "key": "issue",
-      "value": 1
+      "value": 0
     }
   ],
   "etapas_ciudades": {
@@ -257,9 +257,6 @@ window.__DASHBOARD_DATA__ = {
       "Monterrey": 1,
       "Tijuana": 3,
       "CDMX / Edo Mex": 2
-    },
-    "issue": {
-      "CDMX / Edo Mex": 1
     },
     "entregado": {
       "Tijuana": 1,
@@ -1430,7 +1427,7 @@ window.__DASHBOARD_DATA__ = {
     "fecha": "2026-10-01",
     "mes_label": "Oct 26"
   },
-  "fleet_total": 155,
+  "fleet_total": 154,
   "fleet_desflote_n": 3,
   "fleet_city_stage": [
     {
@@ -1461,9 +1458,9 @@ window.__DASHBOARD_DATA__ = {
       "ciudad": "Monterrey",
       "vals": [
         4,
-        5,
+        4,
         7,
-        3,
+        4,
         8,
         2
       ],
@@ -1474,9 +1471,9 @@ window.__DASHBOARD_DATA__ = {
       "vals": [
         1,
         5,
-        8,
+        9,
         0,
-        1,
+        0,
         0
       ],
       "total": 16
@@ -1487,11 +1484,11 @@ window.__DASHBOARD_DATA__ = {
         3,
         1,
         2,
-        3,
+        2,
         3,
         0
       ],
-      "total": 12
+      "total": 11
     },
     {
       "ciudad": "Queretaro",
@@ -1510,8 +1507,8 @@ window.__DASHBOARD_DATA__ = {
       "vals": [
         0,
         0,
-        5,
-        0,
+        4,
+        1,
         0,
         0
       ],
@@ -2389,6 +2386,6 @@ window.__DASHBOARD_DATA__ = {
   "aprob_meta": {
     "fecha_min": "1 ago",
     "fecha_max": "30 sep",
-    "generado_en": "2026-10-01T23:47:38.238701"
+    "generado_en": "2026-10-02T02:38:28.958678"
   }
 };
