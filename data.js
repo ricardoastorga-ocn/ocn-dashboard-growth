@@ -1,5 +1,5 @@
 window.__DASHBOARD_DATA__ = {
-  "generated_at": "2026-10-06T02:08:20.333184Z",
+  "generated_at": "2026-10-06T03:23:28.769547Z",
   "months": [
     "Ago 25",
     "Sep 25",
@@ -1464,53 +1464,53 @@ window.__DASHBOARD_DATA__ = {
     "fecha": "2026-10-05",
     "mes_label": "Oct 26"
   },
-  "fleet_total": 161,
+  "fleet_total": 146,
   "fleet_desflote_n": 2,
   "fleet_city_stage": [
     {
       "ciudad": "CDMX / Edo Mex",
       "vals": [
-        3,
-        3,
-        16,
-        7,
+        11,
+        6,
         17,
+        5,
+        6,
         0
       ],
-      "total": 46
+      "total": 45
     },
     {
       "ciudad": "Monterrey",
       "vals": [
-        1,
-        3,
-        3,
-        11,
-        19,
+        4,
+        4,
+        5,
+        9,
+        9,
         2
       ],
-      "total": 39
+      "total": 33
     },
     {
       "ciudad": "Sin identificar",
       "vals": [
+        1,
         0,
-        0,
+        7,
         6,
-        6,
-        23,
+        14,
         0
       ],
-      "total": 35
+      "total": 28
     },
     {
       "ciudad": "Guadalajara",
       "vals": [
         1,
         5,
-        8,
+        9,
         1,
-        1,
+        0,
         0
       ],
       "total": 17
@@ -1518,10 +1518,10 @@ window.__DASHBOARD_DATA__ = {
     {
       "ciudad": "Tijuana",
       "vals": [
-        1,
+        3,
         1,
         2,
-        5,
+        3,
         1,
         0
       ],
@@ -1530,11 +1530,11 @@ window.__DASHBOARD_DATA__ = {
     {
       "ciudad": "Queretaro",
       "vals": [
+        4,
+        1,
+        0,
         2,
-        0,
-        0,
-        3,
-        3,
+        1,
         0
       ],
       "total": 8
@@ -1546,10 +1546,10 @@ window.__DASHBOARD_DATA__ = {
         0,
         4,
         1,
-        1,
+        0,
         0
       ],
-      "total": 6
+      "total": 5
     },
     {
       "ciudad": "Merida",
@@ -2442,6 +2442,6 @@ window.__DASHBOARD_DATA__ = {
   "aprob_meta": {
     "fecha_min": "1 ago",
     "fecha_max": "5 oct",
-    "generado_en": "2026-10-06T02:08:21.203418"
+    "generado_en": "2026-10-06T03:23:29.537057"
   }
 };
