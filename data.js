@@ -1,5 +1,5 @@
 window.__DASHBOARD_DATA__ = {
-  "generated_at": "2026-10-07T02:46:42.012869Z",
+  "generated_at": "2026-10-07T19:49:16.243503Z",
   "months": [
     "Ago 25",
     "Sep 25",
@@ -76,7 +76,7 @@ window.__DASHBOARD_DATA__ = {
     },
     {
       "nuevo": 0,
-      "seminuevo": 10
+      "seminuevo": 12
     }
   ],
   "modelo": [
@@ -208,7 +208,7 @@ window.__DASHBOARD_DATA__ = {
     },
     {
       "byd": 3,
-      "mg5": 6,
+      "mg5": 8,
       "mg3": 0,
       "aion": 0,
       "king": 0,
@@ -237,11 +237,11 @@ window.__DASHBOARD_DATA__ = {
     },
     {
       "key": "agendada",
-      "value": 8
+      "value": 2
     },
     {
       "key": "contrato",
-      "value": 0
+      "value": 4
     },
     {
       "key": "cenv",
@@ -253,7 +253,7 @@ window.__DASHBOARD_DATA__ = {
     },
     {
       "key": "entregado",
-      "value": 10
+      "value": 12
     },
     {
       "key": "issue",
@@ -267,15 +267,19 @@ window.__DASHBOARD_DATA__ = {
       "Guadalajara": 2
     },
     "entregado": {
-      "Tijuana": 4,
+      "Tijuana": 5,
       "Monterrey": 2,
-      "CDMX / Edo Mex": 4
+      "CDMX / Edo Mex": 4,
+      "Mexicali": 1
     },
     "agendada": {
-      "Mexicali": 2,
-      "Tijuana": 2,
-      "Monterrey": 2,
-      "CDMX / Edo Mex": 2
+      "Mexicali": 1,
+      "Monterrey": 1
+    },
+    "contrato": {
+      "Monterrey": 1,
+      "CDMX / Edo Mex": 2,
+      "Tijuana": 1
     }
   },
   "entregado_target_pct": 95,
@@ -400,6 +404,7 @@ window.__DASHBOARD_DATA__ = {
     "5-oct",
     "6-oct",
     "7-oct",
+    "8-oct",
     "12-oct"
   ],
   "entregados_dia": [
@@ -838,6 +843,15 @@ window.__DASHBOARD_DATA__ = {
     {
       "cdmx": 0,
       "mty": 0,
+      "tij": 1,
+      "qro": 0,
+      "gdl": 0,
+      "mxl": 1,
+      "otros": 0
+    },
+    {
+      "cdmx": 0,
+      "mty": 0,
       "tij": 0,
       "qro": 0,
       "gdl": 0,
@@ -903,34 +917,35 @@ window.__DASHBOARD_DATA__ = {
     0,
     0,
     0,
-    7,
+    4,
+    1,
     1
   ],
   "entregas_por_asesor_equipo": {
     "Bernardo": [
       {
-        "asesor": "Antonio Cruz",
-        "entregas": 1,
-        "solicitudes": 3,
+        "asesor": "Diana Moreno",
+        "entregas": 2,
+        "solicitudes": 5,
         "aprobadas": 2
       },
       {
-        "asesor": "Diana Moreno",
+        "asesor": "Mirna Cruz",
+        "entregas": 2,
+        "solicitudes": 9,
+        "aprobadas": 2
+      },
+      {
+        "asesor": "Antonio Cruz",
         "entregas": 1,
-        "solicitudes": 3,
+        "solicitudes": 4,
         "aprobadas": 2
       },
       {
         "asesor": "Jrego Nolasco",
         "entregas": 1,
-        "solicitudes": 5,
+        "solicitudes": 6,
         "aprobadas": 3
-      },
-      {
-        "asesor": "Mirna Cruz",
-        "entregas": 1,
-        "solicitudes": 5,
-        "aprobadas": 1
       },
       {
         "asesor": "Aaron Sanchez",
@@ -941,13 +956,13 @@ window.__DASHBOARD_DATA__ = {
       {
         "asesor": "Angelica Torres",
         "entregas": 0,
-        "solicitudes": null,
-        "aprobadas": null
+        "solicitudes": 2,
+        "aprobadas": 1
       },
       {
         "asesor": "Edwin Hernandez",
         "entregas": 0,
-        "solicitudes": 2,
+        "solicitudes": 4,
         "aprobadas": 0
       },
       {
@@ -965,14 +980,14 @@ window.__DASHBOARD_DATA__ = {
       {
         "asesor": "Monserrat Rivera",
         "entregas": 0,
-        "solicitudes": 3,
-        "aprobadas": 2
+        "solicitudes": 4,
+        "aprobadas": 4
       },
       {
         "asesor": "Oscar Alvarez",
         "entregas": 0,
-        "solicitudes": 1,
-        "aprobadas": 1
+        "solicitudes": 3,
+        "aprobadas": 2
       },
       {
         "asesor": "Ricardo Salinas",
@@ -985,8 +1000,8 @@ window.__DASHBOARD_DATA__ = {
       {
         "asesor": "Ana Rodriguez",
         "entregas": 1,
-        "solicitudes": 4,
-        "aprobadas": 2
+        "solicitudes": 7,
+        "aprobadas": 4
       },
       {
         "asesor": "Daniela Favela",
@@ -1003,25 +1018,25 @@ window.__DASHBOARD_DATA__ = {
       {
         "asesor": "Ivette Ixel Cardona",
         "entregas": 1,
-        "solicitudes": 1,
-        "aprobadas": 0
+        "solicitudes": 3,
+        "aprobadas": 1
       },
       {
         "asesor": "Jessica Martinez",
+        "entregas": 1,
+        "solicitudes": 2,
+        "aprobadas": 2
+      },
+      {
+        "asesor": "Karen Garcia",
         "entregas": 1,
         "solicitudes": 1,
         "aprobadas": 1
       },
       {
-        "asesor": "Karen Garcia",
-        "entregas": 1,
-        "solicitudes": null,
-        "aprobadas": null
-      },
-      {
         "asesor": "Adolfo Jaimes",
         "entregas": 0,
-        "solicitudes": 1,
+        "solicitudes": 3,
         "aprobadas": 1
       },
       {
@@ -1033,20 +1048,20 @@ window.__DASHBOARD_DATA__ = {
       {
         "asesor": "Ishell Miranda",
         "entregas": 0,
-        "solicitudes": null,
-        "aprobadas": null
+        "solicitudes": 1,
+        "aprobadas": 0
       },
       {
         "asesor": "Jeremy Tamayo",
         "entregas": 0,
-        "solicitudes": 2,
-        "aprobadas": 1
+        "solicitudes": 5,
+        "aprobadas": 2
       },
       {
         "asesor": "Joel Flores",
         "entregas": 0,
-        "solicitudes": 1,
-        "aprobadas": 0
+        "solicitudes": 5,
+        "aprobadas": 2
       },
       {
         "asesor": "Mayte Urrutia",
@@ -1071,29 +1086,29 @@ window.__DASHBOARD_DATA__ = {
     {
       "key": "31-60",
       "label": "31-60 días",
-      "value": 159
+      "value": 146
     },
     {
       "key": "61-90",
       "label": "61-90 días",
-      "value": 105
+      "value": 110
     },
     {
       "key": "90+",
       "label": "90+ días",
-      "value": 143
+      "value": 151
     }
   ],
   "tiers_total": 462,
-  "max_wait_days": 288,
+  "max_wait_days": 289,
   "city_tier": [
     {
       "ciudad": "CDMX / Edo Mex",
       "vals": [
         28,
-        83,
-        40,
-        50
+        74,
+        47,
+        52
       ],
       "total": 201
     },
@@ -1101,9 +1116,9 @@ window.__DASHBOARD_DATA__ = {
       "ciudad": "Merida",
       "vals": [
         4,
-        14,
-        8,
-        32
+        11,
+        10,
+        33
       ],
       "total": 58
     },
@@ -1122,8 +1137,8 @@ window.__DASHBOARD_DATA__ = {
       "vals": [
         7,
         11,
-        19,
-        10
+        16,
+        13
       ],
       "total": 47
     },
@@ -1141,9 +1156,9 @@ window.__DASHBOARD_DATA__ = {
       "ciudad": "Queretaro",
       "vals": [
         1,
-        11,
+        10,
         6,
-        15
+        16
       ],
       "total": 33
     },
@@ -1152,8 +1167,8 @@ window.__DASHBOARD_DATA__ = {
       "vals": [
         3,
         6,
-        13,
-        2
+        12,
+        3
       ],
       "total": 24
     },
@@ -1184,8 +1199,8 @@ window.__DASHBOARD_DATA__ = {
       "vals": [
         3,
         13,
-        9,
-        12
+        7,
+        14
       ],
       "total": 37
     },
@@ -1204,8 +1219,8 @@ window.__DASHBOARD_DATA__ = {
       "vals": [
         7,
         13,
-        10,
-        4
+        8,
+        6
       ],
       "total": 34
     },
@@ -1223,9 +1238,9 @@ window.__DASHBOARD_DATA__ = {
       "key": "Oscar Alvarez",
       "vals": [
         0,
-        10,
+        9,
         12,
-        7
+        8
       ],
       "total": 29
     },
@@ -1243,8 +1258,8 @@ window.__DASHBOARD_DATA__ = {
       "key": "Jrego Nolasco",
       "vals": [
         3,
-        10,
-        6,
+        8,
+        8,
         6
       ],
       "total": 25
@@ -1273,8 +1288,8 @@ window.__DASHBOARD_DATA__ = {
       "key": "@Joel Flores Lopez",
       "vals": [
         1,
-        7,
-        6,
+        5,
+        8,
         8
       ],
       "total": 22
@@ -1294,8 +1309,8 @@ window.__DASHBOARD_DATA__ = {
       "vals": [
         1,
         6,
-        4,
-        6
+        3,
+        7
       ],
       "total": 17
     },
@@ -1343,8 +1358,8 @@ window.__DASHBOARD_DATA__ = {
       "key": "Antonio Cruz",
       "vals": [
         0,
-        8,
-        2,
+        7,
+        3,
         3
       ],
       "total": 13
@@ -1354,8 +1369,8 @@ window.__DASHBOARD_DATA__ = {
       "vals": [
         6,
         0,
-        2,
-        4
+        1,
+        5
       ],
       "total": 12
     },
@@ -1373,8 +1388,8 @@ window.__DASHBOARD_DATA__ = {
       "key": "Edwin Hernandez",
       "vals": [
         0,
-        3,
-        3,
+        0,
+        6,
         4
       ],
       "total": 10
@@ -1383,8 +1398,8 @@ window.__DASHBOARD_DATA__ = {
       "key": "@Ivette",
       "vals": [
         0,
-        4,
-        2,
+        3,
+        3,
         3
       ],
       "total": 9
@@ -1393,8 +1408,8 @@ window.__DASHBOARD_DATA__ = {
       "key": "@Rafa León",
       "vals": [
         0,
-        3,
-        4,
+        0,
+        7,
         2
       ],
       "total": 9
@@ -1414,8 +1429,8 @@ window.__DASHBOARD_DATA__ = {
       "vals": [
         0,
         2,
-        1,
-        4
+        0,
+        5
       ],
       "total": 7
     },
@@ -1459,53 +1474,53 @@ window.__DASHBOARD_DATA__ = {
   ],
   "decline_total": 977,
   "forecast": {
-    "workdays_elapsed": 3,
-    "actual_elapsed": 10,
+    "workdays_elapsed": 4,
+    "actual_elapsed": 12,
     "workdays_total": 22,
-    "rate": 3.33,
-    "total": 73,
+    "rate": 3.0,
+    "total": 66,
     "nuevo": 0,
-    "seminuevo": 73
+    "seminuevo": 66
   },
   "corte": {
-    "fecha": "2026-10-06",
+    "fecha": "2026-10-07",
     "mes_label": "Oct 26"
   },
-  "fleet_total": 152,
+  "fleet_total": 157,
   "fleet_desflote_n": 2,
   "fleet_city_stage": [
     {
       "ciudad": "CDMX / Edo Mex",
       "vals": [
-        12,
-        5,
-        18,
+        11,
         6,
+        18,
+        5,
         7,
         0
       ],
-      "total": 48
+      "total": 47
     },
     {
       "ciudad": "Monterrey",
       "vals": [
         1,
-        8,
+        7,
         5,
-        10,
-        9,
+        12,
+        11,
         2
       ],
-      "total": 36
+      "total": 39
     },
     {
       "ciudad": "Sin identificar",
       "vals": [
         1,
         1,
-        7,
         6,
-        13,
+        6,
+        14,
         0
       ],
       "total": 28
@@ -1528,35 +1543,35 @@ window.__DASHBOARD_DATA__ = {
         3,
         1,
         2,
-        3,
+        4,
         1,
         0
       ],
-      "total": 10
+      "total": 11
     },
     {
       "ciudad": "Queretaro",
       "vals": [
-        3,
-        1,
-        0,
         2,
+        2,
+        0,
+        3,
         1,
         0
       ],
-      "total": 7
+      "total": 8
     },
     {
       "ciudad": "Puebla",
       "vals": [
         0,
         0,
-        4,
+        5,
         1,
         0,
         0
       ],
-      "total": 5
+      "total": 6
     },
     {
       "ciudad": "Merida",
@@ -1572,20 +1587,20 @@ window.__DASHBOARD_DATA__ = {
     }
   ],
   "aprob_kpis": {
-    "total": 1974,
-    "aprobado": 1428,
-    "rechazado": 387,
-    "pendiente": 159,
-    "pct_aprobacion": 78.7
+    "total": 2012,
+    "aprobado": 1444,
+    "rechazado": 405,
+    "pendiente": 163,
+    "pct_aprobacion": 78.1
   },
   "aprob_weekly": [
     {
       "label": "3 ago–9 ago",
-      "aprobado": 233,
-      "rechazado": 31,
+      "aprobado": 232,
+      "rechazado": 32,
       "pendiente": 17,
       "total": 281,
-      "pct_aprobacion": 88.3,
+      "pct_aprobacion": 87.9,
       "es_parcial": false
     },
     {
@@ -1637,18 +1652,18 @@ window.__DASHBOARD_DATA__ = {
       "label": "14 sep–20 sep",
       "aprobado": 88,
       "rechazado": 39,
-      "pendiente": 15,
-      "total": 142,
+      "pendiente": 14,
+      "total": 141,
       "pct_aprobacion": 69.3,
       "es_parcial": false
     },
     {
       "label": "21 sep–27 sep",
-      "aprobado": 95,
+      "aprobado": 96,
       "rechazado": 72,
-      "pendiente": 20,
+      "pendiente": 19,
       "total": 187,
-      "pct_aprobacion": 56.9,
+      "pct_aprobacion": 57.1,
       "es_parcial": false
     },
     {
@@ -1662,71 +1677,76 @@ window.__DASHBOARD_DATA__ = {
     },
     {
       "label": "5 oct–11 oct (parcial)",
-      "aprobado": 0,
-      "rechazado": 1,
-      "pendiente": 1,
-      "total": 2,
-      "pct_aprobacion": 0.0,
+      "aprobado": 16,
+      "rechazado": 18,
+      "pendiente": 7,
+      "total": 41,
+      "pct_aprobacion": 47.1,
       "es_parcial": true
     }
   ],
   "aprob_month_compare": [
     {
       "mes": "Septiembre",
-      "rango": "1 sep–3 sep",
-      "dias_habiles": 3,
-      "total": 146,
-      "aprobado": 104,
-      "rechazado": 26,
-      "pendiente": 16,
-      "pct_aprobacion": 80.0
+      "rango": "1 sep–7 sep",
+      "dias_habiles": 5,
+      "total": 245,
+      "aprobado": 180,
+      "rechazado": 44,
+      "pendiente": 21,
+      "pct_aprobacion": 80.4
     },
     {
       "mes": "Octubre",
-      "rango": "1 oct–5 oct",
-      "dias_habiles": 3,
-      "total": 43,
-      "aprobado": 22,
-      "rechazado": 17,
-      "pendiente": 4,
-      "pct_aprobacion": 56.4
+      "rango": "1 oct–7 oct",
+      "dias_habiles": 5,
+      "total": 82,
+      "aprobado": 38,
+      "rechazado": 34,
+      "pendiente": 10,
+      "pct_aprobacion": 52.8
     }
   ],
   "aprob_by_agente_mes": [
     {
       "asesor": "Adolfo Jaimes",
-      "solicitudes": 1,
+      "solicitudes": 3,
       "aprobadas": 1
     },
     {
       "asesor": "Ana Rodriguez",
-      "solicitudes": 4,
-      "aprobadas": 2
+      "solicitudes": 7,
+      "aprobadas": 4
+    },
+    {
+      "asesor": "Angelica Torres",
+      "solicitudes": 2,
+      "aprobadas": 1
     },
     {
       "asesor": "Antonio Cruz",
-      "solicitudes": 3,
+      "solicitudes": 4,
       "aprobadas": 2
     },
     {
       "asesor": "Arturo Sanchez",
-      "solicitudes": 4,
-      "aprobadas": 2
+      "solicitudes": 5,
+      "aprobadas": 3
     },
     {
       "asesor": "Diana Moreno",
-      "solicitudes": 3,
+      "solicitudes": 5,
       "aprobadas": 2
     },
     {
       "asesor": "Edwin Hernandez",
-      "solicitudes": 2,
+      "solicitudes": 4,
       "aprobadas": 0
     },
     {
       "asesor": "Elisa Urrutia",
-      "solicitudes": 2,
-      "aprobadas": 0
+      "solicitudes": 3,
+      "aprobadas": 1
     },
     {
       "asesor": "Fernando Medina",
@@ -1739,48 +1759,58 @@ window.__DASHBOARD_DATA__ = {
       "aprobadas": 1
     },
     {
-      "asesor": "Ivette Cardona",
+      "asesor": "Ishell Miranda",
       "solicitudes": 1,
       "aprobadas": 0
+    },
+    {
+      "asesor": "Ivette Cardona",
+      "solicitudes": 3,
+      "aprobadas": 1
     },
     {
       "asesor": "Jeremy Tamayo",
-      "solicitudes": 2,
-      "aprobadas": 1
+      "solicitudes": 5,
+      "aprobadas": 2
     },
     {
       "asesor": "Jessica Martinez",
-      "solicitudes": 1,
-      "aprobadas": 1
+      "solicitudes": 2,
+      "aprobadas": 2
     },
     {
       "asesor": "Joel Flores",
-      "solicitudes": 1,
-      "aprobadas": 0
+      "solicitudes": 5,
+      "aprobadas": 2
     },
     {
       "asesor": "Jrego Nolasco",
-      "solicitudes": 5,
+      "solicitudes": 6,
       "aprobadas": 3
     },
     {
-      "asesor": "Mirna Cruz",
-      "solicitudes": 5,
+      "asesor": "Karen Garcia",
+      "solicitudes": 1,
       "aprobadas": 1
     },
     {
+      "asesor": "Mirna Cruz",
+      "solicitudes": 9,
+      "aprobadas": 2
+    },
+    {
       "asesor": "Monserrat Rivera",
+      "solicitudes": 4,
+      "aprobadas": 4
+    },
+    {
+      "asesor": "Oscar Alvarez",
       "solicitudes": 3,
       "aprobadas": 2
     },
     {
-      "asesor": "Oscar Alvarez",
-      "solicitudes": 1,
-      "aprobadas": 1
-    },
-    {
       "asesor": "Rafael Martinez",
-      "solicitudes": 1,
+      "solicitudes": 2,
       "aprobadas": 1
     }
   ],
@@ -2232,7 +2262,7 @@ window.__DASHBOARD_DATA__ = {
       "mty": 17,
       "qro": 0,
       "gdl": 4,
-      "mxl": 2,
+      "mxl": 1,
       "otros": 14
     },
     {
@@ -2437,18 +2467,38 @@ window.__DASHBOARD_DATA__ = {
     },
     {
       "fecha": "5 oct",
-      "tij": 0,
-      "cdmx": 0,
-      "mty": 0,
+      "tij": 3,
+      "cdmx": 7,
+      "mty": 3,
       "qro": 0,
-      "gdl": 1,
+      "gdl": 4,
+      "mxl": 1,
+      "otros": 6
+    },
+    {
+      "fecha": "6 oct",
+      "tij": 5,
+      "cdmx": 7,
+      "mty": 2,
+      "qro": 0,
+      "gdl": 0,
       "mxl": 0,
       "otros": 1
+    },
+    {
+      "fecha": "7 oct",
+      "tij": 0,
+      "cdmx": 1,
+      "mty": 0,
+      "qro": 0,
+      "gdl": 0,
+      "mxl": 1,
+      "otros": 0
     }
   ],
   "aprob_meta": {
     "fecha_min": "1 ago",
-    "fecha_max": "5 oct",
-    "generado_en": "2026-10-07T02:46:43.559894"
+    "fecha_max": "7 oct",
+    "generado_en": "2026-10-07T19:49:17.118092"
   }
 };

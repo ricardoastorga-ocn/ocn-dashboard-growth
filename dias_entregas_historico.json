@@ -480,7 +480,17 @@
     "tij": 0
   },
   "2026-10-07": {
-    "agendadas": 7,
+    "agendadas": 4,
+    "cdmx": 0,
+    "gdl": 0,
+    "mty": 0,
+    "mxl": 1,
+    "otros": 0,
+    "qro": 0,
+    "tij": 1
+  },
+  "2026-10-08": {
+    "agendadas": 1,
     "cdmx": 0,
     "gdl": 0,
     "mty": 0,
