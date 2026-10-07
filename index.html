@@ -325,7 +325,7 @@ table.data-table td.pct-bad  { color: var(--s-critical); font-weight: 700; }
   <section class="card" id="card-etapas">
     <div class="card-head">
       <div>
-        <p class="card-title">Etapas del embudo BO — agosto 2026</p>
+        <p class="card-title" id="card-title-etapas">Etapas del embudo BO</p>
         <p class="card-note" id="note-etapas-total"></p>
       </div>
       <div class="card-actions">
@@ -1300,8 +1300,15 @@ table.data-table td.pct-bad  { color: var(--s-critical); font-weight: 700; }
     buildTable('dias-table-wrap', 'Unidades entregadas por día desde agosto, por ciudad (agendada/pendiente aparte, no suma al total)', DIAS_KEYS.map(k=>DIAS_LABELS_CIUDAD[k]),
       DIAS_LABELS.map((d,i)=>({label:d, values: DIAS_KEYS.map(k=>ENTREGADOS_DIA[i][k])})), 'Día');
 
+    // Esta card es una FOTO EN VIVO del mes en curso (no una serie historica como las
+    // otras graficas) -- el titulo/ariaLabel/caption deben usar el mes real de hoy, nunca
+    // quedarse fijos. Quedo hardcodeado a "agosto 2026" desde que se construyo esta card
+    // en agosto y seguia asi en octubre -- bug ya detectado el 22-sep-2026 (sin confirmar
+    // entonces), corregido ahora junto con el de "Ago 26p" reportado por Ricardo.
+    const etapasAnioMes = forecastMonName + ' ' + new Date(DATA.corte.fecha + "T12:00:00").getFullYear();
+    el2('card-title-etapas', 'Etapas del embudo BO — ' + etapasAnioMes);
     drawEmphasisBarChart('chart-etapas', 'tooltip-etapas', ETAPAS.filter(d=>d.value>0), {
-      ariaLabel: "Unidades por etapa del embudo BO, agosto 2026, en orden de proceso",
+      ariaLabel: "Unidades por etapa del embudo BO, " + etapasAnioMes + ", en orden de proceso",
       labelOf: d => ETAPAS_LABELS[d.key],
       highlightKey: "entregado",
       emphasisColorVar: "--s-entregado",
@@ -1312,7 +1319,7 @@ table.data-table td.pct-bad  { color: var(--s-critical); font-weight: 700; }
     });
     {
       const wrap = document.getElementById('etapas-table-wrap');
-      let html = '<table class="data-table"><caption>Unidades por etapa del embudo BO, agosto 2026, en orden de proceso, por ciudad (TIJ=Tijuana, CDMX=CDMX/Edo Mex, MTY=Monterrey, MXL=Mexicali, GDL=Guadalajara, QRO=Queretaro, MID=Merida, PUE=Puebla, SAL=Saltillo)</caption><thead><tr><th>Etapa</th>';
+      let html = '<table class="data-table"><caption>Unidades por etapa del embudo BO, ' + etapasAnioMes + ', en orden de proceso, por ciudad (TIJ=Tijuana, CDMX=CDMX/Edo Mex, MTY=Monterrey, MXL=Mexicali, GDL=Guadalajara, QRO=Queretaro, MID=Merida, PUE=Puebla, SAL=Saltillo)</caption><thead><tr><th>Etapa</th>';
       CITY_ORDER.forEach(c => html += '<th title="'+c+'">'+CITY_SHORT[c]+'</th>');
       html += '<th>Unidades</th><th>%</th></tr></thead><tbody>';
       const cityTotals = CITY_ORDER.map(()=>0);
