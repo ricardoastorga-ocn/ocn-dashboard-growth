@@ -275,7 +275,7 @@ table.data-table td.pct-bad  { color: var(--s-critical); font-weight: 700; }
     <div class="legend">
       <span class="legend-item"><span class="legend-swatch" style="background:var(--s-nuevo)"></span>Nuevo</span>
       <span class="legend-item"><span class="legend-swatch" style="background:var(--s-seminuevo)"></span>Seminuevo</span>
-      <span class="legend-item"><span class="legend-swatch" style="background:var(--s-seminuevo);opacity:.5;border:1.5px dashed var(--s-seminuevo)"></span>"Ago 26p" = proyección de cierre</span>
+      <span class="legend-item"><span class="legend-swatch" style="background:var(--s-seminuevo);opacity:.5;border:1.5px dashed var(--s-seminuevo)"></span><span id="legend-forecast-label"></span> = proyección de cierre</span>
     </div>
     <p class="callout" id="callout-forecast"></p>
     <div class="table-wrap" id="mix-table-wrap"></div>
@@ -1249,10 +1249,17 @@ table.data-table td.pct-bad  { color: var(--s-critical); font-weight: 700; }
 
   function render(){
     renderText();
-    const MIX_MONTHS_F = MONTHS.concat(["Ago 26p"]);
+    // Mes de la proyeccion -- SIEMPRE el ultimo mes real (el actual), nunca hardcodeado:
+    // antes decia "Ago 26p" fijo (quedo de cuando se construyo este chart en agosto) y
+    // nunca se actualizo, asi que en octubre seguia mostrando "Ago 26p" en la leyenda y
+    // en el eje -- bug real reportado por Ricardo el 7-oct-2026.
+    const forecastLabel = MONTHS[MONTHS.length - 1] + 'p';
+    const forecastMonName = MONTH_NAMES_ES[new Date(DATA.corte.fecha + "T12:00:00").getMonth()];
+    el2('legend-forecast-label', '"' + forecastLabel + '"');
+    const MIX_MONTHS_F = MONTHS.concat([forecastLabel]);
     const MIX_F = MIX.concat([FORECAST_AGO]);
     drawStackedChart('chart-mix', 'tooltip-mix', MIX_F, ['nuevo','seminuevo'], k => k==='nuevo' ? '--s-nuevo' : '--s-seminuevo', {
-      ariaLabel: "Unidades nuevas y seminuevas entregadas por mes, con proyección de cierre de agosto",
+      ariaLabel: "Unidades nuevas y seminuevas entregadas por mes, con proyección de cierre de " + forecastMonName,
       labelOf: k => k==='nuevo' ? 'Nuevo' : 'Seminuevo',
       months: MIX_MONTHS_F,
       forecastIndex: MIX_MONTHS_F.length - 1,
