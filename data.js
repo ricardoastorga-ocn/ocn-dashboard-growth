@@ -1,5 +1,5 @@
 window.__DASHBOARD_DATA__ = {
-  "generated_at": "2026-10-08T00:04:59.336688Z",
+  "generated_at": "2026-10-08T03:04:39.514883Z",
   "months": [
     "Ago 25",
     "Sep 25",
@@ -1489,27 +1489,27 @@ window.__DASHBOARD_DATA__ = {
     "fecha": "2026-10-07",
     "mes_label": "Oct 26"
   },
-  "fleet_total": 156,
+  "fleet_total": 155,
   "fleet_desflote_n": 2,
   "fleet_city_stage": [
     {
       "ciudad": "CDMX / Edo Mex",
       "vals": [
         10,
-        7,
+        6,
         18,
-        5,
+        4,
         8,
         0
       ],
-      "total": 48
+      "total": 47
     },
     {
       "ciudad": "Monterrey",
       "vals": [
         1,
-        7,
-        4,
+        6,
+        5,
         13,
         10,
         2
@@ -2502,6 +2502,6 @@ window.__DASHBOARD_DATA__ = {
   "aprob_meta": {
     "fecha_min": "1 ago",
     "fecha_max": "7 oct",
-    "generado_en": "2026-10-08T00:05:00.302014"
+    "generado_en": "2026-10-08T03:04:40.377102"
   }
 };
