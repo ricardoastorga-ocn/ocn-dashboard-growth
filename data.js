@@ -1,5 +1,5 @@
 window.__DASHBOARD_DATA__ = {
-  "generated_at": "2026-10-09T00:13:02.657985Z",
+  "generated_at": "2026-10-09T03:11:10.582325Z",
   "months": [
     "Ago 25",
     "Sep 25",
@@ -1517,32 +1517,32 @@ window.__DASHBOARD_DATA__ = {
     "fecha": "2026-10-08",
     "mes_label": "Oct 26"
   },
-  "fleet_total": 146,
-  "fleet_desflote_n": 2,
+  "fleet_total": 148,
+  "fleet_desflote_n": 4,
   "fleet_city_stage": [
     {
       "ciudad": "CDMX / Edo Mex",
       "vals": [
-        8,
-        5,
-        17,
-        4,
-        8,
-        0
+        7,
+        6,
+        15,
+        7,
+        9,
+        1
       ],
-      "total": 43
+      "total": 45
     },
     {
       "ciudad": "Monterrey",
       "vals": [
         1,
         6,
-        5,
-        12,
+        4,
+        14,
         11,
-        2
+        3
       ],
-      "total": 38
+      "total": 39
     },
     {
       "ciudad": "Sin identificar",
@@ -1550,23 +1550,23 @@ window.__DASHBOARD_DATA__ = {
         0,
         1,
         6,
-        6,
+        5,
         14,
         0
       ],
-      "total": 27
+      "total": 26
     },
     {
       "ciudad": "Guadalajara",
       "vals": [
         1,
-        3,
-        10,
-        1,
+        4,
+        9,
+        2,
         1,
         0
       ],
-      "total": 17
+      "total": 18
     },
     {
       "ciudad": "Tijuana",
@@ -1575,17 +1575,17 @@ window.__DASHBOARD_DATA__ = {
         2,
         1,
         3,
-        1,
+        2,
         0
       ],
-      "total": 8
+      "total": 9
     },
     {
       "ciudad": "Queretaro",
       "vals": [
         1,
-        1,
-        1,
+        0,
+        2,
         3,
         1,
         0
@@ -2550,6 +2550,6 @@ window.__DASHBOARD_DATA__ = {
   "aprob_meta": {
     "fecha_min": "1 ago",
     "fecha_max": "8 oct",
-    "generado_en": "2026-10-09T00:13:04.130118"
+    "generado_en": "2026-10-09T03:11:11.426822"
   }
 };
