@@ -1523,13 +1523,13 @@ table.data-table td.pct-bad  { color: var(--s-critical); font-weight: 700; }
 
     // ---- Entregas de septiembre — ranking por asesor, por team leader ----
     // Rediseño a pedido de Ricardo (15-sep-2026, con captura de referencia del reporte de
-    // Avance de Marcación) -- tarjetas por team leader (Bernardo/Paulina, roster AGENT_TEAM
+    // Avance de Marcación) -- tarjetas por team leader (Alonso/Paulina, roster AGENT_TEAM
     // en refresh_data.py), asesores rankeados por entregas dentro de cada una, con
     // solicitudes/aprobadas del mes cruzadas del CSV de aprobaciones cuando el cruce de
     // nombre es seguro (ver match_roster() en refresh_data.py -- si no cruza, se deja "—",
     // nunca se adivina). "Sin equipo" = Agente del Back Office que no cruzó con el roster.
     {
-      const TEAM_COLOR = {Bernardo: '--s-aion', Paulina: '--s-entregado'};
+      const TEAM_COLOR = {Alonso: '--s-aion', Paulina: '--s-entregado'};
       const teamCardHtml = (team, rows) => {
         const totalEntregas = rows.reduce((s,r)=>s+r.entregas, 0);
         const conSolicitud = rows.filter(r => r.solicitudes != null);
@@ -1560,14 +1560,14 @@ table.data-table td.pct-bad  { color: var(--s-critical); font-weight: 700; }
       };
 
       const equipoGrid = document.getElementById('entregas-equipo-grid');
-      const teams = ['Bernardo', 'Paulina'].filter(t => (ENTREGAS_POR_EQUIPO[t]||[]).length);
+      const teams = ['Alonso', 'Paulina'].filter(t => (ENTREGAS_POR_EQUIPO[t]||[]).length);
       if (equipoGrid) equipoGrid.innerHTML = teams.map(t => teamCardHtml(t, ENTREGAS_POR_EQUIPO[t])).join('');
 
       const sinEquipo = ENTREGAS_POR_EQUIPO['Sin equipo'] || [];
       const sinEquipoWrap = document.getElementById('entregas-sin-equipo-wrap');
       if (sinEquipoWrap) sinEquipoWrap.innerHTML = sinEquipo.length ? `
         <p class="subsection-title">Sin equipo confirmado</p>
-        <p class="card-note" style="margin-top:-6px;">Nombre del Back Office no cruza con certeza contra el roster Bernardo/Paulina (ver nota abajo) -- se muestra aparte en vez de perderse u ocultarse.</p>
+        <p class="card-note" style="margin-top:-6px;">Nombre del Back Office no cruza con certeza contra el roster Alonso/Paulina (ver nota abajo) -- se muestra aparte en vez de perderse u ocultarse.</p>
         ${teamCardHtml('Sin equipo', sinEquipo).replace('<div class="card">','<div class="card" style="max-width:420px;">')}
       ` : '';
 

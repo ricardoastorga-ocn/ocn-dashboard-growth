@@ -62,7 +62,7 @@ def norm_ascii(s):
     return unicodedata.normalize("NFKD", s).encode("ascii", "ignore").decode()
 
 
-# Team Bernardo / Team Paulina -- mismo universo de personas que KNOWN_AGENT_KEYS arriba,
+# Team Alonso / Team Paulina -- mismo universo de personas que KNOWN_AGENT_KEYS arriba,
 # con el team leader de cada quien. Extraído 15-sep-2026 de la columna "supervisor" del
 # roster en vivo de Avance de Marcación (voto por moda por asesor, mismo criterio que ese
 # proyecto usa) y confirmado visualmente contra una captura de pantalla que Ricardo compartió
@@ -71,15 +71,15 @@ def norm_ascii(s):
 # gente), este dict hay que actualizarlo a mano -- no hay una fuente en vivo conectada a este
 # proyecto para el team leader.
 AGENT_TEAM = {
-    "Aaron Sanchez": "Bernardo", "Adolfo Jaimes": "Paulina", "Ana Rodriguez": "Paulina",
-    "Angelica Torres": "Bernardo", "Antonio Cruz": "Bernardo", "Daniela Favela": "Paulina",
-    "Diana Moreno": "Bernardo", "Edwin Hernandez": "Bernardo", "Enrique Jimenez": "Paulina",
-    "Fernando Medina": "Bernardo", "Imanol Cortez": "Paulina", "Ishell Miranda": "Paulina",
+    "Aaron Sanchez": "Alonso", "Adolfo Jaimes": "Paulina", "Ana Rodriguez": "Paulina",
+    "Angelica Torres": "Alonso", "Antonio Cruz": "Alonso", "Daniela Favela": "Paulina",
+    "Diana Moreno": "Alonso", "Edwin Hernandez": "Alonso", "Enrique Jimenez": "Paulina",
+    "Fernando Medina": "Alonso", "Imanol Cortez": "Paulina", "Ishell Miranda": "Paulina",
     "Ivette Ixel Cardona": "Paulina", "Jeremy Tamayo": "Paulina", "Jessica Martinez": "Paulina",
-    "Joel Flores": "Paulina", "Jrego Nolasco": "Bernardo", "Karen Garcia": "Paulina",
-    "Mayte Urrutia": "Paulina", "Michelle R": "Bernardo", "Mirna Cruz": "Bernardo",
-    "Monserrat Rivera": "Bernardo", "Oscar Alvarez": "Bernardo", "Rafael Leon": "Paulina",
-    "Ricardo Salinas": "Bernardo",
+    "Joel Flores": "Paulina", "Jrego Nolasco": "Alonso", "Karen Garcia": "Paulina",
+    "Mayte Urrutia": "Paulina", "Michelle R": "Alonso", "Mirna Cruz": "Alonso",
+    "Monserrat Rivera": "Alonso", "Oscar Alvarez": "Alonso", "Rafael Leon": "Paulina",
+    "Ricardo Salinas": "Alonso",
 }
 
 
@@ -750,14 +750,14 @@ def main():
     entregas_agente_mes = [{"agente": a, "total": n}
                             for a, n in entregas_por_agente_mes.most_common()]
 
-    # "Entregas de septiembre — ranking por asesor", agrupado por team leader (Bernardo/
+    # "Entregas de septiembre — ranking por asesor", agrupado por team leader (Alonso/
     # Paulina) -- reemplaza el ranking plano por asesor, pedido de Ricardo 15-sep-2026
     # (mismo estilo que el reporte de Avance de Marcación). Arranca con TODO el roster en 0
     # entregas (no solo los que ya entregaron algo este mes, para que el team se vea completo
     # como en la referencia) y acumula los matches de "Agente" del Back Office contra el
     # roster via match_roster(). Lo que no cruza (persona real fuera del roster, o roster
     # desactualizado) cae en "Sin equipo" en vez de perderse en silencio.
-    equipo_rows = {team: {} for team in ("Bernardo", "Paulina")}
+    equipo_rows = {team: {} for team in ("Alonso", "Paulina")}
     sin_equipo_rows = {}
     for nombre, team in AGENT_TEAM.items():
         equipo_rows[team][nombre] = {"asesor": nombre, "entregas": 0, "solicitudes": None, "aprobadas": None}
