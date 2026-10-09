@@ -1,5 +1,5 @@
 window.__DASHBOARD_DATA__ = {
-  "generated_at": "2026-10-09T16:08:23.879717Z",
+  "generated_at": "2026-10-09T19:21:49.082437Z",
   "months": [
     "Ago 25",
     "Sep 25",
@@ -76,7 +76,7 @@ window.__DASHBOARD_DATA__ = {
     },
     {
       "nuevo": 0,
-      "seminuevo": 18
+      "seminuevo": 20
     }
   ],
   "modelo": [
@@ -210,9 +210,9 @@ window.__DASHBOARD_DATA__ = {
       "byd": 7,
       "mg5": 10,
       "mg3": 0,
-      "aion": 0,
+      "aion": 1,
       "king": 0,
-      "tiggo": 1,
+      "tiggo": 2,
       "otros": 0
     }
   ],
@@ -233,15 +233,15 @@ window.__DASHBOARD_DATA__ = {
     },
     {
       "key": "listo",
-      "value": 26
+      "value": 23
     },
     {
       "key": "agendada",
-      "value": 13
+      "value": 6
     },
     {
       "key": "contrato",
-      "value": 6
+      "value": 13
     },
     {
       "key": "cenv",
@@ -249,11 +249,11 @@ window.__DASHBOARD_DATA__ = {
     },
     {
       "key": "liga",
-      "value": 0
+      "value": 1
     },
     {
       "key": "entregado",
-      "value": 18
+      "value": 20
     },
     {
       "key": "issue",
@@ -263,31 +263,34 @@ window.__DASHBOARD_DATA__ = {
   "etapas_ciudades": {
     "listo": {
       "Monterrey": 4,
-      "Tijuana": 13,
+      "Tijuana": 12,
       "Guadalajara": 4,
-      "Mexicali": 2,
-      "Queretaro": 1,
       "Saltillo": 1,
-      "CDMX / Edo Mex": 1
+      "Mexicali": 2
     },
     "entregado": {
       "Tijuana": 7,
       "Monterrey": 4,
-      "CDMX / Edo Mex": 6,
-      "Mexicali": 1
+      "CDMX / Edo Mex": 7,
+      "Mexicali": 2
+    },
+    "liga": {
+      "Tijuana": 1
     },
     "agendada": {
-      "Tijuana": 1,
-      "Mexicali": 3,
-      "Monterrey": 2,
+      "Mexicali": 1,
+      "Monterrey": 1,
       "Queretaro": 1,
-      "CDMX / Edo Mex": 5,
-      "Guadalajara": 1
+      "Guadalajara": 1,
+      "CDMX / Edo Mex": 2
     },
     "contrato": {
-      "CDMX / Edo Mex": 4,
+      "Monterrey": 2,
+      "CDMX / Edo Mex": 7,
       "Puebla": 1,
-      "Monterrey": 1
+      "Queretaro": 1,
+      "Tijuana": 1,
+      "Mexicali": 1
     }
   },
   "entregado_target_pct": 95,
@@ -295,7 +298,7 @@ window.__DASHBOARD_DATA__ = {
   "ciudad_listo": [
     {
       "ciudad": "Tijuana",
-      "value": 13
+      "value": 12
     },
     {
       "ciudad": "Monterrey",
@@ -310,15 +313,7 @@ window.__DASHBOARD_DATA__ = {
       "value": 2
     },
     {
-      "ciudad": "Queretaro",
-      "value": 1
-    },
-    {
       "ciudad": "Saltillo",
-      "value": 1
-    },
-    {
-      "ciudad": "CDMX / Edo Mex",
       "value": 1
     }
   ],
@@ -326,8 +321,8 @@ window.__DASHBOARD_DATA__ = {
     {
       "ciudad": "CDMX / Edo Mex",
       "espera": 201,
-      "listo": 1,
-      "gap": 200
+      "listo": 0,
+      "gap": 201
     },
     {
       "ciudad": "Merida",
@@ -350,8 +345,8 @@ window.__DASHBOARD_DATA__ = {
     {
       "ciudad": "Queretaro",
       "espera": 33,
-      "listo": 1,
-      "gap": 32
+      "listo": 0,
+      "gap": 33
     },
     {
       "ciudad": "Guadalajara",
@@ -374,8 +369,8 @@ window.__DASHBOARD_DATA__ = {
     {
       "ciudad": "Tijuana",
       "espera": 8,
-      "listo": 13,
-      "gap": -5
+      "listo": 12,
+      "gap": -4
     }
   ],
   "dias_labels": [
@@ -884,12 +879,12 @@ window.__DASHBOARD_DATA__ = {
       "otros": 0
     },
     {
-      "cdmx": 0,
+      "cdmx": 1,
       "mty": 0,
       "tij": 0,
       "qro": 0,
       "gdl": 0,
-      "mxl": 0,
+      "mxl": 1,
       "otros": 0
     },
     {
@@ -953,7 +948,7 @@ window.__DASHBOARD_DATA__ = {
     0,
     0,
     0,
-    14,
+    15,
     4
   ],
   "entregas_por_asesor_equipo": {
@@ -1039,16 +1034,22 @@ window.__DASHBOARD_DATA__ = {
         "aprobadas": 4
       },
       {
+        "asesor": "Daniela Favela",
+        "entregas": 2,
+        "solicitudes": 2,
+        "aprobadas": 2
+      },
+      {
         "asesor": "Imanol Cortez",
         "entregas": 2,
         "solicitudes": 2,
         "aprobadas": 2
       },
       {
-        "asesor": "Daniela Favela",
+        "asesor": "Adolfo Jaimes",
         "entregas": 1,
-        "solicitudes": 2,
-        "aprobadas": 2
+        "solicitudes": 3,
+        "aprobadas": 1
       },
       {
         "asesor": "Ivette Ixel Cardona",
@@ -1079,12 +1080,6 @@ window.__DASHBOARD_DATA__ = {
         "entregas": 1,
         "solicitudes": null,
         "aprobadas": null
-      },
-      {
-        "asesor": "Adolfo Jaimes",
-        "entregas": 0,
-        "solicitudes": 3,
-        "aprobadas": 1
       },
       {
         "asesor": "Enrique Jimenez",
@@ -1510,12 +1505,12 @@ window.__DASHBOARD_DATA__ = {
   "decline_total": 977,
   "forecast": {
     "workdays_elapsed": 6,
-    "actual_elapsed": 18,
+    "actual_elapsed": 20,
     "workdays_total": 22,
-    "rate": 3.0,
-    "total": 66,
+    "rate": 3.33,
+    "total": 73,
     "nuevo": 0,
-    "seminuevo": 66
+    "seminuevo": 73
   },
   "corte": {
     "fecha": "2026-10-09",
@@ -1531,10 +1526,10 @@ window.__DASHBOARD_DATA__ = {
         6,
         15,
         8,
-        8,
+        7,
         1
       ],
-      "total": 45
+      "total": 44
     },
     {
       "ciudad": "Monterrey",
@@ -1542,11 +1537,11 @@ window.__DASHBOARD_DATA__ = {
         1,
         6,
         4,
-        14,
+        15,
         11,
         3
       ],
-      "total": 39
+      "total": 40
     },
     {
       "ciudad": "Sin identificar",
@@ -1554,11 +1549,11 @@ window.__DASHBOARD_DATA__ = {
         0,
         1,
         6,
-        5,
+        6,
         14,
         0
       ],
-      "total": 26
+      "total": 27
     },
     {
       "ciudad": "Guadalajara",
@@ -1576,13 +1571,13 @@ window.__DASHBOARD_DATA__ = {
       "ciudad": "Tijuana",
       "vals": [
         1,
-        2,
+        1,
         1,
         2,
         2,
         0
       ],
-      "total": 8
+      "total": 7
     },
     {
       "ciudad": "Queretaro",
@@ -2554,6 +2549,6 @@ window.__DASHBOARD_DATA__ = {
   "aprob_meta": {
     "fecha_min": "1 ago",
     "fecha_max": "8 oct",
-    "generado_en": "2026-10-09T10:08:24.505803"
+    "generado_en": "2026-10-09T19:21:49.660823"
   }
 };
