@@ -1,5 +1,5 @@
 window.__DASHBOARD_DATA__ = {
-  "generated_at": "2026-10-10T00:25:22.692456Z",
+  "generated_at": "2026-10-10T02:50:12.447948Z",
   "months": [
     "Ago 25",
     "Sep 25",
@@ -233,11 +233,11 @@ window.__DASHBOARD_DATA__ = {
     },
     {
       "key": "listo",
-      "value": 28
+      "value": 29
     },
     {
       "key": "agendada",
-      "value": 27
+      "value": 26
     },
     {
       "key": "contrato",
@@ -262,7 +262,7 @@ window.__DASHBOARD_DATA__ = {
   ],
   "etapas_ciudades": {
     "listo": {
-      "Monterrey": 6,
+      "Monterrey": 7,
       "Tijuana": 12,
       "Guadalajara": 6,
       "Mexicali": 4
@@ -278,7 +278,7 @@ window.__DASHBOARD_DATA__ = {
     "agendada": {
       "Mexicali": 1,
       "CDMX / Edo Mex": 11,
-      "Monterrey": 5,
+      "Monterrey": 4,
       "Queretaro": 3,
       "Guadalajara": 3,
       "Saltillo": 1,
@@ -294,7 +294,7 @@ window.__DASHBOARD_DATA__ = {
     },
     {
       "ciudad": "Monterrey",
-      "value": 6
+      "value": 7
     },
     {
       "ciudad": "Guadalajara",
@@ -321,8 +321,8 @@ window.__DASHBOARD_DATA__ = {
     {
       "ciudad": "Monterrey",
       "espera": 56,
-      "listo": 6,
-      "gap": 50
+      "listo": 7,
+      "gap": 49
     },
     {
       "ciudad": "Puebla",
@@ -957,8 +957,8 @@ window.__DASHBOARD_DATA__ = {
     0,
     0,
     0,
-    2,
-    21,
+    4,
+    18,
     2
   ],
   "entregas_por_asesor_equipo": {
@@ -1526,7 +1526,7 @@ window.__DASHBOARD_DATA__ = {
     "fecha": "2026-10-09",
     "mes_label": "Oct 26"
   },
-  "fleet_total": 145,
+  "fleet_total": 146,
   "fleet_desflote_n": 4,
   "fleet_city_stage": [
     {
@@ -1559,23 +1559,23 @@ window.__DASHBOARD_DATA__ = {
         0,
         1,
         6,
-        6,
+        5,
         14,
         0
       ],
-      "total": 27
+      "total": 26
     },
     {
       "ciudad": "Guadalajara",
       "vals": [
         1,
         4,
-        8,
+        9,
         1,
         0,
         0
       ],
-      "total": 15
+      "total": 16
     },
     {
       "ciudad": "Tijuana",
@@ -1583,11 +1583,11 @@ window.__DASHBOARD_DATA__ = {
         1,
         1,
         1,
-        2,
+        3,
         2,
         0
       ],
-      "total": 7
+      "total": 8
     },
     {
       "ciudad": "Puebla",
@@ -2559,6 +2559,6 @@ window.__DASHBOARD_DATA__ = {
   "aprob_meta": {
     "fecha_min": "1 ago",
     "fecha_max": "8 oct",
-    "generado_en": "2026-10-10T00:25:23.697639"
+    "generado_en": "2026-10-10T02:50:13.179893"
   }
 };
