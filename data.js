@@ -1,5 +1,5 @@
 window.__DASHBOARD_DATA__ = {
-  "generated_at": "2026-10-12T21:53:51.775316Z",
+  "generated_at": "2026-10-12T22:01:15.862194Z",
   "months": [
     "Ago 25",
     "Sep 25",
@@ -225,7 +225,7 @@ window.__DASHBOARD_DATA__ = {
     "tiggo",
     "otros"
   ],
-  "etapas_total": 82,
+  "etapas_total": 91,
   "etapas": [
     {
       "key": "prep",
@@ -233,7 +233,7 @@ window.__DASHBOARD_DATA__ = {
     },
     {
       "key": "listo",
-      "value": 26
+      "value": 35
     },
     {
       "key": "agendada",
@@ -262,11 +262,11 @@ window.__DASHBOARD_DATA__ = {
   ],
   "etapas_ciudades": {
     "listo": {
-      "Tijuana": 11,
-      "Monterrey": 4,
+      "Tijuana": 14,
+      "Monterrey": 8,
       "Guadalajara": 5,
       "Mexicali": 5,
-      "CDMX / Edo Mex": 1
+      "CDMX / Edo Mex": 3
     },
     "entregado": {
       "Tijuana": 10,
@@ -294,7 +294,11 @@ window.__DASHBOARD_DATA__ = {
   "ciudad_listo": [
     {
       "ciudad": "Tijuana",
-      "value": 11
+      "value": 14
+    },
+    {
+      "ciudad": "Monterrey",
+      "value": 8
     },
     {
       "ciudad": "Guadalajara",
@@ -305,20 +309,16 @@ window.__DASHBOARD_DATA__ = {
       "value": 5
     },
     {
-      "ciudad": "Monterrey",
-      "value": 4
-    },
-    {
       "ciudad": "CDMX / Edo Mex",
-      "value": 1
+      "value": 3
     }
   ],
   "waitlist_gap": [
     {
       "ciudad": "CDMX / Edo Mex",
       "espera": 206,
-      "listo": 1,
-      "gap": 205
+      "listo": 3,
+      "gap": 203
     },
     {
       "ciudad": "Merida",
@@ -329,8 +329,8 @@ window.__DASHBOARD_DATA__ = {
     {
       "ciudad": "Monterrey",
       "espera": 59,
-      "listo": 4,
-      "gap": 55
+      "listo": 8,
+      "gap": 51
     },
     {
       "ciudad": "Puebla",
@@ -357,16 +357,16 @@ window.__DASHBOARD_DATA__ = {
       "gap": 25
     },
     {
-      "ciudad": "Tijuana",
-      "espera": 8,
-      "listo": 11,
-      "gap": -3
-    },
-    {
       "ciudad": "Mexicali",
       "espera": 0,
       "listo": 5,
       "gap": -5
+    },
+    {
+      "ciudad": "Tijuana",
+      "espera": 8,
+      "listo": 14,
+      "gap": -6
     }
   ],
   "dias_labels": [
@@ -2616,6 +2616,6 @@ window.__DASHBOARD_DATA__ = {
   "aprob_meta": {
     "fecha_min": "1 ago",
     "fecha_max": "12 oct",
-    "generado_en": "2026-10-12T21:53:52.230154"
+    "generado_en": "2026-10-12T22:01:16.187726"
   }
 };
