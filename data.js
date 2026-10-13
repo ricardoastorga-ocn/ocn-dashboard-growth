@@ -1,5 +1,5 @@
 window.__DASHBOARD_DATA__ = {
-  "generated_at": "2026-10-13T03:25:50.291519Z",
+  "generated_at": "2026-10-13T04:00:29.354612Z",
   "months": [
     "Ago 25",
     "Sep 25",
@@ -1533,20 +1533,20 @@ window.__DASHBOARD_DATA__ = {
     "fecha": "2026-10-12",
     "mes_label": "Oct 26"
   },
-  "fleet_total": 130,
-  "fleet_desflote_n": 2,
+  "fleet_total": 146,
+  "fleet_desflote_n": 3,
   "fleet_city_stage": [
     {
       "ciudad": "CDMX / Edo Mex",
       "vals": [
-        5,
         6,
-        15,
+        6,
+        17,
         7,
         8,
         0
       ],
-      "total": 41
+      "total": 44
     },
     {
       "ciudad": "Monterrey",
@@ -1554,11 +1554,11 @@ window.__DASHBOARD_DATA__ = {
         1,
         5,
         3,
-        16,
-        7,
-        2
+        18,
+        10,
+        3
       ],
-      "total": 34
+      "total": 40
     },
     {
       "ciudad": "Sin identificar",
@@ -1567,46 +1567,46 @@ window.__DASHBOARD_DATA__ = {
         1,
         6,
         4,
-        13,
+        15,
         0
       ],
-      "total": 24
+      "total": 26
     },
     {
       "ciudad": "Guadalajara",
       "vals": [
-        0,
+        1,
         3,
-        9,
+        10,
         3,
         0,
         0
       ],
-      "total": 16
+      "total": 18
+    },
+    {
+      "ciudad": "Tijuana",
+      "vals": [
+        1,
+        2,
+        1,
+        2,
+        2,
+        0
+      ],
+      "total": 8
     },
     {
       "ciudad": "Puebla",
       "vals": [
         0,
         0,
-        4,
+        5,
         1,
         1,
         0
       ],
-      "total": 6
-    },
-    {
-      "ciudad": "Tijuana",
-      "vals": [
-        0,
-        1,
-        1,
-        1,
-        2,
-        0
-      ],
-      "total": 5
+      "total": 7
     },
     {
       "ciudad": "Queretaro",
@@ -2615,6 +2615,6 @@ window.__DASHBOARD_DATA__ = {
   "aprob_meta": {
     "fecha_min": "1 ago",
     "fecha_max": "12 oct",
-    "generado_en": "2026-10-13T03:25:51.172759"
+    "generado_en": "2026-10-13T04:00:30.167223"
   }
 };
