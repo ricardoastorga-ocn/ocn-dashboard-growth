@@ -1,5 +1,5 @@
 window.__DASHBOARD_DATA__ = {
-  "generated_at": "2026-10-13T21:59:00.807094Z",
+  "generated_at": "2026-10-13T22:22:40.457564Z",
   "months": [
     "Ago 25",
     "Sep 25",
@@ -76,7 +76,7 @@ window.__DASHBOARD_DATA__ = {
     },
     {
       "nuevo": 1,
-      "seminuevo": 52
+      "seminuevo": 53
     }
   ],
   "modelo": [
@@ -208,7 +208,7 @@ window.__DASHBOARD_DATA__ = {
     },
     {
       "byd": 24,
-      "mg5": 21,
+      "mg5": 22,
       "mg3": 3,
       "aion": 1,
       "king": 1,
@@ -237,11 +237,11 @@ window.__DASHBOARD_DATA__ = {
     },
     {
       "key": "agendada",
-      "value": 12
+      "value": 13
     },
     {
       "key": "contrato",
-      "value": 1
+      "value": 0
     },
     {
       "key": "cenv",
@@ -249,11 +249,11 @@ window.__DASHBOARD_DATA__ = {
     },
     {
       "key": "liga",
-      "value": 1
+      "value": 0
     },
     {
       "key": "entregado",
-      "value": 53
+      "value": 54
     },
     {
       "key": "issue",
@@ -270,17 +270,15 @@ window.__DASHBOARD_DATA__ = {
     },
     "entregado": {
       "Tijuana": 12,
-      "Monterrey": 9,
+      "Monterrey": 10,
       "CDMX / Edo Mex": 20,
       "Mexicali": 2,
       "Puebla": 1,
       "Queretaro": 4,
       "Guadalajara": 5
     },
-    "contrato": {
-      "Saltillo": 1
-    },
     "agendada": {
+      "Saltillo": 1,
       "CDMX / Edo Mex": 7,
       "Monterrey": 1,
       "Mexicali": 1,
@@ -289,9 +287,6 @@ window.__DASHBOARD_DATA__ = {
     },
     "issue": {
       "Tijuana": 1
-    },
-    "liga": {
-      "Monterrey": 1
     }
   },
   "entregado_target_pct": 95,
@@ -912,7 +907,7 @@ window.__DASHBOARD_DATA__ = {
     },
     {
       "cdmx": 3,
-      "mty": 0,
+      "mty": 1,
       "tij": 2,
       "qro": 1,
       "gdl": 3,
@@ -992,7 +987,7 @@ window.__DASHBOARD_DATA__ = {
     0,
     0,
     0,
-    1,
+    0,
     12,
     1
   ],
@@ -1086,7 +1081,7 @@ window.__DASHBOARD_DATA__ = {
       },
       {
         "asesor": "Adolfo Jaimes",
-        "entregas": 4,
+        "entregas": 5,
         "solicitudes": 8,
         "aprobadas": 4
       },
@@ -1550,12 +1545,12 @@ window.__DASHBOARD_DATA__ = {
   "decline_total": 977,
   "forecast": {
     "workdays_elapsed": 8,
-    "actual_elapsed": 53,
+    "actual_elapsed": 54,
     "workdays_total": 22,
-    "rate": 6.62,
-    "total": 146,
+    "rate": 6.75,
+    "total": 148,
     "nuevo": 3,
-    "seminuevo": 143
+    "seminuevo": 145
   },
   "corte": {
     "fecha": "2026-10-13",
@@ -2643,6 +2638,6 @@ window.__DASHBOARD_DATA__ = {
   "aprob_meta": {
     "fecha_min": "1 ago",
     "fecha_max": "12 oct",
-    "generado_en": "2026-10-13T21:59:01.714049"
+    "generado_en": "2026-10-13T22:22:41.335687"
   }
 };
