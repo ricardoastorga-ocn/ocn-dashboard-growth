@@ -211,17 +211,17 @@
   },
   "2026-10": {
     "mix": {
-      "nuevo": 1,
-      "seminuevo": 57
+      "nuevo": 2,
+      "seminuevo": 61
     },
     "modelo": {
       "aion": 2,
-      "byd": 26,
+      "byd": 29,
       "king": 1,
       "mg3": 3,
-      "mg5": 23,
+      "mg5": 24,
       "otros": 0,
-      "tiggo": 3
+      "tiggo": 4
     }
   }
 }
