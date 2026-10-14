@@ -1348,7 +1348,7 @@ table.data-table td.pct-bad  { color: var(--s-critical); font-weight: 700; }
           + '<p class="callout">Sin datos de ciudad en este corte — la columna de ciudad falta temporalmente en la fuente.</p>';
       } else {
         drawEmphasisBarChart('chart-ciudad', 'tooltip-ciudad', CIUDAD_LISTO.map(d=>({key:d.ciudad, value:d.value})), {
-          ariaLabel: "Unidades Listo/Entrega por ciudad, agosto 2026",
+          ariaLabel: "Unidades Listo/Entrega por ciudad, corte " + etapasAnioMes,
           labelOf: d => d.key,
           allAccent: true,
           labelWidth: 110
