@@ -1,5 +1,5 @@
 window.__DASHBOARD_DATA__ = {
-  "generated_at": "2026-10-14T02:15:05.018648Z",
+  "generated_at": "2026-10-14T16:46:22.418330Z",
   "months": [
     "Ago 25",
     "Sep 25",
@@ -233,15 +233,15 @@ window.__DASHBOARD_DATA__ = {
     },
     {
       "key": "listo",
-      "value": 32
+      "value": 30
     },
     {
       "key": "agendada",
-      "value": 13
+      "value": 4
     },
     {
       "key": "contrato",
-      "value": 0
+      "value": 11
     },
     {
       "key": "cenv",
@@ -265,8 +265,7 @@ window.__DASHBOARD_DATA__ = {
       "Tijuana": 11,
       "Monterrey": 11,
       "Guadalajara": 4,
-      "Mexicali": 5,
-      "CDMX / Edo Mex": 1
+      "Mexicali": 4
     },
     "entregado": {
       "Tijuana": 12,
@@ -278,8 +277,12 @@ window.__DASHBOARD_DATA__ = {
       "Guadalajara": 5
     },
     "agendada": {
+      "Mexicali": 1,
+      "CDMX / Edo Mex": 3
+    },
+    "contrato": {
       "Saltillo": 1,
-      "CDMX / Edo Mex": 7,
+      "CDMX / Edo Mex": 5,
       "Monterrey": 2,
       "Tijuana": 2,
       "Puebla": 1
@@ -300,24 +303,20 @@ window.__DASHBOARD_DATA__ = {
       "value": 11
     },
     {
-      "ciudad": "Mexicali",
-      "value": 5
-    },
-    {
       "ciudad": "Guadalajara",
       "value": 4
     },
     {
-      "ciudad": "CDMX / Edo Mex",
-      "value": 1
+      "ciudad": "Mexicali",
+      "value": 4
     }
   ],
   "waitlist_gap": [
     {
       "ciudad": "CDMX / Edo Mex",
       "espera": 206,
-      "listo": 1,
-      "gap": 205
+      "listo": 0,
+      "gap": 206
     },
     {
       "ciudad": "Merida",
@@ -364,8 +363,8 @@ window.__DASHBOARD_DATA__ = {
     {
       "ciudad": "Mexicali",
       "espera": 0,
-      "listo": 5,
-      "gap": -5
+      "listo": 4,
+      "gap": -4
     }
   ],
   "dias_labels": [
@@ -987,8 +986,8 @@ window.__DASHBOARD_DATA__ = {
     0,
     0,
     0,
-    12,
-    1
+    11,
+    4
   ],
   "entregas_por_asesor_equipo": {
     "Alonso": [
@@ -1155,7 +1154,7 @@ window.__DASHBOARD_DATA__ = {
     {
       "key": "31-60",
       "label": "31-60 días",
-      "value": 127
+      "value": 125
     },
     {
       "key": "61-90",
@@ -1165,18 +1164,18 @@ window.__DASHBOARD_DATA__ = {
     {
       "key": "90+",
       "label": "90+ días",
-      "value": 164
+      "value": 166
     }
   ],
   "tiers_total": 476,
-  "max_wait_days": 295,
+  "max_wait_days": 296,
   "city_tier": [
     {
       "ciudad": "CDMX / Edo Mex",
       "vals": [
         25,
-        63,
-        58,
+        62,
+        59,
         60
       ],
       "total": 206
@@ -1205,8 +1204,8 @@ window.__DASHBOARD_DATA__ = {
       "ciudad": "Puebla",
       "vals": [
         9,
-        8,
-        18,
+        7,
+        19,
         15
       ],
       "total": 50
@@ -1216,8 +1215,8 @@ window.__DASHBOARD_DATA__ = {
       "vals": [
         1,
         11,
-        10,
-        13
+        9,
+        14
       ],
       "total": 35
     },
@@ -1226,8 +1225,8 @@ window.__DASHBOARD_DATA__ = {
       "vals": [
         2,
         8,
-        8,
-        16
+        7,
+        17
       ],
       "total": 34
     },
@@ -1267,8 +1266,8 @@ window.__DASHBOARD_DATA__ = {
       "key": "Ana Rodriguez",
       "vals": [
         14,
-        14,
-        9,
+        13,
+        10,
         6
       ],
       "total": 43
@@ -1407,8 +1406,8 @@ window.__DASHBOARD_DATA__ = {
       "key": "Aaron Sanchez",
       "vals": [
         1,
-        6,
-        4,
+        5,
+        5,
         4
       ],
       "total": 15
@@ -1458,8 +1457,8 @@ window.__DASHBOARD_DATA__ = {
       "vals": [
         0,
         0,
-        6,
-        4
+        4,
+        6
       ],
       "total": 10
     },
@@ -1543,19 +1542,19 @@ window.__DASHBOARD_DATA__ = {
   ],
   "decline_total": 977,
   "forecast": {
-    "workdays_elapsed": 8,
+    "workdays_elapsed": 9,
     "actual_elapsed": 54,
     "workdays_total": 22,
-    "rate": 6.75,
-    "total": 148,
-    "nuevo": 3,
-    "seminuevo": 145
+    "rate": 6.0,
+    "total": 132,
+    "nuevo": 2,
+    "seminuevo": 130
   },
   "corte": {
-    "fecha": "2026-10-13",
+    "fecha": "2026-10-14",
     "mes_label": "Oct 26"
   },
-  "fleet_total": 145,
+  "fleet_total": 146,
   "fleet_desflote_n": 3,
   "fleet_city_stage": [
     {
@@ -1565,10 +1564,10 @@ window.__DASHBOARD_DATA__ = {
         6,
         17,
         11,
-        6,
+        7,
         0
       ],
-      "total": 46
+      "total": 47
     },
     {
       "ciudad": "Monterrey",
@@ -2637,6 +2636,6 @@ window.__DASHBOARD_DATA__ = {
   "aprob_meta": {
     "fecha_min": "1 ago",
     "fecha_max": "12 oct",
-    "generado_en": "2026-10-14T02:15:05.748445"
+    "generado_en": "2026-10-14T16:46:23.194740"
   }
 };
