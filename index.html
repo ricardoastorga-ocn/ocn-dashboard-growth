@@ -475,7 +475,7 @@ table.data-table td.pct-bad  { color: var(--s-critical); font-weight: 700; }
   <section class="card" id="card-entregas-agente">
     <div class="card-head">
       <div>
-        <p class="card-title">Entregas de septiembre — ranking por asesor</p>
+        <p class="card-title">Entregas de <span id="entregas-agente-mes-label">septiembre</span> — ranking por asesor</p>
         <p class="card-note" id="note-entregas-agente"></p>
       </div>
     </div>
@@ -1529,6 +1529,8 @@ table.data-table td.pct-bad  { color: var(--s-critical); font-weight: 700; }
     // nombre es seguro (ver match_roster() en refresh_data.py -- si no cruza, se deja "—",
     // nunca se adivina). "Sin equipo" = Agente del Back Office que no cruzó con el roster.
     {
+      const mesActualNombre = forecastMonName;
+      el2('entregas-agente-mes-label', mesActualNombre);
       const TEAM_COLOR = {Alonso: '--s-aion', Paulina: '--s-entregado'};
       const teamCardHtml = (team, rows) => {
         const totalEntregas = rows.reduce((s,r)=>s+r.entregas, 0);
@@ -1551,7 +1553,7 @@ table.data-table td.pct-bad  { color: var(--s-critical); font-weight: 700; }
               <p style="margin:0; font-weight:700; font-size:1.05em;">Team ${team}</p>
               <span style="font-weight:800; font-size:1.6em; color:var(${colorVar});">${fmt(totalEntregas)}</span>
             </div>
-            <p class="card-note" style="margin-bottom:10px;">entregas de septiembre${pctAprob != null ? ' · '+fmt(totalSolicitudes)+' solicitudes · '+pctAprob+'% aprobación' : ''}</p>
+            <p class="card-note" style="margin-bottom:10px;">entregas de ${mesActualNombre}${pctAprob != null ? ' · '+fmt(totalSolicitudes)+' solicitudes · '+pctAprob+'% aprobación' : ''}</p>
             <div class="table-wrap compact"><table class="data-table">
               <thead><tr><th>Asesor</th><th>Entregas</th><th>Solicitudes</th><th>Aprobadas</th><th>% Aprob.</th></tr></thead>
               <tbody>${rowsHtml}</tbody>
@@ -1573,7 +1575,7 @@ table.data-table td.pct-bad  { color: var(--s-critical); font-weight: 700; }
 
       const totalEntregasTodas = teams.reduce((s,t)=>s+ENTREGAS_POR_EQUIPO[t].reduce((a,r)=>a+r.entregas,0),0) + sinEquipo.reduce((a,r)=>a+r.entregas,0);
       el2('note-entregas-agente', totalEntregasTodas
-        ? fmt(totalEntregasTodas)+' entregas en lo que va de septiembre, por asesor (Back Office, columna "Agente") · solicitudes/aprobadas del CSV de aprobaciones cuando el nombre cruza con certeza'
+        ? fmt(totalEntregasTodas)+' entregas en lo que va de '+mesActualNombre+', por asesor (Back Office, columna "Agente") · solicitudes/aprobadas del CSV de aprobaciones cuando el nombre cruza con certeza'
         : 'Sin entregas registradas todavía este mes.');
     }
 
