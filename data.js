@@ -1,5 +1,5 @@
 window.__DASHBOARD_DATA__ = {
-  "generated_at": "2026-10-15T21:43:34.843059Z",
+  "generated_at": "2026-10-15T22:01:38.682703Z",
   "months": [
     "Ago 25",
     "Sep 25",
@@ -76,7 +76,7 @@ window.__DASHBOARD_DATA__ = {
     },
     {
       "nuevo": 2,
-      "seminuevo": 65
+      "seminuevo": 66
     }
   ],
   "modelo": [
@@ -208,7 +208,7 @@ window.__DASHBOARD_DATA__ = {
     },
     {
       "byd": 32,
-      "mg5": 24,
+      "mg5": 25,
       "mg3": 3,
       "aion": 2,
       "king": 1,
@@ -233,11 +233,11 @@ window.__DASHBOARD_DATA__ = {
     },
     {
       "key": "listo",
-      "value": 32
+      "value": 31
     },
     {
       "key": "agendada",
-      "value": 10
+      "value": 11
     },
     {
       "key": "contrato",
@@ -245,15 +245,15 @@ window.__DASHBOARD_DATA__ = {
     },
     {
       "key": "cenv",
-      "value": 3
+      "value": 1
     },
     {
       "key": "liga",
-      "value": 0
+      "value": 1
     },
     {
       "key": "entregado",
-      "value": 67
+      "value": 68
     },
     {
       "key": "issue",
@@ -264,14 +264,14 @@ window.__DASHBOARD_DATA__ = {
     "listo": {
       "Tijuana": 12,
       "Monterrey": 13,
-      "Guadalajara": 3,
+      "Guadalajara": 2,
       "Mexicali": 3,
       "CDMX / Edo Mex": 1
     },
     "entregado": {
       "Tijuana": 15,
       "Monterrey": 14,
-      "CDMX / Edo Mex": 24,
+      "CDMX / Edo Mex": 25,
       "Mexicali": 2,
       "Puebla": 2,
       "Queretaro": 4,
@@ -279,19 +279,21 @@ window.__DASHBOARD_DATA__ = {
       "Saltillo": 1
     },
     "agendada": {
+      "Guadalajara": 2,
       "Mexicali": 2,
-      "Guadalajara": 1,
       "CDMX / Edo Mex": 4,
       "Monterrey": 1,
       "Tijuana": 1,
       "Merida": 1
     },
-    "cenv": {
-      "Monterrey": 1,
-      "CDMX / Edo Mex": 2
+    "liga": {
+      "Monterrey": 1
     },
     "contrato": {
       "Guadalajara": 1,
+      "CDMX / Edo Mex": 1
+    },
+    "cenv": {
       "CDMX / Edo Mex": 1
     }
   },
@@ -307,12 +309,12 @@ window.__DASHBOARD_DATA__ = {
       "value": 12
     },
     {
-      "ciudad": "Guadalajara",
+      "ciudad": "Mexicali",
       "value": 3
     },
     {
-      "ciudad": "Mexicali",
-      "value": 3
+      "ciudad": "Guadalajara",
+      "value": 2
     },
     {
       "ciudad": "CDMX / Edo Mex",
@@ -353,8 +355,8 @@ window.__DASHBOARD_DATA__ = {
     {
       "ciudad": "Guadalajara",
       "espera": 35,
-      "listo": 3,
-      "gap": 32
+      "listo": 2,
+      "gap": 33
     },
     {
       "ciudad": "Saltillo",
@@ -931,7 +933,7 @@ window.__DASHBOARD_DATA__ = {
       "otros": 2
     },
     {
-      "cdmx": 0,
+      "cdmx": 1,
       "mty": 1,
       "tij": 1,
       "qro": 0,
@@ -1005,14 +1007,14 @@ window.__DASHBOARD_DATA__ = {
     0,
     0,
     0,
-    6,
-    9
+    5,
+    10
   ],
   "entregas_por_asesor_equipo": {
     "Alonso": [
       {
         "asesor": "Michelle R",
-        "entregas": 7,
+        "entregas": 8,
         "solicitudes": 9,
         "aprobadas": 6
       },
@@ -1562,12 +1564,12 @@ window.__DASHBOARD_DATA__ = {
   "decline_total": 977,
   "forecast": {
     "workdays_elapsed": 10,
-    "actual_elapsed": 67,
+    "actual_elapsed": 68,
     "workdays_total": 22,
-    "rate": 6.7,
-    "total": 147,
+    "rate": 6.8,
+    "total": 150,
     "nuevo": 4,
-    "seminuevo": 143
+    "seminuevo": 146
   },
   "corte": {
     "fecha": "2026-10-15",
@@ -2685,6 +2687,6 @@ window.__DASHBOARD_DATA__ = {
   "aprob_meta": {
     "fecha_min": "1 ago",
     "fecha_max": "15 oct",
-    "generado_en": "2026-10-15T21:43:35.349615"
+    "generado_en": "2026-10-15T22:01:39.188507"
   }
 };
