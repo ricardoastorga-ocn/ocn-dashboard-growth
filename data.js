@@ -1,5 +1,5 @@
 window.__DASHBOARD_DATA__ = {
-  "generated_at": "2026-10-15T19:13:06.002659Z",
+  "generated_at": "2026-10-15T19:29:13.791653Z",
   "months": [
     "Ago 25",
     "Sep 25",
@@ -233,11 +233,11 @@ window.__DASHBOARD_DATA__ = {
     },
     {
       "key": "listo",
-      "value": 27
+      "value": 26
     },
     {
       "key": "agendada",
-      "value": 6
+      "value": 7
     },
     {
       "key": "contrato",
@@ -265,8 +265,7 @@ window.__DASHBOARD_DATA__ = {
       "Tijuana": 12,
       "Monterrey": 8,
       "Guadalajara": 2,
-      "Mexicali": 4,
-      "CDMX / Edo Mex": 1
+      "Mexicali": 4
     },
     "entregado": {
       "Tijuana": 14,
@@ -281,8 +280,8 @@ window.__DASHBOARD_DATA__ = {
     "agendada": {
       "Mexicali": 1,
       "Guadalajara": 1,
+      "CDMX / Edo Mex": 3,
       "Monterrey": 1,
-      "CDMX / Edo Mex": 2,
       "Tijuana": 1
     },
     "contrato": {
@@ -313,18 +312,14 @@ window.__DASHBOARD_DATA__ = {
     {
       "ciudad": "Guadalajara",
       "value": 2
-    },
-    {
-      "ciudad": "CDMX / Edo Mex",
-      "value": 1
     }
   ],
   "waitlist_gap": [
     {
       "ciudad": "CDMX / Edo Mex",
       "espera": 206,
-      "listo": 1,
-      "gap": 205
+      "listo": 0,
+      "gap": 206
     },
     {
       "ciudad": "Merida",
@@ -1006,7 +1001,7 @@ window.__DASHBOARD_DATA__ = {
     0,
     1,
     8,
-    5
+    6
   ],
   "entregas_por_asesor_equipo": {
     "Alonso": [
@@ -2685,6 +2680,6 @@ window.__DASHBOARD_DATA__ = {
   "aprob_meta": {
     "fecha_min": "1 ago",
     "fecha_max": "15 oct",
-    "generado_en": "2026-10-15T19:13:06.444480"
+    "generado_en": "2026-10-15T19:29:14.205280"
   }
 };
