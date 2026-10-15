@@ -1,5 +1,5 @@
 window.__DASHBOARD_DATA__ = {
-  "generated_at": "2026-10-15T19:29:13.791653Z",
+  "generated_at": "2026-10-15T19:40:43.364876Z",
   "months": [
     "Ago 25",
     "Sep 25",
@@ -245,11 +245,11 @@ window.__DASHBOARD_DATA__ = {
     },
     {
       "key": "cenv",
-      "value": 1
+      "value": 0
     },
     {
       "key": "liga",
-      "value": 0
+      "value": 1
     },
     {
       "key": "entregado",
@@ -290,7 +290,7 @@ window.__DASHBOARD_DATA__ = {
       "CDMX / Edo Mex": 3,
       "Tijuana": 1
     },
-    "cenv": {
+    "liga": {
       "Monterrey": 1
     }
   },
@@ -1568,7 +1568,7 @@ window.__DASHBOARD_DATA__ = {
     "fecha": "2026-10-15",
     "mes_label": "Oct 26"
   },
-  "fleet_total": 117,
+  "fleet_total": 118,
   "fleet_desflote_n": 9,
   "fleet_city_stage": [
     {
@@ -1601,11 +1601,11 @@ window.__DASHBOARD_DATA__ = {
         0,
         3,
         11,
-        2,
+        3,
         0,
         2
       ],
-      "total": 19
+      "total": 20
     },
     {
       "ciudad": "Tijuana",
@@ -2680,6 +2680,6 @@ window.__DASHBOARD_DATA__ = {
   "aprob_meta": {
     "fecha_min": "1 ago",
     "fecha_max": "15 oct",
-    "generado_en": "2026-10-15T19:29:14.205280"
+    "generado_en": "2026-10-15T19:40:43.676157"
   }
 };
