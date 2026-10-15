@@ -1,5 +1,5 @@
 window.__DASHBOARD_DATA__ = {
-  "generated_at": "2026-10-15T01:56:11.099932Z",
+  "generated_at": "2026-10-15T06:39:45.120736Z",
   "months": [
     "Ago 25",
     "Sep 25",
@@ -1143,34 +1143,34 @@ window.__DASHBOARD_DATA__ = {
     {
       "key": "0-30",
       "label": "0-30 días",
-      "value": 50
+      "value": 49
     },
     {
       "key": "31-60",
       "label": "31-60 días",
-      "value": 125
+      "value": 126
     },
     {
       "key": "61-90",
       "label": "61-90 días",
-      "value": 135
+      "value": 133
     },
     {
       "key": "90+",
       "label": "90+ días",
-      "value": 166
+      "value": 168
     }
   ],
   "tiers_total": 476,
-  "max_wait_days": 296,
+  "max_wait_days": 297,
   "city_tier": [
     {
       "ciudad": "CDMX / Edo Mex",
       "vals": [
-        25,
-        62,
-        59,
-        60
+        24,
+        63,
+        58,
+        61
       ],
       "total": 206
     },
@@ -1199,8 +1199,8 @@ window.__DASHBOARD_DATA__ = {
       "vals": [
         9,
         7,
-        19,
-        15
+        18,
+        16
       ],
       "total": 50
     },
@@ -1331,8 +1331,8 @@ window.__DASHBOARD_DATA__ = {
       "vals": [
         1,
         5,
-        6,
-        13
+        5,
+        14
       ],
       "total": 25
     },
@@ -1351,8 +1351,8 @@ window.__DASHBOARD_DATA__ = {
       "vals": [
         1,
         2,
-        10,
-        9
+        9,
+        10
       ],
       "total": 22
     },
@@ -1409,8 +1409,8 @@ window.__DASHBOARD_DATA__ = {
     {
       "key": "@Jess Martínez",
       "vals": [
-        3,
-        4,
+        2,
+        5,
         2,
         5
       ],
@@ -1536,16 +1536,16 @@ window.__DASHBOARD_DATA__ = {
   ],
   "decline_total": 977,
   "forecast": {
-    "workdays_elapsed": 9,
+    "workdays_elapsed": 10,
     "actual_elapsed": 65,
     "workdays_total": 22,
-    "rate": 7.22,
-    "total": 159,
-    "nuevo": 5,
-    "seminuevo": 154
+    "rate": 6.5,
+    "total": 143,
+    "nuevo": 4,
+    "seminuevo": 139
   },
   "corte": {
-    "fecha": "2026-10-14",
+    "fecha": "2026-10-15",
     "mes_label": "Oct 26"
   },
   "fleet_total": 109,
@@ -2650,6 +2650,6 @@ window.__DASHBOARD_DATA__ = {
   "aprob_meta": {
     "fecha_min": "1 ago",
     "fecha_max": "14 oct",
-    "generado_en": "2026-10-15T01:56:12.034957"
+    "generado_en": "2026-10-15T06:39:45.844612"
   }
 };
