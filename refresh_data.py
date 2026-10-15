@@ -449,7 +449,10 @@ def compute_aprobaciones(token):
     `APROB_ID` (mismo tablero que antes vivía como CSV manual en el Desktop de Ricardo,
     confirmado 17-sep-2026 que se mantiene actualizado ahí) -- ya forma parte normal del
     refresh automático, no depende de que Ricardo traiga un archivo."""
-    raw = sheets_get(token, APROB_ID, f"'{APROB_TAB}'!A1:N20000")
+    # Rango ampliado a Z (antes N, justo al límite de columnas de ese momento) --
+    # el 15-oct-2026 se agregaron 'subetapa_actual' y 'fecha_ultima_etapa' (cols O/P)
+    # que con A1:N quedaban fuera de rango e invisibles para este refresh.
+    raw = sheets_get(token, APROB_ID, f"'{APROB_TAB}'!A1:Z20000")
     header, data_rows = raw[0], raw[1:]
     idx = {h: i for i, h in enumerate(header) if h}
 
