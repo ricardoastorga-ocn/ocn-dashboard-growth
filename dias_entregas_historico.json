@@ -550,7 +550,17 @@
     "tij": 2
   },
   "2026-10-15": {
-    "agendadas": 12,
+    "agendadas": 9,
+    "cdmx": 0,
+    "gdl": 0,
+    "mty": 0,
+    "mxl": 0,
+    "otros": 0,
+    "qro": 0,
+    "tij": 0
+  },
+  "2026-10-16": {
+    "agendadas": 2,
     "cdmx": 0,
     "gdl": 0,
     "mty": 0,
