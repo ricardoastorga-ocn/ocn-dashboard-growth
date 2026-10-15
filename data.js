@@ -1,5 +1,5 @@
 window.__DASHBOARD_DATA__ = {
-  "generated_at": "2026-10-15T22:01:38.682703Z",
+  "generated_at": "2026-10-15T22:15:48.486892Z",
   "months": [
     "Ago 25",
     "Sep 25",
@@ -76,7 +76,7 @@ window.__DASHBOARD_DATA__ = {
     },
     {
       "nuevo": 2,
-      "seminuevo": 66
+      "seminuevo": 67
     }
   ],
   "modelo": [
@@ -208,7 +208,7 @@ window.__DASHBOARD_DATA__ = {
     },
     {
       "byd": 32,
-      "mg5": 25,
+      "mg5": 26,
       "mg3": 3,
       "aion": 2,
       "king": 1,
@@ -249,11 +249,11 @@ window.__DASHBOARD_DATA__ = {
     },
     {
       "key": "liga",
-      "value": 1
+      "value": 0
     },
     {
       "key": "entregado",
-      "value": 68
+      "value": 69
     },
     {
       "key": "issue",
@@ -270,7 +270,7 @@ window.__DASHBOARD_DATA__ = {
     },
     "entregado": {
       "Tijuana": 15,
-      "Monterrey": 14,
+      "Monterrey": 15,
       "CDMX / Edo Mex": 25,
       "Mexicali": 2,
       "Puebla": 2,
@@ -285,9 +285,6 @@ window.__DASHBOARD_DATA__ = {
       "Monterrey": 1,
       "Tijuana": 1,
       "Merida": 1
-    },
-    "liga": {
-      "Monterrey": 1
     },
     "contrato": {
       "Guadalajara": 1,
@@ -934,7 +931,7 @@ window.__DASHBOARD_DATA__ = {
     },
     {
       "cdmx": 1,
-      "mty": 1,
+      "mty": 2,
       "tij": 1,
       "qro": 0,
       "gdl": 0,
@@ -1007,7 +1004,7 @@ window.__DASHBOARD_DATA__ = {
     0,
     0,
     0,
-    5,
+    4,
     10
   ],
   "entregas_por_asesor_equipo": {
@@ -1124,7 +1121,7 @@ window.__DASHBOARD_DATA__ = {
       },
       {
         "asesor": "Ishell Miranda",
-        "entregas": 2,
+        "entregas": 3,
         "solicitudes": 8,
         "aprobadas": 6
       },
@@ -1564,12 +1561,12 @@ window.__DASHBOARD_DATA__ = {
   "decline_total": 977,
   "forecast": {
     "workdays_elapsed": 10,
-    "actual_elapsed": 68,
+    "actual_elapsed": 69,
     "workdays_total": 22,
-    "rate": 6.8,
-    "total": 150,
+    "rate": 6.9,
+    "total": 152,
     "nuevo": 4,
-    "seminuevo": 146
+    "seminuevo": 148
   },
   "corte": {
     "fecha": "2026-10-15",
@@ -2687,6 +2684,6 @@ window.__DASHBOARD_DATA__ = {
   "aprob_meta": {
     "fecha_min": "1 ago",
     "fecha_max": "15 oct",
-    "generado_en": "2026-10-15T22:01:39.188507"
+    "generado_en": "2026-10-15T22:15:49.071066"
   }
 };
