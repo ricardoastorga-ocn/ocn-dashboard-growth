@@ -1,5 +1,5 @@
 window.__DASHBOARD_DATA__ = {
-  "generated_at": "2026-10-16T01:45:57.171274Z",
+  "generated_at": "2026-10-16T06:28:23.484543Z",
   "months": [
     "Ago 25",
     "Sep 25",
@@ -1162,34 +1162,34 @@ window.__DASHBOARD_DATA__ = {
     {
       "key": "0-30",
       "label": "0-30 días",
-      "value": 49
+      "value": 46
     },
     {
       "key": "31-60",
       "label": "31-60 días",
-      "value": 126
+      "value": 129
     },
     {
       "key": "61-90",
       "label": "61-90 días",
-      "value": 133
+      "value": 131
     },
     {
       "key": "90+",
       "label": "90+ días",
-      "value": 168
+      "value": 170
     }
   ],
   "tiers_total": 476,
-  "max_wait_days": 297,
+  "max_wait_days": 298,
   "city_tier": [
     {
       "ciudad": "CDMX / Edo Mex",
       "vals": [
-        24,
-        63,
-        58,
-        61
+        21,
+        66,
+        57,
+        62
       ],
       "total": 206
     },
@@ -1228,8 +1228,8 @@ window.__DASHBOARD_DATA__ = {
       "vals": [
         1,
         11,
-        9,
-        14
+        8,
+        15
       ],
       "total": 35
     },
@@ -1278,8 +1278,8 @@ window.__DASHBOARD_DATA__ = {
     {
       "key": "Ana Rodriguez",
       "vals": [
-        14,
         13,
+        14,
         10,
         6
       ],
@@ -1298,8 +1298,8 @@ window.__DASHBOARD_DATA__ = {
     {
       "key": "@Daniela Fav",
       "vals": [
-        10,
         9,
+        10,
         7,
         10
       ],
@@ -1368,8 +1368,8 @@ window.__DASHBOARD_DATA__ = {
     {
       "key": "@Joel Flores Lopez",
       "vals": [
-        1,
-        2,
+        0,
+        3,
         9,
         10
       ],
@@ -1390,8 +1390,8 @@ window.__DASHBOARD_DATA__ = {
       "vals": [
         1,
         3,
-        6,
-        7
+        5,
+        8
       ],
       "total": 17
     },
@@ -1480,8 +1480,8 @@ window.__DASHBOARD_DATA__ = {
       "vals": [
         0,
         1,
-        5,
-        3
+        4,
+        4
       ],
       "total": 9
     },
@@ -1555,16 +1555,16 @@ window.__DASHBOARD_DATA__ = {
   ],
   "decline_total": 977,
   "forecast": {
-    "workdays_elapsed": 10,
+    "workdays_elapsed": 11,
     "actual_elapsed": 72,
     "workdays_total": 22,
-    "rate": 7.2,
-    "total": 158,
+    "rate": 6.55,
+    "total": 144,
     "nuevo": 4,
-    "seminuevo": 154
+    "seminuevo": 140
   },
   "corte": {
-    "fecha": "2026-10-15",
+    "fecha": "2026-10-16",
     "mes_label": "Oct 26"
   },
   "fleet_total": 139,
@@ -2679,6 +2679,6 @@ window.__DASHBOARD_DATA__ = {
   "aprob_meta": {
     "fecha_min": "1 ago",
     "fecha_max": "15 oct",
-    "generado_en": "2026-10-16T01:45:57.795478"
+    "generado_en": "2026-10-16T06:28:24.399661"
   }
 };
