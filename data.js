@@ -1,5 +1,5 @@
 window.__DASHBOARD_DATA__ = {
-  "generated_at": "2026-10-17T01:40:31.664500Z",
+  "generated_at": "2026-10-17T06:17:10.947731Z",
   "months": [
     "Ago 25",
     "Sep 25",
@@ -1189,12 +1189,12 @@ window.__DASHBOARD_DATA__ = {
     {
       "key": "31-60",
       "label": "31-60 días",
-      "value": 129
+      "value": 122
     },
     {
       "key": "61-90",
       "label": "61-90 días",
-      "value": 131
+      "value": 138
     },
     {
       "key": "90+",
@@ -1203,14 +1203,14 @@ window.__DASHBOARD_DATA__ = {
     }
   ],
   "tiers_total": 476,
-  "max_wait_days": 298,
+  "max_wait_days": 299,
   "city_tier": [
     {
       "ciudad": "CDMX / Edo Mex",
       "vals": [
         21,
-        66,
-        57,
+        60,
+        63,
         62
       ],
       "total": 206
@@ -1229,8 +1229,8 @@ window.__DASHBOARD_DATA__ = {
       "ciudad": "Merida",
       "vals": [
         2,
-        10,
-        14,
+        9,
+        15,
         33
       ],
       "total": 59
@@ -1321,8 +1321,8 @@ window.__DASHBOARD_DATA__ = {
       "key": "@Daniela Fav",
       "vals": [
         9,
-        10,
-        7,
+        9,
+        8,
         10
       ],
       "total": 36
@@ -1391,8 +1391,8 @@ window.__DASHBOARD_DATA__ = {
       "key": "@Joel Flores Lopez",
       "vals": [
         0,
-        3,
-        9,
+        2,
+        10,
         10
       ],
       "total": 22
@@ -1401,8 +1401,8 @@ window.__DASHBOARD_DATA__ = {
       "key": "Angelica Torres",
       "vals": [
         0,
-        8,
-        5,
+        7,
+        6,
         6
       ],
       "total": 19
@@ -1421,8 +1421,8 @@ window.__DASHBOARD_DATA__ = {
       "key": "Diana Moreno",
       "vals": [
         1,
-        6,
-        6,
+        5,
+        7,
         2
       ],
       "total": 15
@@ -1441,8 +1441,8 @@ window.__DASHBOARD_DATA__ = {
       "key": "Aaron Sanchez",
       "vals": [
         1,
-        5,
-        5,
+        4,
+        6,
         4
       ],
       "total": 15
@@ -1471,8 +1471,8 @@ window.__DASHBOARD_DATA__ = {
       "key": "Imanol Cortez",
       "vals": [
         2,
-        6,
-        1,
+        4,
+        3,
         3
       ],
       "total": 12
@@ -1577,16 +1577,16 @@ window.__DASHBOARD_DATA__ = {
   ],
   "decline_total": 977,
   "forecast": {
-    "workdays_elapsed": 11,
+    "workdays_elapsed": 12,
     "actual_elapsed": 82,
     "workdays_total": 22,
-    "rate": 7.45,
-    "total": 164,
+    "rate": 6.83,
+    "total": 150,
     "nuevo": 4,
-    "seminuevo": 160
+    "seminuevo": 146
   },
   "corte": {
-    "fecha": "2026-10-16",
+    "fecha": "2026-10-17",
     "mes_label": "Oct 26"
   },
   "fleet_total": 140,
@@ -2701,6 +2701,6 @@ window.__DASHBOARD_DATA__ = {
   "aprob_meta": {
     "fecha_min": "1 ago",
     "fecha_max": "15 oct",
-    "generado_en": "2026-10-17T01:40:32.896030"
+    "generado_en": "2026-10-17T06:17:11.730290"
   }
 };
