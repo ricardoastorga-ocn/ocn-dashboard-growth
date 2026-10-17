@@ -1,5 +1,5 @@
 window.__DASHBOARD_DATA__ = {
-  "generated_at": "2026-10-16T23:21:55.479749Z",
+  "generated_at": "2026-10-17T01:40:31.664500Z",
   "months": [
     "Ago 25",
     "Sep 25",
@@ -76,7 +76,7 @@ window.__DASHBOARD_DATA__ = {
     },
     {
       "nuevo": 2,
-      "seminuevo": 77
+      "seminuevo": 80
     }
   ],
   "modelo": [
@@ -207,12 +207,12 @@ window.__DASHBOARD_DATA__ = {
       "tiggo": 6
     },
     {
-      "byd": 37,
+      "byd": 38,
       "mg5": 30,
       "mg3": 3,
       "aion": 2,
       "king": 1,
-      "tiggo": 6,
+      "tiggo": 8,
       "otros": 0
     }
   ],
@@ -237,15 +237,15 @@ window.__DASHBOARD_DATA__ = {
     },
     {
       "key": "agendada",
-      "value": 6
+      "value": 7
     },
     {
       "key": "contrato",
-      "value": 1
+      "value": 0
     },
     {
       "key": "cenv",
-      "value": 3
+      "value": 0
     },
     {
       "key": "liga",
@@ -253,7 +253,7 @@ window.__DASHBOARD_DATA__ = {
     },
     {
       "key": "entregado",
-      "value": 79
+      "value": 82
     },
     {
       "key": "issue",
@@ -271,8 +271,8 @@ window.__DASHBOARD_DATA__ = {
     "entregado": {
       "Tijuana": 16,
       "Monterrey": 16,
-      "CDMX / Edo Mex": 29,
-      "Mexicali": 2,
+      "CDMX / Edo Mex": 30,
+      "Mexicali": 4,
       "Guadalajara": 8,
       "Puebla": 2,
       "Queretaro": 4,
@@ -282,18 +282,11 @@ window.__DASHBOARD_DATA__ = {
     "agendada": {
       "Tijuana": 1,
       "Mexicali": 1,
-      "Guadalajara": 1,
-      "CDMX / Edo Mex": 3
-    },
-    "cenv": {
-      "Mexicali": 2,
-      "CDMX / Edo Mex": 1
+      "CDMX / Edo Mex": 4,
+      "Guadalajara": 1
     },
     "issue": {
       "Guadalajara": 1
-    },
-    "contrato": {
-      "CDMX / Edo Mex": 1
     }
   },
   "entregado_target_pct": 95,
@@ -943,12 +936,12 @@ window.__DASHBOARD_DATA__ = {
       "otros": 0
     },
     {
-      "cdmx": 3,
+      "cdmx": 4,
       "mty": 1,
       "tij": 0,
       "qro": 0,
       "gdl": 2,
-      "mxl": 0,
+      "mxl": 2,
       "otros": 1
     },
     {
@@ -1027,9 +1020,9 @@ window.__DASHBOARD_DATA__ = {
     0,
     0,
     0,
+    0,
     4,
-    4,
-    2
+    3
   ],
   "entregas_por_asesor_equipo": {
     "Alonso": [
@@ -1047,7 +1040,7 @@ window.__DASHBOARD_DATA__ = {
       },
       {
         "asesor": "Edwin Hernandez",
-        "entregas": 5,
+        "entregas": 6,
         "solicitudes": 18,
         "aprobadas": 11
       },
@@ -1109,7 +1102,7 @@ window.__DASHBOARD_DATA__ = {
     "Paulina": [
       {
         "asesor": "Ana Rodriguez",
-        "entregas": 13,
+        "entregas": 15,
         "solicitudes": 17,
         "aprobadas": 6
       },
@@ -1585,18 +1578,18 @@ window.__DASHBOARD_DATA__ = {
   "decline_total": 977,
   "forecast": {
     "workdays_elapsed": 11,
-    "actual_elapsed": 79,
+    "actual_elapsed": 82,
     "workdays_total": 22,
-    "rate": 7.18,
-    "total": 158,
+    "rate": 7.45,
+    "total": 164,
     "nuevo": 4,
-    "seminuevo": 154
+    "seminuevo": 160
   },
   "corte": {
     "fecha": "2026-10-16",
     "mes_label": "Oct 26"
   },
-  "fleet_total": 139,
+  "fleet_total": 140,
   "fleet_desflote_n": 3,
   "fleet_city_stage": [
     {
@@ -1616,12 +1609,12 @@ window.__DASHBOARD_DATA__ = {
       "vals": [
         9,
         7,
-        5,
+        6,
         2,
         2,
         0
       ],
-      "total": 25
+      "total": 26
     },
     {
       "ciudad": "Monterrey",
@@ -2708,6 +2701,6 @@ window.__DASHBOARD_DATA__ = {
   "aprob_meta": {
     "fecha_min": "1 ago",
     "fecha_max": "15 oct",
-    "generado_en": "2026-10-16T23:21:56.381262"
+    "generado_en": "2026-10-17T01:40:32.896030"
   }
 };
